@@ -1,0 +1,448 @@
+---
+// Avales.astro — Sección "Nuestros avales se presentan solos"
+// Carousel con flechas, 4 cards visibles, animación slide
+
+const avales = [
+  {
+    nombre: "Andrew P. Morriss",
+    cargo: "Decano Facultad de Derecho, Universidad Texas A&M",
+    foto: "src/img/1-andrew-p-morriss.jpeg",
+    texto: '"Estos programas proporcionan bases sólidas en cada área, dotando a los estudiantes de las habilidades y conocimientos fundamentales necesarios para tener éxito.Los programas propuestos están bien estructurados, cuidadosamente diseñados y son completos."',
+  },
+  {
+    nombre: "Benjamin Powell",
+    cargo: "Profesor de Economía, Universidad Texas Tech",
+    foto: "src/img/2-benjamin-powell.jpg",
+    texto: "Benjamin Powell destaca la importancia de que los estudiantes dominen indicadores de desarrollo empresarial y económico, incorporando además una perspectiva internacional en el programa de MBA.",
+  },
+  {
+    nombre: "Bobbi Herzberg",
+    cargo: "Presidenta de la Public Choice Society (2014-2016)",
+    foto: "src/img/3-bobbi-herzberg.jpg",
+    texto: "La doctora Herzberg ha sugerido la introducción del policentrismo como parte de una posible estrategia de innovación en la empresa a través de la descentralización estructural, fruto de su colaboración con la premio Nobel Elinor Ostrom.",
+  },
+  {
+    nombre: "Bryan Caplan",
+    cargo: "Profesor de Economía, George Mason University",
+    foto: "src/img/4-bryan-caplan.jpg",
+    texto: '"La estructura del plan de estudios de este programa se ajusta —e incluso mejora— las mejores prácticas actuales, lo que convierte a estos programas en propuestas potencialmente valiosas dentro de la oferta académica existente."',
+  },
+ /* {
+    nombre: "Javier El-Hage",
+    cargo: "Director Legal Internacional de Human Rights Foundation",
+    foto: "/images/avales/javier-el-hage.jpg",
+    texto: '"Sé que Hespérides es una universidad que apoya la libertad económica y la libertad política en general. Aquí hay muchas personas que saben de economía y entienden que cuestiones como los impuestos a los \'super ricos\' tienen una naturaleza económica compleja y no son fáciles de resolver."',
+  },
+  {
+    nombre: "Javier Fernández-Samaniego",
+    cargo: "Conciliador CIADI del Banco Mundial",
+    foto: "/images/avales/javier-samaniego.jpg",
+    texto: "Javier Fernández-Samaniego destaca la importancia de integrar la propiedad intelectual en el ámbito de la innovación y subraya el reto que el avance tecnológico plantea para la regulación.",
+  },
+  {
+    nombre: "Jerry L. Jordan",
+    cargo: "Presidente de la Reserva Federal, Cleveland (1992-2003)",
+    foto: "/images/avales/jerry-jordan.jpg",
+    texto: "Jerry Jordan ha puesto el foco en la formación rigurosa en análisis financiero, monetario y bancario, subrayando la importancia de comprender la liquidez y las oportunidades de inversión en las distintas fases del ciclo económico.",
+  },*/
+  {
+    nombre: "John B. Taylor",
+    cargo: "Cátedra Mary and Robert Raymond, Stanford University",
+    foto: "src/img/8-jpgohn-taylor.jpg",
+    texto: '"Esto promete ser una valiosa incorporación a la oferta académica existente en economía."',
+  },
+  {
+    nombre: "Jesús Huerta de Soto",
+    cargo: "Catedrático de Economía, Universidad Rey Juan Carlos",
+    foto: "src/img/9-jesus-huerta.jpg",
+    texto: "El profesor Jesús Huerta de Soto aplaudió la inclusión del estudio de los ciclos económicos y solicitó que entre los contenidos de economía para los negocios se incluyera el análisis de las teorías inflacionistas.",
+  },
+  {
+    nombre: "Leszek Balcerowicz",
+    cargo: "Vicepresidente de Polonia (1989-1991 y 1997-2001)",
+    foto: "src/img/10-leszek-balcerowicz.jpg",
+    texto: "El vicepresidente Balcerowicz ha enfatizado la importancia de contar con espacio para el análisis económico de finanzas públicas y sistemas impositivos en el programa de MBA.",
+  },
+  {
+    nombre: "Marco de Benito Llopis-Llombart",
+    cargo: "Cátedra Jean Monnet, IE Universidad",
+    foto: "src/img/11-marco-de-benito.jpg",
+    texto: "El profesor Marco de Benito ha aportado la introducción a la gestión de crisis, el estudio del almacenamiento, manejo y transformación de los datos de la empresa, y el análisis de la imagen de marca.",
+  },
+  {
+    nombre: "Massimiliano Neri",
+    cargo: "Director de Moody's Analytics, EMEA",
+    foto: "src/img/12-massimiliano-neri.jpg",
+    texto: '"Este programa será una valiosa incorporación a los programas académicos existentes en el ámbito de las finanzas."',
+  },
+  {
+    nombre: "Peter J. Boettke",
+    cargo: "Catedrático de Economía y Filosofía, George Mason University",
+    foto: "src/img/13-peter-boettke.jpg",
+    texto: '"Considero que este programa está bien diseñado, es relevante y muy beneficioso para los futuros estudiantes."',
+  },
+  {
+    nombre: "Rajshree Agarwal",
+    cargo: "Cátedra Rudolph P. Lamone, Universidad de Maryland",
+    foto: "src/img/14-rajshree-agarwal.jpg",
+    texto: '"Me complace afirmar que considero que las asignaturas del programa cumplen con los estándares de rigor académico. Además, este MBA ofrece especialización en Finanzas y Marketing, las dos áreas más demandadas en las escuelas de negocios de todo el mundo."',
+  },
+  {
+    nombre: "Ruth Richardson",
+    cargo: "Ministra de Finanzas de Nueva Zelanda (1990-1993)",
+    foto: "src/img/15-ruth-richardson.jpg",
+    texto: "La contribución de la exministra Richardson fue fundamental en la incorporación de temas relacionados con la coyuntura económica como el impacto en decisiones de inversión y el análisis de entornos regulatorios.",
+  },
+];
+---
+
+<section class="avales-section">
+  <div class="avales-inner">
+
+   
+
+    <!-- Carousel wrapper -->
+    <div class="avales-carousel-wrap">
+
+      <!-- Flecha izquierda (desktop) -->
+      <button class="avales-arrow avales-arrow--prev avales-arrow--desktop" id="avales-prev" aria-label="Anterior">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="avales-col">
+        <!-- Título -->
+        <h2 class="avales-titulo">
+          Nuestros avales<br />
+          <strong>SE PRESENTAN SOLOS</strong>
+        </h2>
+
+        <!-- Track -->
+        <div class="avales-overflow">
+          <div class="avales-track" id="avales-track">
+            {avales.map((aval) => (
+              <div class="aval-card">
+                <div class="aval-header">
+                  <div class="aval-foto">
+                    <img src={aval.foto} alt={aval.nombre} />
+                  </div>
+                  <div class="aval-identidad">
+                    <p class="aval-nombre">{aval.nombre}</p>
+                    <p class="aval-cargo">{aval.cargo}</p>
+                  </div>
+                </div>
+                <p class="aval-texto">{aval.texto}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Flechas debajo (mobile) -->
+        <div class="avales-arrows-row">
+          <button class="avales-arrow avales-arrow--prev avales-arrow--mobile" aria-label="Anterior">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="avales-arrow avales-arrow--next avales-arrow--mobile" aria-label="Siguiente">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.5 2L10.5 7.5L5.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Flecha derecha (desktop) -->
+      <button class="avales-arrow avales-arrow--next avales-arrow--desktop" id="avales-next" aria-label="Siguiente">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.5 2L10.5 7.5L5.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@200;300;400;500;700&display=swap');
+
+  /* ── Sección ── */
+  .avales-section {
+    width: 100%;
+    min-height: clamp(600px, 44.5vw, 854px);
+    background: #F5F4F4;
+    padding: clamp(60px, 6vw, 100px) 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .avales-inner {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 80px);
+  }
+
+  /* ── Título ── */
+  .avales-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 2.3vw, 45px);
+    line-height: 47px;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .avales-titulo strong {
+    font-weight: 700;
+    color: #FFCD00;
+    white-space: nowrap;
+  }
+
+  /* ── Carousel wrapper ── */
+  .avales-carousel-wrap {
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* ── Columna título + track ── */
+  .avales-col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 3.5vw, 56px);
+    overflow: hidden;
+  }
+
+  /* Desktop: flechas laterales visibles, row oculto */
+  .avales-arrow--desktop { display: flex; }
+  .avales-arrows-row { display: none; }
+
+  /* ── Flechas ── */
+  .avales-arrow {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.64px solid #000;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 2;
+  }
+
+  .avales-arrow:hover {
+    background: #FFCD00;
+    border-color: #FFCD00;
+  }
+
+  .avales-arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  /* ── Overflow clip ── */
+  .avales-overflow {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* ── Track ── */
+  .avales-track {
+    display: flex;
+    gap: 42px;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    padding-bottom: 16px; /* espacio para que se vea la sombra inferior */
+  }
+
+  /* ── Card ── */
+  .aval-card {
+    flex: 0 0 289px;
+    width: 289px;
+    min-height: 350px;
+    background: #fff;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 2px 6px 12px 4px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+  }
+
+  /* ── Header card ── */
+  .aval-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* ── Foto circular ── */
+  .aval-foto {
+    flex-shrink: 0;
+    width: 103px;
+    height: 103px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e8e8e8;
+  }
+
+  .aval-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* ── Identidad ── */
+  .aval-identidad {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .aval-nombre {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: 14.67px;
+    line-height: 19.56px;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .aval-cargo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    line-height: 19.56px;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  /* ── Texto ── */
+  .aval-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0;
+    flex: 1;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .avales-section { min-height: unset; padding: 48px 0; }
+    .avales-inner { padding: 0 20px; overflow: hidden; }
+    .avales-titulo { font-size: 28px; line-height: 36px; }
+
+    /* Reset grid → flex column */
+    .avales-carousel-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    /* Ocultar flechas desktop, mostrar fila mobile */
+    .avales-arrow--desktop { display: none !important; }
+    .avales-arrows-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .avales-col { width: 100%; overflow: hidden; }
+
+    /* 1 card + asomo de la siguiente */
+    .aval-card {
+      flex: 0 0 80vw;
+      width: 80vw;
+      min-height: 420px;
+      box-sizing: border-box;
+      padding: 24px;
+    }
+    .aval-foto  { width: 80px; height: 80px; }
+    .aval-nombre { font-size: 16px; }
+    .aval-cargo  { font-size: 12px; line-height: 16px; }
+    .aval-texto  { font-size: 16px; line-height: 26px; }
+    .avales-track { gap: 16px; }
+  }
+</style>
+
+<script>
+  const track = document.getElementById('avales-track');
+  const prevBtns = document.querySelectorAll('.avales-arrow--prev');
+  const nextBtns = document.querySelectorAll('.avales-arrow--next');
+  const prevBtn = prevBtns[0];
+  const nextBtn = nextBtns[0];
+
+  if (track && prevBtn && nextBtn) {
+    function getStep(): number {
+      return window.innerWidth <= 860
+        ? window.innerWidth * 0.80 + 12
+        : 289 + 42;
+    }
+    const totalCards = track.children.length;
+
+    // Cards visibles según ancho
+    function getVisible(): number {
+      const w = window.innerWidth;
+      if (w >= 1400) return 4;
+      if (w >= 1024) return 3;
+      if (w >= 700) return 2;
+      return 1;
+    }
+
+    let current = 0;
+
+    function maxIndex(): number {
+      return Math.max(0, totalCards - getVisible());
+    }
+
+    function updateButtons() {
+      prevBtns.forEach(b => (b as HTMLButtonElement).disabled = current === 0);
+      nextBtns.forEach(b => (b as HTMLButtonElement).disabled = current >= maxIndex());
+    }
+
+    function goTo(index: number) {
+      current = Math.max(0, Math.min(index, maxIndex()));
+      track.style.transform = `translateX(-${current * getStep()}px)`;
+      updateButtons();
+    }
+
+    prevBtns.forEach(btn => btn.addEventListener('click', () => goTo(current - 1)));
+    nextBtns.forEach(btn => btn.addEventListener('click', () => goTo(current + 1)));
+
+    window.addEventListener('resize', () => goTo(Math.min(current, maxIndex())));
+
+    // Touch swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const overflow = track.parentElement as HTMLElement;
+    overflow.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    overflow.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) goTo(current + 1);
+        else goTo(current - 1);
+      }
+    }, { passive: true });
+
+    updateButtons();
+  }
+</script>

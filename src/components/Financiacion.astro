@@ -1,0 +1,184 @@
+---
+// Financiacion.astro — Sección financiación con imagin
+---
+
+<section class="financiacion-section">
+  <div class="financiacion-inner">
+
+    <!-- Logo imagin + divisor -->
+    <div class="financiacion-logo-wrap">
+      <img
+        src="src/img/imagin.jpg"
+        alt="imagin"
+        class="financiacion-logo"
+      />
+    </div>
+
+    <div class="financiacion-divider"></div>
+
+    <!-- Texto derecha -->
+    <div class="financiacion-contenido">
+      <p class="financiacion-texto">
+        Con el <strong>Préstamo Estudios imagin</strong>, puedes cubrir el 100% de tus gastos
+        académicos. Lo mejor es que no tienes que empezar a pagar el capital de inmediato:
+        ¡Empieza a pagarlo hasta un año después de terminar tus estudios!. Hasta entonces,
+        paga solo intereses y luego podrás elegir el plazo que mejor se adapte a ti.*
+      </p>
+      <p class="financiacion-nota">
+        * Préstamo destinado a estudiantes mayores de edad y con residencia en España
+      </p>
+      <div class="financiacion-boton-wrap">
+        <a href="#" class="financiacion-boton">MÁS INFO</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  /* ── Sección ── */
+  .financiacion-section {
+    width: 100%;
+    background: #fff;
+    padding: clamp(60px, 6vw, 100px) 0;
+  }
+
+  .financiacion-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 8.3vw, 160px);
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(32px, 3vw, 56px);
+  }
+
+  /* ── Logo imagin ── */
+  .financiacion-logo-wrap {
+    flex-shrink: 0;
+    width: clamp(180px, 18.4vw, 354px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .financiacion-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Divisor vertical — alineado con el texto ── */
+  .financiacion-divider {
+    flex-shrink: 0;
+    width: 1px;
+    height: clamp(60px, 7vw, 120px);
+    background: #1a1a1a;
+    margin-top: clamp(8px, 2vw, 24px);
+  }
+
+  /* ── Contenido derecho ── */
+  .financiacion-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 940px;
+  }
+
+  /* ── Texto principal ── */
+  .financiacion-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.3vw, 25px);
+    line-height: 38px;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .financiacion-texto strong {
+    font-weight: 700;
+  }
+
+  /* ── Nota legal ── */
+  .financiacion-nota {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: #555;
+    margin: 0;
+  }
+
+  /* ── Botón ── */
+  .financiacion-boton-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .financiacion-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 290px;
+    height: 45px;
+    border-radius: 29.33px;
+    padding: 16px 18px;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: 13.33px;
+    line-height: 100%;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .financiacion-boton:hover {
+    background: #FFCD00;
+    color: #1a1a1a;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .financiacion-inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 0 24px;
+    }
+    .financiacion-logo-wrap {
+      width: 140px;
+    }
+    .financiacion-divider {
+      width: 60px;
+      height: 1px;
+    }
+    .financiacion-contenido {
+      width: 100%;
+      gap: 14px;
+    }
+    .financiacion-texto {
+      font-size: 15px;
+      line-height: 26px;
+      text-align: center;
+    }
+    .financiacion-nota {
+      text-align: center;
+    }
+    .financiacion-boton-wrap {
+      justify-content: center;
+    }
+    .financiacion-boton {
+      width: 100%;
+    }
+  }
+</style>

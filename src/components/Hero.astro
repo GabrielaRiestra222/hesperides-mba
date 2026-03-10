@@ -1,0 +1,498 @@
+---
+// Hero.astro
+const {
+  tag = "MÁSTER EN\nADMINISTRACIÓN Y\nDIRECCIÓN DE EMPRESAS (MBA ONLINE)",
+  title = "Hay muchos MBA,\npero no son como este.",
+  description = "El único MBA donde tu proyecto es el eje de todo. Un enfoque exigente y aplicado que transforma el aprendizaje en capacidad real de dirección.",
+} = Astro.props;
+---
+
+<section class="hero">
+
+  <!-- Background image -->
+  <img src="./src/img/hero-bg.jpg" alt="" class="hero-bg" />
+
+  <!-- Dark overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Contenido -->
+  <div class="hero-content">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <span class="hero-tag">{tag}</span>
+      <h1 class="hero-title">{title}</h1>
+      <p class="hero-description">{description}</p>
+
+    </div>
+
+    <!-- RIGHT — tarjeta amarilla con formulario -->
+    <div class="hero-right">
+      <div class="hero-card">
+        <!-- Foto del director sobre la tarjeta -->
+        <div class="hero-card-photo">
+          <img src="./src/img/hero-director.jpg" alt="Director MBA" />
+        <button class="hero-card-play" aria-label="Reproducir vídeo" id="hero-play-btn"></button>
+        </div>
+        <!-- Formulario -->
+        <div class="hero-form-wrap">
+          <p class="hero-form-title">CONTACTA CON UN ASESOR ACADÉMICO</p>
+          <form class="hero-form">
+            <div class="form-row">
+              <input type="text" placeholder="Nombre" />
+              <input type="text" placeholder="Apellidos" />
+            </div>
+            <div class="form-row">
+              <input type="email" placeholder="Correo electrónico" />
+              <input type="tel" placeholder="Teléfono" />
+            </div>
+            <div class="form-row">
+              <input type="text" placeholder="Provincia" />
+              <input type="text" placeholder="País" />
+            </div>
+            <div class="form-footer">
+              <label class="form-legal">
+                <input type="checkbox" />
+                <span>Acepto el <a href="#">aviso legal</a> y la <a href="#">política de privacidad</a></span>
+              </label>
+              <button type="submit" class="form-submit">ENVIAR SOLICITUD</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom menu -->
+  <div class="hero-bottom-menu">
+    <div class="hero-bottom-inner">
+      <a href="#">Descripción</a>
+      <a href="#">Programa</a>
+      <a href="#">Profesores</a>
+      <a href="#">Metodología</a>
+      <a href="#">Inscripción</a>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@200;300;400;500;700&display=swap');
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 910px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+    .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba(30, 25, 0, 0.92) 0%,
+      rgba(48, 38, 0, 0.60) 35%,
+      rgba(80, 64, 0, 0.25) 70%,
+      rgba(255, 205, 0, 0.10) 100%
+    );
+  }
+
+  /* Añade esto — tinte amarillo sobre el fondo */
+  .hero-bg {
+    filter: sepia(60%) hue-rotate(5deg) saturate(2.5) brightness(0.75);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba(30, 25, 0, 0.92) 0%,
+      rgba(48, 38, 0, 0.60) 35%,
+      rgba(80, 64, 0, 0.25) 70%,
+      rgba(255, 205, 0, 0.10) 100%
+    );
+  }
+
+  /* ── Contenido principal ── */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(40px, 5vw, 80px) clamp(20px, 6.77vw, 130px) 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(32px, 4vw, 80px);
+    align-items: center;
+  }
+
+  /* ── LEFT ── */
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Tag amarillo */
+  .hero-tag {
+    display: block;
+    color: #FFCD00;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 30px;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    white-space: pre-line;
+    margin: 0;
+  }
+
+  /* Título */
+  .hero-title {
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 59px;
+    letter-spacing: -1.28px;
+    white-space: pre-line;
+    margin: 0;
+  }
+
+  /* Descripción */
+  .hero-description {
+    max-width: 530px;
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  /* Botones */
+  .hero-buttons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  /* ── RIGHT — tarjeta amarilla ── */
+  .hero-right {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  .hero-card {
+    position: relative;
+    width: 593px;
+    border-radius: 29.896px;
+    background: #FFCD00;
+    box-shadow: 0 7.972px 6.976px 4.983px rgba(0, 0, 0, 0.25);
+    overflow: visible;
+  }
+
+  /* Foto encima de la tarjeta */
+  .hero-card-photo {
+    position: relative;
+    width: 593px;
+    height: 330px;
+    aspect-ratio: 115/64;
+    border-radius: 29.896px 29.896px 0 0;
+    overflow: hidden;
+    background: lightgray -62.769px -44.55px / 121.17% 127% no-repeat;
+    background-image: url('./src/img/hero-director.jpg');
+    background-position: -62.769px -44.55px;
+    background-size: 121.17% 127%;
+  }
+
+  .hero-card-photo img {
+    display: none;
+  }
+
+  .hero-card-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    opacity: 0.45;
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-card-play:hover {
+    opacity: 0.7;
+  }
+
+  .hero-card-play::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 18px 0 18px 32px;
+    border-color: transparent transparent transparent #ffffff;
+  }
+
+  /* Formulario */
+  .hero-form-wrap {
+    padding: 24px 28px 28px 38px;
+  }
+
+  .hero-form-title {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+  }
+
+  .hero-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .hero-form input[type="text"],
+  .hero-form input[type="email"],
+  .hero-form input[type="tel"] {
+    width: 100%;
+    height: 36px;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.6);
+    padding: 0 12px;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #1a1a1a;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .hero-form input::placeholder {
+    color: rgba(0,0,0,0.45);
+  }
+
+  .hero-form input:focus {
+    border-color: rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.85);
+  }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .form-legal {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .form-legal input[type="checkbox"] {
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #1a1a1a;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .form-legal input[type="checkbox"]:checked {
+    background: #1a1a1a;
+  }
+
+  .form-legal input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    width: 5px;
+    height: 8px;
+    border: 2px solid #FFCD00;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .form-legal a {
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+
+  .form-submit {
+    flex-shrink: 0;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+
+  .form-submit:hover {
+    background: #333;
+  }
+
+  /* ── Bottom menu ── */
+  .hero-bottom-menu {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 57px;
+    background: rgba(0, 0, 0, 0.43);
+    backdrop-filter: blur(7.5px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-bottom-inner {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 clamp(20px, 6.77vw, 130px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(20px, 2.5vw, 48px);
+  }
+
+  .hero-bottom-inner a {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.85;
+    letter-spacing: 0.12em;
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-bottom-inner a:hover {
+    opacity: 1;
+  }
+
+  /* ── Responsive desktop: quitar botones CTA ── */
+  .hero-buttons { display: none; }
+
+  @media (max-width: 1200px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-right { justify-content: center; }
+    .hero-card { width: 100%; max-width: 593px; }
+  }
+
+  @media (max-width: 860px) {
+    .hero { min-height: 100svh; }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      padding: 32px 20px 24px;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    /* Texto primero, tarjeta después */
+    .hero-left  { order: 1; }
+    .hero-right { order: 2; }
+
+    /* Texto */
+    .hero-tag  { font-size: 18px; line-height: 16px; letter-spacing: 0.08em; white-space: pre-line; }
+    .hero-title { font-size: 34px; line-height: 38px; white-space: normal; font-weight: 400; }
+    .hero-description { font-size: 15px; line-height: 22px; max-width: 80%; padding-bottom: 20px; }
+
+    /* Tarjeta: full width centrada */
+    .hero-right { justify-content: center; width: 100%; }
+    .hero-card  { width: 100%; max-width: 100%; border-radius: 20px; }
+    .hero-card-photo {
+      width: 100%;
+      height: 200px;
+      border-radius: 20px 20px 0 0;
+      background-position: center top;
+      background-size: cover;
+    }
+
+    /* Formulario */
+    .hero-form-wrap { padding: 20px; }
+    .hero-form-title { font-size: 15px; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .form-submit { width: 100%; text-align: center; }
+
+    /* Bottom menu scroll */
+    .hero-bottom-inner {
+      gap: 10px;
+      overflow-x: auto;
+      justify-content: flex-start;
+      scrollbar-width: none;
+    }
+    .hero-bottom-inner::-webkit-scrollbar { display: none; }
+    .hero-bottom-inner a { flex-shrink: 0; }
+  }
+</style>
+
+<script>
+  const playBtn = document.getElementById('hero-play-btn');
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      // Open YouTube video in new tab
+      window.open('https://youtu.be/0ZyIsN9-sHg', '_blank', 'noopener,noreferrer');
+    });
+  }
+</script>

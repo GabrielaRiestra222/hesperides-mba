@@ -1,0 +1,373 @@
+---
+// DosMundos.astro — Sección "Lo mejor de los dos mundos"
+// Video YouTube + texto + 5 columnas de features + botón descarga folleto
+import videoPortada from '../img/Screenshot 2026-02-27 at 22.05.43.png';
+
+const features = [
+  {
+    titulo: "Clases sincrónicas",
+    texto: "Clases colaborativas y en directo.",
+  },
+  {
+    titulo: "Clases asincrónicas",
+    texto: "Sesiones guiadas con vídeos pregrabados.",
+  },
+  {
+    titulo: "Tutorías",
+    texto: "Videoconferencias en tiempo real para resolver dudas.",
+  },
+  {
+    titulo: "Evaluación virtual",
+    texto: "Exámenes online.",
+  },
+  {
+    titulo: "Campus interactivo",
+    texto: "Interactúa de manera virtual con tus profesores y compañeros en el metaverso.",
+  },
+];
+---
+
+<section class="dosmundos-section">
+  <div class="dosmundos-inner">
+
+    <!-- Fila superior: video izq + texto dcha -->
+    <div class="dosmundos-top">
+
+      <!-- Video thumbnail clickable → abre YouTube -->
+      <div class="dosmundos-video">
+        <a
+          href="https://youtu.be/0ZyIsN9-sHg"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="video-link"
+          aria-label="Ver vídeo: Lo mejor de los dos mundos"
+        >
+          <img
+            src={videoPortada.src}
+            alt="Lo mejor de los dos mundos — Universidad de las Hespérides"
+            class="video-thumb"
+          />
+          <!-- Play button — triángulo blanco semitransparente estilo Figma -->
+          <div class="video-play">
+            <div class="video-play-triangle"></div>
+          </div>
+          <!-- Label inferior izq -->
+          <div class="video-label">
+            <span>experiencia de aprendizaje</span>
+            <span class="video-label-link">▸ MÁS VÍDEOS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Texto derecha -->
+      <div class="dosmundos-texto">
+        <h2 class="dosmundos-titulo">
+          Lo mejor de los<br /><strong>dos mundos</strong>
+        </h2>
+        <p class="dosmundos-parrafo">
+          En .h, estarás constantemente inmerso en un ecosistema digital de aprendizaje activo y
+          colaborativo. Más que un observador, serás parte de una comunidad dinámica de aprendizaje
+          con miembros de distintas partes del mundo.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Fila inferior: 5 columnas de features -->
+    <div class="dosmundos-features">
+      {features.map((f, i) => (
+        <div class="feature-col">
+          {i > 0 && <div class="feature-divider" />}
+          <div class="feature-content">
+            <h3 class="feature-titulo">{f.titulo}</h3>
+            <p class="feature-texto">{f.texto}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Botón -->
+    <div class="dosmundos-boton-wrap">
+      <a href="#folleto" class="dosmundos-boton">QUIERO DESCARGAR EL FOLLETO</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  /* ── Sección ── */
+  .dosmundos-section {
+    width: 100%;
+    background: #fff;
+    padding: clamp(60px, 6vw, 100px) 0;
+  }
+
+  .dosmundos-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 14.4vw, 277px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(48px, 5vw, 80px);
+  }
+
+  /* ── Fila superior ── */
+  .dosmundos-top {
+    display: grid;
+    grid-template-columns: 665fr 602fr;
+    gap: clamp(24px, 3.5vw, 56px);
+    align-items: center;
+    max-width: 1290px;
+  }
+
+  /* ── Video ── */
+  .dosmundos-video {
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .video-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-radius: 34.5px;
+    overflow: hidden;
+    aspect-ratio: 665 / 373;
+    text-decoration: none;
+  }
+
+  .video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .video-link:hover .video-thumb {
+    transform: scale(1.03);
+  }
+
+  /* Play button — triángulo blanco semitransparente */
+  .video-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .video-play-triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 28px 0 28px 52px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .video-link:hover .video-play-triangle {
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.95);
+    transform: scale(1.1);
+  }
+
+  /* Label inferior izquierda */
+  .video-label {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .video-label span {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    line-height: 1.3;
+  }
+
+  .video-label-link {
+    font-weight: 500 !important;
+    font-size: 10px !important;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Texto derecha ── */
+  .dosmundos-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .dosmundos-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 2.3vw, 45px);
+    line-height: 47px;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .dosmundos-titulo strong {
+    font-weight: 700;
+  }
+
+  .dosmundos-parrafo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(16px, 1.3vw, 25px);
+    line-height: 38px;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    margin: 0;
+    max-width: 602px;
+  }
+
+  /* ── Features ── */
+  .dosmundos-features {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1290px;
+    gap: 0;
+  }
+
+  .feature-col {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+  }
+
+  .feature-divider {
+    width: 1px;
+    min-height: 120px;
+    background: #e0e0e0;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .feature-content {
+    padding: 0 clamp(16px, 2vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feature-col:first-child .feature-content {
+    padding-left: 0;
+  }
+
+  .feature-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(14px, 1.1vw, 20px);
+    line-height: 1.3;
+    color: #FFCD00;
+    margin: 0;
+  }
+
+  .feature-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(13px, 0.9vw, 16px);
+    line-height: 1.5;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  /* ── Botón ── */
+  .dosmundos-boton-wrap {
+    display: flex;
+    justify-content: center;
+    max-width: 1290px;
+  }
+
+  .dosmundos-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 313px;
+    height: 47px;
+    border-radius: 29.33px;
+    padding: 16px 18px;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: 13.33px;
+    line-height: 100%;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .dosmundos-boton:hover {
+    background: #FFCD00;
+    color: #1a1a1a;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .dosmundos-inner {
+      padding: 0 20px;
+      gap: 36px;
+    }
+
+    /* Título arriba, video abajo */
+    .dosmundos-top {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    /* Texto primero, video después */
+    .dosmundos-texto { order: 1; }
+    .dosmundos-video { order: 2; max-width: 100%; }
+
+    .dosmundos-titulo {
+      font-size: 32px;
+      line-height: 38px;
+    }
+
+    .dosmundos-parrafo {
+      font-size: 15px;
+      line-height: 26px;
+    }
+
+    /* Video border-radius más pequeño */
+    .video-link { border-radius: 20px; }
+
+    /* Features: grid 2x2, sin divisores */
+    .dosmundos-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 20px;
+      max-width: 100%;
+    }
+
+    .feature-col { flex: unset; }
+    .feature-divider { display: none; }
+    /* Línea vertical a la izquierda de cada feature */
+    .feature-col {
+      border-left: 1px solid #e0e0e0;
+      padding-left: 16px;
+    }
+    .feature-content { padding: 0; }
+
+    .feature-titulo { font-size: 15px; }
+    .feature-texto  { font-size: 13px; line-height: 1.6; }
+
+    /* Botón full width */
+    .dosmundos-boton-wrap { max-width: 100%; }
+    .dosmundos-boton { width: 100%; max-width: 100%; }
+  }
+</style>

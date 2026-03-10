@@ -1,0 +1,469 @@
+---
+// Pagos.astro — Sección "Por fin un MBA de nivel europeo"
+// Fondo bokeh oscuro dorado + 3 cards: reposo semitransparente → hover blanco expandido
+
+const cards = [
+  {
+    id: "fraccionado10",
+    tituloReposo: "Fraccionado\n10 plazos",
+    tituloExpand: "Pago fraccionado\nen 10 plazos",
+    descripcion: "Ideal si prefieres distribuir el coste durante el curso",
+    cuotas: "10 cuotas de:",
+    precio: "120€",
+    total: "Total: 1.500 €",
+  },
+  {
+    id: "fraccionado2",
+    tituloReposo: "Fraccionado\n2 plazos",
+    tituloExpand: "Pago fraccionado\nen 2 plazos",
+    descripcion: "Equilibrio entre flexibilidad y ahorro",
+    cuotas: "2 cuotas de:",
+    precio: "544€",
+    total: "Total: 1.388 €",
+  },
+  {
+    id: "unicoo",
+    tituloReposo: "Pago único",
+    tituloExpand: "Pago único antes\nde comenzar",
+    descripcion: "La opción con mayor ahorro",
+    cuotas: "Total:",
+    precio: "1.275€",
+    total: "",
+  },
+];
+---
+
+<section class="pagos-section">
+  <!-- Fondo bokeh CSS -->
+  <div class="pagos-bg"></div>
+  <div class="pagos-overlay"></div>
+
+  <div class="pagos-inner">
+
+    <!-- Título -->
+    <div class="pagos-titulo-wrap">
+      <h2 class="pagos-titulo">
+        Por fin un MBA de nivel europeo<br />
+        <strong>CON UN PRECIO AL NIVEL DE TODOS</strong>
+      </h2>
+    </div>
+
+    <!-- Fases -->
+    <p class="pagos-fases">
+      FASES DE ADMISIÓN — <span class="pagos-fases-conv">Convocatoria Abril</span>
+    </p>
+
+    <!-- Cards -->
+    <div class="pagos-cards" id="pagos-cards">
+      {cards.map((card) => (
+        <div
+          class="pago-card"
+          data-id={card.id}
+          role="button"
+          tabindex="0"
+          aria-label={card.tituloReposo}
+        >
+          <!-- Estado reposo -->
+          <div class="pago-reposo">
+            <p class="pago-reposo-titulo">
+              {card.tituloReposo.split('\n').map((line, i) => (
+                <>{line}{i === 0 ? <br /> : ''}</>
+              ))}
+            </p>
+          </div>
+
+          <!-- Estado expandido -->
+          <div class="pago-expand">
+            <h3 class="pago-expand-titulo">
+              {card.tituloExpand.split('\n').map((line, i) => (
+                <>{i === 0 ? <span class="pago-titulo-light">{line.split(' ').slice(0, -2).join(' ')} <strong>{line.split(' ').slice(-2).join(' ')}</strong></span> : <><br /><strong>{line}</strong></>}</>
+              ))}
+            </h3>
+            <p class="pago-descripcion">{card.descripcion}</p>
+            <div class="pago-precio-wrap">
+              <p class="pago-cuotas">
+                {card.cuotas} <strong class="pago-importe">{card.precio}</strong>
+              </p>
+              {card.total && <p class="pago-total">{card.total.split(': ')[0]}: <strong>{card.total.split(': ')[1]}</strong></p>}
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Botón -->
+    <div class="pagos-boton-wrap">
+      <a href="#contacto" class="pagos-boton">QUIERO HACERLO</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  /* ── Sección ── */
+  .pagos-section {
+    position: relative;
+    width: 100%;
+    min-height: clamp(700px, 59.4vw, 1141px);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* ── Fondo bokeh CSS ── */
+  .pagos-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 400px 400px at 20% 50%, rgba(180, 120, 0, 0.55) 0%, transparent 70%),
+      radial-gradient(ellipse 300px 300px at 75% 25%, rgba(200, 140, 0, 0.45) 0%, transparent 65%),
+      radial-gradient(ellipse 350px 250px at 60% 75%, rgba(160, 100, 0, 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 250px 250px at 40% 85%, rgba(140, 80, 0, 0.3) 0%, transparent 55%),
+      radial-gradient(ellipse 500px 300px at 85% 60%, rgba(190, 130, 0, 0.25) 0%, transparent 65%),
+      linear-gradient(135deg, #1a0e00 0%, #2d1a00 25%, #1f1000 55%, #0d0700 100%);
+    filter: blur(3px);
+    transform: scale(1.05);
+  }
+
+  .pagos-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 180, 0, 0.08);
+  }
+
+  .pagos-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: clamp(60px, 6.6vw, 128px) clamp(24px, 16.3vw, 313px) clamp(40px, 4vw, 72px);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pagos-titulo-wrap {
+    margin-bottom: clamp(40px, 5vw, 80px);
+  }
+
+  /* ── Fases ── */
+  .pagos-fases {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 1.875vw, 36px);
+    line-height: 35px;
+    letter-spacing: 0;
+    color: #ffffff;
+    margin: 0 0 clamp(24px, 3vw, 48px);
+  }
+  .pagos-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(28px, 2.3vw, 45px);
+    line-height: 47px;
+    letter-spacing: 0;
+    color: #ffffff;
+    margin: 0;
+    max-width: 1310px;
+  }
+
+  .pagos-titulo strong {
+    font-weight: 700;
+    color: #FFCD00;
+  }
+
+  /* ── Fases ── */
+  .pagos-fases {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 1.875vw, 36px);
+    line-height: 35px;
+    letter-spacing: 0;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .pagos-fases-conv {
+    color: #FFCD00;
+  }
+
+  /* ── Grid de cards ── */
+  .pagos-cards {
+    display: flex;
+    gap: clamp(16px, 2vw, 24px);
+    align-items: center;
+    padding-top: 60px;
+  }
+
+  /* ── Card base ── */
+  .pago-card {
+    position: relative;
+    width: clamp(200px, 17.25vw, 331px);
+    height: clamp(200px, 17.25vw, 331px);
+    border-radius: 28.27px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(33.92px);
+    -webkit-backdrop-filter: blur(33.92px);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+      width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      border-radius 0.45s ease,
+      background 0.35s ease;
+    flex-shrink: 0;
+  }
+
+  /* ── Card expandida ── */
+  .pago-card.active {
+    width: clamp(320px, 26.65vw, 511px);
+    height: clamp(320px, 26.65vw, 511px);
+    border-radius: 43.66px;
+    background: #ffffff;
+  }
+
+  /* ── Estado reposo ── */
+  .pago-reposo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .pago-card.active .pago-reposo {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pago-reposo-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(22px, 1.94vw, 37.31px);
+    line-height: 39.57px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  /* ── Estado expandido ── */
+  .pago-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: clamp(20px, 2.5vw, 36px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease 0.15s;
+  }
+
+  .pago-card.active .pago-expand {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .pago-expand-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(20px, 1.9vw, 36px);
+    line-height: 42px;
+    letter-spacing: 0;
+    color: #FFCD00;
+    margin: 0;
+  }
+
+  .pago-expand-titulo strong {
+    font-weight: 700;
+    color: #FFCD00;
+  }
+
+  .pago-descripcion {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(13px, 1.1vw, 20px);
+    line-height: 28px;
+    color: #1a1a1a;
+    margin: 0;
+    flex: 1;
+    padding-top: 10px;
+  }
+
+  .pago-precio-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: auto;
+  }
+
+  .pago-cuotas {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 28px);
+    line-height: 36px;
+    color: #FFCD00;
+    margin: 0;
+  }
+
+  .pago-importe {
+    font-weight: 700;
+    font-size: clamp(20px, 2vw, 36px);
+    color: #FFCD00;
+  }
+
+  .pago-total {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 0.9vw, 16px);
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .pago-total strong {
+    font-weight: 700;
+  }
+
+  /* ── Botón — debajo de la última card, alineado a su derecha ── */
+  .pagos-boton-wrap {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1310px;
+    margin-top: clamp(16px, 2vw, 32px);
+    padding-right: 0;
+  }
+
+  .pagos-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 215px;
+    height: 45px;
+    padding: 16px 18px;
+    border-radius: 29.33px;
+    border: 1.5px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: 13.33px;
+    line-height: 100%;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .pagos-boton:hover {
+    background: #FFCD00;
+    color: #1a1a1a;
+    border-color: #FFCD00;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .pagos-section { min-height: unset; }
+
+    .pagos-inner {
+      padding: 48px 24px 40px;
+    }
+
+    /* Títulos más grandes */
+    .pagos-titulo {
+      font-size: 37px;
+      line-height: 36px;
+      font-weight: 400;
+    }
+    .pagos-titulo strong { font-size: 38px; }
+    .pagos-fases { font-size: 30px; font-weight: 400;line-height: 26px; margin-bottom: 24px; }
+
+    /* Cards: columna centrada, cuadradas, la activa más grande */
+    .pagos-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding-top: 32px;
+    }
+
+    /* Card reposo: cuadrada pequeña */
+    .pago-card {
+      width: 120px;
+      height: 120px;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Card activa: grande cuadrada */
+    .pago-card.active {
+      width: 300px;
+      height: 300px;
+      border-radius: 28px;
+    }
+
+    .pago-reposo-titulo {
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    .pago-expand {
+      padding: 20px;
+      gap: 10px;
+    }
+    .pago-expand-titulo { font-size: 30px; line-height: 26px; }
+    .pago-descripcion  { font-size: 24px; line-height: 20px; padding-top: 4px; }
+    .pago-cuotas       { font-size: 16px; line-height: 22px; }
+    .pago-importe      { font-size: 30px; }
+    .pago-total        { font-size: 13px; }
+
+    .pagos-boton-wrap { justify-content: center; margin-top: 24px; }
+    .pagos-boton { width: 100%; max-width: 280px; }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll('.pago-card');
+
+  // Primera card activa por defecto
+  if (cards.length > 0) cards[0].classList.add('active');
+
+  const isMobile = () => window.innerWidth <= 860;
+
+  function activate(card: Element) {
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  }
+
+  function deactivateAll() {
+    // En mobile: siempre mantener la primera activa si ninguna está seleccionada
+    if (isMobile()) return;
+    cards.forEach(c => c.classList.remove('active'));
+  }
+
+  cards.forEach(card => {
+    // Desktop: hover
+    card.addEventListener('mouseenter', () => { if (!isMobile()) activate(card); });
+    card.addEventListener('mouseleave', () => { if (!isMobile()) deactivateAll(); });
+
+    // Móvil: click activa (no toggle off)
+    card.addEventListener('click', () => {
+      activate(card);
+    });
+
+    card.addEventListener('keydown', (e) => {
+      const ke = e as KeyboardEvent;
+      if (ke.key === 'Enter' || ke.key === ' ') {
+        ke.preventDefault();
+        card.classList.contains('active') ? deactivateAll() : activate(card);
+      }
+    });
+  });
+</script>

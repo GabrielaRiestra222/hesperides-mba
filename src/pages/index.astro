@@ -1,17 +1,50 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import FeaturedPrograms from "../components/FeaturedPrograms.astro";
+import FloatingCard from "../components/FloatingCard.astro";
+import YellowSection from "../components/YellowSection.astro";
+import GreySection from "../components/GreySection.astro";
+import Practicas from "../components/Practicas.astro";
+import Alumnos from "../components/Alumnos.astro";
+import Profesores from "../components/Profesores.astro";
+import Pagos from "../components/Pagos.astro";
+import Financiacion from '../components/Financiacion.astro';
+import Dosmundos from '../components/Dosmundos.astro';
+import Avales from '../components/Avales.astro';
+import ProfessorsSection from "../components/ProfessorsSection.astro";
+import AprendeMejores from '../components/AprendeMejores.astro';
+import Mit from '../components/Mit.astro';
+import Campus from "../components/Campus.astro"
+import Stats from "../components/Stats.astro"
+import Footer from "../components/Footer.astro"
+import Aprendemejores from "../components/AprendeMejores.astro";
+import AvanzaCarrera from "../components/AvanzaCarrera.astro";
+import Convierteambicion from "../components/Convierteambicion.astro";
+
+
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Header />
+  <Hero />  
+  <AvanzaCarrera />
+  <Convierteambicion />
+  <GreySection />
+  <Practicas />
+  <Profesores />
+  <Pagos />
+  <Financiacion />
+  <Avales />
+  <Dosmundos />
+  <Mit />
+  <Stats />
+  <Campus />
+  <Footer />
+  
+
+  
+</BaseLayout>

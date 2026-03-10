@@ -1,0 +1,252 @@
+---
+// Header.astro
+---
+
+<header class="site-header">
+
+  <!-- Barra principal: logo + nav -->
+  <div class="header-inner">
+
+    <!-- Logo + badge online -->
+    <div class="logo-wrap">
+      <img
+        src="./img/Logo.h_horz_black.png"
+        alt="Universidad de las Hespérides"
+        class="logo-img"
+      />
+      <span class="online-badge">online</span>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Abrir menú" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Navegación -->
+    <nav class="main-nav">
+      <a href="#">La Universidad</a>
+      <a href="#">Estudios</a>
+      <a href="#">Noticias y Eventos</a>
+      <a href="#">Admisiones</a>
+    </nav>
+
+  </div>
+
+  <!-- Barra de confianza negra -->
+  <div class="hero-info-bar">
+    <div class="hero-info-inner">
+
+      <div class="info-item">
+        <img src="./src/icons/iconoir_graduation-cap.svg" alt="" />
+        <span>Universitario</span>
+      </div>
+
+      <div class="info-item">
+        <img src="./src/icons/iconoir_calendar.svg" alt="" />
+        <span>Inicio Abril 2026</span>
+      </div>
+
+      <div class="info-item">
+        <img src="./src/icons/iconoir_alarm.svg" alt="" />
+        <span>1 año</span>
+      </div>
+
+      <div class="info-item">
+        <img src="./src/icons/iconoir_modern-tv.svg" alt="" />
+        <span>100% online</span>
+      </div>
+
+      <div class="info-item">
+        <img src="./src/icons/iconoir_euro-square.svg" alt="" />
+        <span>Desde 4.920 €</span>
+      </div>
+
+    </div>
+  </div>
+
+</header>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;200;300;400;500;700&display=swap');
+
+  /* ── Header sticky ── */
+  .site-header {
+    width: 100%;
+    background: #FFCD00;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* ── Barra logo + nav ── */
+  .header-inner {
+    width: 100%;
+    padding: 0 clamp(20px, 6.77vw, 130px);
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* ── Logo + online en fila, alineados abajo ── */
+  .logo-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    width: 159px;
+    height: 56px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .online-badge {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: #1a1a1a;
+    padding: 2px 4px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  /* Hamburger — hidden on desktop */
+  .hamburger { display: none; }
+
+  /* ── Nav ── */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 51px;
+  }
+
+  .main-nav a {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #1a1a1a;
+    transition: width 0.25s ease;
+  }
+
+  .main-nav a:hover::after {
+    width: 100%;
+  }
+
+  /* ── Barra negra de confianza ── */
+  .hero-info-bar {
+    width: 100%;
+    height: 53px;
+    background: #0B0B0B;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-info-inner {
+    width: 100%;
+    height: 100%;
+    padding: 0 clamp(20px, 6.77vw, 130px);
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .info-item img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.85;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .main-nav { gap: 24px; }
+    .main-nav a { font-size: 13px; }
+    .info-item { font-size: 11px; }
+  }
+
+  @media (max-width: 860px) {
+    /* Header bar */
+    .header-inner {
+      padding: 0 20px;
+      height: 72px;
+    }
+    .logo-img { width: 120px; height: auto; }
+
+    /* Hide desktop nav, show hamburger */
+    .main-nav { display: none; }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #1a1a1a;
+      border-radius: 2px;
+    }
+
+    /* Info bar — scroll horizontal */
+    .hero-info-bar { width: 100%; overflow: hidden; }
+    .hero-info-inner {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 16px;
+      gap: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-wrap: nowrap;
+    }
+    .hero-info-inner::-webkit-scrollbar { display: none; }
+    .info-item {
+      flex-shrink: 0;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+  }
+</style>

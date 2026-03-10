@@ -1,0 +1,477 @@
+---
+const profesores = [
+  { id: "juan-carlos-andreu",  nombre: "Juan Carlos Andreu",       cargo: "Associate Director en World Health Management (WHM) Hospitals",              fotoCompact: "src/img/Juan Carlos Andreu duo copy.jpg", fotoExpanded: "src/img/Juan Carlos Andreu color.jpg",           bio: "Abogado, Economista, MBA, profesor en cursos de posgrado y Máster desde 1990, y ponente en cursos, seminarios y conferencias, en Europa, África e Iberoamérica. Empresario desde 1988, habiendo finalizado proyectos en 31 países de 4 continentes, fundamentalmente para el sector privado y en modelos PPP-CPP de colaboración Público Privada en salud. Director del MBA de Hespérides, y profesor de estrategia, emprendimiento e internacionalización. Miembro del Instituto Juan de Mariana, entre otras instituciones." },
+  { id: "enrique-briega",      nombre: "Enrique Briega",           cargo: "Knowledge Expert Financial Services Practice en McKinsey & Company",         fotoCompact: "src/img/enrique-1 duo.jpg", fotoExpanded: "src/img/enrique briega color.png",                bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Navarra, Máster en Finanzas Corporativas por SDA Bocconi y MBA por IESE Business School, con intercambio en Chicago Booth. Obtuvo la certificación Chartered Financial Analyst (CFA) en 2017. Actualmente lidera el área de Research del sector bancario en McKinsey & Company para España y Portugal. En 2024 fue reconocido con el Global Emerging CFA Society Leader Award por CFA Institute." },
+  { id: "luca-delloro",        nombre: "Luca Dell'Oro",            cargo: "Fundador y CEO de The Baker Studio",                                          fotoCompact: "src/img/Luca Dell'Oro duo.jpg", fotoExpanded: "src/img/Luca Dell'Oro color.jpg",                 bio: "Acumula más de 30 años de experiencia en negocios y marketing, la mitad de ellos en multinacionales de siete países diferentes. Desde hace más de dos décadas compagina su actividad profesional con la docencia universitaria y de posgrado en escuelas de negocios españolas. Destaca por su pasión por el emprendimiento, la gestión del valor y su enfoque directo y transparente en las relaciones personales y profesionales." },
+  { id: "carmen-dominguez",    nombre: "Carmen Domínguez Domech",  cargo: "Global Finance, Control y Development Planning Director en Iberdrola",        fotoCompact: "src/img/Carmen Domínguez Domech duo.jpg", fotoExpanded: "src/img/Carmen Domínguez Domech coloe.jpg",      bio: "Doctora en Ciencias Económicas y Empresariales, Certified International Investment Analyst (CIIA) y experta en buen gobierno corporativo. Con amplia trayectoria en el sector privado como directiva en Finanzas, fue premiada como Corporate Finance Leader Europea 2023 por NXT Generation y por sus investigaciones sobre la crisis financiera internacional." },
+  { id: "eduardo-fernandez",   nombre: "Eduardo Fernández Luiña",  cargo: "Decano de la Escuela de Postgrado de la Universidad de las Hespérides",       fotoCompact: "src/img/Eduardo Fernández Luiña duo.jpg", fotoExpanded: "src/img/Eduardo Fernández Luiña color.jpg",    bio: "Doctor en Procesos Políticos y decano de la Escuela de Postgrado de la Universidad de las Hespérides. Su investigación se centra en el sistema político guatemalteco y la democracia." },
+  { id: "mauricio-garita",     nombre: "Mauricio Garita",          cargo: "Fundador y financial director en Olive Tree Capital",                          fotoCompact: "src/img/Mauricio Garita duo.jpg", fotoExpanded: "src/img/Mauricio Garita color.jpg",               bio: "Asesor estratégico especializado en blockchain, coaching filosófico y crecimiento empresarial. Lidera las empresas Vivir Mejor, 5&2 y Olive Tree Capital. Doctor en Economía por la Universidad Pontificia de Salamanca y MSc en Blockchain y Moneda." },
+  { id: "gonzalo-illesca",     nombre: "Gonzalo Illesca",          cargo: "Consultor externo en Likydo",                                                  fotoCompact: "src/img/Gonzalo Illesca duo.jpg", fotoExpanded: "src/img/Gonzalo Illesca color.jpg",               bio: "Ingeniero Comercial y Licenciado en Ciencias de la Administración por la Universidad de la Frontera, dirige el Máster en Creación de Empresas e Innovación en la Universidad de las Hespérides. Su trayectoria incluye el diseño y liderazgo de programas de incubación e innovación para organizaciones de prestigio como Founder Institute, Demium Startups, Renfe, KPMG y Procter & Gamble." },
+  { id: "eva-lopez",           nombre: "Eva López González",       cargo: "Profesora",                                                                    fotoCompact: "src/img/Eva López González copia duo.jpg", fotoExpanded: "src/img/Eva López González color.png",          bio: "Doctora en Ciencias Económicas, Empresariales y Jurídicas por la Universidad Politécnica de Cartagena. Su experiencia docente abarca asignaturas como Contabilidad Financiera, Contabilidad de Costes y Organización de los Recursos Humanos. Ha publicado diversos trabajos científicos sobre Responsabilidad Social Corporativa, Earnings Management y Evasión Fiscal." },
+  { id: "gustavo-martinez",    nombre: "Gustavo Martinez",         cargo: "Divulgador financiero y gestor patrimonial en XTB",                            fotoCompact: "src/img/Gustavo Martinez duo.jpg", fotoExpanded: "src/img/Gustavo Martinez color.jpg",              bio: "Gestor patrimonial y directivo en XTB. Profesor en la Universidad Francisco Marroquín, con formación en múltiples grados y másteres de prestigio, como el Máster en Value Investing y Teoría del Ciclo por OMMA y el Máster en Bolsa por el IEB." },
+  { id: "gonzalo-melian",      nombre: "Gonzalo Melián",           cargo: "Cofundador y vicerrector de la Universidad de las Hespérides",                 fotoCompact: "src/img/Gonzalo-Melian duo.jpg", fotoExpanded: "src/img/Gonzalo-Melian color.jpg",                bio: "Cofundador y vicerrector de la Universidad de las Hespérides (.h) y director y socio fundador de OMMA Business School Madrid. Miembro de la Mont Pelerin Society, del Instituto Juan de Mariana y de la Real Sociedad Económica de Amigos del País de Gran Canaria. Doctor en Economía (URJC) y Doctor en Arquitectura (ULPGC). Fue profesor adjunto en IE University (2007–2023) y director fundador de la sede en Madrid de la Universidad Francisco Marroquín." },
+  { id: "juan-ramon-rallo",    nombre: "Juan Ramón Rallo",         cargo: "Decano de la Escuela de Grado de la Universidad de las Hespérides",            fotoCompact: "src/img/Juan Ramón Rallo copia duo.jpg", fotoExpanded: "src/img/Juan Ramón Rallo copia.png",             bio: "Doctor en Economía por la Universidad Rey Juan Carlos y licenciado en Derecho por la Universidad de Valencia. Fundador, decano y director del Grado y Máster en Economía de la Universidad de las Hespérides. Colabora como analista económico en EsRadio y El Confidencial, y es autor de numerosos libros, entre ellos Anti-Marx, Liberalismo y Una revolución liberal para España." },
+  { id: "florencia-roca",      nombre: "Florencia Roca",           cargo: "Directora de la Especialización en Finanzas, Universidad Francisco Marroquín", fotoCompact: "src/img/Florencia-Rocaok duo.jpg", fotoExpanded: "src/img/Florencia-Rocaok.jpg",                    bio: "Doctora en Finanzas por la Universidad del CEMA (Argentina) y directora del máster online en Administración de Empresas de la Universidad Francisco Marroquín. Destaca por sus publicaciones sobre evaluación de proyectos y finanzas para emprendedores, además de su labor como divulgadora a través del canal FEmprendedores en YouTube." },
+  { id: "jose-ruiz-de-alda",   nombre: "José Ruiz de Alda",        cargo: "Asesor de CORE VALUE FIL",                                                     fotoCompact: "src/img/José Ruiz de Alda duo.jpg", fotoExpanded: "src/img/José Ruiz de Alda color.jpg",            bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Deusto, complementa su formación con másteres en Finanzas y Contabilidad y en Bolsa y Mercados Financieros. Su conocimiento del Value Investing se refleja en su papel como consejero en CIMA Global Value SICAV y su labor docente en OMMA Business School y el Instituto de Estudios Bursátiles." },
+  { id: "miguel-angel-sanz",   nombre: "Miguel Ángel Sanz",        cargo: "Partner en Madavi",                                                            fotoCompact: "src/img/Miguel-A-Sanz-300x300-1 duo.jpg", fotoExpanded: "src/img/Miguel-A-Sanz-300x300-1.jpg",             bio: "Doctor Ingeniero Industrial por la Universidad de Oviedo, MBA por INSEAD y Master en Marketing Estratégico por ESADE. Está graduado en Teología por la Universidad de Deusto y diplomado en Teatro y Artes Escénicas por la Universidad del País Vasco. Es socio en Madavi, donde acompaña procesos de transformación empresarial y liderazgo." },
+  { id: "edgardo-spivak",      nombre: "Edgardo Javier Spivak",    cargo: "Director de Desarrollo y Comercial en The Lemon Tree Education",               fotoCompact: "src/img/Edgardo Javier Spivak duo.jpg", fotoExpanded: "src/img/Edgardo Javier Spivak color.jpg",         bio: "Doctor en Dirección Internacional de Empresas por la Universidad Nebrija, con Premio Extraordinario y tesis sobre redes sociales y comportamiento de compra. Especialista en marketing digital, estratégico y operativo, ha impartido clases en universidades de España, África e Iberoamérica." },
+  { id: "eduardo-blasco",      nombre: "Eduardo Blasco",           cargo: "Profesor",                                                                     fotoCompact: "src/img/Eduardo Blasco duo.jpg", fotoExpanded: "src/img/Eduardo Blasco color.jpg",                bio: "Graduado en Derecho y Ciencias Políticas por la Universidad de Valencia, con másteres en Métodos de Investigación Sociales por la London School of Economics y en Economía de la Escuela Austriaca. Es profesor en la Universidad Francisco Marroquín y colabora activamente con el Instituto Juan de Mariana." },
+];
+
+---
+
+<section class="profesores-section">
+  <div class="profesores-inner">
+    <div class="profesores-carousel-wrap">
+
+      <button class="prof-arrow" id="prof-prev" aria-label="Anterior" disabled>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="profesores-col">
+        <h2 class="profesores-titulo">Aprende con quienes están dirigiendo empresas <strong>hoy</strong></h2>
+        <div class="profesores-overflow" id="profesores-overflow">
+          <div class="profesores-track" id="profesores-track">
+            {profesores.map((p) => (
+              <div class="prof-card"
+                data-nombre={p.nombre} data-cargo={p.cargo}
+                data-bio={p.bio} data-foto-compact={p.fotoCompact} data-foto-expanded={p.fotoExpanded}
+                role="button" tabindex="0" aria-label={`Ver perfil de ${p.nombre}`}>
+
+                <!-- Vista compacta (por defecto) -->
+                <div class="prof-card-compact">
+                  <img src={p.fotoCompact} alt={p.nombre} class="prof-foto" loading="lazy" />
+                  <div class="prof-gradient"></div>
+                  <div class="prof-info">
+                    <p class="prof-nombre">{p.nombre}</p>
+                    <p class="prof-cargo">{p.cargo}</p>
+                  </div>
+                </div>
+
+                <!-- Vista expandida (on click) -->
+                <div class="prof-card-expanded">
+                  <div class="prof-exp-foto-col">
+                    <img src={p.fotoExpanded} alt={p.nombre} class="prof-exp-foto" loading="lazy" />
+                  </div>
+                  <div class="prof-exp-body">
+                    <button class="prof-exp-close" aria-label="Cerrar">
+                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="#000" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    </button>
+                    <p class="pexp-nombre">{p.nombre}</p>
+                    <span class="pexp-tag">{p.cargo}</span>
+                    <p class="pexp-bio">{p.bio}</p>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <button class="prof-arrow" id="prof-next" aria-label="Siguiente">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.5 2L10.5 7.5L5.5 13" stroke="#000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+    </div>
+
+    <div class="profesores-boton-wrap">
+      <a href="#folleto" class="profesores-boton">QUIERO DESCARGAR FOLLETO</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .profesores-section {
+    width: 100%;
+    background: #FFCD00;
+    padding: clamp(48px,5vw,80px) 0;
+  }
+  .profesores-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px,4vw,80px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px,2.5vw,36px);
+  }
+  .profesores-carousel-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+  }
+  .profesores-col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px,3vw,44px);
+    overflow: hidden;
+  }
+  .profesores-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(22px,2.3vw,42px);
+    line-height: 1.22;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  .profesores-titulo strong { font-weight: 700; }
+
+  /* Flechas */
+  .prof-arrow {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.64px solid #000;
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    margin-bottom: 2px;
+  }
+  .prof-arrow:hover { background: #1a1a1a; border-color: #1a1a1a; }
+  .prof-arrow:hover path { stroke: #FFCD00; }
+  .prof-arrow:disabled { opacity: .3; cursor: default; }
+
+  /* Overflow — visible cuando hay card expandida */
+  .profesores-overflow { overflow: hidden; }
+  .profesores-overflow.has-active { overflow: visible; }
+
+  .profesores-track {
+    display: flex;
+    gap: 16px;
+    transition: transform .45s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+    align-items: flex-start;
+  }
+
+  /* ══ CARD ══
+     Compacta: ancho calculado (JS), height: 354px
+     Expandida: width:804px height:573px border-radius:45px
+  */
+  .prof-card {
+    position: relative;
+    flex-shrink: 0;
+    width: 222px;   /* overridden by JS to fit 5 */
+    height: 354px;
+    border-radius: 32px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+    cursor: pointer;
+    /* Transition both width AND height so card grows taller */
+    transition:
+      width .45s cubic-bezier(.4,0,.2,1),
+      box-shadow .3s ease;
+    overflow: hidden;
+  }
+
+  .prof-card.active {
+    width: 560px;
+    /* height stays 354px — no vertical growth */
+    border-radius: 32px;
+    cursor: default;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    z-index: 10;
+  }
+
+  /* ── Vista compacta ── */
+  .prof-card-compact {
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    transition: opacity .25s ease;
+  }
+  .prof-card.active .prof-card-compact { opacity: 0; pointer-events: none; }
+
+  .prof-foto {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    /* Duotono amarillo-negro en reposo */
+  }
+  .prof-gradient {
+   
+  }
+  .prof-info {
+    position: absolute; bottom: 18px; left: 18px; right: 18px; z-index: 2;
+  }
+  .prof-nombre {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500; font-size: 14px; line-height: 19px;
+    color: #fff; margin: 0 0 3px;
+    text-shadow: 0 1px 4px rgba(0,0,0,.55);
+  }
+  .prof-cargo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200; font-size: 10px; line-height: 13px;
+    color: rgba(255,255,255,.88); margin: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ── Vista expandida — fills the card (which animates width+height) ── */
+  .prof-card-expanded {
+    position: absolute; inset: 0;
+    display: flex;
+    overflow: hidden;
+    background: #fff;
+    border-radius: inherit;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease .2s;
+  }
+  .prof-card.active .prof-card-expanded {
+    opacity: 1; pointer-events: auto;
+  }
+
+  /* Foto izq — llena el alto de la card (mismo que compacta) */
+  .prof-exp-foto-col {
+    width: 200px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 32px 0 0 32px;
+    overflow: hidden;
+  }
+  .prof-exp-foto {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    filter: none; /* FOTO EN COLOR */
+  }
+
+  /* Cuerpo derecho */
+  .prof-exp-body {
+    flex: 1;
+    padding: 20px 20px 20px 18px;
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 10px;
+    overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: rgba(0,0,0,.12) transparent;
+    position: relative;
+  }
+  .prof-exp-body::-webkit-scrollbar { width: 3px; }
+  .prof-exp-body::-webkit-scrollbar-thumb { background: rgba(0,0,0,.1); border-radius: 3px; }
+
+  .pexp-nombre {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700; font-size: 15px; line-height: 1.2;
+    color: #000; margin: 0;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .pexp-tag {
+    display: inline-block;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400; font-size: 11.5px; line-height: 1.35;
+    color: #fff; background: #1a1a1a;
+    padding: 5px 14px; border-radius: 20px; width: fit-content;
+  }
+  .pexp-bio {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300; font-size: 11.5px; line-height: 1.65;
+    color: #333; margin: 0;
+  }
+
+  /* Botón cerrar */
+  .prof-exp-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,.18); background: #fff;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .18s; z-index: 5;
+  }
+  .prof-exp-close:hover { background: #f0f0f0; }
+
+  /* Botón sección */
+  .profesores-boton-wrap { display: flex; justify-content: flex-end; }
+  .profesores-boton {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 47px; padding: 0 32px; border-radius: 29px;
+    background: #1a1a1a; color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500; font-size: 13px; letter-spacing: .07em;
+    text-decoration: none; white-space: nowrap;
+    transition: background .2s, color .2s;
+  }
+  .profesores-boton:hover { background: #fff; color: #1a1a1a; }
+
+  @media (max-width: 860px) {
+    /* Inner sin padding derecho para que las cards lleguen al borde */
+    .profesores-inner { padding: 0 0 0 24px; }
+
+    /* Título más grande */
+    .profesores-titulo { font-size: 34px; line-height: 38px; padding-bottom: 50px; }
+
+    /* Carousel wrap: columna — track arriba, flechas debajo */
+    .profesores-carousel-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    /* Ocultar flechas laterales (están dentro del wrap como siblings del col) */
+    .profesores-carousel-wrap > .prof-arrow { display: none; }
+
+    /* Ocultar flechas laterales */
+  .profesores-carousel-wrap > .prof-arrow { display: none; }
+
+  .profesores-col {
+    width: 100%;
+    overflow: visible;
+  }
+  .profesores-overflow { overflow: hidden; }
+
+  /* Flechas inyectadas por JS — centradas con padding simétrico */
+    .prof-arrows-mobile {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      width: 100vw;
+      margin-left: -24px;
+    }
+
+
+    /* Cards más altas */
+    .prof-card { height: 460px; }
+
+    /* Nombre y cargo más grandes */
+    .prof-nombre { font-size: 17px; line-height: 22px; }
+    .prof-cargo  { font-size: 12px; line-height: 16px; }
+
+    /* Card activa en mobile */
+    .prof-card.active {
+      width: calc(100vw - 60px) !important;
+      height: 460px !important;
+    }
+
+    /* Expandida en columna */
+    .prof-card-expanded { flex-direction: column; }
+    .prof-exp-foto-col {
+      width: 100%; height: 220px;
+      border-radius: 24px 24px 0 0;
+      align-self: auto; flex-shrink: 0;
+    }
+    .prof-exp-body { padding: 16px 20px 20px; }
+    .pexp-nombre { font-size: 16px; }
+    .pexp-bio    { font-size: 13px; line-height: 1.65; }
+
+    /* Botón centrado */
+    .profesores-boton-wrap {
+      justify-content: center;
+      width: 100vw;
+      margin-left: -24px;
+    }
+</style>
+
+<script>
+  const track   = document.getElementById('profesores-track') as HTMLElement;
+  const overflow = document.getElementById('profesores-overflow') as HTMLElement;
+  const prevBtn = document.getElementById('prof-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('prof-next') as HTMLButtonElement;
+  const cards   = Array.from(document.querySelectorAll<HTMLElement>('.prof-card'));
+  const GAP = 16;
+  let current = 0;
+  let compactW = 222;
+
+  function vis() {
+    const w = window.innerWidth;
+    return w >= 1200 ? 5 : w >= 900 ? 4 : w >= 650 ? 3 : 1;
+  }
+
+  function setWidths() {
+    const outer = (track.parentElement as HTMLElement).offsetWidth;
+    const v = vis();
+    const w = window.innerWidth;
+    // Mobile: card = 72vw so next card peeks ~18vw (1 card + ~half)
+    if (w < 650) {
+      compactW = Math.floor(w * 0.72);
+    } else {
+      compactW = Math.floor((outer - GAP * (v - 1)) / v);
+    }
+    cards.forEach(c => {
+      if (!c.classList.contains('active')) {
+        c.style.width = compactW + 'px';
+      }
+    });
+  }
+
+  function step() { return compactW + GAP; }
+  function maxI() { return Math.max(0, cards.length - vis()); }
+
+  function goTo(i: number) {
+    current = Math.max(0, Math.min(i, maxI()));
+    track.style.transform = `translateX(-${current * step()}px)`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxI();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Mobile arrows row — injected above the button
+  function setupMobileArrows() {
+    if (window.innerWidth > 860) return;
+    if (document.querySelector('.prof-arrows-mobile')) return;
+    const botonWrap = document.querySelector('.profesores-boton-wrap') as HTMLElement;
+    const row = document.createElement('div');
+    row.className = 'prof-arrows-mobile';
+    const p = document.createElement('button');
+    p.className = 'prof-arrow'; p.setAttribute('aria-label','Anterior');
+    p.innerHTML = '<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const n = document.createElement('button');
+    n.className = 'prof-arrow'; n.setAttribute('aria-label','Siguiente');
+    n.innerHTML = '<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.5 2L10.5 7.5L5.5 13" stroke="#000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    row.appendChild(p); row.appendChild(n);
+    botonWrap.parentElement?.insertBefore(row, botonWrap);
+    p.addEventListener('click', () => { goTo(current - 1); updateMobileArrows(); });
+    n.addEventListener('click', () => { goTo(current + 1); updateMobileArrows(); });
+    updateMobileArrows();
+    function updateMobileArrows() {
+      (p as HTMLButtonElement).disabled = current === 0;
+      (n as HTMLButtonElement).disabled = current >= maxI();
+    }
+  }
+  setupMobileArrows();
+  window.addEventListener('resize', () => { closeActive(); setWidths(); goTo(Math.min(current, maxI())); });
+  setWidths(); goTo(0);
+
+  /* Expand / collapse */
+  function closeActive() {
+    const active = document.querySelector<HTMLElement>('.prof-card.active');
+    if (active) {
+      active.classList.remove('active');
+      active.style.width  = compactW + 'px';
+      overflow.classList.remove('has-active');
+    }
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // If clicking close button, just close
+      if ((e.target as HTMLElement).closest('.prof-exp-close')) return;
+      // If already active, do nothing (close button handles it)
+      if (card.classList.contains('active')) return;
+      closeActive();
+      card.classList.add('active');
+      card.style.width  = '560px';
+      // height stays unchanged
+      overflow.classList.add('has-active');
+      // Scroll card into view
+      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }), 50);
+    });
+
+    const closeBtn = card.querySelector('.prof-exp-close');
+    closeBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeActive();
+      setWidths();
+    });
+  });
+
+  // Click outside
+  document.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    if (!t.closest('.prof-card')) closeActive();
+  });
+</script>
