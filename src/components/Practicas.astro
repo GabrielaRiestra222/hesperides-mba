@@ -1,23 +1,25 @@
 ---
-// Practicas.astro — "No busques prácticas, LAS PRÁCTICAS TE VAN A BUSCAR A TI"
-// Fondo amarillo, logos en ticker automático infinito
+// Practicas.astro
 
-const logos = [
-  { src: "/img/Deloitte_bk.png", alt: "Deloitte" },
-  { src: "/img/aier-logo-card.png", alt: "AIER" },
-  { src: "/img/Bankinter-768x136.png", alt: "Bankinter" },
-  { src: "/img/rackslabs-white-copy-2.png", alt: "Racks Labs" },
-  { src: "/img/LHR_LG_NEGRO-1024x749.png", alt: "Lopesan" },
-  { src: "/img/BinterJPG_BK.png", alt: "Binter" },
-  { src: "/img/logo_Bladex.png", alt: "Bladex" },
-  { src: "/img/Human_Rights_Foundation_bk.png", alt: "Human Rights Foundation" },
-  { src: "/img/logo_principal_bk.png", alt: "CABI" },
-  { src: "/img/Newlink-logo-bk.png", alt: "Newlink" },
+const fila1 = [
+  { src: "/img/Deloitte_bk.png",           alt: "Deloitte"  },
+  { src: "/img/aier-logo-card.png",         alt: "AIER"      },
+  { src: "/img/Bankinter-768x136.png",      alt: "Bankinter" },
+  { src: "/img/rackslabs-white-copy-2.png", alt: "Racks Labs"},
+  { src: "/img/LHR_LG_NEGRO-1024x749.png",  alt: "Lopesan"   },
+];
+
+const fila2 = [
+  { src: "/img/BinterJPG_BK.png",               alt: "Binter"                  },
+  { src: "/img/logo_Bladex.png",                 alt: "Bladex"                  },
+  { src: "/img/Human_Rights_Foundation_bk.png",  alt: "Human Rights Foundation" },
+  { src: "/img/logo_principal_bk.png",           alt: "CABI"                    },
+  { src: "/img/Newlink-logo-bk.png",             alt: "Newlink"                 },
 ];
 ---
 
 <section class="practicas-section">
-  <div class="practicas-inner">
+  <div class="section-inner practicas-inner">
 
     <!-- Título -->
     <div class="practicas-titulo-wrap">
@@ -30,76 +32,50 @@ const logos = [
       </p>
     </div>
 
-  </div>
+    <!-- Logos — dos filas estáticas dentro del inner -->
+    <div class="logos-wrap">
 
-  <!-- Logos ticker — ancho completo fuera del inner -->
-  <div class="logos-ticker-wrap">
+      <div class="logos-divider"></div>
 
-    <div class="logos-divider"></div>
+      <!-- Fila 1: Deloitte · AIER · Bankinter · Racks · Lopesan -->
+      <div class="logos-fila">
+        {fila1.map((logo) => (
+          <div class="logo-item">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
 
-    <!-- Fila 1 -->
-    <div class="logos-ticker logos-ticker--1">
-      {[0,1,2].map(() => (
-        <div class="logos-set">
-          <div class="logo-item"><img src="/img/Deloitte_bk.png" alt="Deloitte" /></div>
-          <div class="logo-item"><img src="/img/aier-logo-card.png" alt="AIER" /></div>
-          <div class="logo-item"><img src="/img/Bankinter-768x136.png" alt="Bankinter" /></div>
-          <div class="logo-item"><img src="/img/rackslabs-white-copy-2.png" alt="Racks Labs" /></div>
-          <div class="logo-item"><img src="/img/LHR_LG_NEGRO-1024x749.png" alt="Lopesan" /></div>
-        </div>
-      ))}
+      <div class="logos-divider"></div>
+
+      <!-- Fila 2: Binter · Bladex · Human Rights · CABI · Newlink -->
+      <div class="logos-fila">
+        {fila2.map((logo) => (
+          <div class="logo-item">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      <div class="logos-divider"></div>
+
     </div>
 
-    <div class="logos-divider"></div>
-
-    <!-- Fila 2 -->
-    <div class="logos-ticker logos-ticker--2">
-      {[0,1,2].map(() => (
-        <div class="logos-set">
-          <div class="logo-item"><img src="/img/BinterJPG_BK.png" alt="Binter" /></div>
-          <div class="logo-item"><img src="/img/logo_Bladex.png" alt="Bladex" /></div>
-          <div class="logo-item"><img src="/img/Human_Rights_Foundation_bk.png" alt="Human Rights Foundation" /></div>
-          <div class="logo-item"><img src="/img/logo_principal_bk.png" alt="CABI" /></div>
-          <div class="logo-item"><img src="/img/Newlink-logo-bk.png" alt="Newlink" /></div>
-        </div>
-      ))}
-    </div>
-
-    <div class="logos-divider"></div>
-
-  <!-- Grid estático mobile -->
-  <div class="logos-grid-mobile">
-    <div class="logo-item"><img src="/img/Deloitte_bk.png" alt="Deloitte" /></div>
-    <div class="logo-item"><img src="/img/BinterJPG_BK.png" alt="Binter" /></div>
-    <div class="logo-item"><img src="/img/aier-logo-card.png" alt="AIER" /></div>
-    <div class="logo-item"><img src="/img/logo_Bladex.png" alt="Bladex" /></div>
-    <div class="logo-item"><img src="/img/Bankinter-768x136.png" alt="Bankinter" /></div>
-    <div class="logo-item"><img src="/img/Human_Rights_Foundation_bk.png" alt="Human Rights Foundation" /></div>
-    <div class="logo-item"><img src="/img/rackslabs-white-copy-2.png" alt="Racks Labs" /></div>
-    <div class="logo-item"><img src="/img/logo_principal_bk.png" alt="CABI" /></div>
-    <div class="logo-item"><img src="/img/LHR_LG_NEGRO-1024x749.png" alt="Lopesan" /></div>
-    <div class="logo-item"><img src="/img/Newlink-logo-bk.png" alt="Newlink" /></div>
   </div>
-
-  </div>
-
 </section>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
-
   /* ── Sección ── */
   .practicas-section {
     width: 100%;
     background: #FFCD00;
-    padding: clamp(56px, 6vw, 100px) 0;
+    padding-top: clamp(56px, 6vw, 100px);
+    padding-bottom: clamp(56px, 6vw, 100px);
     overflow: hidden;
   }
 
+  /* ── Inner: hereda .section-inner del global ── */
   .practicas-inner {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 clamp(24px, 16.3vw, 313px);
     display: flex;
     flex-direction: column;
     gap: clamp(32px, 4vw, 56px);
@@ -109,184 +85,97 @@ const logos = [
   .practicas-titulo-wrap {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 1310px;
+    gap: 16px;
   }
 
   .practicas-titulo {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 300;
     font-size: clamp(28px, 2.3vw, 45px);
-    line-height: 50px;
-    letter-spacing: 0;
+    line-height: 1.2;
     color: #1a1a1a;
     margin: 0;
   }
 
   .practicas-titulo strong {
     font-weight: 700;
-    color: #ffffff;
+    color: #fff;
+    display: block;
   }
 
   .practicas-subtitulo {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 300;
-    font-size: clamp(16px, 1.25vw, 24px);
-    line-height: 32px;
+    font-size: clamp(15px, 1.04vw, 20px);
+    line-height: 1.6;
     color: #1a1a1a;
     margin: 0;
-    max-width: 1310px;
   }
 
-  /* ── Ticker wrap ── */
-  .logos-ticker-wrap {
+  /* ── Logos wrap: dentro del inner, respeta márgenes ── */
+  .logos-wrap {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    margin-top: clamp(24px, 3vw, 48px);
-    position: relative;
   }
 
-  /* Fade lateral */
-  .logos-ticker-wrap::before,
-  .logos-ticker-wrap::after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    bottom: 1px;
-    width: clamp(40px, 6vw, 100px);
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .logos-ticker-wrap::before {
-    left: 0;
-    background: linear-gradient(to right, #FFCD00, transparent);
-  }
-
-  .logos-ticker-wrap::after {
-    right: 0;
-    background: linear-gradient(to left, #FFCD00, transparent);
-  }
-
-  /* ── Líneas ── */
+  /* Líneas separadoras */
   .logos-divider {
     width: 100%;
     height: 1px;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.2);
   }
 
-  /* ── Track animado ── */
-  .logos-ticker {
-    display: flex;
-    width: max-content;
-    padding: clamp(16px, 2.5vw, 36px) 0;
-  }
-
-  .logos-ticker--1 {
-    animation: ticker-left 28s linear infinite;
-  }
-
-  .logos-ticker--2 {
-    animation: ticker-right 28s linear infinite;
-  }
-
-  .logos-ticker:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes ticker-left {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); }
-  }
-
-  @keyframes ticker-right {
-    0%   { transform: translateX(-33.333%); }
-    100% { transform: translateX(0); }
-  }
-
-  /* ── Set de logos ── */
-  .logos-set {
-    display: flex;
+  /* ── Fila de logos: 5 columnas iguales ── */
+  .logos-fila {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
-    gap: clamp(48px, 6vw, 112px);
-    padding: 0 clamp(24px, 3vw, 56px);
+    padding: clamp(20px, 2.5vw, 40px) 0;
   }
 
-  /* ── Logo item ── */
+  /* ── Logo item: centrado, sin borde ── */
   .logo-item {
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 clamp(12px, 1.5vw, 24px);
   }
 
   .logo-item img {
     max-height: 52px;
-    max-width: 160px;
+    max-width: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
     filter: brightness(0);
-    opacity: 0.85;
+    opacity: 0.8;
     transition: opacity 0.2s ease;
   }
 
-  .logo-item img:hover {
-    opacity: 1;
-  }
+  .logo-item img:hover { opacity: 1; }
 
-  /* Mobile grid — hidden on desktop */
-  .logos-grid-mobile { display: none; }
-
-  /* ── Responsive ── */
+  /* ── Mobile ── */
   @media (max-width: 860px) {
-    /* Show static grid, hide ticker */
-    .logos-grid-mobile {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-    }
-    .logos-grid-mobile .logo-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px 20px;
-    }
-    /* Solo línea vertical central */
-    .logos-grid-mobile .logo-item:nth-child(odd) {
-      border-right: 1px solid rgba(0,0,0,0.2);
-    }
-    .logos-grid-mobile .logo-item img {
-      max-height: 44px;
-      max-width: 120px;
-      filter: brightness(0);
-      opacity: 0.85;
-    }
     .practicas-section { padding: 48px 0; }
-    .practicas-inner { padding: 0 24px; }
 
-    .practicas-titulo { font-size: 32px; line-height: 36px; padding-top: 20px;}
-    .practicas-subtitulo { font-size: 20px; line-height: 26px; padding-bottom: 15px;padding-top: 15px; }
+    .practicas-titulo { font-size: 28px; line-height: 1.25; }
+    .practicas-subtitulo { font-size: 17px; line-height: 1.5; }
 
-    /* Parar el ticker y mostrar logos en grid vertical */
-    .logos-ticker-wrap {
-      margin-top: 32px;
-      overflow: visible;
+    /* 2 columnas en mobile */
+    .logos-fila {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 16px 0;
+      gap: 8px;
     }
 
-    /* Ocultar fades laterales */
-    .logos-ticker-wrap::before,
-    .logos-ticker-wrap::after { display: none; }
+    .logo-item {
+      padding: 20px 16px;
+    }
 
-    /* Ocultar las filas de ticker animado */
-    .logos-ticker { display: none; }
-
-    /* Ocultar divisores del ticker */
-    .logos-divider { display: none; }
-
-    /* Grid estático 2 columnas centrado */
-    .logos-ticker-wrap::after {
-      content: none;
+    .logo-item img {
+      max-height: 40px;
     }
   }
 </style>

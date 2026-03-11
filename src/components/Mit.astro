@@ -51,20 +51,26 @@
     background: #FFCD00;
     border-radius: 35px;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
-    padding: clamp(40px, 5.2vw, 99px) clamp(32px, 4.5vw, 87px) clamp(40px, 4vw, 72px);
-    display: flex;
-    flex-direction: column;
+    padding: clamp(40px, 5.2vw, 99px) clamp(32px, 4.5vw, 87px) clamp(40px, 9vw, 72px);
     justify-content: space-between;
-    gap: clamp(32px, 3.5vw, 56px);
+    position: relative;
+    z-index: 2;
+    display: -moz-inline-box;
+    flex-direction: column;
+    gap: clamp(40px, 5vw, 80px);
+    margin-left: 250px;
+    margin-right: 250px;
   }
+  
 
   /* ── Logos ── */
   .mit-logos {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(20px, 3vw, 48px);
+    gap: clamp(20px, 1vw, 48px);
     padding-left: 0;
+    padding-bottom: 60px;
   }
 
   .mit-logo-img {
@@ -91,17 +97,16 @@
   /* ── Texto ── */
   .mit-texto {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(16px, 1.3vw, 25px);
     line-height: 38px;
     letter-spacing: 0;
     color: #1a1a1a;
-    margin: 0;
     max-width: 1151px;
   }
 
   .mit-texto strong {
-    font-weight: 700;
+    font-weight: 900;
     color: #1a1a1a;
   }
 

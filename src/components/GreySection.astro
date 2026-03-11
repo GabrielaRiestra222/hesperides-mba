@@ -1,9 +1,9 @@
 ---
 const tabs = [
-  { label: "PLAN DE ESTUDIOS",          type: "plan"         },
+  { label: "PLAN DE ESTUDIOS",           type: "plan"         },
   { label: "COMPETENCIAS Y HABILIDADES", type: "competencias" },
-  { label: "CRÉDITOS",                  type: "creditos"     },
-  { label: "PRÁCTICAS PROFESIONALES",   type: "practicas"    },
+  { label: "CRÉDITOS",                   type: "creditos"     },
+  { label: "PRÁCTICAS PROFESIONALES",    type: "practicas"    },
 ];
 
 const testimonials = [
@@ -34,30 +34,27 @@ const testimonials = [
 ];
 ---
 
-<section class="section-wrapper">
-  <div class="section-inner">
+<section class="pe-section">
 
-    <!-- ═══════════ FAQ ═══════════
-         Grid de 4 columnas.
-         Cuando un ítem está abierto, su card
-         se posiciona absolute y ocupa 2 cols.
-    ═════════════════════════════ -->
+  <!-- ══════════════════════════════════════════
+       FAQ — contenido dentro del margen global
+       Las cards modales se expanden al 100% del inner
+  ══════════════════════════════════════════ -->
+  <div class="section-inner pe-inner">
+
     <div class="faq-grid" id="faq-grid">
-
       {tabs.map((tab, i) => (
         <div class="faq-col" data-col={i}>
 
-          <!-- Título / trigger — sin ninguna línea -->
           <button class="faq-trigger" data-index={i} aria-expanded="false">
             <span class="faq-label">{tab.label}</span>
             <span class="faq-icon">+</span>
           </button>
 
-          <!-- Card: oculta por defecto, doble ancho al abrir -->
+          <!-- Modal: se expande al ancho completo del .pe-inner -->
           <div class="faq-card-wrap" id={`faq-wrap-${i}`} aria-hidden="true">
             <div class="faq-card" id={`faq-card-${i}`}>
 
-              {/* ── PLAN ── */}
               {tab.type === "plan" && (
                 <div class="card-plan">
                   <div class="sem-header">PRIMER SEMESTRE</div>
@@ -74,7 +71,7 @@ const testimonials = [
                       <tr><td>Negocios y Ciclos Económicos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
                       <tr><td>Metodologías de Investigación <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
                       <tr><td>Pensamiento Económico y Social (inglés) <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Inteligencia Artificial Aplicada a la empresa.</td><td>3</td><td>Obligatoria</td></tr>
+                      <tr><td>Inteligencia Artificial Aplicada a la empresa</td><td>3</td><td>Obligatoria</td></tr>
                       <tr class="sub"><td><strong>Créditos semestre</strong></td><td><strong>33</strong></td><td></td></tr>
                     </tbody>
                   </table>
@@ -122,16 +119,14 @@ const testimonials = [
                 </div>
               )}
 
-              {/* ── COMPETENCIAS ── */}
               {tab.type === "competencias" && (
                 <div class="card-text">
-                  <p>El proceso de aprendizaje de la Universidad de las Hespérides está diseñado para facilitar el crecimiento personal, el desarrollo de habilidades y el florecimiento intelectual para así tener las herramientas con que lograr el éxito en tu vida profesional. El eje de todo el proceso de aprendizaje son las competencias que adquirirás a lo largo de tus estudios. Dentro de este marco, los contenidos no son un fin en sí mismo, sino un medio con los que alcanzar estas competencias. Tus profesores lo saben y por eso han diseñado sus cursos pensando en lo que aprenderás a hacer y no solo en lo que respondas en un examen.</p>
+                  <p>El proceso de aprendizaje de la Universidad de las Hespérides está diseñado para facilitar el crecimiento personal, el desarrollo de habilidades y el florecimiento intelectual para así tener las herramientas con que lograr el éxito en tu vida profesional.</p>
                   <p class="q">¿Qué sabrás hacer con el Máster Universitario en Administración y Dirección de Empresas?</p>
-                  <p>Al terminar el programa de estudios, podrás crear estrategias de innovación que, sumadas a tu habilidad para estructurar equipos de trabajo eficientes, permitirán llevar tu visión empresarial a la realidad. Tendrás la capacidad de identificar el impacto de las políticas económicas para manejar riesgos e identificar nuevas oportunidades de negocios, por ejemplo, en períodos inflacionarios. En fin, tendrás la capacidad y la visión para ser un líder empresarial innovador que sabe navegar la incertidumbre y llevar proyectos a buen puerto.</p>
+                  <p>Al terminar el programa de estudios, podrás crear estrategias de innovación que, sumadas a tu habilidad para estructurar equipos de trabajo eficientes, permitirán llevar tu visión empresarial a la realidad.</p>
                 </div>
               )}
 
-              {/* ── CRÉDITOS ── */}
               {tab.type === "creditos" && (
                 <div class="card-cred">
                   <div class="cred-head"><span>Carácter</span><span>Créditos</span></div>
@@ -147,12 +142,10 @@ const testimonials = [
                 </div>
               )}
 
-              {/* ── PRÁCTICAS ── */}
               {tab.type === "practicas" && (
                 <div class="card-text">
-                  <p>Gracias a los convenios de colaboración de .h, podrás cursar tus prácticas externas curriculares del Máster Universitario en Administración y Dirección de Empresas al más alto nivel. Te podrás beneficiar de los acuerdos con la Fundación Universidad-Empresa (programa e-Start), Lopesan Hotel Management, Expomeloneras SA, Cordial Canarias Hotels &amp; Resorts, Costa Volcán SA, Binter Canarias, Banco Latinoamericano de Comercio Exterior y Domingo Alonso Group, entre otras instituciones y empresas que te permitirán conectarte con tu campo profesional.</p>
-                  <p>Al ser estudiante de .h, formarás parte del entorno colaborativo del Make Impact Consortium (MIC), liderado por el Massachusetts Institute of Technology (MIT), una comunidad internacional de universidades con ideas afines para el aprendizaje y el beneficio mutuo. Podrás participar en los retos que el MIC, en alianza con distintas empresas y organizaciones, lanza para resolver problemas reales y crear impacto positivo en la sociedad.</p>
-                  <p>También tendrás la posibilidad de llevar adelante tus prácticas en el ámbito de la propia universidad, en proyectos como el Bootcamp para emprendedores, el vivero y acelerador de empresas, el Makerspace y el Observatorio de Coyuntura Económica.</p>
+                  <p>Gracias a los convenios de colaboración de .h, podrás cursar tus prácticas externas curriculares del Máster Universitario al más alto nivel. Te podrás beneficiar de los acuerdos con la Fundación Universidad-Empresa, Lopesan Hotel Management, Binter Canarias, Banco Latinoamericano de Comercio Exterior y Domingo Alonso Group, entre otras.</p>
+                  <p>Al ser estudiante de .h, formarás parte del entorno colaborativo del Make Impact Consortium (MIC), liderado por el Massachusetts Institute of Technology (MIT).</p>
                 </div>
               )}
 
@@ -160,458 +153,411 @@ const testimonials = [
           </div>
         </div>
       ))}
-
     </div>
 
-    <!-- ═══════════ TÍTULO ═══════════ -->
+    <!-- TÍTULO carrusel — mucho más grande -->
     <h3 class="section-title">Nuestros alumnos ya conocen el éxito</h3>
 
-    <!-- ═══════════ CARRUSEL ═══════════ -->
-    <div class="carousel-wrapper">
-      <!-- Flechas laterales (desktop) -->
-      <button class="carousel-arrow carousel-arrow--desktop" id="arrow-prev" aria-label="Anterior">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- ══════════════════════════════════════════
+         CARRUSEL — dentro del section-inner (respeta márgenes)
+         Las flechas salen fuera con position absolute
+    ══════════════════════════════════════════ -->
+    <div class="carousel-shell">
+
+      <!-- Flecha izquierda — position absolute, sale del inner -->
+      <button class="c-arrow c-arrow--prev" id="arrow-prev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <div class="carousel-col">
-        <div class="carousel-outer">
-          <div class="carousel-track" id="carousel-track">
-            {testimonials.map((t) => (
-              <div class="alumni-card" tabindex="0" role="button">
-                <div class="card-front">
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
+          {testimonials.map((t) => (
+            <div class="alumni-card" tabindex="0" role="button">
+              <div class="card-front">
+                <div class="card-img-wrap">
                   <img src={t.img} alt={`Foto de ${t.name}`} class="card-photo" loading="lazy" />
-                  <div class="card-front-footer">
-                    <p class="cfquote">"{t.text}"</p>
-                    <p class="cfname">{t.name}</p>
-                  </div>
                 </div>
-                <div class="card-back">
-                  <button class="card-close" aria-label="Cerrar">
-                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                      <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    </svg>
-                  </button>
-                  <div class="cbphoto">
-                    <img src={t.img} alt="" loading="lazy" aria-hidden="true" />
-                  </div>
-                  <div class="cbbody">
-                    <p class="cbquote">"{t.text}"</p>
-                    <div class="cbmeta">
-                      <p class="cbname">{t.name}</p>
-                      <p class="cbcargo">{t.cargo}</p>
-                    </div>
-                  </div>
+                <div class="card-front-body">
+                  <p class="cfname">{t.name}</p>
+                  <p class="cfquote">"{t.text}"</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-        <!-- Fila inferior mobile: flechas + botón -->
-        <div class="carousel-bottom">
-          <div class="carousel-arrows-row">
-            <button class="carousel-arrow carousel-arrow--mobile" aria-label="Anterior">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button class="carousel-arrow carousel-arrow--mobile" aria-label="Siguiente">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
+              <div class="card-back">
+                <button class="card-close" aria-label="Cerrar">
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                    <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </button>
+                <div class="cbimg-wrap">
+                  <img src={t.img} alt="" loading="lazy" aria-hidden="true" />
+                </div>
+                <div class="cbbody">
+                  <p class="cbname">{t.name}</p>
+                  <p class="cbcargo">{t.cargo}</p>
+                  <p class="cbquote">"{t.text}"</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <!-- Flecha derecha desktop -->
-      <button class="carousel-arrow carousel-arrow--desktop" id="arrow-next" aria-label="Siguiente">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Flecha derecha — position absolute, sale del inner -->
+      <button class="c-arrow c-arrow--next" id="arrow-next" aria-label="Siguiente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+
     </div>
 
-    <!-- CTA desktop -->
-    <div class="cta-wrap cta-wrap--desktop">
+    <!-- Flechas mobile -->
+    <div class="mobile-controls">
+      <div class="mobile-arrows">
+        <button class="c-arrow c-arrow--mob-prev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="c-arrow c-arrow--mob-next" aria-label="Siguiente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
       <a href="#" class="cta-btn">QUIERO APRENDER MÁS</a>
     </div>
 
-  </div>
+  </div><!-- /section-inner -->
+
 </section>
 
 <style>
-  .section-wrapper {
+  /* ══════════════════════════════════════
+     SECCIÓN — fondo gris, aire generoso arriba
+  ══════════════════════════════════════ */
+  .pe-section {
     background: #E5E5E5;
-    padding: 80px 0 96px;
+    padding-top: clamp(80px, 8.33vw, 160px); /* más aire arriba */
+    padding-bottom: clamp(64px, 6vw, 120px);
     position: relative;
-    z-index: 10;
-  }
-  .section-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 24px;
   }
 
-  /* ═══════════════════════════════════
-     FAQ — inline-flex con gap 42px
-     Línea decorativa SOLO en el trigger
-  ═══════════════════════════════════ */
+  /* ── Inner heredado del global.css ── */
+  .pe-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ══════════════════════════════════════
+     FAQ GRID
+  ══════════════════════════════════════ */
   .faq-grid {
-    display: inline-flex;
+    display: flex;
     align-items: flex-start;
-    gap: 42px;
-    margin-bottom: 64px;
-    position: relative;
     width: 100%;
+    margin-bottom: clamp(48px, 5vw, 96px);
   }
 
-  @media (max-width: 767px) {
-    .faq-grid { flex-direction: column; gap: 0; }
-  }
-
-  /* Columna */
   .faq-col {
-    position: relative;
     flex: 1;
     min-width: 0;
+    position: relative;
   }
 
-  /* Línea decorativa vertical — SOLO en el trigger, no se alarga */
-  .faq-col:not(:first-child) .faq-trigger::before {
+  /* Línea separadora vertical — solo en trigger */
+  .faq-col:not(:first-child)::before {
     content: '';
     position: absolute;
-    left: -21px; /* mitad del gap */
+    left: 0;
     top: 0;
-    bottom: 0;
-    width: 1.5px;
-    background: #000;
-    height: 100%; /* solo la altura del trigger */
-  }
-  .faq-trigger { position: relative; }
-
-  @media (max-width: 767px) {
-    .faq-col:not(:first-child) .faq-trigger::before { display: none; }
-    .faq-col { border-bottom: none; width: 100%; }
-    .faq-trigger {
-      padding: 16px 0 !important;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .faq-icon { flex-shrink: 0; margin-left: auto; }
+    /* altura exacta del trigger */
+    height: 56px;
+    width: 1px;
+    background: rgba(0,0,0,0.3);
   }
 
-  /* Trigger — compacto */
+  /* Trigger: label y + sin hueco extra */
   .faq-trigger {
     width: 100%;
     background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 16px 12px 16px 0;
+    justify-content: flex-start ;
+    align-items: center;
+    padding: 14px 12px;
     color: #000;
-    font-family: 'NotoSansHK-Bold-Alphabetic', 'Noto Sans HK', Georgia, serif;
-    font-size: 24px;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(13px, 1.04vw, 20px);
     font-weight: 700;
-    line-height: 28px;
+    line-height: 1.2;
     text-align: left;
-    gap: 6px;
+    white-space: nowrap;
+    gap: 1px;
     transition: opacity 0.2s;
   }
-  @media (min-width: 768px) {
-    .faq-trigger { font-size: 16px; line-height: 20px; padding: 18px 10px 18px 0; }
-  }
   .faq-trigger:hover { opacity: 0.5; }
-  .faq-label { flex: 1; }
+
+  /* Label ocupa lo justo — no empuja el + lejos */
+  .faq-label { flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis; font-size: 30px;}
+
   .faq-icon {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 300;
     flex-shrink: 0;
     line-height: 1;
-    transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+    margin-left: 4px;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
   }
   .faq-trigger[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
 
-  /* ── Card wrapper: inicialmente colapsado, luego se despliega ── */
+  /* ── Modal: ocupa el ancho del section-inner, calculado por JS ── */
   .faq-card-wrap {
-    /* Ocupa 0 altura cuando está cerrado */
+    position: absolute;
+    top: 56px;
+    left: 0;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    z-index: 20;
     transition:
-      max-height 0.52s cubic-bezier(0.4,0,0.2,1),
-      opacity 0.3s ease;
+      max-height 0.48s cubic-bezier(0.4,0,0.2,1),
+      opacity 0.28s ease;
+    width: var(--modal-width, 100%);
   }
-
   .faq-card-wrap.open {
     max-height: 2800px;
     opacity: 1;
+    overflow: visible;
   }
+  .faq-card-wrap.flip { right: 0; left: auto; }
 
-  /* ── La card en sí — por defecto ocupa 1 col ── */
   .faq-card {
     background: #fff;
     border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 28px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.06);
-    margin-right: 0;
-    /* Doble ancho: se anula el overflow del padre con JS */
-    width: 100%;
+    padding: clamp(20px, 2vw, 32px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.13);
     box-sizing: border-box;
-  }
-
-  /*
-    En desktop, cuando la card está abierta queremos que ocupe
-    el ancho de 2 columnas. Lo hacemos con una clase que se añade
-    via JS al faq-card-wrap, y hacemos overflow visible + ancho 200%.
-  */
-  @media (min-width: 768px) {
-    /* Card se expande al doble: overflow visible + 200% */
-    .faq-card-wrap.open.double {
-      overflow: visible;
-    }
-    .faq-card-wrap.open.double .faq-card {
-      width: 200%;
-    }
-    .faq-card-wrap.open.double.flip .faq-card {
-      width: 200%;
-      margin-left: -100%;
-    }
+    width: 100%;
   }
 
   /* ── Contenidos de las cards ── */
   .card-text p {
-    font-size: 13px;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(13px, 0.885vw, 17px);
     line-height: 1.75;
     color: #222;
-    margin: 0 0 14px;
+    margin: 0 0 16px;
+    font-weight: 300;
   }
   .card-text p:last-child { margin-bottom: 0; }
-  .card-text .q {
-    font-weight: 700;
-    color: #000;
-    font-size: 14px;
-  }
+  .card-text .q { font-weight: 700; color: #000; font-size: clamp(14px, 0.94vw, 18px); }
 
-  /* Plan */
   .sem-header {
     display: inline-block;
     background: #FFCD00;
     color: #000;
+    font-family: "Noto Sans HK", sans-serif;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.07em;
-    padding: 7px 14px;
+    padding: 6px 14px;
     border-radius: 5px;
     margin-bottom: 12px;
   }
-  .ptable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin-bottom: 6px;
-  }
+  .ptable { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 6px; }
   .ptable th {
-    text-align: left;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: #bbb;
-    padding: 0 6px 8px 0;
-    border-bottom: 1px solid #ececec;
+    text-align: left; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase; color: #bbb;
+    padding: 0 6px 8px 0; border-bottom: 1px solid #ececec;
   }
-  .ptable th:nth-child(2),
-  .ptable th:nth-child(3) { text-align: center; }
+  .ptable th:nth-child(2), .ptable th:nth-child(3) { text-align: center; }
   .ptable td {
-    padding: 7px 6px 7px 0;
-    border-bottom: 1px solid #f3f3f3;
-    color: #111;
-    line-height: 1.4;
-    font-size: 12px;
+    padding: 7px 6px 7px 0; border-bottom: 1px solid #f3f3f3;
+    color: #111; line-height: 1.4; font-size: 12px;
+    font-family: "Noto Sans HK", sans-serif; font-weight: 300;
   }
-  .ptable td:nth-child(2),
-  .ptable td:nth-child(3) { text-align: center; color: #666; white-space: nowrap; }
+  .ptable td:nth-child(2), .ptable td:nth-child(3) { text-align: center; color: #666; white-space: nowrap; }
   .ptable tr:last-child td { border-bottom: none; }
-  .ptable tr.sub td {
-    border-top: 1.5px solid #e0e0e0;
-    border-bottom: none;
-    padding-top: 10px;
-  }
+  .ptable tr.sub td { border-top: 1.5px solid #e0e0e0; border-bottom: none; padding-top: 10px; }
   .ptable em { font-size: 10px; color: #bbb; font-style: normal; }
+
   .total-bar {
-    display: flex;
-    justify-content: space-between;
-    background: #FFCD00;
-    border-radius: 6px;
-    padding: 10px 14px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #000;
-    margin: 14px 0;
+    display: flex; justify-content: space-between;
+    background: #FFCD00; border-radius: 6px;
+    padding: 10px 14px; font-size: 13px; font-weight: 700;
+    color: #000; margin: 14px 0;
+    font-family: "Noto Sans HK", sans-serif;
   }
-  .esp-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 4px;
-  }
-  @media (max-width: 600px) { .esp-grid { grid-template-columns: 1fr; } }
+  .esp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
   .esp-header {
-    background: #FFCD00;
-    color: #000;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    padding: 7px 12px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    background: #FFCD00; color: #000; font-size: 11px; font-weight: 800;
+    letter-spacing: 0.05em; padding: 6px 12px; border-radius: 5px; margin-bottom: 10px;
+    font-family: "Noto Sans HK", sans-serif;
   }
 
-  /* Créditos */
   .cred-head {
-    display: flex;
-    justify-content: space-between;
-    background: #FFCD00;
-    border-radius: 8px;
-    padding: 10px 16px;
-    font-size: 13px;
-    font-weight: 800;
-    color: #000;
-    margin-bottom: 16px;
+    display: flex; justify-content: space-between; background: #FFCD00;
+    border-radius: 8px; padding: 10px 16px;
+    font-size: 13px; font-weight: 800; color: #000; margin-bottom: 16px;
+    font-family: "Noto Sans HK", sans-serif;
   }
-  .ctable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
+  .ctable { width: 100%; border-collapse: collapse; font-size: 14px; }
   .ctable td {
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
-    color: #111;
+    padding: 12px 0; border-bottom: 1px solid #f0f0f0; color: #111;
+    font-family: "Noto Sans HK", sans-serif; font-weight: 300;
   }
   .ctable td:last-child { text-align: right; font-weight: 600; color: #333; }
-  .ctable tr.ctotal td {
-    border-bottom: none;
-    border-top: 1.5px solid #ddd;
-    padding-top: 14px;
-    font-size: 15px;
-  }
+  .ctable tr.ctotal td { border-bottom: none; border-top: 1.5px solid #ddd; padding-top: 14px; font-size: 15px; }
 
-  /* ═══════════════════════════════════
-     TÍTULO
-  ═══════════════════════════════════ */
+  /* ══════════════════════════════════════
+     TÍTULO carrusel — mucho más grande
+  ══════════════════════════════════════ */
   .section-title {
-    font-family: 'NotoSansHK-Bold-Alphabetic', 'Noto Sans HK', Georgia, serif;
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 1.3;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(28px, 2.5vw, 48px);
+    font-weight: 500;
+    line-height: 1.2;
     color: #000;
-    text-align: left;
-    margin-bottom: 32px;
+    margin-bottom: clamp(32px, 3vw, 56px);
   }
 
-  /* ═══════════════════════════════════
-     CARRUSEL
-  ═══════════════════════════════════ */
-  .carousel-wrapper {
+  /* ══════════════════════════════════════
+     CARRUSEL — dentro del section-inner
+     Flechas: absolute, salen fuera del inner
+  ══════════════════════════════════════ */
+  .carousel-shell {
+    position: relative; /* para las flechas absolute */
+    margin-bottom: clamp(32px, 3vw, 48px);
+    overflow: visible;  /* las flechas pueden sobresalir */
+  }
+
+  /* Flechas desktop: absolute, centradas verticalmente, fuera del inner */
+  .c-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.35);
+    background: transparent;
+    color: #000;
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
   }
-  .carousel-outer { flex: 1; overflow: hidden; }
-  .carousel-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 20px; overflow: hidden; }
+  .c-arrow:hover { background: #000; color: #fff; border-color: #000; }
+  .c-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
 
-  /* Desktop/mobile visibility */
-  .carousel-arrow--mobile { display: none; }
-  .carousel-bottom { display: none; }
+  /* Salen fuera del margen del inner */
+  .c-arrow--prev { left: -52px; }
+  .c-arrow--next { right: -52px; }
 
-  /* Center when all 4 cards fit */
-  @media (min-width: 1100px) {
-    .carousel-outer { display: flex; justify-content: center; }
-    .carousel-track { justify-content: center; }
+  /* Viewport: sin overflow para clip del track */
+  .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
   }
+
   .carousel-track {
     display: flex;
-    gap: 12px;
-    transition: transform 0.52s cubic-bezier(0.4,0,0.2,1);
+    gap: clamp(12px, 1.25vw, 20px);
+    transition: transform 0.48s cubic-bezier(0.4,0,0.2,1);
     will-change: transform;
-    align-items: flex-start;
+    align-items: stretch; /* misma altura */
   }
 
-  /* Card alumno — más estrecha para que 4 quepan a primera vista */
+  /* Cards: flex:1 → ocupan todo el ancho del inner equitativamente */
   .alumni-card {
     position: relative;
-    width: 248px;
-    height: 370px;
-    flex-shrink: 0;
-    border-radius: 24px;
+    flex: 1;
+    min-width: 0;
+    border-radius: 20px;
     background: #fff;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
-    transition: height 0.42s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+    transition: box-shadow 0.3s;
   }
-  @media (max-width: 860px) {
-    .alumni-card { width: calc(78vw - 12px); height: 440px; }
+  .alumni-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.14); }
+
+  /* FRENTE */
+  .card-front {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.25s ease;
+    padding: 12px 12px 0; /* margen arriba y a los lados de la imagen */
   }
 
-  .card-front {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    transition: opacity 0.25s ease;
-    z-index: 1;
-    padding: 12px 12px 0;
+  /* Imagen horizontal 16/9 — con border-radius ya que tiene padding */
+  .card-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px; /* redondeo propio ya que no toca el borde del card */
+    flex-shrink: 0;
   }
   .card-photo {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    flex-shrink: 0;
+    height: 100%;
     object-fit: cover;
     object-position: top center;
     display: block;
-    border-radius: 20px;
   }
-  .card-front {
-    padding: 12px 12px 0;
-  }
-  .card-front-footer {
-    flex: 1;
-    padding: 12px 6px 16px;
-    background: #fff;
+
+  /* Cuerpo frente: espacio blanco generoso bajo nombre y sobre texto */
+  .card-front-body {
+    padding: 20px 16px 24px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    gap: 12px; /* espacio entre nombre y cita */
+  }
+  .cfname {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    letter-spacing: 0.02em;
   }
   .cfquote {
-    font-size: 11.5px;
-    line-height: 1.55;
-    color: #222;
-    margin: 0 0 12px;
-    font-style: italic;
-    /* Clamp to ~4 lines */
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+    font-weight: 300;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .cfname { font-size: 12px; font-weight: 700; color: #000; margin: 0; letter-spacing: 0.03em; }
 
-
+  /* REVERSO — amarillo */
   .card-back {
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     background: #FFCD00;
-    display: flex; flex-direction: column;
-    opacity: 0; pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.25s ease;
     z-index: 2;
     overflow-y: auto;
+    border-radius: 20px;
     scrollbar-width: thin;
     scrollbar-color: rgba(0,0,0,0.1) transparent;
   }
@@ -619,116 +565,170 @@ const testimonials = [
   .card-back::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
 
   .card-close {
-    position: sticky; top: 0; align-self: flex-end;
+    position: sticky;
+    top: 0;
+    align-self: flex-end;
     margin: 12px 12px 0 0;
-    width: 26px; height: 26px;
+    width: 24px; height: 24px;
     border-radius: 50%;
-    border: 1.5px solid rgba(0,0,0,0.2);
-    background: transparent; color: #000;
+    border: 1.5px solid rgba(0,0,0,0.25);
+    background: transparent;
+    color: #000;
     cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    transition: background 0.2s; z-index: 4;
+    z-index: 4;
+    transition: background 0.2s;
   }
   .card-close:hover { background: rgba(0,0,0,0.08); }
 
-  .cbphoto {
-    width: 100%; height: 170px; flex-shrink: 0;
-    overflow: hidden; margin-top: -36px;
+  .cbimg-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-top: -36px;
   }
-  .cbphoto img {
+  .cbimg-wrap img {
     width: 100%; height: 100%;
     object-fit: cover; object-position: top center; display: block;
   }
-  .cbbody { padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 14px; }
-  .cbquote { font-size: 12.5px; line-height: 1.65; color: #000; margin: 0; font-style: italic; }
-  .cbmeta { border-top: 1px solid rgba(0,0,0,0.12); padding-top: 12px; }
-  .cbname { font-size: 11px; font-weight: 800; color: #000; margin: 0 0 3px; letter-spacing: 0.07em; text-transform: uppercase; }
-  .cbcargo { font-size: 10.5px; color: rgba(0,0,0,0.5); margin: 0; font-weight: 500; }
 
+  /* Cuerpo reverso: espacio blanco sobre nombre y entre elementos */
+  .cbbody {
+    padding: 20px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .cbname {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .cbcargo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 11px;
+    color: rgba(0,0,0,0.55);
+    margin: 0 0 16px; /* espacio blanco entre cargo y cita */
+    font-weight: 400;
+  }
+  .cbquote {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #000;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* Hover en desktop activa reverso */
   @media (hover: hover) {
     .alumni-card:hover .card-front { opacity: 0; }
     .alumni-card:hover .card-back { opacity: 1; pointer-events: auto; }
-    .alumni-card:hover { height: 460px; }
   }
   .alumni-card.expanded .card-front { opacity: 0; }
   .alumni-card.expanded .card-back { opacity: 1; pointer-events: auto; }
-  .alumni-card.expanded { height: 460px; }
 
-  .carousel-arrow {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    border: 1.5px solid #000;
-    background: transparent;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; flex-shrink: 0; color: #000;
-    transition: background 0.2s, color 0.2s;
-    margin-top: 163px;
+  /* ══════════════════════════════════════
+     CTA
+  ══════════════════════════════════════ */
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(32px, 3vw, 48px);
   }
-  .carousel-arrow:hover { background: #000; color: #fff; }
-  .carousel-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
-
-  /* ── Mobile carrusel alumnos ── */
-  @media (max-width: 860px) {
-    .section-wrapper { padding: 48px 0 64px; overflow: hidden; }
-    .section-title { font-size: 32px; line-height: 1.2; margin-bottom: 50px; }
-
-    /* Wrapper: full bleed, sin flex lateral */
-    .carousel-wrapper {
-      flex-direction: column;
-      gap: 0;
-      margin: 0 -24px; /* sale del inner padding en ambos lados */
-      padding: 0 24px; /* padding solo para el track interno */
-    }
-
-    .carousel-arrow--desktop { display: none !important; }
-
-    /* Col y outer: overflow hidden para clip lateral */
-    .carousel-col { overflow: hidden; width: 100%; }
-    .carousel-outer { overflow: hidden; width: 100%; }
-    .carousel-track {
-      overflow: visible;
-      padding: 0 24px; /* offset inicial para que primera card tenga margen */
-    }
-
-    /* Flechas centradas pegadas al track */
-    .carousel-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      margin-top: -120px;
-      padding: 0 24px;
-    }
-    .carousel-arrows-row { display: flex; gap: 12px; justify-content: center; }
-    .carousel-arrow--mobile { display: flex; }
-
-    /* Botón centrado dentro del inner normal */
-    .cta-wrap--desktop { display: flex; justify-content: center; margin-top: 16px; }
-  }
-
-  .cta-wrap { display: flex; justify-content: center; margin-top: 48px; }
   .cta-btn {
     display: inline-block;
-    background: #000; color: #fff;
-    padding: 14px 40px; border-radius: 9999px;
-    font-size: 15px; font-weight: 400;
-    letter-spacing: 0.12em;
-    text-decoration: none; text-transform: uppercase;
-    transition: opacity 0.2s, transform 0.2s;
+    background: #000;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 9999px;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: opacity 0.2s;
   }
-  .cta-btn:hover { opacity: 0.75; transform: translateY(-1px); }
+  .cta-btn:hover { opacity: 0.75; }
+
+  /* ══════════════════════════════════════
+     MOBILE
+  ══════════════════════════════════════ */
+  .mobile-controls { display: none; }
+  .c-arrow--mob-prev,
+  .c-arrow--mob-next { display: none; }
+
+  @media (max-width: 767px) {
+    /* FAQ en columna */
+    .faq-grid { flex-direction: column; gap: 0; margin-bottom: 40px; }
+    .faq-col::before { display: none; }
+    .faq-col { border-bottom: 1px solid rgba(0,0,0,0.12); }
+    .faq-trigger {
+      padding: 16px 0;
+      font-size: 14px;
+      white-space: normal;
+      line-height: 1.3;
+    }
+    .faq-card-wrap {
+      position: relative;
+      top: auto; left: auto;
+      width: 100% !important;
+    }
+
+    /* Cards más anchas en mobile — width fijo para que no sean flex:1 */
+    .alumni-card { flex: none; width: 80vw; }
+
+    /* Flechas desktop ocultas, mobile visibles */
+    .c-arrow--prev, .c-arrow--next { display: none; }
+    .mobile-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .mobile-arrows { display: flex; gap: 12px; }
+    .c-arrow--mob-prev, .c-arrow--mob-next { display: flex; }
+
+    /* Track sin padding lateral en mobile — las cards empiezan en el margen */
+    .carousel-track {
+      padding-left: clamp(24px, 5vw, 40px);
+      padding-right: clamp(24px, 5vw, 40px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .esp-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
 <script>
   // ══════════════════════════════════════
-  // FAQ — doble ancho al abrir
+  // FAQ — modal al ancho del section-inner
   // ══════════════════════════════════════
-  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
-  const TOTAL_COLS = 4;
+  const faqGrid   = document.getElementById('faq-grid') as HTMLElement;
+  const peInner   = document.querySelector<HTMLElement>('.pe-inner');
+  const triggers  = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+  function setModalWidth() {
+    if (!peInner) return;
+    const w = peInner.offsetWidth;
+    document.querySelectorAll<HTMLElement>('.faq-card-wrap').forEach(wrap => {
+      wrap.style.setProperty('--modal-width', w + 'px');
+    });
+  }
+  setModalWidth();
+  window.addEventListener('resize', setModalWidth);
 
   triggers.forEach((trigger, idx) => {
     const wrap = document.getElementById(`faq-wrap-${idx}`);
+    const col  = trigger.closest<HTMLElement>('.faq-col');
 
     trigger.addEventListener('click', () => {
       const isOpen = trigger.getAttribute('aria-expanded') === 'true';
@@ -737,33 +737,29 @@ const testimonials = [
       triggers.forEach((t, i) => {
         t.setAttribute('aria-expanded', 'false');
         const w = document.getElementById(`faq-wrap-${i}`);
-        w?.classList.remove('open', 'double', 'flip');
+        if (w) { w.classList.remove('open', 'flip'); w.style.left = ''; w.style.right = ''; }
       });
 
-      if (!isOpen && wrap) {
+      if (!isOpen && wrap && col && peInner) {
         trigger.setAttribute('aria-expanded', 'true');
         wrap.classList.add('open');
 
-        // Solo en desktop: doble ancho
         if (window.innerWidth >= 768) {
-          wrap.classList.add('double');
-          // Si es la última columna (o penúltima y no hay espacio derecho),
-          // expandimos hacia la izquierda
-          if (idx >= TOTAL_COLS - 1) {
-            wrap.classList.add('flip');
-          }
+          // Posicionar el modal desde el borde izquierdo del inner
+          const colLeft = col.offsetLeft;
+          wrap.style.left = `-${colLeft}px`;
+          wrap.style.right = 'auto';
         }
       }
     });
   });
 
-  // Cierra al hacer clic fuera
   document.addEventListener('click', (e) => {
-    const grid = document.querySelector('.faq-grid');
-    if (!grid?.contains(e.target as Node)) {
+    if (!faqGrid?.contains(e.target as Node)) {
       triggers.forEach((t, i) => {
         t.setAttribute('aria-expanded', 'false');
-        document.getElementById(`faq-wrap-${i}`)?.classList.remove('open', 'double', 'flip');
+        const w = document.getElementById(`faq-wrap-${i}`);
+        if (w) { w.classList.remove('open', 'flip'); w.style.left = ''; w.style.right = ''; }
       });
     }
   });
@@ -771,43 +767,50 @@ const testimonials = [
   // ══════════════════════════════════════
   // CARRUSEL
   // ══════════════════════════════════════
-  const track   = document.getElementById('carousel-track') as HTMLElement;
-  const prevBtn = document.getElementById('arrow-prev')     as HTMLButtonElement;
-  const nextBtn = document.getElementById('arrow-next')     as HTMLButtonElement;
-  const cards   = document.querySelectorAll<HTMLElement>('.alumni-card');
+  const track    = document.getElementById('carousel-track') as HTMLElement;
+  const prevBtn  = document.getElementById('arrow-prev')     as HTMLButtonElement;
+  const nextBtn  = document.getElementById('arrow-next')     as HTMLButtonElement;
+  const cards    = document.querySelectorAll<HTMLElement>('.alumni-card');
+  const mobPrev  = document.querySelector<HTMLButtonElement>('.c-arrow--mob-prev');
+  const mobNext  = document.querySelector<HTMLButtonElement>('.c-arrow--mob-next');
+
   let current = 0;
   const total = cards.length;
 
-  function step() { return cards[0] ? cards[0].offsetWidth + 12 : 260; }
+  function cardStep() {
+    const card = cards[0];
+    if (!card) return 260;
+    const gap = parseFloat(getComputedStyle(track).gap) || 16;
+    return card.offsetWidth + gap;
+  }
 
   function goTo(i: number) {
     current = Math.max(0, Math.min(i, total - 1));
-    track.style.transform = `translateX(-${current * step()}px)`;
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === total - 1;
+    track.style.transform = `translateX(-${current * cardStep()}px)`;
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current >= total - 1;
+    if (mobPrev) mobPrev.disabled = current === 0;
+    if (mobNext) mobNext.disabled = current >= total - 1;
   }
 
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  mobPrev?.addEventListener('click', () => goTo(current - 1));
+  mobNext?.addEventListener('click', () => goTo(current + 1));
 
-  // Wire mobile arrows too
-  const mobilePrevBtns = document.querySelectorAll<HTMLButtonElement>('.carousel-arrow--mobile');
-  if (mobilePrevBtns.length >= 2) {
-    mobilePrevBtns[0].addEventListener('click', () => goTo(current - 1));
-    mobilePrevBtns[1].addEventListener('click', () => goTo(current + 1));
-  }
-
+  // Touch swipe
   let tx = 0;
   track.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
+  track.addEventListener('touchend', e => {
     const diff = tx - e.changedTouches[0].screenX;
     if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
   }, { passive: true });
 
+  // Toggle card back on click/tap
   cards.forEach(card => {
     card.addEventListener('click', e => {
       const closeBtn = card.querySelector('.card-close');
-      if (e.target === closeBtn || closeBtn?.contains(e.target as Node)) {
+      if (closeBtn?.contains(e.target as Node)) {
         card.classList.remove('expanded');
         return;
       }

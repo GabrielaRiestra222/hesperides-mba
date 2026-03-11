@@ -83,6 +83,9 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+    margin-top: 0px;
+    margin-left: 80px;
+
   }
 
   /* ── Título ── */
@@ -94,6 +97,7 @@
     letter-spacing: 0;
     color: #1a1a1a;
     margin: 0 0 clamp(20px, 2.5vw, 40px);
+    margin-bottom: 60px;
   }
 
   .campus-titulo strong {
@@ -111,6 +115,7 @@
     color: #1a1a1a;
     margin: 0 0 16px;
     max-width: 612px;
+    margin-bottom: 40px;
   }
 
   .campus-parrafo:last-of-type {
@@ -145,28 +150,34 @@
   .campus-boton-wrap {
     display: flex;
     justify-content: center;
+    margin-left: -90px;
   }
 
   .campus-boton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 250px;
-    height: 47px;
-    border-radius: 29.33px;
-    padding: 16px 18px;
-    background: #1a1a1a;
-    color: #ffffff;
-    font-family: "Noto Sans HK", sans-serif;
-    font-weight: 500;
-    font-size: 13.33px;
-    line-height: 100%;
-    letter-spacing: 0.07em;
-    text-decoration: none;
-    text-align: center;
-    transition: background 0.2s ease, color 0.2s ease;
-    white-space: nowrap;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: rgba(26, 26, 26, 0.88);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,0,0,0.18),
+    0 4px 16px rgba(0,0,0,0.18);
+  color: #fff;
+  font-family: "Noto Sans HK", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
 
   .campus-boton:hover {
     background: #f5c800;
@@ -178,6 +189,7 @@
     display: flex;
     flex-direction: column;
     gap: clamp(24px, 3vw, 48px);
+    margin-left: -10px;
   }
 
   /* ── Foto derecha (tall) ── */
@@ -187,6 +199,7 @@
     height: clamp(360px, 41.4vw, 795px);
     border-radius: 32px;
     overflow: hidden;
+    margin-top: clamp(10px, 0vw, 230px);
   }
 
   .campus-foto-dcha img {
@@ -195,11 +208,13 @@
     object-fit: cover;
     object-position: center;
     display: block;
+
   }
 
   /* ── Vida social ── */
   .campus-vida {
     max-width: 596px;
+    
   }
 
   .campus-vida-titulo {

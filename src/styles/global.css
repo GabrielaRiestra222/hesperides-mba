@@ -1,2 +1,115 @@
-@import "tailwindcss";
+@import "tailwindcss"
 
+/* ============================================================
+   GLOBAL.CSS — Universidad de las Hespérides MBA Landing
+   Viewport de diseño: 1920px
+   Márgenes laterales: 320px a cada lado en 1920px
+   Ancho de contenido: 1280px centrado
+   ============================================================ */
+
+/* ── Reset básico ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tipografía global — Noto Sans HK ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;200;300;400;500;700;900&display=swap');
+
+html {
+  font-family: "Noto Sans HK", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Noto Sans HK", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   SISTEMA DE MÁRGENES GLOBAL
+   
+   Uso: añadir clase .section-inner dentro de cada <section>
+   Excepciones sin .section-inner: Header, Hero, Footer
+   ============================================================ */
+
+.section-inner {
+  /* Ancho máximo del contenido: 1920 - 320*2 = 1280px */
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Padding lateral fluido:
+     - En 1920px: 320px (16.67vw)
+     - Mínimo en móvil: 24px
+     - Se expresa como padding para que funcione
+       aunque el contenedor sea más ancho que 1280px */
+  padding-left: clamp(24px, 16.67vw, 320px);
+  padding-right: clamp(24px, 16.67vw, 320px);
+}
+
+/* Variante: sección que ocupa todo el ancho
+   pero restringe el contenido interior */
+.section-inner--wide {
+  max-width: 1920px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(24px, 16.67vw, 320px);
+  padding-right: clamp(24px, 16.67vw, 320px);
+}
+
+/* ============================================================
+   SECCIONES — estructura base
+   Cada <section> ocupa el 100% del ancho
+   El contenido va dentro de .section-inner
+   ============================================================ */
+
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* ============================================================
+   COLORES GLOBALES
+   ============================================================ */
+:root {
+  --color-amarillo: #FFCD00;
+  --color-negro: #0B0B0B;
+  --color-blanco: #ffffff;
+  --color-gris-claro: #F5F4F4;
+}
+
+/* ============================================================
+   TIPOGRAFÍA GLOBAL — escala
+   ============================================================ */
+
+/* Título grande: 64px en 1920px */
+.text-hero    { font-size: clamp(32px, 3.33vw, 64px); font-weight: 500; line-height: 1.1; }
+
+/* Título sección: 45px en 1920px */
+.text-section { font-size: clamp(24px, 2.34vw, 45px); font-weight: 500; line-height: 1.2; }
+
+/* Título medio: 40px en 1920px */
+.text-title   { font-size: clamp(22px, 2.08vw, 40px); font-weight: 500; line-height: 35px; }
+
+/* Subtítulo: 24px en 1920px */
+.text-sub     { font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; line-height: 28px; }
+
+/* Cuerpo: 20px en 1920px */
+.text-body    { font-size: clamp(14px, 1.04vw, 20px); font-weight: 200; line-height: 28px; letter-spacing: 1px; }
+
+/* Pequeño: 17px en 1920px */
+.text-small   { font-size: clamp(13px, 0.885vw, 17px); font-weight: 200; line-height: 21px; }
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+
+.color-amarillo { color: var(--color-amarillo); }
+.color-negro    { color: var(--color-negro); }
+.color-blanco   { color: var(--color-blanco); }
+
+.fw-300 { font-weight: 300; }
+.fw-500 { font-weight: 500; }
+.fw-700 { font-weight: 700; }

@@ -1,6 +1,5 @@
 ---
 // Avales.astro — Sección "Nuestros avales se presentan solos"
-// Carousel con flechas, 4 cards visibles, animación slide
 
 const avales = [
   {
@@ -27,24 +26,6 @@ const avales = [
     foto: "/img/4-Bryan-caplan.jpg",
     texto: '"La estructura del plan de estudios de este programa se ajusta —e incluso mejora— las mejores prácticas actuales, lo que convierte a estos programas en propuestas potencialmente valiosas dentro de la oferta académica existente."',
   },
- /* {
-    nombre: "Javier El-Hage",
-    cargo: "Director Legal Internacional de Human Rights Foundation",
-    foto: "/images/avales/javier-el-hage.jpg",
-    texto: '"Sé que Hespérides es una universidad que apoya la libertad económica y la libertad política en general. Aquí hay muchas personas que saben de economía y entienden que cuestiones como los impuestos a los \'super ricos\' tienen una naturaleza económica compleja y no son fáciles de resolver."',
-  },
-  {
-    nombre: "Javier Fernández-Samaniego",
-    cargo: "Conciliador CIADI del Banco Mundial",
-    foto: "/images/avales/javier-samaniego.jpg",
-    texto: "Javier Fernández-Samaniego destaca la importancia de integrar la propiedad intelectual en el ámbito de la innovación y subraya el reto que el avance tecnológico plantea para la regulación.",
-  },
-  {
-    nombre: "Jerry L. Jordan",
-    cargo: "Presidente de la Reserva Federal, Cleveland (1992-2003)",
-    foto: "/images/avales/jerry-jordan.jpg",
-    texto: "Jerry Jordan ha puesto el foco en la formación rigurosa en análisis financiero, monetario y bancario, subrayando la importancia de comprender la liquidez y las oportunidades de inversión en las distintas fases del ciclo económico.",
-  },*/
   {
     nombre: "John B. Taylor",
     cargo: "Cátedra Mary and Robert Raymond, Stanford University",
@@ -99,24 +80,19 @@ const avales = [
 <section class="avales-section">
   <div class="avales-inner">
 
-   
-
-    <!-- Carousel wrapper -->
     <div class="avales-carousel-wrap">
 
-      <!-- Flecha izquierda (desktop) -->
+      <!-- Flecha izquierda (desktop) — sale fuera del inner -->
       <button class="avales-arrow avales-arrow--prev avales-arrow--desktop" id="avales-prev" aria-label="Anterior">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
 
       <div class="avales-col">
-        <!-- Título -->
         <h2 class="avales-titulo">
           Nuestros avales<br />
           <strong>SE PRESENTAN SOLOS</strong>
         </h2>
 
-        <!-- Track -->
         <div class="avales-overflow">
           <div class="avales-track" id="avales-track">
             {avales.map((aval) => (
@@ -136,7 +112,6 @@ const avales = [
           </div>
         </div>
 
-        <!-- Flechas debajo (mobile) -->
         <div class="avales-arrows-row">
           <button class="avales-arrow avales-arrow--prev avales-arrow--mobile" aria-label="Anterior">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -147,7 +122,7 @@ const avales = [
         </div>
       </div>
 
-      <!-- Flecha derecha (desktop) -->
+      <!-- Flecha derecha (desktop) — sale fuera del inner -->
       <button class="avales-arrow avales-arrow--next avales-arrow--desktop" id="avales-next" aria-label="Siguiente">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.5 2L10.5 7.5L5.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -169,11 +144,12 @@ const avales = [
     align-items: center;
   }
 
+  /* ── Inner: sistema global de márgenes ── */
   .avales-inner {
-    max-width: 1920px;
+    max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(24px, 5vw, 80px);
+    padding: 0 clamp(24px, 16.67vw, 320px);
   }
 
   /* ── Título ── */
@@ -182,7 +158,6 @@ const avales = [
     font-weight: 500;
     font-size: clamp(28px, 2.3vw, 45px);
     line-height: 47px;
-    letter-spacing: 0;
     color: #1a1a1a;
     margin: 0;
   }
@@ -193,7 +168,7 @@ const avales = [
     white-space: nowrap;
   }
 
-  /* ── Carousel wrapper ── */
+  /* ── Carousel wrapper: flechas absolute fuera del inner ── */
   .avales-carousel-wrap {
     display: grid;
     grid-template-columns: 36px 1fr 36px;
@@ -202,7 +177,6 @@ const avales = [
     width: 100%;
   }
 
-  /* ── Columna título + track ── */
   .avales-col {
     flex: 1;
     min-width: 0;
@@ -251,17 +225,17 @@ const avales = [
   /* ── Track ── */
   .avales-track {
     display: flex;
-    gap: 42px;
+    gap: 20px;
     transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
-    padding-bottom: 16px; /* espacio para que se vea la sombra inferior */
+    padding-bottom: 16px;
   }
 
-  /* ── Card ── */
+  /* ── Card — altura fija, header fijo ── */
   .aval-card {
-    flex: 0 0 289px;
-    width: 289px;
-    min-height: 350px;
+    flex: 0 0 220px;
+    width: 220px;
+    height: 350px; /* altura fija — todas iguales */
     background: #fff;
     border-top-left-radius: 45px;
     border-top-right-radius: 0;
@@ -273,65 +247,70 @@ const avales = [
     flex-direction: column;
     gap: 16px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
-  /* ── Header card ── */
   .aval-header {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 12px;
-  }
-
-  /* ── Foto circular ── */
-  .aval-foto {
+    gap: 10px;
     flex-shrink: 0;
-    width: 103px;
-    height: 103px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #e8e8e8;
   }
 
-  .aval-foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-  }
-
-  /* ── Identidad ── */
   .aval-identidad {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 0;
+    min-width: 0; /* permite que el texto haga wrap sin romper el layout */
   }
 
+  /* Nombre — spec exacta */
   .aval-nombre {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 500;
-    font-size: 14.67px;
-    line-height: 19.56px;
-    letter-spacing: 0;
-    color: #1a1a1a;
+    font-size: 14.667px;
+    line-height: 19.556px;
+    color: #000;
     margin: 0;
+    word-break: break-word;
   }
 
   .aval-cargo {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 200;
     font-size: 11px;
-    line-height: 19.56px;
-    letter-spacing: 0;
-    color: #1a1a1a;
-    margin: 0;
+    line-height: 13px;
+    color: #000;
+    margin-top: 5px;
+    word-break: break-word;
   }
 
-  /* ── Texto ── */
+  /* Foto: 103px fija, nunca varía */
+  .aval-foto {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 103px;
+    height: 103px;
+    min-width: 103px;
+    min-height: 103px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e8e8e8;
+  }
+
+  .aval-foto img {
+    width: 103px;
+    height: 103px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
   .aval-texto {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 300;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.02em;
     color: #1a1a1a;
@@ -339,13 +318,12 @@ const avales = [
     flex: 1;
   }
 
-  /* ── Responsive ── */
+  /* ── Responsive — SIN TOCAR ── */
   @media (max-width: 860px) {
     .avales-section { min-height: unset; padding: 48px 0; }
     .avales-inner { padding: 0 20px; overflow: hidden; }
     .avales-titulo { font-size: 28px; line-height: 36px; }
 
-    /* Reset grid → flex column */
     .avales-carousel-wrap {
       display: flex;
       flex-direction: column;
@@ -353,7 +331,6 @@ const avales = [
       gap: 0;
     }
 
-    /* Ocultar flechas desktop, mostrar fila mobile */
     .avales-arrow--desktop { display: none !important; }
     .avales-arrows-row {
       display: flex;
@@ -365,7 +342,6 @@ const avales = [
 
     .avales-col { width: 100%; overflow: hidden; }
 
-    /* 1 card + asomo de la siguiente */
     .aval-card {
       flex: 0 0 80vw;
       width: 80vw;
@@ -392,11 +368,10 @@ const avales = [
     function getStep(): number {
       return window.innerWidth <= 860
         ? window.innerWidth * 0.80 + 12
-        : 289 + 42;
+        : 220 + 20;
     }
     const totalCards = track.children.length;
 
-    // Cards visibles según ancho
     function getVisible(): number {
       const w = window.innerWidth;
       if (w >= 1400) return 4;
@@ -427,7 +402,6 @@ const avales = [
 
     window.addEventListener('resize', () => goTo(Math.min(current, maxIndex())));
 
-    // Touch swipe
     let touchStartX = 0;
     let touchEndX = 0;
     const overflow = track.parentElement as HTMLElement;
