@@ -23,37 +23,37 @@ const {
       <span class="hero-tag">{tag}</span>
       <h1 class="hero-title">{title}</h1>
       <p class="hero-description">{description}</p>
-
+      <!-- CTAs visibles solo en móvil/vertical -->
+      <div class="hero-buttons">
+        <button class="hero-cta-btn" id="hero-open-modal">QUIERO HACERLO</button>
+      </div>
     </div>
 
-    <!-- RIGHT — tarjeta amarilla con formulario -->
+    <!-- RIGHT — tarjeta amarilla con formulario (desktop) -->
     <div class="hero-right">
       <div class="hero-card">
-        <!-- Foto del director sobre la tarjeta -->
         <div class="hero-card-photo">
           <img src="/img/hero-director.jpg" alt="Director MBA" />
-        <button class="hero-card-play" aria-label="Reproducir vídeo" id="hero-play-btn"></button>
+          <button class="hero-card-play" aria-label="Reproducir vídeo" id="hero-play-btn"></button>
         </div>
-        <!-- Formulario -->
         <div class="hero-form-wrap">
           <p class="hero-form-title">CONTACTA CON UN ASESOR ACADÉMICO</p>
-          <form class="hero-form">
+          <form class="hero-form" id="mba-form-desktop">
             <div class="form-row">
-              <input type="text" placeholder="Nombre" />
-              <input type="text" placeholder="Apellidos" />
+              <input type="text" name="nombre" placeholder="Nombre" required />
+              <input type="text" name="apellidos" placeholder="Apellidos" required />
             </div>
             <div class="form-row">
-              <input type="email" placeholder="Correo electrónico" />
-              <input type="tel" placeholder="Teléfono" />
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+              <input type="tel" name="telefono" placeholder="Teléfono" required />
             </div>
             <div class="form-row">
-              <input type="text" placeholder="Provincia" />
-              <input type="text" placeholder="País" />
+              <input type="text" name="provincia" placeholder="Provincia" required />
+              <input type="text" name="pais" placeholder="País" required />
             </div>
             <div class="form-footer">
               <label class="form-legal">
-                <input type="checkbox" />
-                <span>Acepto el <a href="#">aviso legal</a> y la <a href="#">política de privacidad</a></span>
+              <input type="checkbox" name="acepta" required />                <span>Acepto el <a href="#">aviso legal</a> y la <a href="#">política de privacidad</a></span>
               </label>
               <button type="submit" class="form-submit">ENVIAR SOLICITUD</button>
             </div>
@@ -64,14 +64,64 @@ const {
 
   </div>
 
+  <!-- Modal formulario — solo formulario, sin foto -->
+  <div class="hero-modal-overlay" id="hero-modal" aria-hidden="true">
+    <div class="hero-modal-card">
+      <button class="hero-modal-close" id="hero-close-modal" aria-label="Cerrar">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="hero-form-wrap">
+        <p class="hero-form-title">CONTACTA CON UN ASESOR ACADÉMICO</p>
+        <form class="hero-form" id="mba-form-modal">
+          <div class="form-row">
+            <input type="text" name="nombre" placeholder="Nombre" required />
+            <input type="text" name="apellidos" placeholder="Apellidos" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <input type="tel" name="telefono" placeholder="Teléfono" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="provincia" placeholder="Provincia" required />
+            <input type="text" name="pais" placeholder="País" required />
+          </div>
+          <div class="form-footer">
+            <label class="form-legal">
+              <input type="checkbox" name="acepta" required />              <span>Acepto el <a href="#">aviso legal</a> y la <a href="#">política de privacidad</a></span>
+            </label>
+            <button type="submit" class="form-submit">ENVIAR SOLICITUD</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom menu -->
+  <!-- Banda nav desktop -->
   <div class="hero-bottom-menu">
     <div class="hero-bottom-inner">
-      <a href="#">Descripción</a>
-      <a href="#">Programa</a>
-      <a href="#">Profesores</a>
-      <a href="#">Metodología</a>
-      <a href="#">Inscripción</a>
+      <a href="#descripcion">Descripción</a>
+      <a href="#programa">Programa</a>
+      <a href="#profesores">Profesores</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#inscripcion">Inscripción</a>
+    </div>
+  </div>
+
+  <div class="hero-info-marquee">
+    <div class="hero-marquee-track">
+      <div class="hero-marquee-item"><img src="/img/iconoir_graduation-cap.svg" alt="" /><span>Universitario</span></div>
+      <div class="hero-marquee-item"><img src="/img/iconoir_calendar.svg" alt="" /><span>Inicio Abril 2026</span></div>
+      <div class="hero-marquee-item"><img src="/img/iconoir_alarm.svg" alt="" /><span>1 año</span></div>
+      <div class="hero-marquee-item"><img src="/img/iconoir_modern-tv.svg" alt="" /><span>100% online</span></div>
+      <div class="hero-marquee-item"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 4.920 €</span></div>
+      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_graduation-cap.svg" alt="" /><span>Universitario</span></div>
+      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_calendar.svg" alt="" /><span>Inicio Abril 2026</span></div>
+      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_alarm.svg" alt="" /><span>1 año</span></div>
+      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_modern-tv.svg" alt="" /><span>100% online</span></div>
+      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 4.920 €</span></div>
     </div>
   </div>
 
@@ -104,7 +154,7 @@ const {
 
   /* Añade esto — tinte amarillo sobre el fondo */
   .hero-bg {
-    filter: sepia(60%) hue-rotate(5deg) saturate(2.5) brightness(0.75);
+    filter: sepia(50%) hue-rotate(5deg) saturate(2.0) brightness(0.55);
   }
 
   .hero-bg {
@@ -126,7 +176,7 @@ const {
       rgba(30, 25, 0, 0.92) 0%,
       rgba(48, 38, 0, 0.60) 35%,
       rgba(80, 64, 0, 0.25) 70%,
-      rgba(255, 205, 0, 0.10) 100%
+      rgba(196, 157, 0, 0.1) 100%
     );
   }
 
@@ -149,6 +199,7 @@ const {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
   }
 
   /* Tag amarillo */
@@ -203,11 +254,12 @@ const {
     align-items: flex-start;
     justify-content: flex-end;
     flex-shrink: 0;
+    margin-bottom: 30px;
   }
 
   .hero-card {
     position: relative;
-    width: 593px;
+    width: 420px;
     border-radius: 29.896px;
     background: #FFCD00;
     box-shadow: 0 7.972px 6.976px 4.983px rgba(0, 0, 0, 0.25);
@@ -217,10 +269,9 @@ const {
   /* Foto encima de la tarjeta */
   .hero-card-photo {
     position: relative;
-    width: 593px;
-    height: 330px;
-    aspect-ratio: 115/64;
-    border-radius: 29.896px 29.896px 0 0;
+    width: 100%;
+    height: 235px;
+    border-radius: 29.896px;
     overflow: hidden;
     background: lightgray -62.769px -44.55px / 121.17% 127% no-repeat;
     background-image: url('/img/hero-director.jpg');
@@ -230,6 +281,9 @@ const {
 
   .hero-card-photo img {
     display: none;
+    width: 500px;
+    height: 180px;
+
   }
 
   .hero-card-play {
@@ -288,27 +342,32 @@ const {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
+  
 
   .hero-form input[type="text"],
   .hero-form input[type="email"],
   .hero-form input[type="tel"] {
     width: 100%;
     height: 36px;
-    border: 1px solid rgba(0,0,0,0.25);
+    border: 1px solid rgba(255, 255, 255, 0.847);
     border-radius: 999px;
-    background: rgba(255,255,255,0.6);
+    background: #ffcd00;
     padding: 0 12px;
     font-family: "Noto Sans HK", sans-serif;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 500;
     color: #1a1a1a;
     box-sizing: border-box;
     outline: none;
     transition: border-color 0.2s;
+    box-shadow: 1.993px 0 3.986px 0 rgba(0, 0, 0, 0.25);
+
   }
 
   .hero-form input::placeholder {
-    color: rgba(0,0,0,0.45);
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   .hero-form input:focus {
@@ -329,8 +388,8 @@ const {
     align-items: center;
     gap: 6px;
     font-family: "Noto Sans HK", sans-serif;
-    font-size: 10px;
-    font-weight: 300;
+    font-size: 11px;
+    font-weight: 400;
     color: #1a1a1a;
     line-height: 1.4;
     cursor: pointer;
@@ -343,7 +402,7 @@ const {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 1.5px solid #1a1a1a;
+    border: 1.5px solid #fffdfd;
     background: transparent;
     cursor: pointer;
     position: relative;
@@ -392,6 +451,9 @@ const {
     background: #333;
   }
 
+  /* ── Info marquee (mobile only) — oculto en desktop ── */
+  .hero-info-marquee { display: none; }
+
   /* ── Bottom menu ── */
   .hero-bottom-menu {
     position: relative;
@@ -429,57 +491,179 @@ const {
     opacity: 1;
   }
 
-  /* ── Responsive desktop: quitar botones CTA ── */
+  /* ── Modal overlay ── */
+  .hero-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .hero-modal-overlay.open {
+    display: flex;
+  }
+  .hero-modal-card {
+    position: relative;
+    background: #FFCD00;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 440px;
+    max-height: 90svh;
+    overflow-y: auto;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.35);
+  }
+  .hero-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.25);
+    background: transparent;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .hero-modal-close:hover { background: rgba(0,0,0,0.1); }
+  .hero-modal-photo {
+    width: 100% !important;
+    height: 220px !important;
+    border-radius: 24px 24px 0 0 !important;
+    background-position: center top !important;
+    background-size: cover !important;
+  }
+
+  /* ── Desktop: botón CTA oculto, card visible ── */
   .hero-buttons { display: none; }
+  .hero-modal-overlay { display: none; }
 
   @media (max-width: 1200px) {
     .hero-content { grid-template-columns: 1fr; }
     .hero-right { justify-content: center; }
-    .hero-card { width: 100%; max-width: 593px; }
+    .hero-card { width: 100%; max-width: 500px; }
   }
 
-  @media (max-width: 860px) {
+  /* ── Móvil / pantallas verticales ── */
+  @media (max-width: 900px) {
     .hero { min-height: 100svh; }
 
     .hero-content {
       grid-template-columns: 1fr;
-      padding: 32px 20px 24px;
+      padding: 32px 50px 24px;
       gap: 24px;
       align-items: flex-start;
     }
 
-    /* Texto primero, tarjeta después */
-    .hero-left  { order: 1; }
-    .hero-right { order: 2; }
+    /* Botón CTA */
+    .hero-buttons {
+      display: flex;
+      margin-top: 8px;
+    }
+    .hero-cta-btn {
+      background: #FFCD00;
+      color: #1a1a1a;
+      font-family: "Noto Sans HK", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-cta-btn:hover { background: #fff; }
+
+    /* Tarjeta: mostrar solo la foto del vídeo, ocultar formulario */
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+      margin-top: 16px;
+    }
+    .hero-card {
+      width: 100%;
+      max-width: none;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .hero-card-photo {
+      height: 250px;
+      border-radius: 20px;
+    }
+    .hero-right { margin-bottom: 32px; }
+    .hero-card .hero-form-wrap { display: none; }
+    .hero-modal-card .hero-form-wrap { display: block; }
 
     /* Texto */
     .hero-tag  { font-size: 18px; line-height: 16px; letter-spacing: 0.08em; white-space: pre-line; }
-    .hero-title { font-size: 34px; line-height: 38px; white-space: normal; font-weight: 400; }
-    .hero-description { font-size: 15px; line-height: 22px; max-width: 80%; padding-bottom: 20px; }
+    .hero-title { font-size: 31px; line-height: 36px; white-space: pre-line; font-weight: 400; }
+    .hero-description { font-size: 15px; line-height: 22px; max-width: 80%; padding-bottom: 8px; }
 
-    /* Tarjeta: full width centrada */
-    .hero-right { justify-content: center; width: 100%; }
-    .hero-card  { width: 100%; max-width: 100%; border-radius: 20px; }
-    .hero-card-photo {
-      width: 100%;
-      height: 200px;
-      border-radius: 20px 20px 0 0;
-      background-position: center top;
-      background-size: cover;
-    }
-
-    /* Formulario */
-    .hero-form-wrap { padding: 20px; }
+    /* Modal formulario */
+    .hero-modal-card .hero-form-wrap { padding: 20px; }
     .hero-form-title { font-size: 15px; }
     .form-row { grid-template-columns: 1fr; }
     .form-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
     .form-submit { width: 100%; text-align: center; }
+
+    /* Ocultar nav del hero, mostrar marquee info */
+    .hero-bottom-menu { display: none; }
+    .hero-info-marquee {
+      display: flex;
+      width: 100%;
+      height: 53px;
+      background: #0B0B0B;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: max-content;
+      animation: hero-marquee 14s linear infinite;
+    }
+    @keyframes hero-marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .hero-marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Noto Sans HK", sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: #fff;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .hero-marquee-item img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      display: block;
+      opacity: 0.85;
+    }
 
     /* Bottom menu scroll */
     .hero-bottom-inner {
       gap: 10px;
       overflow-x: auto;
       justify-content: flex-start;
+      padding: 0 50px;
       scrollbar-width: none;
     }
     .hero-bottom-inner::-webkit-scrollbar { display: none; }
@@ -488,11 +672,102 @@ const {
 </style>
 
 <script>
-  const playBtn = document.getElementById('hero-play-btn');
-  if (playBtn) {
-    playBtn.addEventListener('click', () => {
-      // Open YouTube video in new tab
-      window.open('https://youtu.be/0ZyIsN9-sHg', '_blank', 'noopener,noreferrer');
-    });
-  }
+  // Video: botón play
+  const videoUrl = 'https://youtu.be/0ZyIsN9-sHg';
+  document.getElementById('hero-play-btn')?.addEventListener('click', () => {
+    window.open(videoUrl, '_blank', 'noopener,noreferrer');
+  });
+
+  // Modal formulario
+  const modal    = document.getElementById('hero-modal');
+  const openBtn  = document.getElementById('hero-open-modal');
+  const closeBtn = document.getElementById('hero-close-modal');
+
+  function openModal()  { modal?.classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function closeModal() { modal?.classList.remove('open'); document.body.style.overflow = ''; }
+
+  openBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
+<script>
+const forms = document.querySelectorAll(".hero-form");
+
+forms.forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const f = new FormData(form);
+
+    const data = {
+      First_Name: f.get("nombre"),
+      Last_Name: f.get("apellidos"),
+      Email: f.get("email"),
+      Mobile: f.get("telefono"),
+
+      Pa_s: f.get("pais"),
+      Provincia: f.get("provincia"),
+      Provincia_extranjera: "",
+
+      Edicion_de_interes: "Otoño 2026",
+      Conoce_el_precio_del_programa: "Sí",
+
+      Escuela: "U. Hespérides",
+      Nombre_de_formulario: "Flotante-h",
+      Lead_Status: "0. No contactado",
+      Lead_Source: "Formulario web",
+      Acepto_pol_tica_de_privacidad: "De acuerdo",
+      Centro: "Escuela de Postgrado",
+
+      Dominio_web_pais: "España",
+      Codigo_titulacion_formulario: "MUADE",
+      Titulaci_n_de_inter_s: "MUADE",
+
+      Direcci_n_IP: "",
+      Fecha_hora_de_aceptaci_n: new Date().toISOString(),
+
+      Tipo_dispositivo:
+        /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
+          ? "Móvil"
+          : "PC/Tablet",
+
+      utm_campaign: "",
+      utm_content: "",
+      utm_medium: "",
+      utm_source: "",
+      utm_term: "",
+
+      campaign_id: "",
+      adset_id: "",
+      ad_id: "",
+
+      Layout: "499060000000032033"
+    };
+
+    try {
+      const res = await fetch(
+        "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+
+      if (res.ok) {
+        alert("Solicitud enviada correctamente");
+        form.reset();
+      } else {
+        alert("Error al enviar el formulario");
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Error de conexión");
+    }
+  });
+});
 </script>

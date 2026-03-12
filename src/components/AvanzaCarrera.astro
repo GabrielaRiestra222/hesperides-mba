@@ -1,14 +1,14 @@
 ---
 // AvanzaCarrera.astro
 const features = [
-  { titulo: "Título\nEuropeo", destacado: "Oficial" },
-  { titulo: "Plazas\n ",       destacado: "Limitadas" },
-  { titulo: "Metodología\ndel Caso" },
+  { titulo: "Título", destacado: "Europeo ", boldSuffix: "Oficial" },
+  { titulo: "Plazas",       destacado: "Limitadas" },
+  { titulo: "Metodología", destacado:"del Caso" },
   { titulo: "91%\n ",          destacado: "Satisfacción académica", bigNumber: true },
 ];
 ---
 
-<section class="avanza-section">
+<section class="avanza-section" id="descripcion">
   <div class="avanza-card">
 
     <p class="avanza-titulo">
@@ -24,6 +24,11 @@ const features = [
               ? <>
                   <span class="feature-big">{f.titulo.split('\n')[0]}</span>
                   <span class="feature-regular">{f.destacado}</span>
+                </>
+              : f.boldSuffix
+              ? <>
+                  <span class="feature-normal">{f.titulo}</span>
+                  <span class="feature-normal">{f.destacado}<span class="feature-bold">{f.boldSuffix}</span></span>
                 </>
               : f.destacado
               ? <>
@@ -54,7 +59,7 @@ const features = [
     background: transparent;
     display: flex;
     justify-content: center;
-    padding: clamp(40px, 5vw, 80px) clamp(20px, 6.77vw, 130px) 0;
+    padding: clamp(40px, 5vw, 80px) clamp(70px, 6.77vw, 150px) 0;
     box-sizing: border-box;
     position: relative;
     z-index: 2;
@@ -65,7 +70,7 @@ const features = [
   .avanza-card {
     width: min(1285px, 100%);
     min-height: 579px;
-    border-radius: 65px;
+    border-radius: 85px;
     border: 2px solid #FFCD00;
     background: rgba(255, 255, 255, 0.50);
     backdrop-filter: blur(3.634px);
@@ -84,9 +89,9 @@ const features = [
   /* ── Título ── */
   .avanza-titulo {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     font-size: clamp(24px, 2.34vw, 45px);
-    line-height: 1.2;
+    line-height: 40px;
     color: #000;
     text-align: center;
     margin: 0;
@@ -109,9 +114,9 @@ const features = [
 
   /* ── Card feature ── */
   .feature-card {
-    width: clamp(140px, 13vw, 220px);
-    height: 176px;
-    border-radius: 30px;
+    width: clamp(180px, 16vw, 280px);
+    height: 180px;
+    border-radius: 40px;
     border: 2px solid #FFCD00;
     background: #fff;
     box-sizing: border-box;
@@ -122,21 +127,23 @@ const features = [
     padding: 20px;
   }
 
-  /* Inner: columna, título arriba bold, subtítulo abajo */
+  /* Inner: columna, alineado a la izquierda */
   .feature-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    text-align: left;
+    gap: 4px;
   }
 
   .feature-normal {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 400;
-    font-size: clamp(14px, 1.1vw, 20px);
-    line-height: 1.3;
+    font-size: 24px;
+    line-height: 20px;
     color: #000;
     white-space: pre-line;
   }
@@ -144,8 +151,8 @@ const features = [
   .feature-bold {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 700;
-    font-size: clamp(14px, 1.1vw, 20px);
-    line-height: 1.3;
+    font-size: 24px;
+    line-height: 27px;
     color: #000;
   }
 
@@ -153,8 +160,8 @@ const features = [
   .feature-big {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 700;
-    font-size: clamp(32px, 2.8vw, 52px);
-    line-height: 1;
+    font-size: 37px;
+    line-height: 1.2;
     color: #000;
   }
 
@@ -162,7 +169,7 @@ const features = [
   .feature-regular {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 400;
-    font-size: clamp(13px, 1vw, 18px);
+    font-size: 24px;
     line-height: 1.3;
     color: #000;
   }
@@ -193,6 +200,31 @@ const features = [
   .avanza-cta:hover {
     background: #FFCD00;
     color: #000;
+  }
+
+  /* ── Responsive 1000px ── */
+  @media (max-width: 1000px) {
+    .avanza-section {
+      margin-bottom: -100px;
+    }
+    .feature-card {
+      width: clamp(120px, 11vw, 180px);
+      height: 160px;
+      border-radius: 28px;
+    }
+    .feature-normal,
+    .feature-bold,
+    .feature-regular {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .feature-big {
+      font-size: 30px;
+    }
+    .avanza-titulo {
+      font-size: clamp(20px, 2.5vw, 32px);
+      line-height: 1.3;
+    }
   }
 
   /* ── Responsive ── */

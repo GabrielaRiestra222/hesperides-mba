@@ -48,26 +48,28 @@
   .footer {
     width: 100%;
     background: #0e0e0e;
-    min-height: 324px;
-    display: flex;
+    padding: 56px 0;
+  }
+
+  /* ── Sistema global de márgenes (igual que Stats/.section-inner) ── */
+  .footer-inner {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 16.67vw, 320px);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    row-gap: 20px;
+    column-gap: clamp(20px, 2.5vw, 48px);
     align-items: center;
   }
 
-  .footer-inner {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    height: 324px;
-  }
-
-  /* ── Logo ── */
-  /* Logo centrado verticalmente, left ~277px en 1920 */
+  /* ── Logo — columna 1, fila 1+2, centrado verticalmente ── */
   .footer-logo {
-    position: absolute;
-    left: clamp(24px, 14.4vw, 277px);
-    top: 50%;
-    transform: translateY(-50%);
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: center;
   }
 
   .footer-logo img {
@@ -76,15 +78,14 @@
     display: block;
   }
 
-  /* ── RRSS — top: 72px, left: 1409px, width: 197px, gap: 24px ── */
+  /* ── RRSS — columna 3, fila 1 ── */
   .footer-rrss {
-    position: absolute;
-    top: 72px;
-    left: clamp(60%, 73.4vw, 1409px);
+    grid-column: 3;
+    grid-row: 1;
     display: flex;
     align-items: center;
     gap: 24px;
-    width: 197px;
+    justify-content: flex-end;
   }
 
   .footer-rrss a {
@@ -99,13 +100,10 @@
     opacity: 1;
   }
 
-  /* ── Links legales ── */
-  /* first: left 465px, last ends at 1604px → justify-content: space-between en ese rango */
+  /* ── Links legales — fila 2, desde col 2 hasta el margen derecho ── */
   .footer-links {
-    position: absolute;
-    top: 157px;
-    left: clamp(24px, 24.2vw, 465px);
-    right: clamp(24px, 16.5vw, 316px); /* 1920 - 1604 = 316px */
+    grid-column: 2 / 4;
+    grid-row: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -131,67 +129,50 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 1024px) {
+  @media (max-width: 860px) {
     .footer-inner {
-      position: static;
-      height: auto;
-      display: grid;
       grid-template-columns: auto 1fr;
       grid-template-rows: auto auto;
-      gap: 24px 16px;
-      padding: 40px clamp(24px, 5vw, 60px);
+      row-gap: 32px;
     }
 
     .footer-logo {
-      position: static;
-      transform: none;
       grid-column: 1;
       grid-row: 1;
+      align-self: auto;
     }
 
     .footer-rrss {
-      position: static;
       grid-column: 2;
       grid-row: 1;
-      justify-content: flex-end;
-      width: auto;
     }
 
     .footer-links {
-      position: static;
-      grid-column: 1 / 3;
+      grid-column: 2 / 3;
       grid-row: 2;
       justify-content: flex-start;
-      gap: 8px 32px;
+      gap: 8px 24px;
       flex-wrap: wrap;
     }
   }
 
   @media (max-width: 600px) {
-    .footer {
-      min-height: auto;
-    }
-
     .footer-inner {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto;
-      gap: 24px;
-      padding: 40px 24px;
+      row-gap: 24px;
+      padding: 0 24px;
     }
 
     .footer-logo {
       grid-column: 1;
       grid-row: 1;
-      padding-left: 150px;
-      padding-bottom: 20px;
     }
 
     .footer-rrss {
       grid-column: 1;
       grid-row: 2;
       justify-content: flex-start;
-      padding-left: 70px;
-       padding-bottom: 10px;
     }
 
     .footer-links {

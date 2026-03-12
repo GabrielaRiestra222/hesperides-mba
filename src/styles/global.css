@@ -18,6 +18,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,30 +34,17 @@ body {
    ============================================================ */
 
 .section-inner {
-  /* Ancho máximo del contenido: 1920 - 320*2 = 1280px */
-  max-width: 1280px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-
-  /* Padding lateral fluido:
-     - En 1920px: 320px (16.67vw)
-     - Mínimo en móvil: 24px
-     - Se expresa como padding para que funcione
-       aunque el contenedor sea más ancho que 1280px */
-  padding-left: clamp(24px, 16.67vw, 320px);
-  padding-right: clamp(24px, 16.67vw, 320px);
+  box-sizing: border-box;
+  padding-left: clamp(70px, 6.77vw, 150px);
+  padding-right: clamp(70px, 6.77vw, 150px);
 }
 
-/* Variante: sección que ocupa todo el ancho
-   pero restringe el contenido interior */
 .section-inner--wide {
-  max-width: 1920px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(24px, 16.67vw, 320px);
-  padding-right: clamp(24px, 16.67vw, 320px);
+  box-sizing: border-box;
+  padding-left: clamp(70px, 6.77vw, 150px);
+  padding-right: clamp(70px, 6.77vw, 150px);
 }
 
 /* ============================================================

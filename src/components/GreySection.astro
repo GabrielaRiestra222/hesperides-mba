@@ -34,7 +34,7 @@ const testimonials = [
 ];
 ---
 
-<section class="pe-section">
+<section class="pe-section" id="programa">
 
   <!-- ══════════════════════════════════════════
        FAQ — contenido dentro del margen global
@@ -42,118 +42,120 @@ const testimonials = [
   ══════════════════════════════════════════ -->
   <div class="section-inner pe-inner">
 
+    <!-- Fila de triggers -->
     <div class="faq-grid" id="faq-grid">
       {tabs.map((tab, i) => (
         <div class="faq-col" data-col={i}>
-
           <button class="faq-trigger" data-index={i} aria-expanded="false">
             <span class="faq-label">{tab.label}</span>
             <span class="faq-icon">+</span>
           </button>
-
-          <!-- Modal: se expande al ancho completo del .pe-inner -->
-          <div class="faq-card-wrap" id={`faq-wrap-${i}`} aria-hidden="true">
-            <div class="faq-card" id={`faq-card-${i}`}>
-
-              {tab.type === "plan" && (
-                <div class="card-plan">
-                  <div class="sem-header">PRIMER SEMESTRE</div>
-                  <table class="ptable">
-                    <thead><tr><th>Denominación de la asignatura</th><th>ECTS</th><th>Carácter</th></tr></thead>
-                    <tbody>
-                      <tr><td>Economía para los Negocios <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Análisis Financiero Aplicado <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Dirección Estratégica <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Estrategia de Innovación Empresarial <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Estrategia de Inversión <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Marketing Estratégico <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Liderazgo y Gestión de Equipos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Negocios y Ciclos Económicos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Metodologías de Investigación <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Pensamiento Económico y Social (inglés) <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                      <tr><td>Inteligencia Artificial Aplicada a la empresa</td><td>3</td><td>Obligatoria</td></tr>
-                      <tr class="sub"><td><strong>Créditos semestre</strong></td><td><strong>33</strong></td><td></td></tr>
-                    </tbody>
-                  </table>
-                  <div class="sem-header" style="margin-top:18px">SEGUNDO SEMESTRE</div>
-                  <table class="ptable">
-                    <thead><tr><th>Denominación de la asignatura</th><th>ECTS</th><th>Carácter</th></tr></thead>
-                    <tbody>
-                      <tr><td>Especialidad</td><td>18</td><td>Optativa</td></tr>
-                      <tr><td>Prácticas Académicas Externas <em>[PDF]</em></td><td>6</td><td>Prácticas externas</td></tr>
-                      <tr><td>Trabajo de Fin de Máster <em>[PDF]</em></td><td>6</td><td>TFM</td></tr>
-                      <tr class="sub"><td><strong>Créditos semestre 2</strong></td><td><strong>30</strong></td><td></td></tr>
-                    </tbody>
-                  </table>
-                  <div class="total-bar"><span>Créditos Totales</span><span>63</span></div>
-                  <div class="esp-grid">
-                    <div>
-                      <div class="esp-header">Especialidad en Finanzas</div>
-                      <table class="ptable">
-                        <thead><tr><th>Asignatura</th><th>ECTS</th></tr></thead>
-                        <tbody>
-                          <tr><td>Banca y Gestión de Patrimonios <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Fuentes de Financiación <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Instrumentos Financieros Derivados <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Inversión en Valor <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Opciones Reales <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Innovaciones Financieras <em>[PDF]</em></td><td>3</td></tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div>
-                      <div class="esp-header">Especialidad en Marketing</div>
-                      <table class="ptable">
-                        <thead><tr><th>Asignatura</th><th>ECTS</th></tr></thead>
-                        <tbody>
-                          <tr><td>Análisis del Comportamiento del Consumidor <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Psicología del Marketing <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Marketing móvil y Comercio Electrónico <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Creatividad y Herramientas de Imagen de Marca <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Estrategia Basada en Datos <em>[PDF]</em></td><td>3</td></tr>
-                          <tr><td>Redes Sociales e Inbound Marketing <em>[PDF]</em></td><td>3</td></tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {tab.type === "competencias" && (
-                <div class="card-text">
-                  <p>El proceso de aprendizaje de la Universidad de las Hespérides está diseñado para facilitar el crecimiento personal, el desarrollo de habilidades y el florecimiento intelectual para así tener las herramientas con que lograr el éxito en tu vida profesional.</p>
-                  <p class="q">¿Qué sabrás hacer con el Máster Universitario en Administración y Dirección de Empresas?</p>
-                  <p>Al terminar el programa de estudios, podrás crear estrategias de innovación que, sumadas a tu habilidad para estructurar equipos de trabajo eficientes, permitirán llevar tu visión empresarial a la realidad.</p>
-                </div>
-              )}
-
-              {tab.type === "creditos" && (
-                <div class="card-cred">
-                  <div class="cred-head"><span>Carácter</span><span>Créditos</span></div>
-                  <table class="ctable">
-                    <tbody>
-                      <tr><td>Obligatorias</td><td>30</td></tr>
-                      <tr><td>Optativas</td><td>18</td></tr>
-                      <tr><td>Prácticas externas</td><td>6</td></tr>
-                      <tr><td>Trabajo de Fin de Máster</td><td>6</td></tr>
-                      <tr class="ctotal"><td><strong>Total</strong></td><td><strong>60</strong></td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              )}
-
-              {tab.type === "practicas" && (
-                <div class="card-text">
-                  <p>Gracias a los convenios de colaboración de .h, podrás cursar tus prácticas externas curriculares del Máster Universitario al más alto nivel. Te podrás beneficiar de los acuerdos con la Fundación Universidad-Empresa, Lopesan Hotel Management, Binter Canarias, Banco Latinoamericano de Comercio Exterior y Domingo Alonso Group, entre otras.</p>
-                  <p>Al ser estudiante de .h, formarás parte del entorno colaborativo del Make Impact Consortium (MIC), liderado por el Massachusetts Institute of Technology (MIT).</p>
-                </div>
-              )}
-
-            </div>
-          </div>
         </div>
       ))}
     </div>
+
+    <!-- Cards en flujo, fuera del grid — empujan el contenido hacia abajo -->
+    {tabs.map((tab, i) => (
+      <div class="faq-card-wrap" id={`faq-wrap-${i}`} aria-hidden="true">
+        <div class="faq-card" id={`faq-card-${i}`}>
+
+          {tab.type === "plan" && (
+            <div class="card-plan">
+              <div class="sem-header">PRIMER SEMESTRE</div>
+              <table class="ptable">
+                <thead><tr><th>Denominación de la asignatura</th><th>ECTS</th><th>Carácter</th></tr></thead>
+                <tbody>
+                  <tr><td>Economía para los Negocios <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Análisis Financiero Aplicado <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Dirección Estratégica <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Estrategia de Innovación Empresarial <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Estrategia de Inversión <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Marketing Estratégico <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Liderazgo y Gestión de Equipos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Negocios y Ciclos Económicos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Metodologías de Investigación <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Pensamiento Económico y Social (inglés) <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
+                  <tr><td>Inteligencia Artificial Aplicada a la empresa</td><td>3</td><td>Obligatoria</td></tr>
+                  <tr class="sub"><td><strong>Créditos semestre</strong></td><td><strong>33</strong></td><td></td></tr>
+                </tbody>
+              </table>
+              <div class="sem-header" style="margin-top:18px">SEGUNDO SEMESTRE</div>
+              <table class="ptable">
+                <thead><tr><th>Denominación de la asignatura</th><th>ECTS</th><th>Carácter</th></tr></thead>
+                <tbody>
+                  <tr><td>Especialidad</td><td>18</td><td>Optativa</td></tr>
+                  <tr><td>Prácticas Académicas Externas <em>[PDF]</em></td><td>6</td><td>Prácticas externas</td></tr>
+                  <tr><td>Trabajo de Fin de Máster <em>[PDF]</em></td><td>6</td><td>TFM</td></tr>
+                  <tr class="sub"><td><strong>Créditos semestre 2</strong></td><td><strong>30</strong></td><td></td></tr>
+                </tbody>
+              </table>
+              <div class="total-bar"><span>Créditos Totales</span><span>63</span></div>
+              <div class="esp-grid">
+                <div>
+                  <div class="esp-header">Especialidad en Finanzas</div>
+                  <table class="ptable">
+                    <thead><tr><th>Asignatura</th><th>ECTS</th></tr></thead>
+                    <tbody>
+                      <tr><td>Banca y Gestión de Patrimonios <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Fuentes de Financiación <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Instrumentos Financieros Derivados <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Inversión en Valor <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Opciones Reales <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Innovaciones Financieras <em>[PDF]</em></td><td>3</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <div class="esp-header">Especialidad en Marketing</div>
+                  <table class="ptable">
+                    <thead><tr><th>Asignatura</th><th>ECTS</th></tr></thead>
+                    <tbody>
+                      <tr><td>Análisis del Comportamiento del Consumidor <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Psicología del Marketing <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Marketing móvil y Comercio Electrónico <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Creatividad y Herramientas de Imagen de Marca <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Estrategia Basada en Datos <em>[PDF]</em></td><td>3</td></tr>
+                      <tr><td>Redes Sociales e Inbound Marketing <em>[PDF]</em></td><td>3</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {tab.type === "competencias" && (
+            <div class="card-text">
+              <p>El proceso de aprendizaje de la Universidad de las Hespérides está diseñado para facilitar el crecimiento personal, el desarrollo de habilidades y el florecimiento intelectual para así tener las herramientas con que lograr el éxito en tu vida profesional.</p>
+              <p class="q">¿Qué sabrás hacer con el Máster Universitario en Administración y Dirección de Empresas?</p>
+              <p>Al terminar el programa de estudios, podrás crear estrategias de innovación que, sumadas a tu habilidad para estructurar equipos de trabajo eficientes, permitirán llevar tu visión empresarial a la realidad.</p>
+            </div>
+          )}
+
+          {tab.type === "creditos" && (
+            <div class="card-cred">
+              <div class="cred-head"><span>Carácter</span><span>Créditos</span></div>
+              <table class="ctable">
+                <tbody>
+                  <tr><td>Obligatorias</td><td>30</td></tr>
+                  <tr><td>Optativas</td><td>18</td></tr>
+                  <tr><td>Prácticas externas</td><td>6</td></tr>
+                  <tr><td>Trabajo de Fin de Máster</td><td>6</td></tr>
+                  <tr class="ctotal"><td><strong>Total</strong></td><td><strong>60</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {tab.type === "practicas" && (
+            <div class="card-text">
+              <p>Gracias a los convenios de colaboración de .h, podrás cursar tus prácticas externas curriculares del Máster Universitario al más alto nivel. Te podrás beneficiar de los acuerdos con la Fundación Universidad-Empresa, Lopesan Hotel Management, Binter Canarias, Banco Latinoamericano de Comercio Exterior y Domingo Alonso Group, entre otras.</p>
+              <p>Al ser estudiante de .h, formarás parte del entorno colaborativo del Make Impact Consortium (MIC), liderado por el Massachusetts Institute of Technology (MIT).</p>
+            </div>
+          )}
+
+        </div>
+      </div>
+    ))}
 
     <!-- TÍTULO carrusel — mucho más grande -->
     <h3 class="section-title">Nuestros alumnos ya conocen el éxito</h3>
@@ -180,8 +182,8 @@ const testimonials = [
                   <img src={t.img} alt={`Foto de ${t.name}`} class="card-photo" loading="lazy" />
                 </div>
                 <div class="card-front-body">
-                  <p class="cfname">{t.name}</p>
                   <p class="cfquote">"{t.text}"</p>
+                  <p class="cfname">{t.name}</p>
                 </div>
               </div>
               <div class="card-back">
@@ -260,27 +262,20 @@ const testimonials = [
   ══════════════════════════════════════ */
   .faq-grid {
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: clamp(48px, 5vw, 96px);
+    margin-bottom: 0;
   }
 
   .faq-col {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 auto;
     position: relative;
   }
 
   /* Línea separadora vertical — solo en trigger */
-  .faq-col:not(:first-child)::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    /* altura exacta del trigger */
-    height: 56px;
-    width: 1px;
-    background: rgba(0,0,0,0.3);
+  .faq-col:not(:first-child) .faq-trigger {
+    border-left: 1px solid rgba(0,0,0,0.3);
+    padding-left: clamp(8px, 1vw, 16px);
   }
 
   /* Trigger: label y + sin hueco extra */
@@ -290,26 +285,26 @@ const testimonials = [
     border: none;
     cursor: pointer;
     display: flex;
-    justify-content: flex-start ;
-    align-items: center;
-    padding: 14px 12px;
+    justify-content: flex-start;
+    align-items: flex-start;
     color: #000;
     font-family: "Noto Sans HK", sans-serif;
-    font-size: clamp(13px, 1.04vw, 20px);
+    font-size: clamp(15px, 1.7vw, 26px);
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     white-space: nowrap;
-    gap: 1px;
+    gap: 4px;
+    padding: clamp(12px, 1.5vw, 20px) 0;
+    min-height: 56px;
     transition: opacity 0.2s;
   }
   .faq-trigger:hover { opacity: 0.5; }
 
-  /* Label ocupa lo justo — no empuja el + lejos */
-  .faq-label { flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis; font-size: 30px;}
+  /* Label ocupa lo justo — hereda tamaño del trigger */
+  .faq-label { flex: 0 0 auto; }
 
   .faq-icon {
-    font-size: 20px;
     font-weight: 300;
     flex-shrink: 0;
     line-height: 1;
@@ -318,26 +313,23 @@ const testimonials = [
   }
   .faq-trigger[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
 
-  /* ── Modal: ocupa el ancho del section-inner, calculado por JS ── */
+  /* ── Card en flujo — empuja el contenido hacia abajo ── */
   .faq-card-wrap {
-    position: absolute;
-    top: 56px;
-    left: 0;
+    width: 100%;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    z-index: 20;
+    margin-bottom: 0;
     transition:
       max-height 0.48s cubic-bezier(0.4,0,0.2,1),
-      opacity 0.28s ease;
-    width: var(--modal-width, 100%);
+      opacity 0.28s ease,
+      margin-bottom 0.28s ease;
   }
   .faq-card-wrap.open {
     max-height: 2800px;
     opacity: 1;
-    overflow: visible;
+    margin-bottom: clamp(24px, 3vw, 48px);
   }
-  .faq-card-wrap.flip { right: 0; left: auto; }
 
   .faq-card {
     background: #fff;
@@ -426,6 +418,7 @@ const testimonials = [
     font-weight: 500;
     line-height: 1.2;
     color: #000;
+    margin-top: clamp(48px, 5vw, 96px);
     margin-bottom: clamp(32px, 3vw, 56px);
   }
 
@@ -490,6 +483,7 @@ const testimonials = [
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0,0,0,0.09);
     transition: box-shadow 0.3s;
+    padding-bottomom: 100px;
   }
   .alumni-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.14); }
 
@@ -499,14 +493,16 @@ const testimonials = [
     flex-direction: column;
     transition: opacity 0.25s ease;
     padding: 12px 12px 0; /* margen arriba y a los lados de la imagen */
+    height: 388px;
+    margin-bottom: 60px;
   }
 
   /* Imagen horizontal 16/9 — con border-radius ya que tiene padding */
   .card-img-wrap {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 181 / 130;
     overflow: hidden;
-    border-radius: 12px; /* redondeo propio ya que no toca el borde del card */
+    border-radius: 20px; /* redondeo propio ya que no toca el borde del card */
     flex-shrink: 0;
   }
   .card-photo {
@@ -526,19 +522,20 @@ const testimonials = [
   }
   .cfname {
     font-family: "Noto Sans HK", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 500;
     color: #000;
-    margin: 0;
+    margin-top: 35px;
+    margin-bottom: 20px;
     letter-spacing: 0.02em;
   }
   .cfquote {
     font-family: "Noto Sans HK", sans-serif;
-    font-size: 12px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 18px;
     color: #444;
     margin: 0;
-    font-weight: 300;
+    font-weight: 400;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -710,58 +707,33 @@ const testimonials = [
 
 <script>
   // ══════════════════════════════════════
-  // FAQ — modal al ancho del section-inner
+  // FAQ — cards en flujo, empujan contenido
   // ══════════════════════════════════════
-  const faqGrid   = document.getElementById('faq-grid') as HTMLElement;
-  const peInner   = document.querySelector<HTMLElement>('.pe-inner');
-  const triggers  = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+  const faqGrid  = document.getElementById('faq-grid') as HTMLElement;
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
 
-  function setModalWidth() {
-    if (!peInner) return;
-    const w = peInner.offsetWidth;
-    document.querySelectorAll<HTMLElement>('.faq-card-wrap').forEach(wrap => {
-      wrap.style.setProperty('--modal-width', w + 'px');
+  function closeAll() {
+    triggers.forEach((t, i) => {
+      t.setAttribute('aria-expanded', 'false');
+      const w = document.getElementById(`faq-wrap-${i}`);
+      if (w) w.classList.remove('open');
     });
   }
-  setModalWidth();
-  window.addEventListener('resize', setModalWidth);
 
   triggers.forEach((trigger, idx) => {
     const wrap = document.getElementById(`faq-wrap-${idx}`);
-    const col  = trigger.closest<HTMLElement>('.faq-col');
-
     trigger.addEventListener('click', () => {
       const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-
-      // Cierra todos
-      triggers.forEach((t, i) => {
-        t.setAttribute('aria-expanded', 'false');
-        const w = document.getElementById(`faq-wrap-${i}`);
-        if (w) { w.classList.remove('open', 'flip'); w.style.left = ''; w.style.right = ''; }
-      });
-
-      if (!isOpen && wrap && col && peInner) {
+      closeAll();
+      if (!isOpen && wrap) {
         trigger.setAttribute('aria-expanded', 'true');
         wrap.classList.add('open');
-
-        if (window.innerWidth >= 768) {
-          // Posicionar el modal desde el borde izquierdo del inner
-          const colLeft = col.offsetLeft;
-          wrap.style.left = `-${colLeft}px`;
-          wrap.style.right = 'auto';
-        }
       }
     });
   });
 
   document.addEventListener('click', (e) => {
-    if (!faqGrid?.contains(e.target as Node)) {
-      triggers.forEach((t, i) => {
-        t.setAttribute('aria-expanded', 'false');
-        const w = document.getElementById(`faq-wrap-${i}`);
-        if (w) { w.classList.remove('open', 'flip'); w.style.left = ''; w.style.right = ''; }
-      });
-    }
+    if (!faqGrid?.contains(e.target as Node)) closeAll();
   });
 
   // ══════════════════════════════════════

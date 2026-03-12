@@ -77,12 +77,12 @@ const avales = [
 ];
 ---
 
-<section class="avales-section">
+<section class="avales-section" id="metodologia">
   <div class="avales-inner">
 
     <div class="avales-carousel-wrap">
 
-      <!-- Flecha izquierda (desktop) — sale fuera del inner -->
+      <!-- Flecha izquierda (desktop) -->
       <button class="avales-arrow avales-arrow--prev avales-arrow--desktop" id="avales-prev" aria-label="Anterior">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 2L4.5 7.5L9.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -122,7 +122,7 @@ const avales = [
         </div>
       </div>
 
-      <!-- Flecha derecha (desktop) — sale fuera del inner -->
+      <!-- Flecha derecha (desktop) -->
       <button class="avales-arrow avales-arrow--next avales-arrow--desktop" id="avales-next" aria-label="Siguiente">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.5 2L10.5 7.5L5.5 13" stroke="#000000" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -168,7 +168,7 @@ const avales = [
     white-space: nowrap;
   }
 
-  /* ── Carousel wrapper: flechas absolute fuera del inner ── */
+  /* ── Carousel wrapper ── */
   .avales-carousel-wrap {
     display: grid;
     grid-template-columns: 36px 1fr 36px;
@@ -231,11 +231,11 @@ const avales = [
     padding-bottom: 16px;
   }
 
-  /* ── Card — altura fija, header fijo ── */
+  /* ── Card — 4 visibles, ancho dinámico ── */
   .aval-card {
-    flex: 0 0 220px;
-    width: 220px;
-    height: 350px; /* altura fija — todas iguales */
+    flex: 0 0 calc((100% - 3 * 20px) / 4);
+    width: calc((100% - 3 * 20px) / 4);
+    height: 350px;
     background: #fff;
     border-top-left-radius: 45px;
     border-top-right-radius: 0;
@@ -262,10 +262,9 @@ const avales = [
     display: flex;
     flex-direction: column;
     gap: 0;
-    min-width: 0; /* permite que el texto haga wrap sin romper el layout */
+    min-width: 0;
   }
 
-  /* Nombre — spec exacta */
   .aval-nombre {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 500;
@@ -286,7 +285,7 @@ const avales = [
     word-break: break-word;
   }
 
-  /* Foto: 103px fija, nunca varía */
+  /* Foto: 103px fija */
   .aval-foto {
     flex-shrink: 0;
     flex-grow: 0;
@@ -318,7 +317,7 @@ const avales = [
     flex: 1;
   }
 
-  /* ── Responsive — SIN TOCAR ── */
+  /* ── Responsive ── */
   @media (max-width: 860px) {
     .avales-section { min-height: unset; padding: 48px 0; }
     .avales-inner { padding: 0 20px; overflow: hidden; }
@@ -361,21 +360,19 @@ const avales = [
   const track = document.getElementById('avales-track');
   const prevBtns = document.querySelectorAll('.avales-arrow--prev');
   const nextBtns = document.querySelectorAll('.avales-arrow--next');
-  const prevBtn = prevBtns[0];
-  const nextBtn = nextBtns[0];
 
-  if (track && prevBtn && nextBtn) {
+  if (track && prevBtns.length && nextBtns.length) {
     function getStep(): number {
-      return window.innerWidth <= 860
-        ? window.innerWidth * 0.80 + 12
-        : 220 + 20;
+      if (window.innerWidth <= 860) return window.innerWidth * 0.80 + 16;
+      const firstCard = track.children[0] as HTMLElement;
+      return firstCard ? firstCard.offsetWidth + 20 : 260 + 20;
     }
+
     const totalCards = track.children.length;
 
     function getVisible(): number {
       const w = window.innerWidth;
-      if (w >= 1400) return 4;
-      if (w >= 1024) return 3;
+      if (w >= 860) return 4;
       if (w >= 700) return 2;
       return 1;
     }
@@ -393,7 +390,7 @@ const avales = [
 
     function goTo(index: number) {
       current = Math.max(0, Math.min(index, maxIndex()));
-      track.style.transform = `translateX(-${current * getStep()}px)`;
+      (track as HTMLElement).style.transform = `translateX(-${current * getStep()}px)`;
       updateButtons();
     }
 

@@ -35,7 +35,6 @@ const fila2 = [
     <!-- Logos — dos filas estáticas dentro del inner -->
     <div class="logos-wrap">
 
-      <div class="logos-divider"></div>
 
       <!-- Fila 1: Deloitte · AIER · Bankinter · Racks · Lopesan -->
       <div class="logos-fila">
@@ -90,7 +89,7 @@ const fila2 = [
 
   .practicas-titulo {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     font-size: clamp(28px, 2.3vw, 45px);
     line-height: 1.2;
     color: #1a1a1a;
@@ -99,15 +98,16 @@ const fila2 = [
 
   .practicas-titulo strong {
     font-weight: 700;
+    font-size: 45px;
     color: #fff;
     display: block;
   }
 
   .practicas-subtitulo {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 300;
-    font-size: clamp(15px, 1.04vw, 20px);
-    line-height: 1.6;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 35px;
     color: #1a1a1a;
     margin: 0;
   }
@@ -117,6 +117,7 @@ const fila2 = [
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 100px;
   }
 
   /* Líneas separadoras */
@@ -126,27 +127,26 @@ const fila2 = [
     background: rgba(0, 0, 0, 0.2);
   }
 
-  /* ── Fila de logos: 5 columnas iguales ── */
+  /* ── Fila de logos: flex con gap fijo ── */
   .logos-fila {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: clamp(32px, 9.5vw, 140px);
     padding: clamp(20px, 2.5vw, 40px) 0;
   }
 
-  /* ── Logo item: centrado, sin borde ── */
+  /* ── Logo item: centrado ── */
   .logo-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 clamp(12px, 1.5vw, 24px);
+    flex-shrink: 0;
   }
 
   .logo-item img {
-    max-height: 52px;
-    max-width: 100%;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     display: block;
     filter: brightness(0);
@@ -155,6 +155,20 @@ const fila2 = [
   }
 
   .logo-item img:hover { opacity: 1; }
+
+  /* ── Tamaños individuales — Fila 1 ── */
+  .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: 141px; height: 62px;   aspect-ratio: 141/62;  } /* Deloitte  */
+  .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: 172px; height: 90px;   aspect-ratio: 86/45;   } /* AIER      */
+  .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: 180px; height: 32px;   aspect-ratio: 96/17;   } /* Bankinter */
+  .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: 107px; height: 38px;   aspect-ratio: 115/41;  } /* Racks     */
+  .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: 131px; height: 96px;   aspect-ratio: 108/79;  } /* Lopesan   */
+
+  /* ── Tamaños individuales — Fila 2 ── */
+  .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: 156px; height: 104px;  } /* Binter  */
+  .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: 124px; height: 54px;   } /* Bladex  */
+  .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: 159px; height: 52px;   aspect-ratio: 159/52;  } /* Human   */
+  .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: 140px; height: 54px;   aspect-ratio: 70/27;   } /* CABI    */
+  .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 154px; height: 34px;   aspect-ratio: 77/17;   } /* Newlink */
 
   /* ── Mobile ── */
   @media (max-width: 860px) {
