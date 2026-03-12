@@ -35,16 +35,28 @@ body {
 
 .section-inner {
   width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   box-sizing: border-box;
-  padding-left: clamp(70px, 6.77vw, 150px);
-  padding-right: clamp(70px, 6.77vw, 150px);
+  padding-left: clamp(20px, 16.67vw, 320px);
+  padding-right: clamp(20px, 16.67vw, 320px);
 }
 
 .section-inner--wide {
   width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   box-sizing: border-box;
-  padding-left: clamp(70px, 6.77vw, 150px);
-  padding-right: clamp(70px, 6.77vw, 150px);
+  padding-left: clamp(20px, 16.67vw, 320px);
+  padding-right: clamp(20px, 16.67vw, 320px);
+}
+
+@media (max-width: 900px) {
+  .section-inner,
+  .section-inner--wide {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* ============================================================
@@ -56,6 +68,7 @@ body {
 section {
   width: 100%;
   position: relative;
+  overflow-x: clip;
 }
 
 /* ============================================================

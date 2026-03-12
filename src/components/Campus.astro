@@ -250,26 +250,50 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .campus-inner {
       grid-template-columns: 1fr;
+      padding: 0 0px;
+      margin-left: 30px;
+      margin-right: 20px;
     }
 
-    .campus-foto-izq,
-    .campus-foto-dcha {
-      max-width: 100%;
-      height: 100%;
+    .campus-col-left {
+      margin-left: 0;
+    }
+
+    .campus-titulo {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .campus-parrafo {
       max-width: 100%;
       font-size: 16px;
+      text-align: left;
+    }
+
+    .campus-foto-izq {
+      max-width: 100%;
+      height: clamp(220px, 55vw, 360px);
+      margin-top: 40px
     }
 
     .campus-boton-wrap {
       justify-content: center;
-      margin-bottom: 8px;
+      margin-left: 0;
       margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .campus-foto-dcha {
+      max-width: 100%;
+      height: clamp(300px, 70vw, 500px);
+    }
+
+    .campus-vida-titulo,
+    .campus-vida-texto {
+      text-align: left;
     }
   }
 </style>

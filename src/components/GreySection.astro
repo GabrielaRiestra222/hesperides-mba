@@ -40,7 +40,7 @@ const testimonials = [
        FAQ — contenido dentro del margen global
        Las cards modales se expanden al 100% del inner
   ══════════════════════════════════════════ -->
-  <div class="section-inner pe-inner">
+  <div class="pe-inner">
 
     <!-- Fila de triggers -->
     <div class="faq-grid" id="faq-grid">
@@ -61,65 +61,314 @@ const testimonials = [
 
           {tab.type === "plan" && (
             <div class="card-plan">
+
               <div class="sem-header">PRIMER SEMESTRE</div>
+
               <table class="ptable">
-                <thead><tr><th>Denominación de la asignatura</th><th>ECTS</th><th>Carácter</th></tr></thead>
+                <thead>
+                  <tr>
+                    <th>Denominación de la asignatura</th>
+                    <th>ECTS</th>
+                    <th>Carácter</th>
+                  </tr>
+                </thead>
+
                 <tbody>
-                  <tr><td>Economía para los Negocios <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Análisis Financiero Aplicado <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Dirección Estratégica <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Estrategia de Innovación Empresarial <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Estrategia de Inversión <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Marketing Estratégico <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Liderazgo y Gestión de Equipos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Negocios y Ciclos Económicos <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Metodologías de Investigación <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Pensamiento Económico y Social (inglés) <em>[PDF]</em></td><td>3</td><td>Obligatoria</td></tr>
-                  <tr><td>Inteligencia Artificial Aplicada a la empresa</td><td>3</td><td>Obligatoria</td></tr>
-                  <tr class="sub"><td><strong>Créditos semestre</strong></td><td><strong>33</strong></td><td></td></tr>
+
+                  <tr>
+                    <td>
+                      Economía para los Negocios
+                      <a href="https://drive.google.com/file/d/1o3dZC8WdtPOjKlfAHGVzZcsOHII5B9ar/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Análisis Financiero Aplicado
+                      <a href="https://drive.google.com/file/d/1JWelJE84fkjF15juvzFvooC6sqAdNYZj/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Dirección Estratégica
+                      <a href="https://drive.google.com/file/d/1EcvCkCRPZKd48DxUqMj7y2BVRgjniasb/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Estrategia de Innovación Empresarial
+                      <a href="https://drive.google.com/file/d/1zYWMQLHD3LEAaWfN--Czfk7dz7YvyxrI/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Estrategia de Inversión
+                      <a href="https://drive.google.com/file/d/1yzhmQMQHhwYn0ESDoGiCuhAPy-tyscSf/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Marketing Estratégico
+                      <em>[PDF pendiente]</em>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Liderazgo y Gestión de Equipos
+                      <a href="https://drive.google.com/file/d/1ZuJgD43XNgrx5Za7eGuON4421o0jHgm7/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Negocios y Ciclos Económicos
+                      <a href="https://drive.google.com/file/d/1UaoJ5xigpyjMJY433PfMe-Yg23WfOlHq/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Metodologías de Investigación
+                      <a href="https://drive.google.com/file/d/1oaS6XL7Uql8R6IKuz7X-x9k8Tu1zCCc6/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Pensamiento Económico y Social (inglés)
+                      <a href="https://drive.google.com/file/d/1TIUdMYNpbOthObk1boXok7PCKL1kqmjI/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>Inteligencia Artificial Aplicada a la empresa</td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr class="sub">
+                    <td><strong>Créditos semestre</strong></td>
+                    <td><strong>33</strong></td>
+                    <td></td>
+                  </tr>
+
                 </tbody>
               </table>
+
+
               <div class="sem-header" style="margin-top:18px">SEGUNDO SEMESTRE</div>
+
               <table class="ptable">
-                <thead><tr><th>Denominación de la asignatura</th><th>ECTS</th><th>Carácter</th></tr></thead>
+                <thead>
+                  <tr>
+                    <th>Denominación de la asignatura</th>
+                    <th>ECTS</th>
+                    <th>Carácter</th>
+                  </tr>
+                </thead>
+
                 <tbody>
-                  <tr><td>Especialidad</td><td>18</td><td>Optativa</td></tr>
-                  <tr><td>Prácticas Académicas Externas <em>[PDF]</em></td><td>6</td><td>Prácticas externas</td></tr>
-                  <tr><td>Trabajo de Fin de Máster <em>[PDF]</em></td><td>6</td><td>TFM</td></tr>
-                  <tr class="sub"><td><strong>Créditos semestre 2</strong></td><td><strong>30</strong></td><td></td></tr>
+
+                  <tr>
+                    <td>Especialidad</td>
+                    <td>18</td>
+                    <td>Optativa</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Prácticas Académicas Externas
+                      <a href="https://drive.google.com/file/d/101f4PgsPkAPG3yBIAXBTcARmfRpaqBle/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>6</td>
+                    <td>Prácticas externas</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Trabajo de Fin de Máster
+                      <a href="https://drive.google.com/file/d/1zBGxUTlpEN2iquI--F7xzSWXIAubqaeY/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>6</td>
+                    <td>TFM</td>
+                  </tr>
+
+                  <tr class="sub">
+                    <td><strong>Créditos semestre 2</strong></td>
+                    <td><strong>30</strong></td>
+                    <td></td>
+                  </tr>
+
                 </tbody>
               </table>
-              <div class="total-bar"><span>Créditos Totales</span><span>63</span></div>
+
+
+              <div class="total-bar">
+                <span>Créditos Totales</span>
+                <span>63</span>
+              </div>
+
+
               <div class="esp-grid">
+
                 <div>
                   <div class="esp-header">Especialidad en Finanzas</div>
+
                   <table class="ptable">
-                    <thead><tr><th>Asignatura</th><th>ECTS</th></tr></thead>
+                    <thead>
+                      <tr>
+                        <th>Asignatura</th>
+                        <th>ECTS</th>
+                      </tr>
+                    </thead>
+
                     <tbody>
-                      <tr><td>Banca y Gestión de Patrimonios <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Fuentes de Financiación <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Instrumentos Financieros Derivados <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Inversión en Valor <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Opciones Reales <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Innovaciones Financieras <em>[PDF]</em></td><td>3</td></tr>
+
+                      <tr>
+                        <td>
+                          Banca y Gestión de Patrimonios
+                          <a href="https://drive.google.com/file/d/1ynp71a5HLUgCM91G3Ii1Tu6Tmmx77Fho/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Fuentes de Financiación
+                          <a href="https://drive.google.com/file/d/1ElzStryoxeb4dlhdrSUGxUNas6qduRaX/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Instrumentos Financieros Derivados
+                          <a href="https://drive.google.com/file/d/1v9QqsKWz4ZZD1Xls1e27_GdRD8Tw-bZq/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Inversión en Valor
+                          <a href="https://drive.google.com/file/d/16SnZEWHR0ExzWSImC3iPvLBIJl7EI4wJ/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Opciones Reales
+                          <a href="https://drive.google.com/file/d/1yRRxham9jDiH1FLMPTGcAE0-aCs_ONlv/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Innovaciones Financieras
+                          <a href="https://drive.google.com/file/d/1Z8ReLSRUSy1GN-DZfIIMTdC4KkYcuQnD/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
                     </tbody>
                   </table>
                 </div>
+
+
                 <div>
                   <div class="esp-header">Especialidad en Marketing</div>
+
                   <table class="ptable">
-                    <thead><tr><th>Asignatura</th><th>ECTS</th></tr></thead>
+                    <thead>
+                      <tr>
+                        <th>Asignatura</th>
+                        <th>ECTS</th>
+                      </tr>
+                    </thead>
+
                     <tbody>
-                      <tr><td>Análisis del Comportamiento del Consumidor <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Psicología del Marketing <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Marketing móvil y Comercio Electrónico <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Creatividad y Herramientas de Imagen de Marca <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Estrategia Basada en Datos <em>[PDF]</em></td><td>3</td></tr>
-                      <tr><td>Redes Sociales e Inbound Marketing <em>[PDF]</em></td><td>3</td></tr>
+
+                      <tr>
+                        <td>
+                          Análisis del Comportamiento del Consumidor
+                          <a href="https://drive.google.com/file/d/1tkqrBVZc6OBhnJeTi3c52V64KmK8dV5r/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Psicología del Marketing
+                          <a href="https://drive.google.com/file/d/1Ktdcrg4k8prc68o63ND8Sj12bgzrtSmS/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Marketing móvil y Comercio Electrónico
+                          <a href="https://drive.google.com/file/d/1ck3A2nqlgRRVjgjgETff2Iy2KlV4Z545/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Creatividad y Herramientas de Imagen de Marca
+                          <a href="https://drive.google.com/file/d/1CvXFArq9-qfo9AUWpWI7aEOa6J9DFCjz/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Estrategia Basada en Datos
+                          <a href="https://drive.google.com/file/d/1Anw8GghKgWcQ8xuEbEqPZvxZ01EbA6p3/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Redes Sociales e Inbound Marketing
+                          <a href="https://drive.google.com/file/d/1au_DGFfkOuTlFxzeV5BBq_pHmeNaWi22/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
                     </tbody>
                   </table>
                 </div>
+
               </div>
+
             </div>
           )}
 
@@ -250,11 +499,19 @@ const testimonials = [
     position: relative;
   }
 
-  /* ── Inner heredado del global.css ── */
+  /* ── Inner ── */
   .pe-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 16.67vw, 320px);
     display: flex;
     flex-direction: column;
     gap: 0;
+  }
+
+  @media (max-width: 900px) {
+    .pe-inner { padding: 0 20px; margin-left: 30px; margin-right: 30px; }
   }
 
   /* ══════════════════════════════════════
@@ -667,42 +924,57 @@ const testimonials = [
     /* FAQ en columna */
     .faq-grid { flex-direction: column; gap: 0; margin-bottom: 40px; }
     .faq-col::before { display: none; }
-    .faq-col { border-bottom: 1px solid rgba(0,0,0,0.12); }
+    .faq-col { border-bottom: 1px solid rgba(0,0,0,0.12); width: 100%; }
     .faq-trigger {
       padding: 16px 0;
-      font-size: 14px;
+      font-size: 18px;
       white-space: normal;
       line-height: 1.3;
+      justify-content: space-between;
+      width: 100%;
+    }
+    /* Quitar separador vertical en mobile */
+    .faq-col:not(:first-child) .faq-trigger {
+      border-left: none;
+      padding-left: 0;
     }
     .faq-card-wrap {
       position: relative;
       top: auto; left: auto;
-      width: 100% !important;
+      width: 75% !important;
+      box-sizing: border-box;
     }
+    .faq-card {
+      overflow-x: hidden;
+      box-sizing: border-box;
+      padding: 16px;
+    }
+    .ptable, .ctable {
+      table-layout: fixed;
+      width: 100%;
+      word-break: break-word;
+    }
+    .esp-grid { grid-template-columns: 1fr; }
 
     /* Cards más anchas en mobile — width fijo para que no sean flex:1 */
-    .alumni-card { flex: none; width: 80vw; }
+    .alumni-card { flex: none; width: 75vw; }
 
-    /* Flechas desktop ocultas, mobile visibles */
+    /* Flechas ocultas en mobile — navegación por swipe */
     .c-arrow--prev, .c-arrow--next { display: none; }
-    .mobile-controls {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .mobile-arrows { display: flex; gap: 12px; }
-    .c-arrow--mob-prev, .c-arrow--mob-next { display: flex; }
+    .mobile-controls { display: none; }
+    .c-arrow--mob-prev, .c-arrow--mob-next { display: none; }
 
-    /* Track sin padding lateral en mobile — las cards empiezan en el margen */
+    /* Modal expandido: más alto para mostrar contenido vertical */
+    .alumni-card.expanded { height: 520px; }
+
+    /* Carrusel centrado — sin padding extra que lo desplace */
+    .carousel-shell { margin: 0 auto; }
     .carousel-track {
-      padding-left: clamp(24px, 5vw, 40px);
-      padding-right: clamp(24px, 5vw, 40px);
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
-  @media (max-width: 600px) {
-    .esp-grid { grid-template-columns: 1fr; }
-  }
 </style>
 
 <script>

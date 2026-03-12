@@ -19,7 +19,7 @@ const fila2 = [
 ---
 
 <section class="practicas-section">
-  <div class="section-inner practicas-inner">
+  <div class="practicas-inner">
 
     <!-- Título -->
     <div class="practicas-titulo-wrap">
@@ -73,8 +73,11 @@ const fila2 = [
     overflow: hidden;
   }
 
-  /* ── Inner: hereda .section-inner del global ── */
   .practicas-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 16.67vw, 320px);
     display: flex;
     flex-direction: column;
     gap: clamp(32px, 4vw, 56px);
@@ -171,25 +174,64 @@ const fila2 = [
   .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 154px; height: 34px;   aspect-ratio: 77/17;   } /* Newlink */
 
   /* ── Mobile ── */
-  @media (max-width: 860px) {
+  @media (max-width: 900px) {
     .practicas-section { padding: 48px 0; }
+    .practicas-inner { padding: 0 20px; }
 
-    .practicas-titulo { font-size: 28px; line-height: 1.25; }
+    .practicas-titulo { font-size: 8px; line-height: 1.25; }
     .practicas-subtitulo { font-size: 17px; line-height: 1.5; }
 
-    /* 2 columnas en mobile */
+    .logos-wrap {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 32px;
+    }
+
+    .logos-divider { display: none; }
+
     .logos-fila {
-      grid-template-columns: repeat(2, 1fr);
-      padding: 16px 0;
-      gap: 8px;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 28px;
+      padding: 16px 12px;
+    }
+
+    .logos-fila:nth-child(1) {
+      border-right: 1px solid rgba(0,0,0,0.2);
+      padding-right: 16px;
+    }
+
+    .logos-fila:nth-child(3) {
+      padding-right: 24px;
     }
 
     .logo-item {
-      padding: 20px 16px;
+      padding: 0;
+      width: auto;
+      justify-content: flex-start;
     }
 
     .logo-item img {
-      max-height: 40px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
+
+    /* Fila 1 — proporción desktop ×0.55 */
+    .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: 78px;  height: 34px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: 95px;  height: 50px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: 99px;  height: 18px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: 59px;  height: 21px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: 72px;  height: 53px; }
+
+    /* Fila 2 — proporción desktop ×0.55 */
+    .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: 86px;  height: 57px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: 68px;  height: 30px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: 87px;  height: 29px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: 77px;  height: 30px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 85px;  height: 19px; }
   }
 </style>

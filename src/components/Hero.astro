@@ -10,7 +10,7 @@ const {
 <section class="hero">
 
   <!-- Background image -->
-  <img src="/img/hero-bg.jpg" alt="" class="hero-bg" />
+  <img src="/img/hero-bg1.jpg" alt="" class="hero-bg" />
 
   <!-- Dark overlay -->
   <div class="hero-overlay"></div>
@@ -259,7 +259,7 @@ const {
 
   .hero-card {
     position: relative;
-    width: 420px;
+    width: 440px;
     border-radius: 29.896px;
     background: #FFCD00;
     box-shadow: 0 7.972px 6.976px 4.983px rgba(0, 0, 0, 0.25);
@@ -597,7 +597,7 @@ const {
       overflow: hidden;
     }
     .hero-card-photo {
-      height: 250px;
+      height: 160px;
       border-radius: 20px;
     }
     .hero-right { margin-bottom: 32px; }
@@ -695,6 +695,7 @@ const {
 const forms = document.querySelectorAll(".hero-form");
 
 forms.forEach((form) => {
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -725,6 +726,7 @@ forms.forEach((form) => {
       Titulaci_n_de_inter_s: "MUADE",
 
       Direcci_n_IP: "",
+
       Fecha_hora_de_aceptaci_n: new Date().toISOString(),
 
       Tipo_dispositivo:
@@ -745,11 +747,16 @@ forms.forEach((form) => {
       Layout: "499060000000032033"
     };
 
+    console.log("DATA ENVIADA:", data);
+
     try {
-      const res = await fetch(
+
+      // ENVÍO A N8N
+      await fetch(
         "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
         {
-          method: "POST",
+          method: "GET",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           },
@@ -757,17 +764,27 @@ forms.forEach((form) => {
         }
       );
 
-      if (res.ok) {
-        alert("Solicitud enviada correctamente");
-        form.reset();
-      } else {
-        alert("Error al enviar el formulario");
-      }
+      // ENVÍO A WEBHOOK PARA TEST
+      await fetch(
+        "https://webhook.site/891c974a-9e12-427e-9409-a476e5337891",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+
+      alert("Solicitud enviada correctamente");
+      form.reset();
 
     } catch (error) {
-      console.error(error);
-      alert("Error de conexión");
+      console.error("ERROR ENVÍO:", error);
+      alert("Error al enviar el formulario");
     }
+
   });
+
 });
 </script>
