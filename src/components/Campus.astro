@@ -242,6 +242,21 @@
   }
 
   /* ── Responsive ── */
+  @media (min-width: 901px) {
+    .campus-inner {
+      padding-left: calc(clamp(20px, 16.67vw, 320px) + clamp(32px, 5vw, 80px));
+      padding-right: calc(clamp(20px, 16.67vw, 320px) + clamp(32px, 5vw, 80px));
+      max-width: none;
+    }
+    .campus-col-left { margin-left: 0; }
+    .campus-boton-wrap { margin-left: 0; }
+    .campus-titulo {font-size: 30px;}
+    .campus-foto-izq {margin-top: 60px;}
+    .campus-vida-titulo {font-size: 30px}
+    .campus-foto-izq {width: 100%; height: 100%;}
+  }
+
+
   @media (max-width: 1024px) {
     .campus-inner {
       grid-template-columns: 1fr 1fr;

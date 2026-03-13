@@ -202,6 +202,19 @@ const features = [
     color: #000;
   }
 
+  @media (min-width: 901px) {
+    .avanza-section {
+      padding-left: clamp(50px, 12vw, 220px);
+      padding-right: clamp(50px, 12vw, 220px);
+    }
+    .avanza-features { width: 100%; justify-content: stretch; }
+    .feature-card { flex: 1; width: auto; padding: 16px 14px; }
+    .feature-normal,
+    .feature-bold,
+    .feature-regular { font-size: 20px; }
+    .feature-big { font-size: 32px; }
+  }
+
   /* ── Responsive 1000px ── */
   @media (max-width: 1000px) {
     .avanza-section {

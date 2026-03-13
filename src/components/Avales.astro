@@ -354,6 +354,89 @@ const avales = [
     .aval-texto  { font-size: 16px; line-height: 26px; }
     .avales-track { gap: 16px; }
   }
+  @media (min-width: 901px) {
+
+  .avales-inner{
+    max-width: none;
+    padding-left: clamp(20px, 16.67vw, 320px);
+    padding-right: clamp(20px, 16.67vw, 320px);
+  }
+
+
+    /* 3 cards visibles → más anchas, contenido proporcional */
+     .aval-card {
+    flex: 0 0 calc((100% - 3 * 20px) / 4);
+    width: calc((100% - 3 * 20px) / 4);
+min-height: 240px;
+  height: auto;  }
+    .aval-foto{
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.aval-foto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+  .aval-header{
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* nombre más pequeño */
+  .aval-nombre{
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  /* cargo más pequeño */
+  .aval-cargo{
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 2px;
+  }
+
+  /* texto del aval */
+  .aval-texto{
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  /* menos espacio interno de la card */
+  .aval-card{
+    padding: 12px;
+    gap: 10px;
+  }
+
+    .avales-carousel-wrap{
+    position: relative;
+    display:block;
+  }
+
+  .avales-arrow--desktop{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  .avales-arrow--prev{
+    left:-60px;
+  }
+
+  .avales-arrow--next{
+    right:-60px;
+  }
+
+}
+  
 </style>
 
 <script>

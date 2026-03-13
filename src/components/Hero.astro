@@ -686,6 +686,40 @@ const {
     .hero-bottom-inner::-webkit-scrollbar { display: none; }
     .hero-bottom-inner a { flex-shrink: 0; }
   }
+
+  @media (min-width: 901px) {
+    .hero-card { width: 450px; height: 490px;}
+    .hero-form-wrap { padding: 20px 30px 20px 20px; }
+    .hero-form input {height: 20px;}
+    .hero-form input[type="text"],
+    .hero-form input[type="email"],
+    .hero-form input[type="tel"] { height: 46px; font-size: 13px; }
+    .hero-modal-card { max-width: 540px; }
+    .hero-modal-card .hero-form input[type="text"],
+    .hero-modal-card .hero-form input[type="email"],
+    .hero-modal-card .hero-form input[type="tel"] { height: 46px; }
+    .hero-card-photo{}
+
+      .hero-form input[type="text"],
+      .hero-form input[type="email"],
+      .hero-form input[type="tel"] {
+        width: 100%;
+        height: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.847);
+        border-radius: 999px;
+        background: #ffcd00;
+        padding: 0 12px;
+        font-family: "Noto Sans HK", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        color: #1a1a1a;
+        box-sizing: border-box;
+        outline: none;
+        transition: border-color 0.2s;
+        box-shadow: 1.993px 0 3.986px 0 rgba(0, 0, 0, 0.25);
+
+      }
+  }
 </style>
 
 <script>
@@ -744,7 +778,6 @@ forms.forEach((form) => {
       Titulaci_n_de_inter_s: "MUADE",
 
       Direcci_n_IP: "",
-
       Fecha_hora_de_aceptaci_n: new Date().toISOString(),
 
       Tipo_dispositivo:
@@ -769,12 +802,10 @@ forms.forEach((form) => {
 
     try {
 
-      // ENVÍO A N8N
-      await fetch(
+      const res = await fetch(
         "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
         {
-          method: "GET",
-          mode: "no-cors",
+          method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
@@ -782,17 +813,7 @@ forms.forEach((form) => {
         }
       );
 
-      // ENVÍO A WEBHOOK PARA TEST
-      await fetch(
-        "https://webhook.site/891c974a-9e12-427e-9409-a476e5337891",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-        }
-      );
+      console.log("RESPUESTA:", res);
 
       alert("Solicitud enviada correctamente");
       form.reset();

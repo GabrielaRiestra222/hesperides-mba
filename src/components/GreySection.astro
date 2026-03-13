@@ -509,6 +509,114 @@ const testimonials = [
     flex-direction: column;
     gap: 0;
   }
+@media (min-width:901px){
+
+/* INNER */
+.pe-inner{
+  width:100%;
+  max-width:1280px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:clamp(20px,16.67vw,320px);
+  padding-right:clamp(20px,16.67vw,320px);
+}
+
+/* GRID FAQ */
+.faq-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  width:100%;
+}
+
+/* COLUMNAS */
+.faq-col{
+  min-width:0;
+  flex:unset;
+}
+
+/* TRIGGER */
+.faq-trigger{
+  width:100%;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:#000;
+  font-family:"Noto Sans HK",sans-serif;
+  font-weight:700;
+  line-height:1.2;
+  font-size:18px;
+
+  text-align:center;
+  white-space:normal;
+  word-break:break-word;
+
+  padding:clamp(12px,1.5vw,20px) 0;
+}
+
+/* LABEL */
+.faq-label{
+  font-size:16px;
+  display:inline-flex;
+  align-items:center;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+/* ICONO + */
+.faq-icon{
+  font-weight:300;
+  flex-shrink:0;
+  line-height:1;
+  margin-left:8px;
+  align-self:flex-start;
+  margin-top:6px;
+}
+
+/* Separador entre col 1 y 2 — definido en el bloque FIX al final */
+
+/* CARDS MÁS ALTAS */
+.alumni-card{
+  height:340px;
+}
+
+.card-front{
+  height:340px;
+  margin-bottom:0;
+  padding:6px 6px 0;
+}
+
+/* IMAGEN */
+.card-img-wrap{
+  aspect-ratio:181 / 95;
+}
+
+/* BODY CARD */
+.card-front-body{
+  padding:6px 10px 8px;
+  gap:3px;
+}
+
+/* NOMBRE */
+.cfname{
+  margin-top:6px;
+  margin-bottom:0;
+  font-size:10px;
+  letter-spacing:0.02em;
+}
+
+/* TEXTO MÁS PEQUEÑO */
+.cfquote{
+  font-size:8px;
+  line-height:1.35;
+  -webkit-line-clamp:4;
+}
+
+}
 
   @media (max-width: 900px) {
     .pe-inner { padding: 0 20px; margin-left: 30px; margin-right: 30px; }
@@ -522,6 +630,7 @@ const testimonials = [
     justify-content: space-between;
     width: 100%;
     margin-bottom: 0;
+    margin-right: 0;
   }
 
   .faq-col {
@@ -531,7 +640,7 @@ const testimonials = [
 
   /* Línea separadora vertical — solo en trigger */
   .faq-col:not(:first-child) .faq-trigger {
-    border-left: 1px solid rgba(0,0,0,0.3);
+    border-left: 2px solid rgba(0,0,0,0.3);
     padding-left: clamp(8px, 1vw, 16px);
   }
 
@@ -550,11 +659,13 @@ const testimonials = [
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
     gap: 4px;
     padding: clamp(12px, 1.5vw, 20px) 0;
     min-height: 56px;
     transition: opacity 0.2s;
+    margin-right: .10px;
   }
   .faq-trigger:hover { opacity: 0.5; }
 
@@ -591,7 +702,7 @@ const testimonials = [
   .faq-card {
     background: #fff;
     border-radius: 16px;
-    padding: clamp(20px, 2vw, 32px);
+    padding: 10px;
     box-shadow: 0 8px 40px rgba(0,0,0,0.13);
     box-sizing: border-box;
     width: 100%;
@@ -953,7 +1064,7 @@ const testimonials = [
     .faq-card-wrap {
       position: relative;
       top: auto; left: auto;
-      width: 75% !important;
+      width: 90% !important;
       box-sizing: border-box;
     }
     .faq-card {
@@ -989,6 +1100,60 @@ const testimonials = [
     .cta-wrap { margin-left: -50px; }
     .cta-btn { margin-left: 0; }
   }
+  /* FIX FAQ DESKTOP */
+@media (min-width:901px){
+
+  .faq-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    width:100%;
+  }
+
+  .faq-col{
+    min-width:0;
+    flex:unset;
+  }
+
+  .faq-trigger{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
+
+  /* Reset: sin borde en trigger ni en icono */
+  .faq-col .faq-trigger{ border-left:none !important; padding-left:0 !important; }
+  .faq-col .faq-icon{ border-right:none !important; padding-right:0 !important; margin-right:0 !important; }
+  .faq-col .faq-label{ border-left:none !important; padding-left:0 !important; }
+
+  /* Más espacio + separador SOLO entre PLAN DE ESTUDIOS y COMPETENCIAS */
+  .faq-col[data-col="1"]{
+    padding-left: clamp(20px, 2.5vw, 40px);
+  }
+  .faq-col[data-col="1"] .faq-label{
+    border-left: 1px solid rgba(0,0,0,0.3) !important;
+    padding-left: clamp(8px, 1vw, 14px) !important;
+  }
+
+  /* Más espacio + separador entre COMPETENCIAS y CRÉDITOS */
+  .faq-col[data-col="2"]{
+    padding-left: clamp(20px, 2.5vw, 40px);
+    margin-left: 0;
+  }
+  .faq-col[data-col="2"] .faq-label{
+    border-left: 1px solid rgba(0,0,0,0.3) !important;
+    padding-left: clamp(8px, 1vw, 14px) !important;
+  }
+
+  /* Separador entre CRÉDITOS y PRÁCTICAS */
+  .faq-col[data-col="3"]{
+    padding-left: clamp(10px, 1.2vw, 20px);
+  }
+  .faq-col[data-col="3"] .faq-label{
+    border-left: 1px solid rgba(0,0,0,0.3) !important;
+    padding-left: clamp(8px, 1vw, 14px) !important;
+  }
+
+}
 
 </style>
 

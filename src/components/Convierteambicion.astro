@@ -32,8 +32,7 @@ const features = [
 
       <div class="convierte-texto">
         <h2 class="convierte-titulo">
-          Convierte tu <strong>ambición</strong> en
-          <strong>capacidad real de dirección</strong>
+          Convierte tu<br /><strong>ambición</strong> en<br /><strong>capacidad real de<br />dirección</strong>
         </h2>
         <p class="convierte-desc">
           Adquiere la disciplina analítica y la mentalidad estratégica necesarias para dirigir organizaciones.
@@ -289,6 +288,7 @@ const features = [
     .features-row {
       flex-direction: row;
       gap: 0;
+      margin-left: 10px;
     }
     .feature-item {
       flex: 1;
@@ -296,7 +296,7 @@ const features = [
       align-items: flex-start;
       padding: 0;
       gap: 30px;
-      margin-left: 20px;
+      margin-left: 10px;
     }
     .feature-line {
       width: 1px;
@@ -340,11 +340,13 @@ const features = [
     .convierte-top {
       flex-direction: row;
       align-items: flex-start;
-      gap: 48px;
+      gap: 2px;
+
     }
     .convierte-texto {
-      width: 363px;
+      width: 400px;
       flex-shrink: 0;
+      align-items: flex-start;
     }
     .features-row {
       flex: 1;
@@ -358,5 +360,33 @@ const features = [
     .quote-content {
       max-width: 520px;
     }
+  }
+
+  @media (min-width: 901px) {
+    .convierte-inner {
+      padding-left: clamp(20px, 16.67vw, 320px);
+      padding-right: clamp(20px, 16.67vw, 320px);
+      max-width: none;
+    }
+    .convierte-titulo {
+      font-size: clamp(22px, 1.8vw, 34px);
+      line-height: 1.2;
+    }
+    .convierte-desc {
+      font-size: clamp(14px, 1.1vw, 20px);
+      line-height: 1.5;
+    }
+    .convierte-texto { width: 280px; flex-shrink: 0; }
+    .feature-titulo {
+      font-size: clamp(11px, 0.9vw, 15px);
+      min-height: 2.8em;
+      display: flex;
+      align-items: flex-start;
+    }
+    .feature-texto  { font-size: clamp(11px, 0.88vw, 15px); line-height: 1.4; margin-top: 0; }
+    .quote-foto { width: clamp(140px, 14vw, 200px); aspect-ratio: 358 / 300; height: auto; border-radius: 20px; flex-shrink: 0; }
+    .quote-text { font-size: clamp(14px, 1.2vw, 20px); }
+    .convierte-quote-row { gap: 32px; }
+    .quote-content { max-width: 280px; }
   }
 </style>

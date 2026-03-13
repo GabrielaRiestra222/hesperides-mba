@@ -31,6 +31,13 @@ body {
   margin: 0;
   padding: 0;
   max-width: 100%;
+  background: #fff;
+}
+
+.page-cap {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 /* ============================================================
@@ -43,12 +50,12 @@ body {
 .section-inner {
   width: 100%;
   max-width: 1280px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding-left: clamp(20px, 16.67vw, 320px);
-  padding-right: clamp(20px, 16.67vw, 320px);
-}
+  margin-left: auto;
+  margin-right: auto;
 
+  padding-left: clamp(20px, 4vw, 120px);
+  padding-right: clamp(20px, 4vw, 120px);
+}
 .section-inner--wide {
   width: 100%;
   max-width: 1280px;

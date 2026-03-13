@@ -410,6 +410,93 @@ const profesores = [
       transform: none;
     }
   }
+ @media (min-width:901px){
+
+  .profesores-inner{
+    padding-left: calc(clamp(20px,16.67vw,320px) + clamp(32px,5vw,80px));
+    padding-right: calc(clamp(20px,16.67vw,320px) + clamp(32px,5vw,80px));
+    max-width:none;
+  }
+
+  /* cards compactas */
+  .prof-card{
+    height:210px;
+  }
+
+  /* layout expandido */
+  .prof-card-expanded{
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+  }
+
+  /* foto izquierda pequeña */
+  .prof-exp-foto-col{
+    width:140px;
+    flex-shrink:0;
+    border-radius:18px 0 0 18px;
+    overflow:hidden;
+  }
+
+  .prof-exp-foto{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  /* texto derecha */
+  .prof-exp-body{
+    flex:1;
+    padding:18px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    overflow-y:auto;
+  }
+
+  /* nombre */
+  .pexp-nombre{
+    font-size:18px;
+    letter-spacing:0.05em;
+    line-height:1.2;
+  }
+
+  /* cargo */
+ .pexp-tag{
+  font-family: "Noto Sans HK", sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 0;
+  color: #FFCD00;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+  /* bio scroll */
+  .pexp-bio{
+    font-size:12px;
+    line-height:17px;
+  }
+
+  /* compact view text */
+  .prof-nombre{
+    font-size:16px;
+    line-height:18px;
+  }
+
+  .prof-cargo{
+    font-size:11px;
+    line-height:13px;
+  }
+
+  .profesores-titulo{
+    font-size:26px;
+  }
+
+}
 </style>
 
 <script>

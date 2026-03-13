@@ -236,4 +236,34 @@ const fila2 = [
     .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: 77px;  height: 30px; }
     .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 85px;  height: 19px; }
   }
+  @media (min-width: 901px) {
+    .practicas-inner {
+      padding-left: calc(clamp(20px, 16.67vw, 320px) + clamp(32px, 5vw, 80px));
+      padding-right: calc(clamp(20px, 16.67vw, 320px) + clamp(32px, 5vw, 80px));
+      max-width: none;
+      gap: 1px;
+    }
+    .practicas-subtitulo { font-weight: 400; font-size: clamp(16px, 1.6vw, 30px); line-height: 1.4; margin-bottom: 6px;}
+    .practicas-titulo { line-height: 1.2; margin: 0; }
+    .practicas-titulo strong { line-height: 1.2;margin: 0;}
+
+    /* Gap de la fila proporcional al viewport */
+    .logos-fila { gap: clamp(12px, 2.5vw, 40px); margin-top: 0px; }
+
+    /* Logos fila 1 — escalan con el viewport */
+    .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: clamp(70px, 8.8vw, 141px);  height: auto; aspect-ratio: 141/62;  }
+    .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: clamp(86px, 10.7vw, 172px); height: auto; aspect-ratio: 86/45;   }
+    .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: clamp(90px, 11.2vw, 180px); height: auto; aspect-ratio: 96/17;   }
+    .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: clamp(54px, 6.7vw, 107px);  height: auto; aspect-ratio: 115/41;  }
+    .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: clamp(66px, 8.1vw, 131px);  height: auto; aspect-ratio: 108/79;  }
+
+    /* Logos fila 2 — escalan con el viewport */
+    .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: clamp(78px, 9.7vw, 156px);  height: auto; aspect-ratio: 156/104; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: clamp(62px, 7.7vw, 124px);  height: auto; aspect-ratio: 124/54;  }
+    .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: clamp(80px, 9.9vw, 159px);  height: auto; aspect-ratio: 159/52;  }
+    .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: clamp(70px, 8.7vw, 140px);  height: auto; aspect-ratio: 70/27;   }
+    .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: clamp(77px, 9.6vw, 154px);  height: auto; aspect-ratio: 77/17;   }
+
+    .logo-item img { width: 100%; height: auto; }
+  }
 </style>
