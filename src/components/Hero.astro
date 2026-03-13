@@ -746,7 +746,7 @@ forms.forEach((form) => {
       Fecha_hora_de_aceptaci_n: new Date().toISOString(),
 
       Tipo_dispositivo:
-        /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
+        /Mobi|Android|iPhone/i.test(navigator.userAgent)
           ? "Móvil"
           : "PC/Tablet"
     };
@@ -759,7 +759,6 @@ forms.forEach((form) => {
         "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
         {
           method: "POST",
-          mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           },
@@ -767,22 +766,11 @@ forms.forEach((form) => {
         }
       );
 
-      // mensaje usuario
-      alert("¡Solicitud enviada correctamente! Un asesor académico contactará contigo.");
-
-      // reset formulario
+      alert("Solicitud enviada correctamente");
       form.reset();
-
-      // cerrar modal si está abierto
-      const modal = document.getElementById("hero-modal");
-      if (modal) {
-        modal.classList.remove("open");
-        document.body.style.overflow = "";
-      }
 
     } catch (error) {
       console.error("ERROR ENVÍO:", error);
-      alert("Ha ocurrido un error al enviar el formulario.");
     }
 
   });
