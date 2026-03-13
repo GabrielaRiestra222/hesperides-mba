@@ -10,7 +10,7 @@ const {
 <section class="hero">
 
   <!-- Background image -->
-  <img src="/img/hero-bg1.jpg" alt="" class="hero-bg" />
+  <img src="/img/hero-bg.jpg" alt="" class="hero-bg" />
 
   <!-- Dark overlay -->
   <div class="hero-overlay"></div>
@@ -116,12 +116,12 @@ const {
       <div class="hero-marquee-item"><img src="/img/iconoir_calendar.svg" alt="" /><span>Inicio Abril 2026</span></div>
       <div class="hero-marquee-item"><img src="/img/iconoir_alarm.svg" alt="" /><span>1 año</span></div>
       <div class="hero-marquee-item"><img src="/img/iconoir_modern-tv.svg" alt="" /><span>100% online</span></div>
-      <div class="hero-marquee-item"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 4.920 €</span></div>
+      <div class="hero-marquee-item"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 1.275 €</span></div>
       <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_graduation-cap.svg" alt="" /><span>Universitario</span></div>
       <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_calendar.svg" alt="" /><span>Inicio Abril 2026</span></div>
       <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_alarm.svg" alt="" /><span>1 año</span></div>
       <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_modern-tv.svg" alt="" /><span>100% online</span></div>
-      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 4.920 €</span></div>
+      <div class="hero-marquee-item" aria-hidden="true"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 1.275 €</span></div>
     </div>
   </div>
 
@@ -139,22 +139,11 @@ const {
     flex-direction: column;
     overflow: hidden;
   }
-    .hero-overlay {
+  .hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-      to top,
-      rgba(30, 25, 0, 0.92) 0%,
-      rgba(48, 38, 0, 0.60) 35%,
-      rgba(80, 64, 0, 0.25) 70%,
-      rgba(127, 102, 2, 0.1) 100%
-    );
-  }
-
-  /* Añade esto — tinte amarillo sobre el fondo */
-  .hero-bg {
-    filter: sepia(50%) hue-rotate(5deg) saturate(2.0) brightness(0.55);
+    background: none;
   }
 
   .hero-bg {
@@ -165,19 +154,6 @@ const {
     object-fit: cover;
     object-position: center;
     z-index: 0;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      to top,
-      rgba(30, 25, 0, 0.92) 0%,
-      rgba(48, 38, 0, 0.60) 35%,
-      rgba(80, 64, 0, 0.25) 70%,
-      rgba(196, 157, 0, 0.1) 100%
-    );
   }
 
   /* ── Contenido principal ── */
@@ -761,51 +737,29 @@ forms.forEach((form) => {
 
       Pa_s: f.get("pais"),
       Provincia: f.get("provincia"),
-      Provincia_extranjera: "",
 
       Edicion_de_interes: "Otoño 2026",
-      Conoce_el_precio_del_programa: "Sí",
-
       Escuela: "U. Hespérides",
-      Nombre_de_formulario: "Flotante-h",
-      Lead_Status: "0. No contactado",
+
       Lead_Source: "Formulario web",
-      Acepto_pol_tica_de_privacidad: "De acuerdo",
-      Centro: "Escuela de Postgrado",
 
-      Dominio_web_pais: "España",
-      Codigo_titulacion_formulario: "MUADE",
-      Titulaci_n_de_inter_s: "MUADE",
-
-      Direcci_n_IP: "",
       Fecha_hora_de_aceptaci_n: new Date().toISOString(),
 
       Tipo_dispositivo:
         /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
           ? "Móvil"
-          : "PC/Tablet",
-
-      utm_campaign: "",
-      utm_content: "",
-      utm_medium: "",
-      utm_source: "",
-      utm_term: "",
-
-      campaign_id: "",
-      adset_id: "",
-      ad_id: "",
-
-      Layout: "499060000000032033"
+          : "PC/Tablet"
     };
 
     console.log("DATA ENVIADA:", data);
 
     try {
 
-      const res = await fetch(
+      await fetch(
         "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
         {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           },
@@ -813,13 +767,22 @@ forms.forEach((form) => {
         }
       );
 
-      console.log("RESPUESTA:", res);
+      // mensaje usuario
+      alert("¡Solicitud enviada correctamente! Un asesor académico contactará contigo.");
 
-      alert("Solicitud enviada correctamente");
+      // reset formulario
       form.reset();
+
+      // cerrar modal si está abierto
+      const modal = document.getElementById("hero-modal");
+      if (modal) {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
 
     } catch (error) {
       console.error("ERROR ENVÍO:", error);
+      alert("Ha ocurrido un error al enviar el formulario.");
     }
 
   });
