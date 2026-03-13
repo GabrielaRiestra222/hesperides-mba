@@ -554,16 +554,19 @@ const {
 
   /* ── Móvil / pantallas verticales ── */
   @media (max-width: 900px) {
-    .hero { min-height: 100svh; }
+    .hero { min-height: 100svh; overflow: hidden; }
 
+    /* hero-content: columna única, texto + card apilados */
     .hero-content {
-      grid-template-columns: 1fr;
-      padding: 32px 50px 24px;
-      gap: 24px;
+      flex: unset;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 0 24px;
+      gap: 40px;
       align-items: flex-start;
     }
 
-    /* Botón CTA */
+    /* Botón CTA más pequeño */
     .hero-buttons {
       display: flex;
       margin-top: 8px;
@@ -573,9 +576,9 @@ const {
       color: #1a1a1a;
       font-family: "Noto Sans HK", sans-serif;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 0.08em;
-      padding: 12px 28px;
+      padding: 8px 18px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -583,31 +586,44 @@ const {
     }
     .hero-cta-btn:hover { background: #fff; }
 
-    /* Tarjeta: mostrar solo la foto del vídeo, ocultar formulario */
+    /* Tarjeta: flujo normal, encima del marquee */
     .hero-right {
+      position: static;
+      width: 100%;
       display: flex;
-      justify-content: center;
-      margin-bottom: 0;
-      margin-top: 16px;
+      justify-content: flex-start;
+      padding: 0 20px;
+      margin: 0;
+      box-sizing: border-box;
     }
     .hero-card {
-      width: 100%;
-      max-width: none;
-      border-radius: 20px;
+      width: 332px;
+      height: 202.79px;
+      max-width: 100%;
+      border-radius: 12px;
       overflow: hidden;
+      border: 0.57px solid #FFCD00;
     }
     .hero-card-photo {
-      height: 160px;
-      border-radius: 20px;
+      height: 100%;
+      border-radius: 0;
+      background-size: cover;
+      background-position: center top;
     }
-    .hero-right { margin-bottom: 32px; }
     .hero-card .hero-form-wrap { display: none; }
     .hero-modal-card .hero-form-wrap { display: block; }
 
-    /* Texto */
-    .hero-tag  { font-size: 18px; line-height: 16px; letter-spacing: 0.08em; white-space: pre-line; }
-    .hero-title { font-size: 31px; line-height: 36px; white-space: pre-line; font-weight: 400; }
-    .hero-description { font-size: 15px; line-height: 22px; max-width: 80%; padding-bottom: 8px; }
+    /* Play button en amarillo */
+    .hero-card-play { opacity: 0.9; }
+    .hero-card-play::after {
+      border-color: transparent transparent transparent #FFCD00;
+    }
+
+    /* Texto — el hero-left lleva su propio padding lateral */
+    .hero-left { padding: 0 20px; }
+    .hero-tag        { font-size: 16.21px; line-height: 15.19px; letter-spacing: 0.03em; font-weight: 700; white-space: pre-line; }
+    .hero-title      { font-size: 31.18px; line-height: 28.87px; letter-spacing: -0.03em; font-weight: 500; white-space: pre-line; }
+    .hero-description{ font-size: 14px; line-height: 17px; letter-spacing: 0.02em; font-weight: 400; max-width: 100%; padding-bottom: 8px; }
 
     /* Modal formulario */
     .hero-modal-card .hero-form-wrap { padding: 20px; }
@@ -616,7 +632,7 @@ const {
     .form-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
     .form-submit { width: 100%; text-align: center; }
 
-    /* Ocultar nav del hero, mostrar marquee info */
+    /* Ocultar nav del hero, mostrar marquee info — empujado al fondo */
     .hero-bottom-menu { display: none; }
     .hero-info-marquee {
       display: flex;
@@ -627,6 +643,7 @@ const {
       overflow: hidden;
       position: relative;
       z-index: 2;
+      margin-top: 20px;
     }
     .hero-marquee-track {
       display: flex;
@@ -663,7 +680,7 @@ const {
       gap: 10px;
       overflow-x: auto;
       justify-content: flex-start;
-      padding: 0 50px;
+      padding: 0 20px;
       scrollbar-width: none;
     }
     .hero-bottom-inner::-webkit-scrollbar { display: none; }
@@ -687,6 +704,7 @@ const {
   function closeModal() { modal?.classList.remove('open'); document.body.style.overflow = ''; }
 
   openBtn?.addEventListener('click', openModal);
+  document.querySelectorAll('.open-modal-cta').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
   closeBtn?.addEventListener('click', closeModal);
   modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
