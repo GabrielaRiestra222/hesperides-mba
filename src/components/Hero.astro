@@ -710,6 +710,7 @@ const {
     .form-submit:hover { background: #FFCD00; color: #000; }
     .form-legal-row { display: flex; align-items: center; gap: clamp(6px, 0.5vw, 10px); flex-wrap: nowrap; }
     .hero-modal-card { max-width: 540px; }
+    .hero-form input::placeholder { font-size: clamp(8px, 0.75vw, 12px); }
     .hero-modal-card .hero-form input[type="text"],
     .hero-modal-card .hero-form input[type="email"],
     .hero-modal-card .hero-form input[type="tel"] { height: 46px; }
@@ -761,42 +762,180 @@ const {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 </script>
 <script>
+
+// ------------------------------
+// Leer parámetros URL
+// ------------------------------
+function getParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name) || "";
+}
+
+// ------------------------------
+// Cookies
+// ------------------------------
+function setCookie(name, value, days = 30) {
+  const d = new Date();
+  d.setTime(d.getTime() + (days*24*60*60*1000));
+  document.cookie = name + "=" + value + ";path=/;expires=" + d.toUTCString();
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+  return "";
+}
+
+// ------------------------------
+// Guardar UTMs al entrar
+// ------------------------------
+const utmParams = [
+  "utm_campaign",
+  "utm_source",
+  "utm_medium",
+  "utm_content",
+  "utm_term",
+  "campaign_id",
+  "adset_id",
+  "ad_id",
+  "gclid"
+];
+
+utmParams.forEach(param => {
+  const value = getParam(param);
+  if (value) setCookie(param, value);
+});
+
+// ------------------------------
+// Normalizar teléfono
+// ------------------------------
+function normalizePhone(phone) {
+
+  if (!phone) return "";
+
+  phone = phone.replace(/\s+/g, "");
+
+  if (phone.startsWith("+")) return phone;
+
+  if (phone.startsWith("00")) return "+" + phone.slice(2);
+
+  if (/^[679]/.test(phone)) return "+34" + phone;
+
+  return phone;
+}
+
+// ------------------------------
+// Fecha compatible Zoho
+// ------------------------------
+function zohoDate() {
+  const d = new Date();
+  return d.toISOString().split('.')[0] + "+00:00";
+}
+
+// ------------------------------
+// Formularios
+// ------------------------------
+// ------------------------------
+// Modal abrir / cerrar
+// ------------------------------
+const modal = document.getElementById("hero-modal");
+const openBtn = document.getElementById("hero-open-modal");
+const closeBtn = document.getElementById("hero-close-modal");
+
+if (openBtn && modal) {
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+}
+
+if (closeBtn && modal) {
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  });
+}
+
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  });
+}
+
+// ------------------------------
+// Formularios
+// ------------------------------
 const forms = document.querySelectorAll(".hero-form");
 
 forms.forEach((form) => {
 
   form.addEventListener("submit", async (e) => {
+
     e.preventDefault();
 
     const f = new FormData(form);
 
     const data = {
+
       First_Name: f.get("nombre"),
       Last_Name: f.get("apellidos"),
       Email: f.get("email"),
-      Mobile: f.get("telefono"),
+
+      Mobile: normalizePhone(f.get("telefono")),
 
       Pa_s: f.get("pais"),
       Provincia: f.get("provincia"),
+      Provincia_extranjera: "",
 
       Edicion_de_interes: "Otoño 2026",
-      Escuela: "U. Hespérides",
+      Conoce_el_precio_del_programa: "Sí",
 
+      Escuela: "U. Hespérides",
+      Nombre_de_formulario: "Flotante-h",
+      Lead_Status: "0. No contactado",
       Lead_Source: "Formulario web",
 
-      Fecha_hora_de_aceptaci_n: new Date().toISOString(),
+      Acepto_pol_tica_de_privacidad: "De acuerdo",
+      Centro: "Escuela de Postgrado",
+
+      Dominio_web_pais: "España",
+      Codigo_titulacion_formulario: "MUADE",
+      Titulaci_n_de_inter_s: "MUADE",
+
+      Direcci_n_IP: "",
+
+      Fecha_hora_de_aceptaci_n: zohoDate(),
+
+      gclid_field: getCookie("gclid"),
 
       Tipo_dispositivo:
-        /Mobi|Android|iPhone/i.test(navigator.userAgent)
+        /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
           ? "Móvil"
-          : "PC/Tablet"
+          : "PC/Tablet",
+
+      utm_campaign: getCookie("utm_campaign"),
+      utm_content: getCookie("utm_content"),
+      utm_medium: getCookie("utm_medium"),
+      utm_source: getCookie("utm_source"),
+      utm_term: getCookie("utm_term"),
+
+      campaign_id: getCookie("campaign_id"),
+      adset_id: getCookie("adset_id"),
+      ad_id: getCookie("ad_id"),
+
+      Layout: "499060000000032033"
+
     };
 
     console.log("DATA ENVIADA:", data);
 
     try {
 
-      await fetch(
+      const res = await fetch(
         "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
         {
           method: "POST",
@@ -807,14 +946,28 @@ forms.forEach((form) => {
         }
       );
 
+      console.log("RESPUESTA:", res);
+
       alert("Solicitud enviada correctamente");
+
       form.reset();
 
+      const modal = document.getElementById("hero-modal");
+
+      if (modal) {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
     } catch (error) {
+
       console.error("ERROR ENVÍO:", error);
+      alert("Error al enviar el formulario");
+
     }
 
   });
 
 });
+
 </script>
