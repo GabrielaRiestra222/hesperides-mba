@@ -1,0 +1,163 @@
+---
+// Mit.astro — Sección tarjeta Executive Lab
+---
+
+<section class="mit-section">
+  <div class="mit-inner">
+    <div class="mit-card">
+
+      <!-- Logo Executive Lab -->
+      <div class="mit-logos">
+        <img src="/img/executivelab-logo.png" alt="Executive Lab" class="mit-logo-img" />
+      </div>
+
+      <!-- Texto -->
+      <p class="mit-texto">
+        El bloque de IA aplicada del MBA se imparte en colaboración con <strong>Executive Lab</strong>.
+        Firma especializada en dotar de criterio y capacidad de ejecución a directivos a través de su
+        programa intensivo de IA.
+      </p>
+
+      <!-- Botón -->
+      <div class="mit-btn-wrap">
+        <a href="https://executivelab.ai" target="_blank" rel="noopener noreferrer" class="mit-btn">
+          CONOCE EXECUTIVE LAB
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  /* ── Sección ── */
+  .mit-section {
+    width: 100%;
+    background: #fff;
+    padding: clamp(60px, 6vw, 100px) 0;
+    padding-inline: clamp(20px, 16.67vw, 320px);
+  }
+
+  .mit-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ── Tarjeta ── */
+  .mit-card {
+    width: 100%;
+    background: #FFCD00;
+    border-radius: 35px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    padding: clamp(40px, 5.2vw, 99px) clamp(32px, 4.5vw, 87px) clamp(32px, 3.5vw, 48px);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(24px, 3vw, 40px);
+  }
+
+  /* ── Logo ── */
+  .mit-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mit-logo-img {
+    height: clamp(40px, 5vw, 80px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Texto ── */
+  .mit-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.3vw, 25px);
+    line-height: 38px;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    text-align: center;
+    max-width: 780px;
+  }
+
+  .mit-texto strong {
+    font-weight: 900;
+    color: #1a1a1a;
+  }
+
+  /* ── Botón ── */
+  .mit-btn-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mit-btn {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(11px, 0.85vw, 14px);
+    letter-spacing: 0.08em;
+    padding: clamp(10px, 1vw, 14px) clamp(24px, 2.5vw, 40px);
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .mit-btn:hover {
+    background: #333;
+  }
+
+  /* ── Responsive tablet ── */
+  @media (max-width: 1024px) {
+    .mit-inner {
+      padding: 0 20px;
+    }
+  }
+
+  /* ── Responsive mobile ── */
+  @media (max-width: 860px) {
+    .mit-section { padding-inline: 0; }
+    .mit-inner { padding: 30px; width: 100%; max-width: 100%; }
+
+    .mit-card {
+      border-radius: 24px;
+      padding: 32px 24px;
+      gap: 24px;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    .mit-logo-img { height: 40px; }
+
+    .mit-texto {
+      font-size: 15px;
+      line-height: 26px;
+      text-align: left;
+    }
+
+    .mit-btn {
+      font-size: 11px;
+      padding: 10px 24px;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .mit-inner {
+      padding: 0;
+    }
+  }
+</style>

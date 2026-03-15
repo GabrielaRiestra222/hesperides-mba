@@ -1,0 +1,422 @@
+---
+const cards = [
+  {
+    id: "fraccionado10",
+    tituloReposo: "Fraccionado\n10 plazos",
+    tituloExpand: "Pago fraccionado\nen 10 plazos",
+    descripcion: "Ideal si prefieres distribuir el coste durante el curso",
+    cuotas: "10 cuotas de:",
+    precio: "120€",
+    total: "Total: 1.500 €",
+  },
+  {
+    id: "fraccionado2",
+    tituloReposo: "Fraccionado\n2 plazos",
+    tituloExpand: "Pago fraccionado\nen 2 plazos",
+    descripcion: "Equilibrio entre flexibilidad y ahorro",
+    cuotas: "2 cuotas de:",
+    precio: "544€",
+    total: "Total: 1.388 €",
+  },
+  {
+    id: "unicoo",
+    tituloReposo: "Pago único",
+    tituloExpand: "Pago único antes\nde comenzar",
+    descripcion: "La opción con mayor ahorro",
+    cuotas: "Total:",
+    precio: "1.275€",
+    total: "",
+  },
+];
+---
+
+<section class="pagos-section">
+  <div class="pagos-bg"></div>
+  <div class="pagos-overlay"></div>
+
+  <div class="pagos-inner">
+
+    <div class="pagos-titulo-wrap">
+      <h2 class="pagos-titulo">
+        Por fin un MBA de nivel europeo<br />
+        <strong>CON UN PRECIO AL NIVEL DE TODOS</strong>
+      </h2>
+    </div>
+
+    <p class="pagos-fases">
+      FASES DE ADMISIÓN — <span class="pagos-fases-conv">Convocatoria Abril</span>
+    </p>
+
+    <div class="pagos-cards" id="pagos-cards">
+      {cards.map((card) => (
+        <div
+          class="pago-card"
+          data-id={card.id}
+          role="button"
+          tabindex="0"
+          aria-label={card.tituloReposo}
+        >
+          <div class="pago-reposo">
+            <p class="pago-reposo-titulo">
+              {card.tituloReposo.split('\n').map((line, i) => (
+                <>{i === 0 ? <>{line}<br /></> : <strong>{line}</strong>}</>
+              ))}
+            </p>
+          </div>
+
+          <div class="pago-expand">
+            <h3 class="pago-expand-titulo">
+              {card.tituloExpand.split('\n').map((line, i) => (
+                <>{i === 0 ? <span class="pago-titulo-light">{line.split(' ').slice(0, -2).join(' ')} <strong>{line.split(' ').slice(-2).join(' ')}</strong></span> : <><br /><strong>{line}</strong></>}</>
+              ))}
+            </h3>
+            <p class="pago-descripcion">{card.descripcion}</p>
+            <div class="pago-precio-wrap">
+              <p class="pago-cuotas">
+                {card.cuotas} <strong class="pago-importe">{card.precio}</strong>
+              </p>
+              {card.total && <p class="pago-total">{card.total.split(': ')[0]}: <strong>{card.total.split(': ')[1]}</strong></p>}
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    <div class="pagos-boton-wrap">
+      <a href="#" class="pagos-boton open-modal-cta">QUIERO HACERLO</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  .pagos-section {
+    position: relative;
+    width: 100%;
+    min-height: clamp(700px, 59.4vw, 1141px);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding-inline: clamp(20px, 16.67vw, 320px);
+  }
+
+  .pagos-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 400px 400px at 20% 50%, rgba(180, 120, 0, 0.55) 0%, transparent 70%),
+      radial-gradient(ellipse 300px 300px at 75% 25%, rgba(200, 140, 0, 0.45) 0%, transparent 65%),
+      radial-gradient(ellipse 350px 250px at 60% 75%, rgba(160, 100, 0, 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 250px 250px at 40% 85%, rgba(140, 80, 0, 0.3) 0%, transparent 55%),
+      radial-gradient(ellipse 500px 300px at 85% 60%, rgba(190, 130, 0, 0.25) 0%, transparent 65%),
+      linear-gradient(135deg, #1a0e00 0%, #2d1a00 25%, #1f1000 55%, #0d0700 100%);
+    filter: blur(3px);
+    transform: scale(1.05);
+  }
+
+  .pagos-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 180, 0, 0.08);
+  }
+
+  .pagos-inner {
+    position: relative;
+    z-index: 2;
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: clamp(60px, 6.6vw, 128px) 0 clamp(40px, 4vw, 72px);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pagos-titulo-wrap {
+    margin-bottom: clamp(40px, 5vw, 80px);
+  }
+
+  .pagos-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(28px, 2.3vw, 45px);
+    line-height: 47px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .pagos-titulo strong {
+    font-weight: 700;
+    color: #FFCD00;
+  }
+
+  .pagos-fases {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 1.875vw, 36px);
+    line-height: 35px;
+    color: #ffffff;
+    margin: 0 0 clamp(24px, 3vw, 48px);
+  }
+
+  .pagos-fases-conv {
+    color: #FFCD00;
+  }
+
+  .pagos-cards {
+    display: flex;
+    gap: clamp(16px, 2vw, 24px);
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 60px;
+  }
+
+  .pago-card {
+    position: relative;
+    width: clamp(200px, 17.25vw, 331px);
+    height: clamp(200px, 17.25vw, 331px);
+    border-radius: 28.27px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(33.92px);
+    -webkit-backdrop-filter: blur(33.92px);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+      width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      border-radius 0.45s ease,
+      background 0.35s ease;
+    flex-shrink: 0;
+  }
+
+  .pago-card.active {
+    width: clamp(320px, 26.65vw, 511px);
+    height: clamp(320px, 26.65vw, 511px);
+    border-radius: 43.66px;
+    background: #ffffff;
+  }
+
+  .pago-reposo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 1.82vw, 36px);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .pago-card.active .pago-reposo {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pago-reposo-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 0;
+    font-size: clamp(22px, 1.94vw, 37.31px);
+    line-height: 39.57px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .pago-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: clamp(20px, 2.5vw, 36px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease 0.15s;
+    margin: clamp(20px, 2.27vw, 45px);
+  }
+
+  .pago-card.active .pago-expand {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .pago-expand-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(24px, 3.03vw, 60px);
+    line-height: 42px;
+    color: #FFCD00;
+    margin: 0;
+  }
+
+  .pago-expand-titulo strong {
+    font-weight: 800;
+    color: #FFCD00;
+  }
+
+  .pago-descripcion {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 2.27vw, 45px);
+    line-height: 28px;
+    color: #1a1a1a;
+    margin: 0;
+    flex: 1;
+    padding-top: clamp(7px, 0.76vw, 15px);
+  }
+
+  .pago-precio-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    margin-top: auto;
+  }
+
+  .pago-cuotas {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(27px, 3.41vw, 68px);
+    line-height: 30px;
+    color: #FFCD00;
+    margin: 0;
+  }
+
+  .pago-importe {
+    font-weight: 700;
+    font-size: clamp(23px, 2.65vw, 53px);
+    color: #FFCD00;
+  }
+
+  .pago-total {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(20px, 2.35vw, 47px);
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .pago-total strong { font-weight: 700; }
+
+  /* ── Botón: liquid glass, más estrecho ── */
+  .pagos-boton-wrap {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1319px;
+    margin-top: clamp(16px, 2vw, 32px);
+  }
+
+  .pagos-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 clamp(14px, 1.67vw, 33px);
+    border-radius: 999px;
+    /* Liquid glass */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px) saturate(1.6);
+    -webkit-backdrop-filter: blur(18px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.35),
+      inset 0 -1px 0 rgba(0,0,0,0.08),
+      0 4px 16px rgba(0,0,0,0.18);
+    color: #ffffff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(8px, 0.91vw, 18px);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .pagos-boton:hover {
+    background: rgba(255, 205, 0, 0.22);
+    border-color: rgba(255, 205, 0, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.4),
+      inset 0 -1px 0 rgba(0,0,0,0.06),
+      0 6px 20px rgba(255, 205, 0, 0.18);
+    color: #fff;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .pagos-section { min-height: unset; padding-inline: 0; }
+    .pagos-inner { padding: 48px 27px 40px; margin-left: 0; }
+
+    .pagos-titulo { font-size: 37px; line-height: 36px; font-weight: 400; }
+    .pagos-titulo strong { font-size: 38px; }
+    .pagos-fases { font-size: 30px; font-weight: 400; line-height: 26px; margin-bottom: 24px; }
+
+    .pagos-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding-top: 32px;
+    }
+
+    .pago-card { width: 120px; height: 120px; border-radius: 18px; }
+    .pago-card.active { width: 300px; height: 300px; border-radius: 28px; }
+    .pago-reposo-titulo { font-size: 15px; line-height: 20px; }
+
+    .pago-expand { padding: 20px; gap: 10px; }
+    .pago-expand-titulo { font-size: 30px; line-height: 26px; }
+    .pago-descripcion  { font-size: 24px; line-height: 20px; padding-top: 4px; }
+    .pago-cuotas       { font-size: 16px; line-height: 22px; }
+    .pago-importe      { font-size: 30px; }
+    .pago-total        { font-size: 13px; }
+
+    .pagos-boton-wrap { justify-content: center; margin-top: 24px; }
+    .pagos-boton { padding: 0 28px; }
+  }
+  @media (min-width: 901px) {
+    .pagos-inner { padding-left: 0; padding-right: 0; }
+    .pagos-titulo { font-weight: 300; }
+    .pagos-fases { font-weight: 300; }
+    .pagos-fases-conv { font-weight: 300; }
+    .pago-expand {padding-right: 10px; padding-top: 10px;}
+    .pago-expand-titulo { font-size: 30px; line-height: 1.1; margin-right: 10px; }
+    .pago-descripcion   { font-size: 20px; line-height: 1.3; }
+    .pago-reposo-titulo { font-size: clamp(18px, 1.6vw, 30px); }
+    .pago-cuotas        { font-size: clamp(20px, 2vw, 36px); line-height: 1.1; }
+    .pago-importe       { font-size: clamp(24px, 2.5vw, 46px); font-weight: 900; }
+    .pago-total         { font-size: clamp(16px, 1.6vw, 28px); }
+    .pago-total strong  { font-weight: 900; }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll('.pago-card');
+
+  if (cards.length > 0) cards[0].classList.add('active');
+
+  const isMobile = () => window.innerWidth <= 860;
+
+  function activate(card: Element) {
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  }
+
+  function deactivateAll() {
+    if (isMobile()) return;
+    cards.forEach(c => c.classList.remove('active'));
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => { if (!isMobile()) activate(card); });
+    card.addEventListener('mouseleave', () => { if (!isMobile()) deactivateAll(); });
+    card.addEventListener('click', () => { activate(card); });
+    card.addEventListener('keydown', (e) => {
+      const ke = e as KeyboardEvent;
+      if (ke.key === 'Enter' || ke.key === ' ') {
+        ke.preventDefault();
+        card.classList.contains('active') ? deactivateAll() : activate(card);
+      }
+    });
+  });
+</script>

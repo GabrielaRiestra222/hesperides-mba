@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Pau/AppData/Roaming/**)",
+      "Read(//c/Users/Pau/**)",
+      "Bash(cmd /c \"where npm\")",
+      "Bash(cmd /c \"where npm 2>&1\")",
+      "Bash(cmd /c where npm)",
+      "Bash(cmd /c \"where node & where npm & echo done\")",
+      "Bash(cmd /c \"dir \"\"C:\\\\Program Files\\\\nodejs\"\" 2>&1 & dir \"\"%APPDATA%\\\\npm\"\" 2>&1\")",
+      "Bash(cmd /c \"node --version 2>&1 && npm --version 2>&1\")",
+      "Bash(cmd /c node --version)",
+      "Bash(grep -r \"max-width.*12\\\\|container\\\\|wrapper\\\\|section-inner\" c:UsersPauDownloadshesperides-mba-mainsrc --include=*.astro --include=*.css)",
+      "Bash(grep -r section-inner /c/Users/Pau/Downloads/hesperides-mba-main/src/components --include=*.astro)"
+    ]
+  }
+}

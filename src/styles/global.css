@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GLOBAL.CSS — Universidad de las Hespérides MBA Landing
+   Viewport de diseño: 1319px (referencia ideal)
+   Contenido centrado: max-width 1319px con margin-inline auto
+   Excepciones full-width: Header, Hero, Footer
+   ============================================================ */
+
+/* ── Reset básico ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tipografía global — Noto Sans HK ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;200;300;400;500;700;900&display=swap');
+
+html {
+  font-family: "Noto Sans HK", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Noto Sans HK", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  background: #fff;
+}
+
+
+/* ============================================================
+   SISTEMA DE MÁRGENES GLOBAL
+   
+   Uso: añadir clase .section-inner dentro de cada <section>
+   Excepciones sin .section-inner: Header, Hero, Footer
+   ============================================================ */
+
+.section-inner {
+  width: min(1285px, 100%);
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .section-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  button,
+  .avanza-cta,
+  .pagos-boton,
+  .campus-boton,
+  .financiacion-boton,
+  .dosmundos-boton,
+  .practicas-cta,
+  .avales-cta,
+  .cta-btn,
+  .hero-folleto-btn,
+  .profesores-boton,
+  .hero-cta-btn {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================================
+   SECCIONES — estructura base
+   Cada <section> ocupa el 100% del ancho
+   El contenido va dentro de .section-inner
+   ============================================================ */
+
+section {
+  width: 100%;
+  position: relative;
+  overflow-x: clip;
+}
+
+/* ============================================================
+   COLORES GLOBALES
+   ============================================================ */
+:root {
+  --color-amarillo: #FFCD00;
+  --color-negro: #0B0B0B;
+  --color-blanco: #ffffff;
+  --color-gris-claro: #F5F4F4;
+}
+
+/* ============================================================
+   TIPOGRAFÍA GLOBAL — escala
+   ============================================================ */
+
+/* Título grande: 64px en 1920px */
+.text-hero    { font-size: clamp(32px, 3.33vw, 64px); font-weight: 500; line-height: 1.1; }
+
+/* Título sección: 45px en 1920px */
+.text-section { font-size: clamp(24px, 2.34vw, 45px); font-weight: 500; line-height: 1.2; }
+
+/* Título medio: 40px en 1920px */
+.text-title   { font-size: clamp(22px, 2.08vw, 40px); font-weight: 500; line-height: 35px; }
+
+/* Subtítulo: 24px en 1920px */
+.text-sub     { font-size: clamp(16px, 1.25vw, 24px); font-weight: 400; line-height: 28px; }
+
+/* Cuerpo: 20px en 1920px */
+.text-body    { font-size: clamp(14px, 1.04vw, 20px); font-weight: 200; line-height: 28px; letter-spacing: 1px; }
+
+/* Pequeño: 17px en 1920px */
+.text-small   { font-size: clamp(13px, 0.885vw, 17px); font-weight: 200; line-height: 21px; }
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+
+.color-amarillo { color: var(--color-amarillo); }
+.color-negro    { color: var(--color-negro); }
+.color-blanco   { color: var(--color-blanco); }
+
+.fw-300 { font-weight: 300; }
+.fw-500 { font-weight: 500; }
+.fw-700 { font-weight: 700; }

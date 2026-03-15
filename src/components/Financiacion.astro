@@ -1,0 +1,157 @@
+---
+// Financiacion.astro — Sección financiación con imagin
+---
+
+<section class="financiacion-section">
+  <div class="financiacion-inner">
+
+    <div class="financiacion-logo-wrap">
+      <img src="/img/imagin.jpg" alt="imagin" class="financiacion-logo" />
+    </div>
+
+    <div class="financiacion-divider"></div>
+
+    <div class="financiacion-contenido">
+      <p class="financiacion-texto">
+        Con el <strong>Préstamo Estudios imagin</strong>, puedes cubrir el 100% de tus gastos
+        académicos. Lo mejor es que no tienes que empezar a pagar el capital de inmediato:
+        ¡Empieza a pagarlo hasta un año después de terminar tus estudios!. Hasta entonces,
+        paga solo intereses y luego podrás elegir el plazo que mejor se adapte a ti.*
+      </p>
+      <p class="financiacion-nota">
+        * Préstamo destinado a estudiantes mayores de edad y con residencia en España
+      </p>
+      <div class="financiacion-boton-wrap">
+        <a href="#" class="financiacion-boton open-modal-cta">MÁS INFO</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  /* ── Sección: más padding vertical ── */
+  .financiacion-section {
+    width: 100%;
+    background: #fff;
+    padding: clamp(100px, 11vw, 200px) 0 clamp(80px, 9vw, 160px);
+    padding-inline: clamp(24px, 16.67vw, 320px);
+  }
+
+  /* ── Inner: sistema global de márgenes ── */
+  .financiacion-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(32px, 3vw, 56px);
+  }
+
+  .financiacion-logo-wrap {
+    flex-shrink: 0;
+    width: clamp(180px, 18.4vw, 354px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    margin-top: -clamp(8px, 1.5vw, 24px);
+  }
+
+  .financiacion-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .financiacion-divider {
+    flex-shrink: 0;
+    width: 1px;
+    height: 281px;
+    background: #1a1a1a;
+    margin-bottom: clamp(50px, 7.58vw, 150px);
+  }
+
+  .financiacion-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .financiacion-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.3vw, 25px);
+    line-height: 38px;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .financiacion-texto strong { font-weight: 700; }
+
+  .financiacion-nota {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(10px, 1.06vw, 21px);
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    color: #555;
+    margin: 0;
+  }
+
+  .financiacion-boton-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: clamp(16px, 2.5vw, 40px);
+  }
+
+  .financiacion-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 235px;
+    height: 45px;
+    border-radius: 999px;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(9px, 0.99vw, 20px);
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .financiacion-boton:hover {
+    background: #FFCD00;
+    color: #000;
+  }
+
+  @media (max-width: 860px) {
+    .financiacion-section { padding: 50px 0; padding-inline: 30px; }
+    .financiacion-inner {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+    .financiacion-logo-wrap { width: 200px; margin-left: auto; margin-right: auto; margin-bottom: 0; }
+    .financiacion-inner { gap: 0; }
+    .financiacion-divider { display: none; }
+    .financiacion-contenido { width: 100%; gap: 14px; }
+    .financiacion-texto { font-size: 15px; line-height: 26px; text-align: left; }
+    .financiacion-nota { text-align: center; }
+    .financiacion-boton-wrap { justify-content: center; }
+    .financiacion-boton { width: 100%; }
+  }
+  @media (min-width: 901px) {
+    .financiacion-inner { max-width: none; }
+    .financiacion-texto,
+    .financiacion-nota { text-align: left; }
+  }
+
+</style>

@@ -1,0 +1,230 @@
+---
+// Stats.astro — Sección de estadísticas con contador tipo tragaperras
+---
+
+<section class="stats-section">
+  <div class="stats-bg"></div>
+  <div class="stats-overlay"></div>
+
+  <div class="stats-inner">
+
+    <div class="stats-numeros">
+      <div class="stat-item">
+        <div class="stat-numero">
+          <span class="stat-prefix">+</span><span class="stat-slot"><span class="stat-count" data-target="4000" data-format="4.000">0</span></span>
+        </div>
+        <div class="stat-label">EGRESADOS</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-numero">
+          <span class="stat-slot"><span class="stat-count" data-target="29" data-format="29">0</span></span>
+        </div>
+        <div class="stat-label">TITULACIONES</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-numero">
+          <span class="stat-prefix">+ </span><span class="stat-slot"><span class="stat-count" data-target="40" data-format="40">0</span></span>
+        </div>
+        <div class="stat-label">NACIONALIDADES</div>
+      </div>
+    </div>
+
+    <p class="stats-texto">
+      Durante más de diez años nuestro grupo educativo ha trabajado para ofrecer educación de excelencia,
+      primero en <strong>OMMA Business School Madrid</strong> y ahora con la <strong>Universidad de las Hespérides</strong>.
+    </p>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  .stats-section {
+    position: relative;
+    width: 100%;
+    height: clamp(480px, 33.4vw, 641px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-inline: clamp(20px, 16.67vw, 320px);
+  }
+
+  .stats-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 300px 300px at 15% 40%, rgba(180, 120, 0, 0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 200px 200px at 80% 20%, rgba(200, 140, 0, 0.5) 0%, transparent 65%),
+      radial-gradient(ellipse 250px 250px at 60% 70%, rgba(160, 100, 0, 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 180px 180px at 35% 80%, rgba(140, 80, 0, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse 400px 400px at 90% 60%, rgba(190, 130, 0, 0.3) 0%, transparent 70%),
+      radial-gradient(ellipse 350px 200px at 50% 10%, rgba(170, 110, 0, 0.25) 0%, transparent 60%),
+      linear-gradient(135deg, #1a0e00 0%, #2d1a00 30%, #1f1000 60%, #0d0700 100%);
+    filter: blur(2px);
+    transform: scale(1.05);
+  }
+
+  .stats-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 205, 0, 0.18);
+    mix-blend-mode: multiply;
+  }
+
+  /* ── Inner: sistema global de márgenes ── */
+  .stats-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 5vw, 80px);
+  }
+
+  /* ── Grid de números ── */
+  .stats-numeros {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* ── Número: más grande ── */
+  .stat-numero {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(72px, 7.3vw, 140px);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #FFCD00;
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+
+  .stat-prefix {
+    font-size: clamp(52px, 5.2vw, 100px);
+  }
+
+  .stat-slot {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: baseline;
+  }
+
+  /* ── Label: más grande ── */
+  .stat-label {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(16px, 1.67vw, 32px);
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* ── Texto inferior ── */
+  .stats-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(16px, 1.3vw, 25px);
+    line-height: 38px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .stats-texto strong {
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .stats-section { height: auto; padding: 60px 0; }
+    .stats-inner { padding: 0 20px; gap: 40px; margin-left: px; }
+
+    .stats-numeros {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .stat-item { align-items: center; gap: 8px; }
+    .stat-numero { font-size: 72px; }
+    .stat-prefix { font-size: 52px; }
+    .stat-label { font-size: 18px; line-height: 1.4; font-weight: 400;}
+    .stats-texto { font-size: 15px; line-height: 26px; text-align: left; margin: 10px;}
+  }
+  @media (min-width: 901px) {
+    .stats-inner { padding: 0; }
+  }
+</style>
+
+<script>
+  const counters = document.querySelectorAll('.stat-count');
+
+  function formatNumber(n: number, format: string): string {
+    if (format.includes('.')) return n.toLocaleString('es-ES');
+    return String(n);
+  }
+
+  function animateSlot(el: Element) {
+    const target = parseInt(el.getAttribute('data-target') || '0');
+    const format = el.getAttribute('data-format') || String(target);
+    const duration = 3200;
+    const fps = 30;
+    const totalFrames = Math.round((duration / 1000) * fps);
+    const fastPhase = Math.floor(totalFrames * 0.5);
+    const slowPhase = totalFrames - fastPhase;
+    let frame = 0;
+
+    const interval = setInterval(() => {
+      frame++;
+      if (frame <= fastPhase) {
+        const rand = Math.floor(Math.random() * (target + 1));
+        el.textContent = formatNumber(rand, format);
+      } else {
+        const progress = (frame - fastPhase) / slowPhase;
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const current = Math.round(eased * target);
+        el.textContent = formatNumber(current, format);
+      }
+      if (frame >= totalFrames) {
+        clearInterval(interval);
+        el.textContent = formatNumber(target, format);
+      }
+    }, 1000 / fps);
+  }
+
+  const section = document.querySelector('.stats-section');
+  let animated = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          counters.forEach((counter, i) => {
+            setTimeout(() => animateSlot(counter), i * 150);
+          });
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  if (section) observer.observe(section);
+</script>

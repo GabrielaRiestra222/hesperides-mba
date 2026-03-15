@@ -1,0 +1,340 @@
+---
+// Campus.astro — Sección "Visita nuestro campus"
+---
+
+<section class="campus-section">
+  <div class="campus-inner">
+
+    <!-- Columna izquierda: texto + foto + botón -->
+    <div class="campus-col-left">
+
+      <div class="campus-texto">
+        <h2 class="campus-titulo">Visita nuestro <strong>campus</strong></h2>
+
+        <p class="campus-parrafo">
+          En <strong>.h</strong> nacimos innovadores y un buen ejemplo de ello es nuestro
+          <strong>campus híbrido</strong>. Sí, como lo oyes, porque en nuestra sede virtual en el
+          Metaverso, podrás interactuar en tiempo real con alumnos, profesores y personal administrativo.
+        </p>
+        <p class="campus-parrafo">
+          Además, contarás con dos <strong>sedes físicas</strong>, en Santa Cruz de Tenerife y en
+          Las Palmas de Gran Canaria, y con un <strong>hub</strong> académico en Madrid.
+        </p>
+      </div>
+
+      <div class="campus-foto-izq">
+        <img src="/img/Captura de pantalla 2026-03-06 a las 10.56.04.png" alt="Sede física Universidad de las Hespérides" />
+      </div>
+
+      <div class="campus-boton-wrap">
+        <a href="#" class="campus-boton open-modal-cta">QUIERO APUNTARME</a>
+      </div>
+
+    </div>
+
+    <!-- Columna derecha: foto tall + texto vida social -->
+    <div class="campus-col-right">
+
+      <div class="campus-foto-dcha">
+        <img src="/img/Captura de pantalla 2026-03-06 a las 10.56.30.png" alt="Actividades extracurriculares Universidad de las Hespérides" />
+      </div>
+
+      <div class="campus-vida">
+        <h3 class="campus-vida-titulo">
+          La vida social será parte de tu experiencia en <strong>.h</strong>
+        </h3>
+        <p class="campus-vida-texto">
+          Disfrutarás de diversas actividades extracurriculares, como visitas presenciales, grupos de
+          lectura y cine-foros, entre otros, para enriquecer tu experiencia universitaria. Creemos que
+          la interacción social fuera de la actividad académica es esencial para establecer lazos,
+          divertirse y crecer como personas. La vida social es una parte fundamental de una vida
+          universitaria plena y exitosa y en <strong>.h</strong> podrás ser parte de nuevas experiencias
+          con estudiantes y profesores.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
+
+  /* ── Sección ── */
+  .campus-section {
+    width: 100%;
+    background: #fff;
+    padding: clamp(48px, 6vw, 96px) 0;
+    padding-inline: clamp(24px, 8.3vw, 160px);
+  }
+
+  .campus-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 612fr 596fr;
+    gap: clamp(24px, 4vw, 80px);
+    align-items: start;
+  }
+
+  /* ── Columna izquierda ── */
+  .campus-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0px;
+    margin-left: clamp(40px, 6.07vw, 120px);
+
+  }
+
+  /* ── Título ── */
+  .campus-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(24px, 2.8vw, 40px);
+    line-height: 1.15;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    margin: 0 0 clamp(20px, 2.5vw, 40px);
+    margin-bottom: clamp(36px, 4.55vw, 90px);
+  }
+
+  .campus-titulo strong {
+    font-weight: 700;
+  }
+
+  /* ── Párrafos ── */
+  .campus-parrafo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.37vw, 27px);
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: justify;
+    color: #1a1a1a;
+    margin: 0 0 clamp(11px, 1.21vw, 24px);
+    max-width: 612px;
+    margin-bottom: clamp(24px, 3.03vw, 60px);
+  }
+
+  .campus-parrafo:last-of-type {
+    margin-bottom: clamp(24px, 3vw, 48px);
+  }
+
+  /* ── Foto izquierda ── */
+  .campus-foto-izq {
+    width: 100%;
+    max-width: 612px;
+    height: clamp(280px, 30vw, 457px);
+    border-radius: 32px;
+    overflow: hidden;
+    margin-bottom: clamp(24px, 3vw, 48px);
+  }
+
+  .campus-foto-izq img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Placeholder cuando no hay imagen */
+  .campus-foto-izq img[src*="placeholder"],
+  .campus-foto-izq img:not([src]),
+  .campus-foto-izq img[src=""] {
+    background: #e8e8e8;
+  }
+
+  /* ── Botón ── */
+  .campus-boton-wrap {
+    display: flex;
+    justify-content: center;
+    margin-left: -90px;
+  }
+
+  .campus-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 clamp(14px, 1.67vw, 33px);
+  border-radius: 999px;
+  background: rgba(26, 26, 26, 0.88);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,0,0,0.18),
+    0 4px 16px rgba(0,0,0,0.18);
+  color: #fff;
+  font-family: "Noto Sans HK", sans-serif;
+  font-weight: 500;
+  font-size: clamp(8px, 0.91vw, 18px);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+  .campus-boton:hover {
+    background: #f5c800;
+    color: #1a1a1a;
+  }
+
+  /* ── Columna derecha ── */
+  .campus-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(24px, 3vw, 48px);
+    margin-left: -10px;
+  }
+
+  /* ── Foto derecha (tall) ── */
+  .campus-foto-dcha {
+    width: 100%;
+    max-width: 596px;
+    height: clamp(360px, 41.4vw, 795px);
+    border-radius: 32px;
+    overflow: hidden;
+    margin-top: clamp(10px, 0vw, 230px);
+  }
+
+  .campus-foto-dcha img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+  }
+
+  /* ── Vida social ── */
+  .campus-vida {
+    max-width: 596px;
+    
+  }
+
+  .campus-vida-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 36px);
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 clamp(13px, 1.52vw, 30px);
+  }
+
+  .campus-vida-titulo strong {
+    font-weight: 700;
+  }
+
+  .campus-vida-texto {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 1.21vw, 24px);
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: justify;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  /* ── Responsive ── */
+  @media (min-width: 901px) {
+    .campus-section { padding-inline: clamp(24px, 16vw, 260px); }
+    .campus-inner {
+      max-width: 1319px;
+      margin-inline: auto;
+    }
+    .campus-col-left { margin-left: 0; gap: clamp(8px, 0.8vw, 14px); }
+    .campus-parrafo { font-size: clamp(15px, 1.3vw, 22px); line-height: 1.5; margin-bottom: clamp(10px, 1vw, 18px); }
+    .campus-boton-wrap { margin-left: 0; }
+    .campus-boton { background: #1a1a1a; font-weight: 300; }
+    .campus-titulo { font-size: clamp(20px, 2.27vw, 45px); margin-bottom: clamp(8px, 0.6vw, 12px); }
+    .campus-foto-izq { aspect-ratio: 3/2; height: auto; margin-top: clamp(8px, 0.8vw, 12px); width: 100%; }
+    .campus-foto-dcha { margin-top: 0; }
+    .campus-vida-titulo { font-size: clamp(20px, 2.27vw, 45px); }
+    .campus-vida-texto { font-size: clamp(15px, 1.3vw, 22px); line-height: 1.5; }
+    .campus-parrafo,
+    .campus-vida-texto { letter-spacing: -0.01em; word-spacing: -0.02em; }
+    .campus-col-right { margin-top: 0; }
+    .campus-inner { align-items: start; }
+  }
+
+
+  @media (max-width: 1024px) {
+    .campus-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .campus-inner {
+      grid-template-columns: 1fr;
+      padding: 0 24px 0 8px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .campus-col-left {
+      margin-left: 0;
+    }
+
+    .campus-titulo {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .campus-parrafo {
+      max-width: 100%;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .campus-foto-izq {
+      width: calc(100% + 36px);
+      margin-left: -12px;
+      margin-right: -24px;
+      margin-top: 40px;
+      border-radius: 32px;
+      height: clamp(280px, 60vw, 400px);
+    }
+
+    .campus-boton-wrap {
+      width: 100%;
+      justify-content: center;
+      margin-left: 0;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .campus-col-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .campus-foto-dcha {
+      width: calc(100% + 36px);
+      margin-left: -12px;
+      margin-right: -24px;
+      border-radius: 32px;
+      height: clamp(360px, 80vw, 500px);
+    }
+
+    .campus-vida-titulo { text-align: left; }
+    .campus-vida-texto {
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .campus-section { padding-inline: clamp(60px, 8vw, 140px); }
+  }
+</style>

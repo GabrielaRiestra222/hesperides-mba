@@ -1,0 +1,1280 @@
+---
+const tabs = [
+  { label: "PLAN DE ESTUDIOS",           type: "plan"         },
+  { label: "COMPETENCIAS Y HABILIDADES", type: "competencias" },
+  { label: "CRÉDITOS",                   type: "creditos"     },
+  { label: "PRÁCTICAS PROFESIONALES",    type: "practicas"    },
+];
+
+const testimonials = [
+  {
+    name: "Andoni Cortazar Andueza",
+    cargo: "Directivo en empresa internacional",
+    text: ".h es una experiencia transformadora. Al final es un viaje en el que yo partía como un outsider, alguien que venía de otra zona de confort distinta. Entonces es algo que te saca de tu zona de confort y en mi caso, por lo menos, me ayudó a aprender, a entender y, sobre todo, a liderar de una forma diferente.",
+    img: "/img/Andoni_Cortazar_Andueza_color.jpg"
+  },
+  {
+    name: "Jorge Muñoz",
+    cargo: "Emprendedor y consultor",
+    text: "A veces pensamos que vamos a la escuela a que nos enseñen y que no tenemos que hacer nada, que mágicamente aprendemos. Sin embargo, cuando uno más aprende es viendo vídeos, interiorizando conceptos, explicándole lo aprendido a otra persona. Se aprende de forma activa, no de forma pasiva.",
+    img: "/img/Jorge_Manuel_Mun_oz_Rodri_guez_color.jpg"
+  },
+  {
+    name: "Jaime Gil Martínez",
+    cargo: "Ejecutivo en Accenture",
+    text: "Mi experiencia en la Universidad de las Hespérides se puede definir como un proceso de enriquecimiento intelectual y de descubrimiento personal, tanto en valores y principios como en el entendimiento del funcionamiento del mundo.",
+    img: "/img/LinkedIn_profile_picture_color_copy.jpg"
+  },
+  {
+    name: "Miguel Núñez",
+    cargo: "Emprendedor",
+    text: "Algo que yo lo voy viendo y cada vez me voy sorprendiendo más de cómo los profesores, junto con los alumnos, se crea una comunidad tan libre y tan responsable.",
+    img: "/img/miguel_nun_ez-G_Emprendimiento_copy.jpg"
+  }
+];
+---
+
+<section class="pe-section" id="programa">
+
+  <!-- ══════════════════════════════════════════
+       FAQ — contenido dentro del margen global
+       Las cards modales se expanden al 100% del inner
+  ══════════════════════════════════════════ -->
+  <div class="pe-inner">
+
+    <!-- Fila de triggers -->
+    <div class="faq-grid" id="faq-grid">
+      {tabs.map((tab, i) => (
+        <div class="faq-col" data-col={i}>
+          <button class="faq-trigger" data-index={i} aria-expanded="false">
+            <span class="faq-label">{tab.label}</span>
+            <span class="faq-icon">+</span>
+          </button>
+        </div>
+      ))}
+    </div>
+
+    <!-- Cards en flujo, fuera del grid — empujan el contenido hacia abajo -->
+    {tabs.map((tab, i) => (
+      <div class="faq-card-wrap" id={`faq-wrap-${i}`} aria-hidden="true">
+        <div class="faq-card" id={`faq-card-${i}`}>
+
+          {tab.type === "plan" && (
+            <div class="card-plan">
+
+              <div class="sem-header">PRIMER SEMESTRE</div>
+
+              <table class="ptable">
+                <thead>
+                  <tr>
+                    <th>Denominación de la asignatura</th>
+                    <th>ECTS</th>
+                    <th>Carácter</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>
+                      Economía para los Negocios
+                      <a href="https://drive.google.com/file/d/1o3dZC8WdtPOjKlfAHGVzZcsOHII5B9ar/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Análisis Financiero Aplicado
+                      <a href="https://drive.google.com/file/d/1JWelJE84fkjF15juvzFvooC6sqAdNYZj/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Dirección Estratégica
+                      <a href="https://drive.google.com/file/d/1EcvCkCRPZKd48DxUqMj7y2BVRgjniasb/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Estrategia de Innovación Empresarial
+                      <a href="https://drive.google.com/file/d/1zYWMQLHD3LEAaWfN--Czfk7dz7YvyxrI/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Estrategia de Inversión
+                      <a href="https://drive.google.com/file/d/1yzhmQMQHhwYn0ESDoGiCuhAPy-tyscSf/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Marketing Estratégico
+                      <em>[PDF pendiente]</em>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Liderazgo y Gestión de Equipos
+                      <a href="https://drive.google.com/file/d/1ZuJgD43XNgrx5Za7eGuON4421o0jHgm7/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Negocios y Ciclos Económicos
+                      <a href="https://drive.google.com/file/d/1UaoJ5xigpyjMJY433PfMe-Yg23WfOlHq/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Metodologías de Investigación
+                      <a href="https://drive.google.com/file/d/1oaS6XL7Uql8R6IKuz7X-x9k8Tu1zCCc6/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Pensamiento Económico y Social (inglés)
+                      <a href="https://drive.google.com/file/d/1TIUdMYNpbOthObk1boXok7PCKL1kqmjI/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr>
+                    <td>Inteligencia Artificial Aplicada a la empresa</td>
+                    <td>3</td>
+                    <td>Obligatoria</td>
+                  </tr>
+
+                  <tr class="sub">
+                    <td><strong>Créditos semestre</strong></td>
+                    <td><strong>33</strong></td>
+                    <td></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+              <div class="sem-header" style="margin-top:18px">SEGUNDO SEMESTRE</div>
+
+              <table class="ptable">
+                <thead>
+                  <tr>
+                    <th>Denominación de la asignatura</th>
+                    <th>ECTS</th>
+                    <th>Carácter</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>Especialidad</td>
+                    <td>18</td>
+                    <td>Optativa</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Prácticas Académicas Externas
+                      <a href="https://drive.google.com/file/d/101f4PgsPkAPG3yBIAXBTcARmfRpaqBle/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>6</td>
+                    <td>Prácticas externas</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      Trabajo de Fin de Máster
+                      <a href="https://drive.google.com/file/d/1zBGxUTlpEN2iquI--F7xzSWXIAubqaeY/preview" target="_blank">[PDF]</a>
+                    </td>
+                    <td>6</td>
+                    <td>TFM</td>
+                  </tr>
+
+                  <tr class="sub">
+                    <td><strong>Créditos semestre 2</strong></td>
+                    <td><strong>30</strong></td>
+                    <td></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+              <div class="total-bar">
+                <span>Créditos Totales</span>
+                <span>63</span>
+              </div>
+
+
+              <div class="esp-grid">
+
+                <div>
+                  <div class="esp-header">Especialidad en Finanzas</div>
+
+                  <table class="ptable">
+                    <thead>
+                      <tr>
+                        <th>Asignatura</th>
+                        <th>ECTS</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          Banca y Gestión de Patrimonios
+                          <a href="https://drive.google.com/file/d/1ynp71a5HLUgCM91G3Ii1Tu6Tmmx77Fho/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Fuentes de Financiación
+                          <a href="https://drive.google.com/file/d/1ElzStryoxeb4dlhdrSUGxUNas6qduRaX/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Instrumentos Financieros Derivados
+                          <a href="https://drive.google.com/file/d/1v9QqsKWz4ZZD1Xls1e27_GdRD8Tw-bZq/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Inversión en Valor
+                          <a href="https://drive.google.com/file/d/16SnZEWHR0ExzWSImC3iPvLBIJl7EI4wJ/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Opciones Reales
+                          <a href="https://drive.google.com/file/d/1yRRxham9jDiH1FLMPTGcAE0-aCs_ONlv/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Innovaciones Financieras
+                          <a href="https://drive.google.com/file/d/1Z8ReLSRUSy1GN-DZfIIMTdC4KkYcuQnD/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+
+                <div>
+                  <div class="esp-header">Especialidad en Marketing</div>
+
+                  <table class="ptable">
+                    <thead>
+                      <tr>
+                        <th>Asignatura</th>
+                        <th>ECTS</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          Análisis del Comportamiento del Consumidor
+                          <a href="https://drive.google.com/file/d/1tkqrBVZc6OBhnJeTi3c52V64KmK8dV5r/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Psicología del Marketing
+                          <a href="https://drive.google.com/file/d/1Ktdcrg4k8prc68o63ND8Sj12bgzrtSmS/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Marketing móvil y Comercio Electrónico
+                          <a href="https://drive.google.com/file/d/1ck3A2nqlgRRVjgjgETff2Iy2KlV4Z545/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Creatividad y Herramientas de Imagen de Marca
+                          <a href="https://drive.google.com/file/d/1CvXFArq9-qfo9AUWpWI7aEOa6J9DFCjz/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Estrategia Basada en Datos
+                          <a href="https://drive.google.com/file/d/1Anw8GghKgWcQ8xuEbEqPZvxZ01EbA6p3/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          Redes Sociales e Inbound Marketing
+                          <a href="https://drive.google.com/file/d/1au_DGFfkOuTlFxzeV5BBq_pHmeNaWi22/preview" target="_blank">[PDF]</a>
+                        </td>
+                        <td>3</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+
+            </div>
+          )}
+
+          {tab.type === "competencias" && (
+            <div class="card-text">
+              <p>El proceso de aprendizaje de la Universidad de las Hespérides está diseñado para facilitar el crecimiento personal, el desarrollo de habilidades y el florecimiento intelectual para así tener las herramientas con que lograr el éxito en tu vida profesional.</p>
+              <p class="q">¿Qué sabrás hacer con el Máster Universitario en Administración y Dirección de Empresas?</p>
+              <p>Al terminar el programa de estudios, podrás crear estrategias de innovación que, sumadas a tu habilidad para estructurar equipos de trabajo eficientes, permitirán llevar tu visión empresarial a la realidad.</p>
+            </div>
+          )}
+
+          {tab.type === "creditos" && (
+            <div class="card-cred">
+              <div class="cred-head"><span>Carácter</span><span>Créditos</span></div>
+              <table class="ctable">
+                <tbody>
+                  <tr><td>Obligatorias</td><td>30</td></tr>
+                  <tr><td>Optativas</td><td>18</td></tr>
+                  <tr><td>Prácticas externas</td><td>6</td></tr>
+                  <tr><td>Trabajo de Fin de Máster</td><td>6</td></tr>
+                  <tr class="ctotal"><td><strong>Total</strong></td><td><strong>60</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {tab.type === "practicas" && (
+            <div class="card-text">
+              <p>Gracias a los convenios de colaboración de .h, podrás cursar tus prácticas externas curriculares del Máster Universitario al más alto nivel. Te podrás beneficiar de los acuerdos con la Fundación Universidad-Empresa, Lopesan Hotel Management, Binter Canarias, Banco Latinoamericano de Comercio Exterior y Domingo Alonso Group, entre otras.</p>
+              <p>Al ser estudiante de .h, formarás parte del entorno colaborativo del Make Impact Consortium (MIC), liderado por el Massachusetts Institute of Technology (MIT).</p>
+            </div>
+          )}
+
+        </div>
+      </div>
+    ))}
+
+    <!-- TÍTULO carrusel — mucho más grande -->
+    <h3 class="section-title">Nuestros alumnos ya conocen el éxito</h3>
+
+    <!-- ══════════════════════════════════════════
+         CARRUSEL — dentro del section-inner (respeta márgenes)
+         Las flechas salen fuera con position absolute
+    ══════════════════════════════════════════ -->
+    <div class="carousel-shell">
+
+      <!-- Flecha izquierda — position absolute, sale del inner -->
+      <button class="c-arrow c-arrow--prev" id="arrow-prev" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
+          {testimonials.map((t) => (
+            <div class="alumni-card" tabindex="0" role="button">
+              <div class="card-front">
+                <div class="card-img-wrap">
+                  <img src={t.img} alt={`Foto de ${t.name}`} class="card-photo" loading="lazy" />
+                </div>
+                <div class="card-front-body">
+                  <p class="cfquote">"{t.text}"</p>
+                  <p class="cfname">{t.name}</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <button class="card-close" aria-label="Cerrar">
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                    <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </button>
+                <div class="cbimg-wrap">
+                  <img src={t.img} alt="" loading="lazy" aria-hidden="true" />
+                </div>
+                <div class="cbbody">
+                  <p class="cbname">{t.name}</p>
+                  <p class="cbcargo">{t.cargo}</p>
+                  <p class="cbquote">"{t.text}"</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Flecha derecha — position absolute, sale del inner -->
+      <button class="c-arrow c-arrow--next" id="arrow-next" aria-label="Siguiente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Flechas mobile -->
+    <div class="mobile-controls">
+      <div class="mobile-arrows">
+        <button class="c-arrow c-arrow--mob-prev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="c-arrow c-arrow--mob-next" aria-label="Siguiente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="#" class="cta-btn open-modal-cta">QUIERO APRENDER MÁS</a>
+    </div>
+
+  </div><!-- /section-inner -->
+
+</section>
+
+<style>
+  /* ══════════════════════════════════════
+     SECCIÓN — fondo gris, aire generoso arriba
+  ══════════════════════════════════════ */
+  .pe-section {
+    background: #E5E5E5;
+    padding-top: clamp(80px, 8.33vw, 160px); /* más aire arriba */
+    padding-bottom: clamp(64px, 6vw, 120px);
+    padding-inline: clamp(20px, 16.67vw, 320px);
+    position: relative;
+  }
+
+  /* ── Inner ── */
+  .pe-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+@media (min-width:901px){
+
+/* INNER */
+.pe-inner{
+  width:min(1285px,100%);
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:0;
+  padding-right:0;
+}
+
+/* GRID FAQ */
+.faq-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  width:100%;
+}
+
+/* COLUMNAS */
+.faq-col{
+  min-width:0;
+  flex:unset;
+}
+
+/* TRIGGER */
+.faq-trigger{
+  width:100%;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:#000;
+  font-family:"Noto Sans HK",sans-serif;
+  font-weight:700;
+  line-height:1.2;
+  font-size:clamp(12px, 1.37vw, 27px);
+
+  text-align:center;
+  white-space:normal;
+  word-break:break-word;
+
+  padding:clamp(12px,1.5vw,20px) 0;
+}
+
+/* LABEL */
+.faq-label{
+  font-size:clamp(11px, 1.21vw, 24px);
+  display:inline-flex;
+  align-items:center;
+  padding-top:clamp(7px, 0.76vw, 15px);
+  padding-bottom:clamp(7px, 0.76vw, 15px);
+}
+
+/* ICONO + */
+.faq-icon{
+  font-weight:300;
+  flex-shrink:0;
+  line-height:1;
+  margin-left:0.5rem;
+  align-self:flex-start;
+  margin-top:clamp(4px, 0.45vw, 9px);
+}
+
+/* Separador entre col 1 y 2 — definido en el bloque FIX al final */
+
+/* CARDS MÁS ALTAS */
+.alumni-card{
+  height:340px;
+}
+
+.card-front{
+  height:340px;
+  margin-bottom:0;
+  padding:clamp(4px, 0.45vw, 9px) clamp(4px, 0.45vw, 9px) 0;
+}
+
+/* IMAGEN */
+.card-img-wrap{
+  aspect-ratio:181 / 95;
+}
+
+/* BODY CARD */
+.card-front-body{
+  padding:clamp(4px, 0.45vw, 9px) clamp(7px, 0.76vw, 15px) clamp(6px, 0.61vw, 12px);
+  gap:3px;
+}
+
+/* NOMBRE */
+.cfname{
+  margin-top:clamp(4px, 0.45vw, 9px);
+  margin-bottom:0;
+  font-size:clamp(7px, 0.76vw, 15px);
+  letter-spacing:0.02em;
+}
+
+/* TEXTO MÁS PEQUEÑO */
+.cfquote{
+  font-size:clamp(6px, 0.61vw, 12px);
+  line-height:1.35;
+  -webkit-line-clamp:4;
+}
+
+}
+
+  @media (max-width: 900px) {
+    .pe-section { padding: 40px 0; }
+    .pe-inner { padding: 0 0px 0 30px; margin-left: 0; margin-right: 0; }
+    .faq-trigger { font-size: 24px !important; line-height: 1.2 !important; }
+    .faq-label { white-space: normal !important; word-break: normal !important; hyphens: none !important; }
+    .faq-answer { font-size: 16px !important; line-height: 1.5; }
+    .faq-card { font-size: 14px !important; }
+    .ptable th,
+    .ptable td { font-size: 13px !important; line-height: 1.4; padding: 6px 4px !important; }
+    .ptable td:first-child { font-size: 12px !important; }
+    .ptable thead th:first-child { font-size: 10px !important; }
+    .sem-header { font-size: 14px !important; }
+    .card-text { font-size: 14px !important; line-height: 1.5; }
+    .cfname { font-size: 16px !important; }
+    .cfquote { font-size: 14px !important; line-height: 1.5; }
+    .cbname { font-size: 16px !important; }
+    .cbcargo { font-size: 13px !important; line-height: 1.4; }
+    .cbquote { font-size: 14px !important; line-height: 1.5; }
+    .alumni-card { overflow: hidden; }
+  }
+
+  /* ══════════════════════════════════════
+     FAQ GRID
+  ══════════════════════════════════════ */
+  .faq-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  .faq-col {
+    flex: 0 0 auto;
+    position: relative;
+  }
+
+  /* Línea separadora vertical — solo en trigger */
+  .faq-col:not(:first-child) .faq-trigger {
+    border-left: 2px solid rgba(0,0,0,0.3);
+    padding-left: clamp(8px, 1vw, 16px);
+  }
+
+  /* Trigger: label y + sin hueco extra */
+  .faq-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(15px, 1.7vw, 26px);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    gap: 0.25rem;
+    padding: clamp(12px, 1.5vw, 20px) 0;
+    min-height: 56px;
+    transition: opacity 0.2s;
+    margin-right: .10px;
+  }
+  .faq-trigger:hover { opacity: 0.5; }
+
+  /* Label ocupa lo justo — hereda tamaño del trigger */
+  .faq-label { flex: 0 0 auto; }
+
+  .faq-icon {
+    font-weight: 300;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-left: clamp(3px, 0.30vw, 6px);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+  .faq-trigger[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+
+  /* ── Card en flujo — empuja el contenido hacia abajo ── */
+  .faq-card-wrap {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: 0;
+    transition:
+      max-height 0.48s cubic-bezier(0.4,0,0.2,1),
+      opacity 0.28s ease,
+      margin-bottom 0.28s ease;
+  }
+  .faq-card-wrap.open {
+    max-height: 2800px;
+    opacity: 1;
+    margin-bottom: clamp(24px, 3vw, 48px);
+  }
+
+  .faq-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: clamp(7px, 0.76vw, 15px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* ── Contenidos de las cards ── */
+  .card-text p {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(13px, 0.885vw, 17px);
+    line-height: 1.75;
+    color: #222;
+    margin: 0 0 clamp(11px, 1.21vw, 24px);
+    font-weight: 300;
+  }
+  .card-text p:last-child { margin-bottom: 0; }
+  .card-text .q { font-weight: 700; color: #000; font-size: clamp(14px, 0.94vw, 18px); }
+
+  .sem-header {
+    display: inline-block;
+    background: #FFCD00;
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(8px, 0.83vw, 17px);
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    padding: clamp(4px, 0.45vw, 9px) clamp(10px, 1.06vw, 21px);
+    border-radius: 5px;
+    margin-bottom: clamp(8px, 0.91vw, 18px);
+  }
+  .ptable { width: 100%; border-collapse: collapse; font-size: clamp(8px, 0.91vw, 18px); margin-bottom: clamp(4px, 0.45vw, 9px); }
+  .ptable th {
+    text-align: left; font-size: clamp(7px, 0.76vw, 15px); font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase; color: #bbb;
+    padding: 0 clamp(4px, 0.45vw, 9px) clamp(6px, 0.61vw, 12px) 0; border-bottom: 1px solid #ececec;
+  }
+  .ptable th:nth-child(2), .ptable th:nth-child(3) { text-align: center; }
+  .ptable td {
+    padding: clamp(5px, 0.53vw, 11px) clamp(4px, 0.45vw, 9px) clamp(5px, 0.53vw, 11px) 0; border-bottom: 1px solid #f3f3f3;
+    color: #111; line-height: 1.4; font-size: clamp(8px, 0.91vw, 18px);
+    font-family: "Noto Sans HK", sans-serif; font-weight: 300;
+  }
+  .ptable td:nth-child(2), .ptable td:nth-child(3) { text-align: center; color: #666; white-space: nowrap; }
+  .ptable tr:last-child td { border-bottom: none; }
+  .ptable tr.sub td { border-top: 1.5px solid #e0e0e0; border-bottom: none; padding-top: clamp(7px, 0.76vw, 15px); }
+  .ptable em { font-size: clamp(7px, 0.76vw, 15px); color: #bbb; font-style: normal; }
+
+  .total-bar {
+    display: flex; justify-content: space-between;
+    background: #FFCD00; border-radius: 6px;
+    padding: clamp(7px, 0.76vw, 15px) clamp(10px, 1.06vw, 21px); font-size: clamp(9px, 0.99vw, 20px); font-weight: 700;
+    color: #000; margin: clamp(10px, 1.06vw, 21px) 0;
+    font-family: "Noto Sans HK", sans-serif;
+  }
+  .esp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: clamp(3px, 0.30vw, 6px); }
+  .esp-header {
+    background: #FFCD00; color: #000; font-size: clamp(8px, 0.83vw, 17px); font-weight: 800;
+    letter-spacing: 0.05em; padding: clamp(4px, 0.45vw, 9px) clamp(8px, 0.91vw, 18px); border-radius: 5px; margin-bottom: clamp(7px, 0.76vw, 15px);
+    font-family: "Noto Sans HK", sans-serif;
+  }
+
+  .cred-head {
+    display: flex; justify-content: space-between; background: #FFCD00;
+    border-radius: 8px; padding: clamp(7px, 0.76vw, 15px) clamp(11px, 1.21vw, 24px);
+    font-size: clamp(9px, 0.99vw, 20px); font-weight: 800; color: #000; margin-bottom: clamp(11px, 1.21vw, 24px);
+    font-family: "Noto Sans HK", sans-serif;
+  }
+  .ctable { width: 100%; border-collapse: collapse; font-size: clamp(10px, 1.06vw, 21px); }
+  .ctable td {
+    padding: clamp(8px, 0.91vw, 18px) 0; border-bottom: 1px solid #f0f0f0; color: #111;
+    font-family: "Noto Sans HK", sans-serif; font-weight: 300;
+  }
+  .ctable td:last-child { text-align: right; font-weight: 600; color: #333; }
+  .ctable tr.ctotal td { border-bottom: none; border-top: 1.5px solid #ddd; padding-top: clamp(10px, 1.06vw, 21px); font-size: clamp(10px, 1.14vw, 23px); }
+
+  /* ══════════════════════════════════════
+     TÍTULO carrusel — mucho más grande
+  ══════════════════════════════════════ */
+  .section-title {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(28px, 2.5vw, 48px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #000;
+    margin-top: clamp(48px, 5vw, 96px);
+    margin-bottom: clamp(32px, 3vw, 56px);
+  }
+
+  /* ══════════════════════════════════════
+     CARRUSEL — dentro del section-inner
+     Flechas: absolute, salen fuera del inner
+  ══════════════════════════════════════ */
+  .carousel-shell {
+    position: relative; /* para las flechas absolute */
+    margin-bottom: clamp(32px, 3vw, 48px);
+    overflow: visible;  /* las flechas pueden sobresalir */
+  }
+
+  /* Flechas desktop: absolute, centradas verticalmente, fuera del inner */
+  .c-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.35);
+    background: transparent;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  .c-arrow:hover { background: #000; color: #fff; border-color: #000; }
+  .c-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
+
+  /* Salen fuera del margen del inner */
+  .c-arrow--prev { left: -52px; }
+  .c-arrow--next { right: -52px; }
+
+  /* Viewport: sin overflow para clip del track */
+  .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: clamp(12px, 1.25vw, 20px);
+    transition: transform 0.48s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+    align-items: stretch; /* misma altura */
+  }
+
+  /* Cards: flex:1 → ocupan todo el ancho del inner equitativamente */
+  .alumni-card {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    border-radius: 20px;
+    background: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+    transition: box-shadow 0.3s;
+    padding-bottomom: 100px;
+  }
+  .alumni-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.14); }
+
+  /* FRENTE */
+  .card-front {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.25s ease;
+    padding: clamp(8px, 0.91vw, 18px) clamp(8px, 0.91vw, 18px) 0; /* margen arriba y a los lados de la imagen */
+    height: 388px;
+    margin-bottom: clamp(36px, 4.55vw, 90px);
+  }
+
+  /* Imagen horizontal 16/9 — con border-radius ya que tiene padding */
+  .card-img-wrap {
+    width: 100%;
+    aspect-ratio: 181 / 130;
+    overflow: hidden;
+    border-radius: 20px; /* redondeo propio ya que no toca el borde del card */
+    flex-shrink: 0;
+  }
+  .card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* Cuerpo frente: espacio blanco generoso bajo nombre y sobre texto */
+  .card-front-body {
+    padding: clamp(13px, 1.52vw, 30px) clamp(11px, 1.21vw, 24px) clamp(16px, 1.82vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* espacio entre nombre y cita */
+  }
+  .cfname {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(11px, 1.21vw, 24px);
+    font-weight: 500;
+    color: #000;
+    margin-top: clamp(23px, 2.65vw, 53px);
+    margin-bottom: clamp(13px, 1.52vw, 30px);
+    letter-spacing: 0.02em;
+  }
+  .cfquote {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(10px, 1.14vw, 23px);
+    line-height: 18px;
+    color: #444;
+    margin: 0;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* REVERSO — amarillo */
+  .card-back {
+    position: absolute;
+    inset: 0;
+    background: #FFCD00;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 2;
+    overflow-y: auto;
+    border-radius: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.1) transparent;
+  }
+  .card-back::-webkit-scrollbar { width: 3px; }
+  .card-back::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
+
+  .card-close {
+    position: sticky;
+    top: 0;
+    align-self: flex-end;
+    margin: clamp(8px, 0.91vw, 18px) clamp(8px, 0.91vw, 18px) 0 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.25);
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 4;
+    transition: background 0.2s;
+  }
+  .card-close:hover { background: rgba(0,0,0,0.08); }
+
+  .cbimg-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-top: -36px;
+  }
+  .cbimg-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center; display: block;
+  }
+
+  /* Cuerpo reverso: espacio blanco sobre nombre y entre elementos */
+  .cbbody {
+    padding: clamp(13px, 1.52vw, 30px) clamp(13px, 1.52vw, 30px) clamp(18px, 2.12vw, 42px);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .cbname {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(8px, 0.91vw, 18px);
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 clamp(3px, 0.30vw, 6px);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .cbcargo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(8px, 0.83vw, 17px);
+    color: rgba(0,0,0,0.55);
+    margin: 0 0 clamp(11px, 1.21vw, 24px); /* espacio blanco entre cargo y cita */
+    font-weight: 400;
+  }
+  .cbquote {
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(8px, 0.91vw, 18px);
+    line-height: 1.7;
+    color: #000;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* Hover en desktop activa reverso */
+  @media (hover: hover) {
+    .alumni-card:hover .card-front { opacity: 0; }
+    .alumni-card:hover .card-back { opacity: 1; pointer-events: auto; }
+  }
+  .alumni-card.expanded .card-front { opacity: 0; }
+  .alumni-card.expanded .card-back { opacity: 1; pointer-events: auto; }
+
+  /* ══════════════════════════════════════
+     CTA
+  ══════════════════════════════════════ */
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(32px, 3vw, 48px);
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: clamp(8px, 0.91vw, 18px) clamp(21px, 2.43vw, 48px);
+    border-radius: 9999px;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(9px, 0.99vw, 20px);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.75; }
+
+  /* ══════════════════════════════════════
+     MOBILE
+  ══════════════════════════════════════ */
+  .mobile-controls { display: none; }
+  .c-arrow--mob-prev,
+  .c-arrow--mob-next { display: none; }
+
+  @media (max-width: 767px) {
+    /* FAQ en columna */
+    .faq-grid { flex-direction: column; gap: 0; margin-bottom: 40px; }
+    .faq-col::before { display: none; }
+    .faq-col { border-bottom: none; width: 100%; }
+    .faq-trigger {
+      position: relative;
+      padding: 16px 12px 10px 0;
+      font-size: 25px;
+      white-space: normal;
+      line-height: 1.3;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .faq-label { flex: 1; display: block; }
+    .faq-icon  {
+      right: 10px;
+      font-size: 40px;
+      line-height: 1;
+      margin-right: 40px;
+    }
+    .faq-trigger[aria-expanded="true"] .faq-icon {
+      transform: translateY(-50%) rotate(45deg);
+    }
+    /* Quitar separador vertical en mobile */
+    .faq-col:not(:first-child) .faq-trigger {
+      border-left: none;
+      padding-left: 0;
+    }
+    .faq-card-wrap {
+      position: relative;
+      top: auto; left: auto;
+      width: 90% !important;
+      box-sizing: border-box;
+    }
+    .faq-card {
+      overflow-x: hidden;
+      box-sizing: border-box;
+      padding: 16px;
+    }
+    .ptable, .ctable {
+      table-layout: fixed;
+      width: 100%;
+      word-break: break-word;
+    }
+    .esp-grid { grid-template-columns: 1fr; }
+
+    /* Cards más anchas en mobile — width fijo para que no sean flex:1 */
+    .alumni-card { flex: none; width: 75vw; height: 400px; }
+
+    /* Flechas ocultas en mobile — navegación por swipe */
+    .c-arrow--prev, .c-arrow--next { display: none; }
+    .mobile-controls { display: none; }
+    .c-arrow--mob-prev, .c-arrow--mob-next { display: none; }
+
+    /* Modal expandido: más alto para mostrar contenido vertical */
+    .alumni-card.expanded { height: 520px; }
+
+    /* Carrusel centrado — sin padding extra que lo desplace */
+    .carousel-shell { margin: 0 auto; }
+    .carousel-track {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .cta-wrap { margin-left: -50px; }
+    .cta-btn { margin-left: 0; }
+  }
+  /* FIX FAQ DESKTOP */
+@media (min-width:901px){
+
+  .faq-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    width:100%;
+  }
+
+  .faq-col{
+    min-width:0;
+    flex:unset;
+  }
+
+  .faq-trigger{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
+
+  /* Reset: sin borde en trigger ni en icono */
+  .faq-col .faq-trigger{ border-left:none !important; padding-left:0 !important; }
+  .faq-col .faq-icon{ border-right:none !important; padding-right:0 !important; margin-right:0 !important; }
+  .faq-col .faq-label{ border-left:none !important; padding-left:0 !important; }
+
+  /* Más espacio + separador SOLO entre PLAN DE ESTUDIOS y COMPETENCIAS */
+  .faq-col[data-col="1"]{
+    padding-left: clamp(20px, 2.5vw, 40px);
+  }
+  .faq-col[data-col="1"] .faq-label{
+    border-left: 1px solid rgba(0,0,0,0.3) !important;
+    padding-left: clamp(8px, 1vw, 14px) !important;
+  }
+
+  /* Más espacio + separador entre COMPETENCIAS y CRÉDITOS */
+  .faq-col[data-col="2"]{
+    padding-left: clamp(20px, 2.5vw, 40px);
+    margin-left: 0;
+  }
+  .faq-col[data-col="2"] .faq-label{
+    border-left: 1px solid rgba(0,0,0,0.3) !important;
+    padding-left: clamp(8px, 1vw, 14px) !important;
+  }
+
+  /* Separador entre CRÉDITOS y PRÁCTICAS */
+  .faq-col[data-col="3"]{
+    padding-left: clamp(10px, 1.2vw, 20px);
+  }
+  .faq-col[data-col="3"] .faq-label{
+    border-left: 1px solid rgba(0,0,0,0.3) !important;
+    padding-left: clamp(8px, 1vw, 14px) !important;
+  }
+
+}
+
+  @media (min-width: 901px) {
+    .faq-icon { font-size: clamp(18px, 1.8vw, 30px); display: flex; align-items: center; justify-content: center; width: clamp(24px, 2vw, 36px); height: clamp(24px, 2vw, 36px); }
+    .cta-btn { font-weight: 300; }
+    .cta-btn:hover { background: #FFCD00; color: #000; opacity: 1; }
+  }
+
+  @media (min-width: 1500px) {
+    .alumni-card { height: 420px; }
+    .card-front { height: 420px; }
+    .cfquote, .cbquote { font-size: clamp(12px, 0.85vw, 14px); }
+    .cbcargo { font-size: clamp(11px, 0.8vw, 13px); }
+    .cfname, .cbname { font-size: clamp(13px, 1vw, 16px); margin-bottom: clamp(8px, 0.8vw, 14px); }
+  }
+
+</style>
+
+<script>
+  // ══════════════════════════════════════
+  // FAQ — cards en flujo, empujan contenido
+  // ══════════════════════════════════════
+  const faqGrid  = document.getElementById('faq-grid') as HTMLElement;
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+  function closeAll() {
+    triggers.forEach((t, i) => {
+      t.setAttribute('aria-expanded', 'false');
+      const w = document.getElementById(`faq-wrap-${i}`);
+      if (w) w.classList.remove('open');
+    });
+  }
+
+  triggers.forEach((trigger, idx) => {
+    const wrap = document.getElementById(`faq-wrap-${idx}`);
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      closeAll();
+      if (!isOpen && wrap) {
+        trigger.setAttribute('aria-expanded', 'true');
+        wrap.classList.add('open');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!faqGrid?.contains(e.target as Node)) closeAll();
+  });
+
+  // ══════════════════════════════════════
+  // CARRUSEL
+  // ══════════════════════════════════════
+  const track    = document.getElementById('carousel-track') as HTMLElement;
+  const prevBtn  = document.getElementById('arrow-prev')     as HTMLButtonElement;
+  const nextBtn  = document.getElementById('arrow-next')     as HTMLButtonElement;
+  const cards    = document.querySelectorAll<HTMLElement>('.alumni-card');
+  const mobPrev  = document.querySelector<HTMLButtonElement>('.c-arrow--mob-prev');
+  const mobNext  = document.querySelector<HTMLButtonElement>('.c-arrow--mob-next');
+
+  let current = 0;
+  const total = cards.length;
+
+  function cardStep() {
+    const card = cards[0];
+    if (!card) return 260;
+    const gap = parseFloat(getComputedStyle(track).gap) || 16;
+    return card.offsetWidth + gap;
+  }
+
+  function goTo(i: number) {
+    current = Math.max(0, Math.min(i, total - 1));
+    track.style.transform = `translateX(-${current * cardStep()}px)`;
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current >= total - 1;
+    if (mobPrev) mobPrev.disabled = current === 0;
+    if (mobNext) mobNext.disabled = current >= total - 1;
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  mobPrev?.addEventListener('click', () => goTo(current - 1));
+  mobNext?.addEventListener('click', () => goTo(current + 1));
+
+  // Touch swipe
+  let tx = 0;
+  track.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = tx - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+  }, { passive: true });
+
+  // Toggle card back on click/tap
+  cards.forEach(card => {
+    card.addEventListener('click', e => {
+      const closeBtn = card.querySelector('.card-close');
+      if (closeBtn?.contains(e.target as Node)) {
+        card.classList.remove('expanded');
+        return;
+      }
+      if (!card.classList.contains('expanded')) {
+        cards.forEach(c => c.classList.remove('expanded'));
+        card.classList.add('expanded');
+      }
+    });
+  });
+
+  window.addEventListener('resize', () => goTo(current));
+  goTo(0);
+</script>

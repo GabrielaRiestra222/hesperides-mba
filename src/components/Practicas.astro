@@ -1,0 +1,274 @@
+---
+// Practicas.astro
+
+const fila1 = [
+  { src: "/img/Deloitte_bk.png",           alt: "Deloitte"  },
+  { src: "/img/aier-logo-card.png",         alt: "AIER"      },
+  { src: "/img/Bankinter-768x136.png",      alt: "Bankinter" },
+  { src: "/img/rackslabs-white-copy-2.png", alt: "Racks Labs"},
+  { src: "/img/LHR_LG_NEGRO-1024x749.png",  alt: "Lopesan"   },
+];
+
+const fila2 = [
+  { src: "/img/BinterJPG_BK.png",               alt: "Binter"                  },
+  { src: "/img/logo_Bladex.png",                 alt: "Bladex"                  },
+  { src: "/img/Human_Rights_Foundation_bk.png",  alt: "Human Rights Foundation" },
+  { src: "/img/logo_principal_bk.png",           alt: "CABI"                    },
+  { src: "/img/Newlink-logo-bk.png",             alt: "Newlink"                 },
+];
+---
+
+<section class="practicas-section">
+  <div class="practicas-inner">
+
+    <!-- Título -->
+    <div class="practicas-titulo-wrap">
+      <h2 class="practicas-titulo">
+        No busques prácticas,<br />
+        <strong>LAS PRÁCTICAS TE<span class="mobile-break"><br /></span> VAN A BUSCAR A TI</strong>
+      </h2>
+      <p class="practicas-subtitulo">
+        Estas son algunas de las empresas colaboradoras donde podrás aplicar lo aprendido y acelerar tu desarrollo profesional.
+      </p>
+    </div>
+
+    <!-- Logos — dos filas estáticas dentro del inner -->
+    <div class="logos-wrap">
+
+
+      <!-- Fila 1: Deloitte · AIER · Bankinter · Racks · Lopesan -->
+      <div class="logos-fila">
+        {fila1.map((logo) => (
+          <div class="logo-item">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      <div class="logos-divider"></div>
+
+      <!-- Fila 2: Binter · Bladex · Human Rights · CABI · Newlink -->
+      <div class="logos-fila">
+        {fila2.map((logo) => (
+          <div class="logo-item">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      <div class="logos-divider"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Sección ── */
+  .practicas-section {
+    width: 100%;
+    background: #FFCD00;
+    padding-top: clamp(56px, 6vw, 100px);
+    padding-bottom: clamp(56px, 6vw, 100px);
+    padding-inline: clamp(20px, 16.67vw, 320px);
+    overflow: hidden;
+  }
+
+  .practicas-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 4vw, 56px);
+  }
+
+  /* ── Título ── */
+  .practicas-titulo-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .practicas-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 2.3vw, 45px);
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .practicas-titulo strong {
+    font-weight: 700;
+    font-size: clamp(27px, 3.41vw, 68px);
+    color: #fff;
+    display: block;
+  }
+
+  .mobile-break { display: none; }
+
+  .practicas-subtitulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(21px, 2.50vw, 50px);
+    line-height: 35px;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  /* ── Logos wrap: dentro del inner, respeta márgenes ── */
+  .logos-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: clamp(50px, 7.58vw, 150px);
+  }
+
+  /* Líneas separadoras */
+  .logos-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  /* ── Fila de logos: flex con gap fijo ── */
+  .logos-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(32px, 9.5vw, 140px);
+    padding: clamp(20px, 2.5vw, 40px) 0;
+  }
+
+  /* ── Logo item: centrado ── */
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .logo-item img:hover { opacity: 1; }
+
+  /* ── Tamaños individuales — Fila 1 ── */
+  .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: 141px; height: 62px;   aspect-ratio: 141/62;  } /* Deloitte  */
+  .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: 172px; height: 90px;   aspect-ratio: 86/45;   } /* AIER      */
+  .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: 180px; height: 32px;   aspect-ratio: 96/17;   } /* Bankinter */
+  .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: 107px; height: 38px;   aspect-ratio: 115/41;  } /* Racks     */
+  .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: 131px; height: 96px;   aspect-ratio: 108/79;  } /* Lopesan   */
+
+  /* ── Tamaños individuales — Fila 2 ── */
+  .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: 156px; height: 104px;  } /* Binter  */
+  .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: 124px; height: 54px;   } /* Bladex  */
+  .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: 159px; height: 52px;   aspect-ratio: 159/52;  } /* Human   */
+  .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: 140px; height: 54px;   aspect-ratio: 70/27;   } /* CABI    */
+  .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 154px; height: 34px;   aspect-ratio: 77/17;   } /* Newlink */
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .practicas-section { padding: 48px 0; }
+    .practicas-inner { padding: 0 20px 0 24px; margin-left: 0; overflow: hidden; }
+
+    .practicas-titulo { font-size: 30px; line-height: 1.25; font-weight: 500; display: flex; flex-direction: column; gap: 4px; }
+    .practicas-titulo strong { font-size: 30px; font-weight: 700; white-space: normal; display: block; max-width: 100%; line-height: 1.2; }
+    .mobile-break { display: inline; }
+    .practicas-subtitulo { font-size: 15px; line-height: 1.5; }
+
+    .logos-wrap {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 30px;
+      margin-left: 0;
+    }
+
+    .logos-divider { display: none; }
+
+    .logos-fila {
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 28px;
+      padding: 16px 12px;
+    }
+
+    .logos-fila:nth-child(1) {
+      border-right: 1px solid rgba(0,0,0,0.2);
+      padding-right: 16px;
+    }
+
+    .logos-fila:nth-child(3) {
+      padding-right: 24px;
+    }
+
+    .logo-item {
+      padding: 0;
+      width: auto;
+      justify-content: flex-start;
+    }
+
+    .logo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Fila 1 — proporción desktop ×0.55 */
+    .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: 78px;  height: 34px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: 95px;  height: 50px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: 99px;  height: 18px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: 59px;  height: 21px; }
+    .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: 72px;  height: 53px; }
+
+    /* Fila 2 — proporción desktop ×0.55 */
+    .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: 86px;  height: 57px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: 68px;  height: 30px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: 87px;  height: 29px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: 77px;  height: 30px; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 85px;  height: 19px; }
+  }
+  @media (min-width: 901px) {
+    .practicas-inner {
+      padding-left: 0;
+      padding-right: 0;
+      gap: 0.0625rem;
+    }
+    .practicas-subtitulo { font-weight: 400; font-size: clamp(16px, 1.6vw, 30px); line-height: 1.4; margin-bottom: clamp(4px, 0.45vw, 9px);}
+    .practicas-titulo { font-size: clamp(20px, 2vw, 36px); line-height: 1.2; margin: 0; }
+    .practicas-titulo strong { font-size: clamp(22px, 2.2vw, 40px); }
+    .logos-wrap { margin-top: clamp(16px, 1.5vw, 28px); }
+    .logos-fila .logo-item img[alt="Binter"] { margin-left: -12px; }
+    .practicas-titulo strong { line-height: 1.2;margin: 0;}
+
+    /* Gap de la fila proporcional al viewport */
+    .logos-fila { gap: clamp(12px, 2.5vw, 40px); margin-top: 0px; }
+
+    /* Logos fila 1 — escalan con el viewport */
+    .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: clamp(70px, 8.8vw, 141px);  height: auto; aspect-ratio: 141/62;  }
+    .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: clamp(86px, 10.7vw, 172px); height: auto; aspect-ratio: 86/45;   }
+    .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: clamp(90px, 11.2vw, 180px); height: auto; aspect-ratio: 96/17;   }
+    .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: clamp(54px, 6.7vw, 107px);  height: auto; aspect-ratio: 115/41;  }
+    .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: clamp(66px, 8.1vw, 131px);  height: auto; aspect-ratio: 108/79;  }
+
+    /* Logos fila 2 — escalan con el viewport */
+    .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: clamp(78px, 9.7vw, 156px);  height: auto; aspect-ratio: 156/104; }
+    .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: clamp(62px, 7.7vw, 124px);  height: auto; aspect-ratio: 124/54;  }
+    .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: clamp(80px, 9.9vw, 159px);  height: auto; aspect-ratio: 159/52;  }
+    .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: clamp(70px, 8.7vw, 140px);  height: auto; aspect-ratio: 70/27;   }
+    .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: clamp(77px, 9.6vw, 154px);  height: auto; aspect-ratio: 77/17;   }
+
+    .logo-item img { width: 100%; height: auto; }
+  }
+</style>

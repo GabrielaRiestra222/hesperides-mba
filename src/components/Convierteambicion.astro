@@ -1,0 +1,385 @@
+---
+// ConvierteAmbicion.astro
+
+const features = [
+  {
+    titulo: "APRENDE A\n DIRIGIR CON IA",
+    texto: "La Inteligencia Artificial no es una herramienta. Es una decisión estratégica. Aprende a liderarla.",
+  },
+  {
+    titulo: "CASOS REALES",
+    texto: "Trabajarás durante el MBA en diseñar el modelo de negocio de tu proyecto o en transformar el de tu empresa o sector. Tú decides el foco.",
+  },
+  {
+    titulo: "DEFINE TU CAMINO",
+    texto: "¿Marketing o Finanzas? Podrás escoger entre estas dos especializaciones, según lo prefieras para tu orientación profesional.",
+  },
+];
+---
+
+<section class="convierte-section">
+  <!--
+    .section-inner viene de global.css:
+      max-width: 1280px
+      margin: 0 auto
+      padding: clamp(24px, 16.67vw, 320px)
+    Garantiza la misma línea imaginaria que el resto del sitio.
+  -->
+  <div class="convierte-inner">
+
+    <!-- Fila superior: título+desc | 3 features con líneas -->
+    <div class="convierte-top">
+
+      <div class="convierte-texto">
+        <h2 class="convierte-titulo">
+          Convierte tu<br /><strong>ambición</strong> en<br /><strong>capacidad real de<br />dirección</strong>
+        </h2>
+        <p class="convierte-desc">
+          Adquiere la disciplina analítica y la mentalidad estratégica necesarias para dirigir organizaciones.
+        </p>
+      </div>
+
+      <div class="features-row">
+        {features.map((f) => (
+          <div class="feature-item">
+            <div class="feature-line"></div>
+            <div class="feature-block">
+              <h3 class="feature-titulo">{f.titulo}</h3>
+              <p class="feature-texto">{f.texto}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Fila inferior: foto + cita -->
+    <div class="convierte-quote-row">
+
+      <div class="quote-foto">
+        <img src="/img/bd4c3e13620a9a361db702e39aa47953d787f732.jpg" alt="Juan Carlos Andreu" />
+      </div>
+
+      <div class="quote-content">
+        <blockquote class="quote-text">
+          "Un programa que te pide constancia. Y te devuelve criterio, método y crecimiento profesional"
+        </blockquote>
+        <div class="quote-author">
+          <p class="author-name">Juan Carlos Andreu</p>
+          <p class="author-cargo">Associate Director at World Wealth Management (WWM)<br />y director del MBA de la Universidad de las Hespérides.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Sección ── */
+  .convierte-section {
+    width: 100%;
+    background: url('/img/b4e63b1bca93910c5d5146826110ac7fdda11645.jpg') center / cover no-repeat;
+    padding-top: clamp(80px, 9.375vw, 180px);
+    padding-bottom: clamp(60px, 6.25vw, 120px);
+    padding-inline: clamp(20px, 16.67vw, 320px);
+  }
+
+  /* ── Inner ── */
+  .convierte-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(48px, 5vw, 96px);
+  }
+
+  @media (max-width: 900px) {
+    .convierte-section { padding-inline: 24px; }
+    .convierte-inner { padding: 0; margin: 0; width: 100%; overflow: hidden; }
+    .convierte-titulo { font-size: 32px !important; line-height: 1.1; text-align: left; max-width: 100%; }
+    .convierte-desc { font-size: 15px !important; line-height: 1.5; text-align: left; max-width: 100%; font-weight: 400; }
+    .convierte-texto { align-items: flex-start; }
+    .convierte-quote-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .quote-foto { width: 100%; height: 220px; margin: 0; border-radius: 20px; flex-shrink: 0; overflow: hidden; }
+    .quote-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .quote-content { align-items: flex-start; width: 100%; }
+    .quote-text { font-size: 22px !important; line-height: 1.3; max-width: 100%; text-align: left; }
+    .author-name { font-size: 13px; max-width: 100%; text-align: left; }
+    .author-cargo { font-size: 12px; max-width: 100%; text-align: left; }
+    .features-row { width: 100%; }
+    .feature-line { display: none; }
+    .feature-item { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "titulo texto"; column-gap: 16px; align-items: start; padding: 14px 0; border-top: 0.5px solid rgba(0,0,0,0.2); }
+    .feature-block { display: contents; }
+    .feature-titulo { grid-area: titulo; font-size: 18px !important; line-height: 1.3; font-weight: 700; white-space: pre-line; }
+    .feature-texto { grid-area: texto; font-size: 16px !important; line-height: 1.5; margin: 0; font-weight: 400; }
+  }
+
+  /* ── Top block ── */
+  .convierte-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .convierte-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .convierte-titulo {
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 2.27vw, 45px);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .convierte-titulo strong { font-weight: 700; }
+
+  .convierte-desc {
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.37vw, 27px);
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 0;
+  }
+
+  /* ── Features ── */
+  .features-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  /* Mobile: cada item separado por línea horizontal */
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: clamp(16px, 1.82vw, 36px) 0;
+    min-width: 0;
+  }
+
+  .feature-line {
+    width: 100%;
+    height: 1px;
+    background: #000;
+    flex-shrink: 0;
+  }
+
+  .feature-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .feature-titulo {
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(14px, 1.67vw, 33px);
+    line-height: 1.3;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  .feature-texto {
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200;
+    font-size: clamp(12px, 1.37vw, 27px);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ── Quote row ── */
+  .convierte-quote-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .quote-foto {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .quote-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .quote-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  .quote-text {
+    color: #000;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 1.875vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 0;
+    quotes: none;
+  }
+
+  .quote-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1875rem;
+  }
+
+  .author-name {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(10px, 1.06vw, 21px);
+    color: #000;
+    margin: 0;
+  }
+
+  .author-cargo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(8px, 0.91vw, 18px);
+    line-height: 1.5;
+    color: #000;
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  /* ================================================================
+     DESKTOP (≥860px)
+     ================================================================ */
+  @media (min-width: 860px) {
+    .features-row {
+      flex-direction: row;
+      gap: 0;
+      margin-left: 10px;
+    }
+    .feature-item {
+      flex: 1;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0;
+      gap: 1.875rem;
+      margin-left: 10px;
+    }
+    .feature-line {
+      width: 1px;
+      height: 230px;
+      align-self: stretch;
+    }
+    .feature-titulo { font-size: clamp(16px, 1.90vw, 38px); }
+    .feature-texto {
+      font-size: clamp(13px, 1.52vw, 30px);
+      line-height: 21px;
+      margin-top: clamp(36px, 4.55vw, 90px);
+    }
+    /* Quote row: foto + cita centradas */
+    .convierte-quote-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+    }
+    .quote-foto {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .quote-foto img {
+      width: 100%;
+      height: 100%;
+      object-position: center top;
+    }
+    .quote-content {
+      max-width: 480px;
+    }
+  }
+
+  /* ================================================================
+     DESKTOP GRANDE (≥1024px)
+     ================================================================ */
+  @media (min-width: 1024px) {
+    .convierte-top {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2px;
+
+    }
+    .convierte-texto {
+      width: 400px;
+      flex-shrink: 0;
+      align-items: flex-start;
+    }
+    .features-row {
+      flex: 1;
+      width: auto;
+    }
+    .quote-foto {
+      width: clamp(280px, 28vw, 420px);
+      height: 300px;
+      border-radius: 50px;
+    }
+    .quote-content {
+      max-width: 520px;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .convierte-inner {
+    }
+    .convierte-top { flex-direction: row; align-items: flex-start; gap: 0.5rem; }
+    .feature-block { gap: 1.25rem; }
+    .features-row .feature-item:last-child .feature-line { display: block; }
+    .convierte-titulo {
+      font-size: clamp(18px, 1.8vw, 32px);
+      line-height: 1.2;
+    }
+    .convierte-desc {
+      font-size: clamp(11px, 0.95vw, 15px);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+    .convierte-texto { width: clamp(160px, 16vw, 240px); flex-shrink: 0; }
+    .features-row { flex: 1; }
+    .feature-item { position: relative; }
+    .feature-item:last-child::after { content: ''; display: block; width: 1px; height: 230px; background: #000; position: absolute; right: 0; top: 0; }
+    .feature-titulo {
+      font-size: clamp(11px, 1.1vw, 18px);
+      min-height: 2.8em;
+      display: flex;
+      align-items: flex-start;
+    }
+    .feature-texto  { font-size: clamp(10px, 1vw, 16px); line-height: 1.4; margin-top: 0; }
+    .convierte-quote-row { flex-direction: row; align-items: flex-start; gap: clamp(16px, 2vw, 32px); padding-left: 0; margin-left: 0; width: 75%; margin-inline: auto; }
+    .quote-foto { width: clamp(280px, 32vw, 480px); height: clamp(180px, 20vw, 300px); border-radius: 30px; flex-shrink: 0; }
+    .quote-content { flex: 1; max-width: clamp(280px, 30vw, 480px); }
+    .quote-text { font-size: clamp(16px, 1.6vw, 28px); line-height: 1.2; }
+  }
+</style>

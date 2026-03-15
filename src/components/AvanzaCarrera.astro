@@ -1,0 +1,283 @@
+---
+// AvanzaCarrera.astro
+const features = [
+  { titulo: "Título", destacado: "Europeo ", boldSuffix: "Oficial" },
+  { titulo: "Plazas",       destacado: "Limitadas" },
+  { titulo: "Metodología", destacado:"del Caso" },
+  { titulo: "91%\n ",          destacado: "Satisfacción académica", bigNumber: true },
+];
+---
+
+<section class="avanza-section" id="descripcion">
+  <div class="avanza-card">
+
+    <p class="avanza-titulo">
+      No se trata solo de tener un Máster,<br />
+      <span class="avanza-titulo-yellow">SE TRATA DE AVANZAR EN TU CARRERA</span>
+    </p>
+
+    <div class="avanza-features">
+      {features.map((f) => (
+        <div class="feature-card">
+          <div class="feature-inner">
+            {f.bigNumber
+              ? <>
+                  <span class="feature-big">{f.titulo.split('\n')[0]}</span>
+                  <span class="feature-regular">{f.destacado}</span>
+                </>
+              : f.boldSuffix
+              ? <>
+                  <span class="feature-normal">{f.titulo}</span>
+                  <span class="feature-normal">{f.destacado}<span class="feature-bold">{f.boldSuffix}</span></span>
+                </>
+              : f.destacado
+              ? <>
+                  <span class="feature-normal">{f.titulo}</span>
+                  <span class="feature-bold">{f.destacado}</span>
+                </>
+              : <>
+                  <span class="feature-normal">{f.titulo.split('\n')[0]}</span>
+                  <span class="feature-bold">{f.titulo.split('\n')[1]}</span>
+                </>
+            }
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="avanza-cta-wrap">
+      <a href="#" class="avanza-cta open-modal-cta">PIDE MÁS INFO</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Sección: fondo transparente, monta POCO sobre el amarillo ── */
+  .avanza-section {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    padding: clamp(40px, 5vw, 80px) clamp(20px, 16.67vw, 320px) 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    margin-bottom: -80px; /* pisa poquito */
+  }
+
+  /* ── Card glassmorphism ── */
+  .avanza-card {
+    width: min(1285px, 100%);
+    min-height: 579px;
+    border-radius: 85px;
+    border: 2px solid #FFCD00;
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(3.634px);
+    -webkit-backdrop-filter: blur(3.634px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(32px, 4vw, 52px);
+    padding: clamp(40px, 5vw, 72px) clamp(32px, 5vw, 80px);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── Título ── */
+  .avanza-titulo {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(24px, 2.34vw, 45px);
+    line-height: 40px;
+    color: #000;
+    text-align: center;
+    margin: 0;
+  }
+
+  .avanza-titulo-yellow {
+    display: block;
+    font-weight: 700;
+    color: #FFCD00;
+  }
+
+  /* ── Features: 4 cards en fila ── */
+  .avanza-features {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(12px, 1.5vw, 24px);
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  /* ── Card feature ── */
+  .feature-card {
+    width: clamp(180px, 16vw, 280px);
+    height: 180px;
+    border-radius: 40px;
+    border: 2px solid #FFCD00;
+    background: #fff;
+    box-sizing: border-box;
+    /* centrado vertical y horizontal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(13px, 1.52vw, 30px);
+  }
+
+  /* Inner: columna, alineado a la izquierda */
+  .feature-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    gap: 0.25rem;
+  }
+
+  .feature-normal {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.82vw, 36px);
+    line-height: 20px;
+    color: #000;
+    white-space: pre-line;
+  }
+
+  .feature-bold {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(16px, 1.82vw, 36px);
+    line-height: 27px;
+    color: #000;
+  }
+
+  /* 91% grande */
+  .feature-big {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 2.81vw, 56px);
+    line-height: 1.2;
+    color: #000;
+  }
+
+  /* "Satisfacción académica" en regular, no bold */
+  .feature-regular {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.82vw, 36px);
+    line-height: 1.3;
+    color: #000;
+  }
+
+  /* ── CTA ── */
+  .avanza-cta-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .avanza-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 235px;
+    height: 45px;
+    border-radius: 999px;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(9px, 0.99vw, 20px);
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .avanza-cta:hover {
+    background: #FFCD00;
+    color: #000;
+  }
+
+  @media (min-width: 901px) {
+    .avanza-section {
+      padding-left: clamp(50px, 12vw, 220px);
+      padding-right: clamp(50px, 12vw, 220px);
+    }
+    .avanza-features { width: 100%; justify-content: stretch; }
+    .feature-card { flex: 1; width: auto; padding: clamp(11px, 1.21vw, 24px) clamp(10px, 1.06vw, 21px); }
+    .feature-normal,
+    .feature-bold,
+    .feature-regular { font-size: clamp(13px, 1.52vw, 30px); }
+    .feature-big { font-size: clamp(21px, 2.43vw, 48px); }
+  }
+
+  /* ── Responsive 1000px ── */
+  @media (max-width: 1000px) {
+    .avanza-section {
+      margin-bottom: -100px;
+    }
+    .feature-card {
+      width: clamp(120px, 11vw, 180px);
+      height: 160px;
+      border-radius: 28px;
+    }
+    .feature-normal,
+    .feature-bold,
+    .feature-regular {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .feature-big {
+      font-size: 30px;
+    }
+    .avanza-titulo {
+      font-size: clamp(20px, 2.5vw, 32px);
+      line-height: 1.3;
+    }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .avanza-section {
+      padding: 24px 20px 0;
+      margin-bottom: -40px;
+    }
+    .avanza-card {
+      border-radius: 28px;
+      min-height: auto;
+    }
+    .avanza-titulo {
+      font-size: 26px;
+      line-height: 25px;
+      text-align: left;
+      font-weight: 500;
+    }
+    .avanza-titulo-yellow {
+      font-weight: 700;
+    }
+    .avanza-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+    .feature-card {
+      width: 100%;
+      height: auto;
+      min-height: 100px;
+      padding: 10px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .feature-normal,
+    .feature-bold,
+    .feature-regular { font-size: 15px; line-height: 15px; white-space: normal; }
+    .feature-big { font-size: 22px; line-height: 15px;}
+
+    .avanza-cta { height: 30px;width: 150px;}
+  }
+</style>

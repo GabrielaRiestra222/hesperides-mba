@@ -1,0 +1,365 @@
+---
+// Header.astro
+---
+
+<header class="site-header">
+
+  <!-- Barra principal: logo + nav -->
+  <div class="header-inner">
+
+    <!-- Logo + badge online -->
+    <div class="logo-wrap">
+      <img
+        src="/img/Logo.h_horz_black_online.svg"
+        alt="Universidad de las Hespérides"
+        class="logo-img"
+      />
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Abrir menú" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Navegación -->
+    <nav class="main-nav">
+      <a href="https://hesperides.edu.es/por-que-estudiar-en-h/">La Universidad</a>
+      <a href="https://hesperides.edu.es/estudios/">Estudios</a>
+      <a href="https://hesperides.edu.es/noticias/">Noticias y Eventos</a>
+      <a href="https://hesperides.edu.es/admisiones/">Admisiones</a>
+    </nav>
+
+  </div>
+
+  <!-- Barra de confianza negra -->
+  <div class="hero-info-bar">
+    <div class="hero-info-inner">
+      <!-- Track duplicado para loop seamless en mobile -->
+      <div class="marquee-track">
+        <div class="info-item"><img src="img/iconoir_graduation-cap.svg" alt="" /><span>Universitario</span></div>
+        <div class="info-item"><img src="/img/iconoir_calendar.svg" alt="" /><span>Inicio Abril 2026</span></div>
+        <div class="info-item"><img src="/img/iconoir_alarm.svg" alt="" /><span>1 año</span></div>
+        <div class="info-item"><img src="/img/iconoir_modern-tv.svg" alt="" /><span>100% online</span></div>
+        <div class="info-item"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 1.275 €</span></div>
+        <!-- Duplicado para loop -->
+        <div class="info-item" aria-hidden="true"><img src="img/iconoir_graduation-cap.svg" alt="" /><span>Universitario</span></div>
+        <div class="info-item" aria-hidden="true"><img src="/img/iconoir_calendar.svg" alt="" /><span>Inicio Abril 2026</span></div>
+        <div class="info-item" aria-hidden="true"><img src="/img/iconoir_alarm.svg" alt="" /><span>1 año</span></div>
+        <div class="info-item" aria-hidden="true"><img src="/img/iconoir_modern-tv.svg" alt="" /><span>100% online</span></div>
+        <div class="info-item" aria-hidden="true"><img src="/img/iconoir_euro-square.svg" alt="" /><span>Desde 1.275 €</span></div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- Sidebar mobile -->
+<div class="mobile-sidebar" id="mobile-sidebar" aria-hidden="true">
+  <div class="sidebar-header">
+    <img src="/img/Logo.h_horz_black_online.svg" alt="Universidad de las Hespérides" class="sidebar-logo" />
+    <button class="sidebar-close" id="sidebar-close" aria-label="Cerrar menú">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="https://hesperides.edu.es/por-que-estudiar-en-h/">La Universidad</a>
+    <a href="https://hesperides.edu.es/estudios/">Estudios</a>
+    <a href="https://hesperides.edu.es/noticias/">Noticias y Eventos</a>
+    <a href="https://hesperides.edu.es/admisiones/">Admisiones</a>
+  </nav>
+</div>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;200;300;400;500;700&display=swap');
+
+  /* ── Header sticky ── */
+  .site-header {
+    width: 100%;
+    background: #FFCD00;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0;
+  }
+
+  /* ── Barra logo + nav ── */
+  .header-inner {
+    width: min(1285px, 100%);
+    margin-inline: auto;
+    padding-inline: clamp(20px, 6.77vw, 130px);
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* ── Logo + online en fila, alineados abajo ── */
+  .logo-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.625rem;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Hamburger — hidden on desktop */
+  .hamburger { display: none; }
+
+  /* ── Nav ── */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 3.1875rem;
+  }
+
+  .main-nav a {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 200;
+    font-size: clamp(10px, 1.14vw, 23px);
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #1a1a1a;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #1a1a1a;
+    transition: width 0.25s ease;
+  }
+
+  .main-nav a:hover::after {
+    width: 100%;
+  }
+
+  /* ── Barra negra de confianza ── */
+  .hero-info-bar {
+    width: 100%;
+    height: 53px;
+    background: #0B0B0B;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-info-inner {
+    width: 100%;
+    height: 100%;
+    padding: 0 clamp(20px, 6.77vw, 130px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* En desktop los duplicados están ocultos */
+  .marquee-track .info-item[aria-hidden="true"] { display: none; }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: clamp(8px, 0.91vw, 18px);
+    font-weight: 300;
+    color: #fff;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .info-item img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.85;
+  }
+
+  @keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (min-width: 901px) {
+    .site-header { padding-inline: 0; width: 100%; }
+    .header-inner { padding-inline: clamp(20px, 3.5vw, 52px); }
+    .hero-info-inner { padding-inline: clamp(20px, 3.5vw, 52px); }
+  }
+
+  @media (min-width: 1200px) {
+    .header-inner { padding-inline: clamp(20px, 3.5vw, 52px); }
+  }
+
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .main-nav { gap: 24px; }
+    .main-nav a { font-size: 13px; }
+    .info-item { font-size: 11px; }
+  }
+
+  @media (max-width: 860px) {
+    /* Header bar */
+    .header-inner {
+      padding: 0 20px;
+      height: 72px;
+    }
+    .logo-img { width: 170px; height: auto; }
+
+    /* Hide desktop nav, show hamburger */
+    .main-nav { display: none; }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #1a1a1a;
+      border-radius: 2px;
+    }
+
+    /* Ocultar info bar en mobile — el hero lo muestra en su posición */
+    .hero-info-bar { display: none; }
+  }
+
+  /* ── Sidebar mobile ── */
+  .mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    background: #FFCD00;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    /* Oculto en desktop */
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .mobile-sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 199;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(13px, 1.52vw, 30px) clamp(16px, 1.82vw, 36px);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .sidebar-logo {
+    width: 150px;
+    height: auto;
+  }
+  .sidebar-close {
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    flex-shrink: 0;
+  }
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(21px, 2.43vw, 48px) clamp(16px, 1.82vw, 36px);
+    gap: 0;
+    flex: 1;
+  }
+  .sidebar-nav a {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.37vw, 27px);
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: clamp(11px, 1.21vw, 24px) 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: opacity 0.2s;
+  }
+  .sidebar-nav a:last-child { border-bottom: none; }
+  .sidebar-nav a:hover { opacity: 0.6; }
+
+  @media (max-width: 860px) {
+    .mobile-sidebar { visibility: hidden; } /* off-screen pero renderable para transición */
+    .mobile-sidebar.open { visibility: visible; }
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger-btn');
+  const sidebar   = document.getElementById('mobile-sidebar');
+  const overlay   = document.getElementById('sidebar-overlay');
+  const closeBtn  = document.getElementById('sidebar-close');
+
+  function openSidebar() {
+    sidebar?.classList.add('open');
+    overlay?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', openSidebar);
+  closeBtn?.addEventListener('click', closeSidebar);
+  overlay?.addEventListener('click', closeSidebar);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebar(); });
+</script>
