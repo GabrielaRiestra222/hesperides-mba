@@ -25,7 +25,7 @@ const {
       <p class="hero-description">{description}</p>
       <!-- CTAs visibles solo en móvil/vertical -->
       <div class="hero-buttons">
-        <button class="hero-cta-btn" id="hero-open-modal">QUIERO HACERLO</button>
+        <button class="hero-cta-btn" id="hero-open-modal">CONTACTA ASESOR</button>
       </div>
     </div>
 
@@ -691,15 +691,19 @@ const {
   }
 
   @media (min-width: 901px) {
-    .hero { padding-inline: clamp(20px, 3.5vw, 52px); min-height: clamp(500px, 55vw, 750px); overflow: visible; }
+    .hero { padding-inline: clamp(16px, 1.2vw, 24px); min-height: clamp(500px, 55vw, 750px); overflow: visible; }
+    .hero-content { grid-template-columns: 1fr clamp(420px, 38vw, 580px); gap: clamp(20px, 3vw, 60px); }
+    .hero-left { min-width: clamp(280px, 35vw, 520px); }
+    .hero-bottom-menu { width: calc(100% + 2 * clamp(16px, 1.2vw, 24px)); margin-left: calc(-1 * clamp(16px, 1.2vw, 24px)); }
     .hero-tag { font-size: clamp(14px, 1.4vw, 24px); line-height: 1.3; letter-spacing: 0.06em; }
     .hero-card-titulo { font-size: clamp(12px, 1.1vw, 18px); white-space: nowrap; }
     .hero-form-title { font-size: clamp(11px, 1.1vw, 18px); white-space: nowrap; line-height: 1.2; }
     .hero-title { font-size: clamp(28px, 3vw, 52px); line-height: 1.05; }
     .hero-bottom-menu { width: 100vw; position: relative; left: 50%; transform: translateX(-50%); }
-    .hero-description { font-size: clamp(11px, 1vw, 16px); line-height: 1.5; }
+    .hero-description { font-size: clamp(11px, 1vw, 16px); line-height: 1.5; font-weight: 300; max-width: clamp(300px, 40vw, 530px); }
     .hero-form-legal { font-size: clamp(7px, 0.65vw, 11px); white-space: nowrap; line-height: 1.2; }
-    .hero-bottom-inner { padding-inline: clamp(20px, 3.5vw, 52px); gap: clamp(40px, 5.5vw, 100px); width: 100%; max-width: 1285px; margin-inline: auto; }
+    .hero-bottom-inner { padding-inline: clamp(20px, 2.5vw, 40px); gap: clamp(40px, 5.5vw, 100px); width: 100%; max-width: 1285px; margin-inline: auto; }
+    .hero-bottom-inner a { font-size: clamp(10px, 0.95vw, 17px); font-weight: 400; }
     .hero-card { width: clamp(340px, 30vw, 460px); height: auto; min-height: auto; }
     .hero-form-wrap { padding: clamp(12px, 1vw, 18px) clamp(14px, 1.2vw, 22px); }
     .form-row input,
@@ -711,7 +715,7 @@ const {
     .form-legal-row { display: flex; align-items: center; gap: clamp(6px, 0.5vw, 10px); flex-wrap: nowrap; }
     .hero-modal-card { max-width: 540px; }
     .hero-form input::placeholder { font-size: clamp(8px, 0.75vw, 12px); }
-    .hero-left { padding-left: clamp(16px, 2vw, 32px); }
+    .hero-left { padding-left: clamp(8px, 0.8vw, 14px); }
     .hero-modal-card .hero-form input[type="text"],
     .hero-modal-card .hero-form input[type="email"],
     .hero-modal-card .hero-form input[type="tel"] { height: 46px; }
@@ -741,234 +745,226 @@ const {
 
 </style>
 
-<script>
-  // Video: botón play
-  const videoUrl = 'https://youtu.be/0ZyIsN9-sHg';
-  document.getElementById('hero-play-btn')?.addEventListener('click', () => {
-    window.open(videoUrl, '_blank', 'noopener,noreferrer');
-  });
+<script is:inline>
 
-  // Modal formulario
-  const modal    = document.getElementById('hero-modal');
-  const openBtn  = document.getElementById('hero-open-modal');
-  const closeBtn = document.getElementById('hero-close-modal');
+document.addEventListener("DOMContentLoaded", () => {
 
-  function openModal()  { modal?.classList.add('open');    document.body.style.overflow = 'hidden'; }
-  function closeModal() { modal?.classList.remove('open'); document.body.style.overflow = ''; }
+  /* -------------------------
+     VIDEO
+  -------------------------*/
 
-  openBtn?.addEventListener('click', openModal);
-  document.querySelectorAll('.open-modal-cta').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
-  closeBtn?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-</script>
-<script>
 
-// ------------------------------
-// Leer parámetros URL
-// ------------------------------
-function getParam(name) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(name) || "";
-}
 
-// ------------------------------
-// Cookies
-// ------------------------------
-function setCookie(name, value, days = 30) {
-  const d = new Date();
-  d.setTime(d.getTime() + (days*24*60*60*1000));
-  document.cookie = name + "=" + value + ";path=/;expires=" + d.toUTCString();
-}
+  /* -------------------------
+     MODAL
+  -------------------------*/
 
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-  return "";
-}
+  const modal = document.getElementById("hero-modal")
+  const openBtn = document.getElementById("hero-open-modal")
+  const closeBtn = document.getElementById("hero-close-modal")
 
-// ------------------------------
-// Guardar UTMs al entrar
-// ------------------------------
-const utmParams = [
-  "utm_campaign",
-  "utm_source",
-  "utm_medium",
-  "utm_content",
-  "utm_term",
-  "campaign_id",
-  "adset_id",
-  "ad_id",
-  "gclid"
-];
+  function openModal(){
+    modal?.classList.add("open")
+    document.body.style.overflow="hidden"
+  }
 
-utmParams.forEach(param => {
-  const value = getParam(param);
-  if (value) setCookie(param, value);
-});
+  function closeModal(){
+    modal?.classList.remove("open")
+    document.body.style.overflow=""
+  }
 
-// ------------------------------
-// Normalizar teléfono
-// ------------------------------
-function normalizePhone(phone) {
+  openBtn?.addEventListener("click",openModal)
+  closeBtn?.addEventListener("click",closeModal)
 
-  if (!phone) return "";
+  modal?.addEventListener("click",(e)=>{
+    if(e.target===modal) closeModal()
+  })
 
-  phone = phone.replace(/\s+/g, "");
+  document.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape") closeModal()
+  })
 
-  if (phone.startsWith("+")) return phone;
 
-  if (phone.startsWith("00")) return "+" + phone.slice(2);
+  /* -------------------------
+     UTM COOKIES
+  -------------------------*/
 
-  if (/^[679]/.test(phone)) return "+34" + phone;
+  const utmParams=[
+    "utm_campaign",
+    "utm_source",
+    "utm_medium",
+    "utm_content",
+    "utm_term",
+    "campaign_id",
+    "adset_id",
+    "ad_id",
+    "gclid"
+  ]
 
-  return phone;
-}
+  function getParam(name){
+    const p=new URLSearchParams(window.location.search)
+    return p.get(name)||""
+  }
 
-// ------------------------------
-// Fecha compatible Zoho
-// ------------------------------
-function zohoDate() {
-  const d = new Date();
-  return d.toISOString().split('.')[0] + "+00:00";
-}
+  function setCookie(name,value,days=30){
+    const d=new Date()
+    d.setTime(d.getTime()+days*86400000)
+    document.cookie=name+"="+value+";path=/;expires="+d.toUTCString()
+  }
 
-// ------------------------------
-// Formularios
-// ------------------------------
-// ------------------------------
-// Modal abrir / cerrar
-// ------------------------------
-const modal = document.getElementById("hero-modal");
-const openBtn = document.getElementById("hero-open-modal");
-const closeBtn = document.getElementById("hero-close-modal");
+  function getCookie(name){
+    const v=document.cookie.match('(^|;) ?'+name+'=([^;]*)(;|$)')
+    return v?decodeURIComponent(v[2]):""
+  }
 
-if (openBtn && modal) {
-  openBtn.addEventListener("click", () => {
-    modal.classList.add("open");
-    document.body.style.overflow = "hidden";
-  });
-}
+  utmParams.forEach(p=>{
+    const v=getParam(p)
+    if(v) setCookie(p,v)
+  })
 
-if (closeBtn && modal) {
-  closeBtn.addEventListener("click", () => {
-    modal.classList.remove("open");
-    document.body.style.overflow = "";
-  });
-}
 
-if (modal) {
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-  });
-}
+  /* -------------------------
+     HELPERS
+  -------------------------*/
 
-// ------------------------------
-// Formularios
-// ------------------------------
-const forms = document.querySelectorAll(".hero-form");
+  function normalizePhone(phone){
 
-forms.forEach((form) => {
+    if(!phone) return ""
 
-  form.addEventListener("submit", async (e) => {
+    phone=phone.replace(/\s+/g,"")
 
-    e.preventDefault();
+    if(phone.startsWith("+")) return phone
 
-    const f = new FormData(form);
+    if(phone.startsWith("00"))
+      return "+"+phone.slice(2)
 
-    const data = {
+    if(/^[679]/.test(phone))
+      return "+34"+phone
 
-      First_Name: f.get("nombre"),
-      Last_Name: f.get("apellidos"),
-      Email: f.get("email"),
+    return phone
+  }
 
-      Mobile: normalizePhone(f.get("telefono")),
 
-      Pa_s: f.get("pais"),
-      Provincia: f.get("provincia"),
-      Provincia_extranjera: "",
+  function zohoDate(){
+    const d=new Date()
+    return d.toISOString().split('.')[0]+"+00:00"
+  }
 
-      Edicion_de_interes: "Otoño 2026",
-      Conoce_el_precio_del_programa: "Sí",
 
-      Escuela: "U. Hespérides",
-      Nombre_de_formulario: "Flotante-h",
-      Lead_Status: "0. No contactado",
-      Lead_Source: "Formulario web",
+  /* -------------------------
+     FORMULARIOS
+  -------------------------*/
 
-      Acepto_pol_tica_de_privacidad: "De acuerdo",
-      Centro: "Escuela de Postgrado",
+  const forms=document.querySelectorAll(".hero-form")
 
-      Dominio_web_pais: "España",
-      Codigo_titulacion_formulario: "MUADE",
-      Titulaci_n_de_inter_s: "MUADE",
+  forms.forEach(form=>{
 
-      Direcci_n_IP: "",
+    form.addEventListener("submit",async(e)=>{
 
-      Fecha_hora_de_aceptaci_n: zohoDate(),
+      e.preventDefault()
 
-      gclid_field: getCookie("gclid"),
+      const f=new FormData(form)
 
-      Tipo_dispositivo:
+      const data={
+
+        First_Name:f.get("nombre"),
+        Last_Name:f.get("apellidos"),
+        Email:f.get("email"),
+
+        Mobile:normalizePhone(f.get("telefono")),
+
+        Pa_s:f.get("pais"),
+        Provincia:f.get("provincia"),
+        Provincia_extranjera:"",
+
+        Edicion_de_interes:"Otoño 2026",
+        Conoce_el_precio_del_programa:"Sí",
+
+        Escuela:"U. Hespérides",
+        Nombre_de_formulario:"Flotante-h",
+
+        Lead_Status:"0. No contactado",
+        Lead_Source:"Formulario web",
+
+        Acepto_pol_tica_de_privacidad:"De acuerdo",
+        Centro:"Escuela de Postgrado",
+
+        Dominio_web_pais:"España",
+        Codigo_titulacion_formulario:"MUADE",
+        Titulaci_n_de_inter_s:"MUADE",
+
+        Direcci_n_IP:"",
+
+        Fecha_hora_de_aceptaci_n:zohoDate(),
+
+        gclid_field:getCookie("gclid"),
+
+        Tipo_dispositivo:
         /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
-          ? "Móvil"
-          : "PC/Tablet",
+        ?"Móvil":"PC/Tablet",
 
-      utm_campaign: getCookie("utm_campaign"),
-      utm_content: getCookie("utm_content"),
-      utm_medium: getCookie("utm_medium"),
-      utm_source: getCookie("utm_source"),
-      utm_term: getCookie("utm_term"),
+        utm_campaign:getCookie("utm_campaign"),
+        utm_content:getCookie("utm_content"),
+        utm_medium:getCookie("utm_medium"),
+        utm_source:getCookie("utm_source"),
+        utm_term:getCookie("utm_term"),
 
-      campaign_id: getCookie("campaign_id"),
-      adset_id: getCookie("adset_id"),
-      ad_id: getCookie("ad_id"),
+        campaign_id:getCookie("campaign_id"),
+        adset_id:getCookie("adset_id"),
+        ad_id:getCookie("ad_id"),
 
-      Layout: "499060000000032033"
+        Layout:"499060000000032033"
 
-    };
-
-    console.log("DATA ENVIADA:", data);
-
-    try {
-
-      const res = await fetch(
-        "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-        }
-      );
-
-      console.log("RESPUESTA:", res);
-
-      alert("Solicitud enviada correctamente");
-
-      form.reset();
-
-      const modal = document.getElementById("hero-modal");
-
-      if (modal) {
-        modal.classList.remove("open");
-        document.body.style.overflow = "";
       }
 
-    } catch (error) {
 
-      console.error("ERROR ENVÍO:", error);
-      alert("Error al enviar el formulario");
+      try{
 
-    }
+        const res=await fetch(
+          "https://n8n.hesperides.edu.es/webhook/1dec2390-34cc-49fb-a6b4-737d1862cf3e",
+          {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify(data)
+          }
+        )
 
-  });
+        if(res.ok){
 
-});
+          /* META */
+          if(window.fbq){
+            fbq("track","Lead")
+          }
+
+          /* GOOGLE ADS */
+          if(window.gtag){
+            gtag("event","conversion",{
+              send_to:"AW-11094724609/vhycCIK57J4ZEIGgsKop"
+            })
+          }
+
+          alert("Solicitud enviada correctamente")
+
+          form.reset()
+          closeModal()
+
+        }else{
+
+          alert("Error al enviar el formulario")
+
+        }
+
+      }catch(err){
+
+        console.error(err)
+        alert("Error al enviar el formulario")
+
+      }
+
+    })
+
+  })
+
+})
 
 </script>

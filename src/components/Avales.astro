@@ -157,7 +157,7 @@ const avales = [
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 2.3vw, 45px);
-    line-height: 47px;
+    line-height: 40px;
     color: #1a1a1a;
     margin: 0;
   }
@@ -359,18 +359,20 @@ const avales = [
 
     /* 3 cards visibles → más anchas, contenido proporcional */
      .aval-card {
-    flex: 0 0 calc((100% - 3 * 20px) / 4);
-    width: calc((100% - 3 * 20px) / 4);
+    flex: 0 0 calc((100% - 3 * 16px) / 4.10);
+    width: calc((100% - 3 * 16px) / 4.10);
 min-height: 240px;
   height: auto;  }
     .aval-foto{
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
-  min-height: 56px;
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  min-height: 70px;
   border-radius: 50%;
   overflow: hidden;
   background: transparent;
+  margin-top: 0;
+  flex-shrink: 0;
 }
 
 .aval-foto img{
@@ -383,12 +385,16 @@ min-height: 240px;
   .aval-header{
     align-items: flex-start;
     gap: 0.5rem;
+    padding-top: 0;
+    margin-bottom: 0;
+    margin-top: clamp(4px, 0.4vw, 8px);
   }
 
   /* nombre más pequeño */
   .aval-nombre{
-    font-size: clamp(9px, 0.99vw, 20px);
+    font-size: clamp(8px, 0.85vw, 16px);
     line-height: 16px;
+    margin-top: clamp(6px, 0.6vw, 10px);
   }
 
   /* cargo más pequeño */
@@ -400,14 +406,22 @@ min-height: 240px;
 
   /* texto del aval */
   .aval-texto{
-    font-size: clamp(9px, 0.95vw, 19px);
-    line-height: 1.6;
+    font-size: clamp(7px, 0.75vw, 14px);
+    line-height: 1.4;
+    padding-right: clamp(4px, 0.5vw, 8px);
+    margin-top: clamp(8px, 0.8vw, 14px);
   }
 
   /* menos espacio interno de la card */
   .aval-card{
     padding: clamp(8px, 0.91vw, 18px);
     gap: 0.625rem;
+    overflow: hidden;
+    box-shadow: 2px 6px 12px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .avales-track {
+    gap: clamp(12px, 1.5vw, 20px);
   }
 
     .avales-carousel-wrap{

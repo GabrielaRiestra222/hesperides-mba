@@ -8,16 +8,16 @@ const tabs = [
 
 const testimonials = [
   {
-    name: "Andoni Cortazar Andueza",
-    cargo: "Directivo en empresa internacional",
-    text: ".h es una experiencia transformadora. Al final es un viaje en el que yo partía como un outsider, alguien que venía de otra zona de confort distinta. Entonces es algo que te saca de tu zona de confort y en mi caso, por lo menos, me ayudó a aprender, a entender y, sobre todo, a liderar de una forma diferente.",
-    img: "/img/Andoni_Cortazar_Andueza_color.jpg"
-  },
-  {
     name: "Jorge Muñoz",
     cargo: "Emprendedor y consultor",
     text: "A veces pensamos que vamos a la escuela a que nos enseñen y que no tenemos que hacer nada, que mágicamente aprendemos. Sin embargo, cuando uno más aprende es viendo vídeos, interiorizando conceptos, explicándole lo aprendido a otra persona. Se aprende de forma activa, no de forma pasiva.",
     img: "/img/Jorge_Manuel_Mun_oz_Rodri_guez_color.jpg"
+  },
+  {
+    name: "Miguel Núñez",
+    cargo: "Emprendedor",
+    text: "Algo que yo lo voy viendo y cada vez me voy sorprendiendo más de cómo los profesores, junto con los alumnos, se crea una comunidad tan libre y tan responsable.",
+    img: "/img/miguel_nun_ez-G_Emprendimiento_copy.jpg"
   },
   {
     name: "Jaime Gil Martínez",
@@ -26,10 +26,10 @@ const testimonials = [
     img: "/img/LinkedIn_profile_picture_color_copy.jpg"
   },
   {
-    name: "Miguel Núñez",
-    cargo: "Emprendedor",
-    text: "Algo que yo lo voy viendo y cada vez me voy sorprendiendo más de cómo los profesores, junto con los alumnos, se crea una comunidad tan libre y tan responsable.",
-    img: "/img/miguel_nun_ez-G_Emprendimiento_copy.jpg"
+    name: "Andoni Cortazar Andueza",
+    cargo: "Directivo en empresa internacional",
+    text: ".h es una experiencia transformadora. Al final es un viaje en el que yo partía como un outsider, alguien que venía de otra zona de confort distinta. Entonces es algo que te saca de tu zona de confort y en mi caso, por lo menos, me ayudó a aprender, a entender y, sobre todo, a liderar de una forma diferente.",
+    img: "/img/Andoni_Cortazar_Andueza_color.jpg"
   }
 ];
 ---
@@ -397,8 +397,9 @@ const testimonials = [
 
           {tab.type === "practicas" && (
             <div class="card-text">
-              <p>Gracias a los convenios de colaboración de .h, podrás cursar tus prácticas externas curriculares del Máster Universitario al más alto nivel. Te podrás beneficiar de los acuerdos con la Fundación Universidad-Empresa, Lopesan Hotel Management, Binter Canarias, Banco Latinoamericano de Comercio Exterior y Domingo Alonso Group, entre otras.</p>
-              <p>Al ser estudiante de .h, formarás parte del entorno colaborativo del Make Impact Consortium (MIC), liderado por el Massachusetts Institute of Technology (MIT).</p>
+              <p>Gracias a los convenios de colaboración de .h, podrás cursar prácticas externas curriculares al más alto nivel — si es lo que necesitas. Porque sabemos que muchos de nuestros alumnos ya lideran equipos, trabajan en posiciones senior o están construyendo su propia empresa. Las prácticas son una asignatura optativa: tú decides si las necesitas o no.</p>
+              <p>Para quienes las elijan, estas son algunas de las empresas colaboradoras donde podrás aplicar lo aprendido y acelerar tu desarrollo profesional:</p>
+              <p><strong>Bankinter · Deloitte · Santander · Newlink · Lopesan Hotel Management · Binter Canarias · Bladex · Racks · Human Rights Foundation</strong> — entre otras.</p>
             </div>
           )}
 
@@ -1007,6 +1008,50 @@ const testimonials = [
     color: #000;
     margin: 0;
     font-weight: 300;
+  }
+
+  .card-back {
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .cbimg-wrap {
+    width: calc(100% - clamp(16px, 2vw, 32px));
+    margin: clamp(8px, 1vw, 16px);
+    margin-bottom: 0;
+    aspect-ratio: 181 / 130;
+    overflow: hidden;
+    border-radius: 20px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  .card-close {
+    z-index: 10;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  .cbbody {
+    padding: clamp(8px, 1vw, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4px, 0.4vw, 8px);
+  }
+
+  .cbquote {
+    order: -1;
+  }
+
+  .cbname {
+    margin-top: auto;
+    padding-top: clamp(6px, 0.6vw, 10px);
+  }
+
+  .cbcargo {
+    margin-bottom: 0;
   }
 
   /* Hover en desktop activa reverso */

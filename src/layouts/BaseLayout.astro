@@ -13,8 +13,69 @@ import "../styles/theme.css";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" />
+
+    <!-- META PIXEL -->
+    <script is:inline>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '546302544125224');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=546302544125224&ev=PageView&noscript=1"/></noscript>
+
+    <!-- GOOGLE ADS TAG -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-11094724609"></script>
+    <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11094724609');
+    </script>
   </head>
   <body>
     <slot />
+
+    <!-- VIDEO MODAL -->
+    <div id="video-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
+      <button id="video-modal-close" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; font-size:32px; cursor:pointer;">✕</button>
+      <div style="width:min(90vw, 960px); aspect-ratio:16/9;">
+        <iframe id="video-iframe" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:12px;"></iframe>
+      </div>
+    </div>
+
+    <script is:inline>
+    const videoModal = document.getElementById('video-modal');
+    const videoIframe = document.getElementById('video-iframe');
+    const videoClose = document.getElementById('video-modal-close');
+    const YOUTUBE_URL = 'https://www.youtube.com/embed/0ZyIsN9-sHg?autoplay=1';
+
+    function openVideoModal() {
+      videoIframe.src = YOUTUBE_URL;
+      videoModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+      videoIframe.src = '';
+      videoModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    videoClose.addEventListener('click', closeVideoModal);
+    videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#hero-play-btn')) openVideoModal();
+      if (e.target.closest('.video-link')) { e.preventDefault(); openVideoModal(); }
+    });
+    </script>
   </body>
 </html>
