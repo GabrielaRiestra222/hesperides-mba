@@ -54,12 +54,31 @@ import "../styles/theme.css";
     const videoModal = document.getElementById('video-modal');
     const videoIframe = document.getElementById('video-iframe');
     const videoClose = document.getElementById('video-modal-close');
-    const YOUTUBE_URL = 'https://www.youtube.com/embed/0ZyIsN9-sHg?autoplay=1';
+    const YOUTUBE_URL = 'https://www.youtube-nocookie.com/embed/0ZyIsN9-sHg?autoplay=1&rel=0';
 
     function openVideoModal() {
       videoIframe.src = YOUTUBE_URL;
       videoModal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
+
+      videoIframe.onerror = function() {
+        closeVideoModal();
+        window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
+      };
+
+      // Fallback si YouTube bloquea el embed
+      setTimeout(() => {
+        try {
+          const doc = videoIframe.contentDocument || videoIframe.contentWindow?.document;
+          if (!doc || doc.title === '') {
+            closeVideoModal();
+            window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
+          }
+        } catch(e) {
+          closeVideoModal();
+          window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
+        }
+      }, 3000);
     }
 
     function closeVideoModal() {
