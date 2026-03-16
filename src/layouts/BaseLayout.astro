@@ -46,7 +46,7 @@ import "../styles/theme.css";
     <div id="video-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
       <button id="video-modal-close" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; font-size:32px; cursor:pointer;">✕</button>
       <div style="width:min(90vw, 960px); aspect-ratio:16/9;">
-        <iframe id="video-iframe" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:12px;"></iframe>
+        <iframe id="video-iframe" width="100%" height="100%" allow="autoplay; encrypted-media" allowfullscreen style="border:0; border-radius:12px;"></iframe>
       </div>
     </div>
 
@@ -54,31 +54,8 @@ import "../styles/theme.css";
     const videoModal = document.getElementById('video-modal');
     const videoIframe = document.getElementById('video-iframe');
     const videoClose = document.getElementById('video-modal-close');
-    const YOUTUBE_URL = 'https://www.youtube-nocookie.com/embed/0ZyIsN9-sHg?autoplay=1&rel=0';
-
     function openVideoModal() {
-      videoIframe.src = YOUTUBE_URL;
-      videoModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-
-      videoIframe.onerror = function() {
-        closeVideoModal();
-        window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
-      };
-
-      // Fallback si YouTube bloquea el embed
-      setTimeout(() => {
-        try {
-          const doc = videoIframe.contentDocument || videoIframe.contentWindow?.document;
-          if (!doc || doc.title === '') {
-            closeVideoModal();
-            window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
-          }
-        } catch(e) {
-          closeVideoModal();
-          window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
-        }
-      }, 3000);
+      window.open('https://youtu.be/0ZyIsN9-sHg', '_blank');
     }
 
     function closeVideoModal() {
