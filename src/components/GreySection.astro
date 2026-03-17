@@ -615,6 +615,25 @@ const testimonials = [
   line-height:1.35;
   -webkit-line-clamp:4;
 }
+@media (min-width: 901px) {
+
+  .cbname {
+    font-size: clamp(11px, 1.21vw, 24px);
+    margin-bottom: 2px;
+  }
+
+  .cbcargo {
+    font-size: clamp(10px, 1.06vw, 21px);
+    margin-bottom: 6px;
+  }
+
+  .cbquote {
+    font-size: clamp(10px, 1.14vw, 23px);
+    line-height: 18px;
+    order: 0;
+  }
+
+}
 
 }
 
@@ -1227,9 +1246,9 @@ const testimonials = [
     .c-arrow { border: none; border-radius: 0; background: transparent; }
     .faq-grid { margin-left: clamp(-24px, -2.5vw, -12px); }
     .faq-card { padding: clamp(24px, 2.5vw, 48px); }
-    .cbquote { font-size: clamp(6px, 0.61vw, 12px); line-height: 1.35; }
+    .cbquote { font-size: clamp(16px, 1.2vw, 20px); line-height: 1.35; }
     .cbname { font-size: clamp(7px, 0.76vw, 15px); text-transform: lowercase; margin-top: auto; padding-top: clamp(16px, 1.8vw, 28px); margin-bottom: 0; }
-    .cbcargo { font-size: clamp(6px, 0.61vw, 12px); margin-top: clamp(1px, 0.1vw, 3px); padding-top: 0; }
+    .cbcargo { font-size: clamp(6px, 0.61vw, 12px); margin-top: 0; padding-top: 0; }
   }
 
   @media (min-width: 1500px) {
