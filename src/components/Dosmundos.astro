@@ -35,10 +35,6 @@ const features = [
             <div class="video-play-triangle"></div>
           </div>
 
-          <div class="video-label">
-            <span>experiencia de aprendizaje</span>
-            <span class="video-label-link">▸ MÁS VÍDEOS</span>
-          </div>
         </a>
       </div>
 
@@ -279,13 +275,20 @@ const features = [
   .dosmundos-parrafo { font-size: clamp(16px, 1.4vw, 24px); }
   .dosmundos-texto { padding-left: 0; gap: clamp(6px, 0.5vw, 10px); }
   .dosmundos-features { max-width: 100%; }
-  .feature-titulo { font-size: clamp(14px, 1.2vw, 20px); }
+  .feature-col { display: flex; flex-direction: column; align-items: flex-start; }
+  .feature-titulo { font-size: clamp(16px, 1.4vw, 24px); line-height: 1.2; min-height: 2.6em; display: flex; align-items: flex-start; }
   .feature-texto { font-size: clamp(12px, 1vw, 16px); }
 
 }
 
   @media (min-width: 1600px) {
     .dosmundos-section { padding-inline: clamp(60px, 8vw, 140px); }
+  }
+
+  @media (min-width: 1500px) and (max-width: 1800px) {
+    .dosmundos-section {
+      padding-inline: clamp(180px, 18vw, 280px);
+    }
   }
 
 </style>

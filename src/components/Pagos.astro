@@ -30,7 +30,7 @@ const cards = [
 ];
 ---
 
-<section class="pagos-section">
+<section id="pagos" class="pagos-section">
   <div class="pagos-bg"></div>
   <div class="pagos-overlay"></div>
 
@@ -82,6 +82,8 @@ const cards = [
         </div>
       ))}
     </div>
+
+    <p class="pagos-reserva">Reserva tu plaza por 300 €, que se descontarán del precio total del programa.</p>
 
     <div class="pagos-boton-wrap">
       <a href="#" class="pagos-boton open-modal-cta">QUIERO HACERLO</a>
@@ -374,6 +376,15 @@ const cards = [
     .pagos-boton-wrap { justify-content: center; margin-top: 24px; }
     .pagos-boton { padding: 0 28px; }
   }
+  .pagos-reserva {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 1.1vw, 20px);
+    color: #ffffff;
+    margin-top: clamp(16px, 2vw, 32px);
+    opacity: 0.85;
+  }
+
   @media (min-width: 901px) {
     .pagos-inner { padding-left: 0; padding-right: 0; }
     .pagos-titulo { font-weight: 300; }

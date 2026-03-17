@@ -181,7 +181,15 @@
       text-align: center;
     }
 
-  @media (min-width: 1600px) {
-    .footer-inner { padding-inline: clamp(60px, 8vw, 140px); }
+  @media (min-width: 1500px) and (max-width: 1750px) {
+    .footer-inner {
+      padding-inline: clamp(80px, 10vw, 160px);
+    }
+  }
+
+  @media (min-width: 1750px) {
+    .footer-inner {
+      padding-inline: clamp(40px, 4vw, 60px);
+    }
   }
 </style>

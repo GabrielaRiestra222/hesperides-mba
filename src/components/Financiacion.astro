@@ -149,9 +149,18 @@
     .financiacion-boton { width: 100%; }
   }
   @media (min-width: 901px) {
-    .financiacion-inner { max-width: none; }
+    .financiacion-inner { max-width: none; align-items: center; }
     .financiacion-texto,
     .financiacion-nota { text-align: left; }
+    .financiacion-divider {
+      height: clamp(160px, 14vw, 220px);
+      align-self: flex-start;
+      margin-top: clamp(8px, 1vw, 16px);
+    }
+    .financiacion-logo-wrap {
+      margin-left: clamp(-20px, -1.5vw, -8px);
+      margin-right: clamp(4px, 0.5vw, 8px);
+    }
   }
 
 </style>
