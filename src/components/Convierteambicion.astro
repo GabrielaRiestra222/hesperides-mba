@@ -380,7 +380,10 @@ const features = [
     .convierte-quote-row { flex-direction: row; align-items: flex-start; gap: clamp(16px, 2vw, 32px); padding-left: 0; margin-left: 0; width: 75%; margin-inline: auto; }
     .quote-foto { width: clamp(280px, 32vw, 480px); height: clamp(180px, 20vw, 300px); border-radius: 30px; flex-shrink: 0; }
     .quote-content { flex: 1; max-width: clamp(280px, 30vw, 480px); }
-    .quote-text { font-size: clamp(16px, 1.6vw, 28px); line-height: 1.2; }
+    .quote-text { font-size: clamp(18px, 1.8vw, 32px); line-height: 1.2; margin-bottom: clamp(12px, 1.2vw, 20px); }
+    .author-cargo { white-space: nowrap; font-size: clamp(9px, 0.9vw, 16px); padding-right: clamp(8px, 1vw, 16px); }
+    .author-cargo,
+    .author-name { padding-left: 0; margin-left: 0; }
   }
 
   @media (min-width: 1600px) {

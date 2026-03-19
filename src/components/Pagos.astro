@@ -83,10 +83,11 @@ const cards = [
       ))}
     </div>
 
-    <p class="pagos-reserva">Reserva tu plaza por 300 €, que se descontarán del precio total del programa.</p>
-
-    <div class="pagos-boton-wrap">
-      <a href="#" class="pagos-boton open-modal-cta">QUIERO HACERLO</a>
+    <div class="pagos-bottom-row">
+      <p class="pagos-reserva">Reserva tu plaza por 300 €, que se descontarán del precio total del programa.</p>
+      <div class="pagos-boton-wrap">
+        <a href="#" class="pagos-boton open-modal-cta">QUIERO HACERLO</a>
+      </div>
     </div>
 
   </div>
@@ -386,18 +387,28 @@ const cards = [
   }
 
   @media (min-width: 901px) {
+    .pagos-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: clamp(16px, 2vw, 32px);
+      gap: clamp(16px, 2vw, 32px);
+    }
+    .pagos-reserva { margin-top: 0; }
+    .pagos-boton-wrap { margin-top: 0; flex-shrink: 0; }
     .pagos-inner { padding-left: 0; padding-right: 0; }
     .pagos-titulo { font-weight: 300; }
     .pagos-fases { font-weight: 300; }
     .pagos-fases-conv { font-weight: 300; }
-    .pago-expand {padding-right: 10px; padding-top: 10px;}
-    .pago-expand-titulo { font-size: 30px; line-height: 1.1; margin-right: 10px; }
-    .pago-descripcion   { font-size: 20px; line-height: 1.3; }
-    .pago-reposo-titulo { font-size: clamp(18px, 1.6vw, 30px); }
-    .pago-cuotas        { font-size: clamp(20px, 2vw, 36px); line-height: 1.1; }
-    .pago-importe       { font-size: clamp(24px, 2.5vw, 46px); font-weight: 900; }
+    .pago-expand {padding-right: clamp(16px, 2vw, 32px); padding-top: clamp(16px, 2vw, 32px);}
+    .pago-expand-titulo { font-size: clamp(20px, 2vw, 36px); line-height: 1.1; margin-right: 10px; }
+    .pago-descripcion   { font-size: clamp(16px, 1.6vw, 28px); line-height: 1.3; }
+    .pago-reposo-titulo { font-size: clamp(20px, 1.8vw, 32px); }
+    .pago-cuotas        { font-size: clamp(18px, 1.8vw, 32px); line-height: 1.1; }
+    .pago-importe       { font-size: clamp(20px, 2vw, 36px); font-weight: 900; }
     .pago-total         { font-size: clamp(16px, 1.6vw, 28px); }
     .pago-total strong  { font-weight: 900; }
+    .pagos-cards        { padding-top: clamp(80px, 8vw, 120px); }
   }
 </style>
 

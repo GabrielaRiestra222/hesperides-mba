@@ -33,7 +33,7 @@ const {
     <div class="hero-right">
       <div class="hero-card">
         <div class="hero-card-photo">
-          <img src="/img/hero-director.jpg" alt="Director MBA" />
+          <img src="/img/Rallo_fondo.jpg" alt="Director MBA" />
           <button class="hero-card-play" aria-label="Reproducir vídeo" id="hero-play-btn"></button>
         </div>
         <div class="hero-form-wrap">
@@ -251,10 +251,10 @@ const {
     height: 235px;
     border-radius: 29.896px;
     overflow: hidden;
-    background: lightgray -62.769px -44.55px / 121.17% 127% no-repeat;
-    background-image: url('/img/hero-director.jpg');
-    background-position: -62.769px -44.55px;
-    background-size: 121.17% 127%;
+    background: lightgray center top / cover no-repeat;
+    background-image: url('/img/Rallo_fondo.jpg');
+    background-position: center top;
+    background-size: cover;
   }
 
   .hero-card-photo img {
@@ -291,7 +291,7 @@ const {
     height: 0;
     border-style: solid;
     border-width: 18px 0 18px 32px;
-    border-color: transparent transparent transparent #ffffff;
+    border-color: transparent transparent transparent #FFCD00;
   }
 
   /* Formulario */
@@ -704,10 +704,13 @@ const {
     .hero-form-legal { font-size: clamp(7px, 0.65vw, 11px); white-space: nowrap; line-height: 1.2; }
     .hero-bottom-inner { padding-inline: clamp(20px, 2.5vw, 40px); gap: clamp(40px, 5.5vw, 100px); width: 100%; max-width: 1285px; margin-inline: auto; }
     .hero-bottom-inner a { font-size: clamp(10px, 0.95vw, 17px); font-weight: 400; }
-    .hero-card { width: clamp(340px, 30vw, 460px); height: auto; min-height: auto; }
+    .hero-card { width: clamp(340px, 30vw, 460px); height: auto; min-height: auto; margin-left: clamp(16px, 2vw, 32px); }
     .hero-form-wrap { padding: clamp(12px, 1vw, 18px) clamp(14px, 1.2vw, 22px); }
     .form-row input,
-    .hero-form input { height: clamp(18px, 1.4vw, 24px); font-size: clamp(7px, 0.65vw, 10px); }
+    .hero-form input { height: clamp(18px, 1.6vw, 26px) !important; line-height: 1; border-radius: clamp(4px, 0.4vw, 8px); padding-block: 0; font-size: clamp(7px, 0.6vw, 10px); }
+    .hero-form input[type="checkbox"] { height: auto !important; width: clamp(12px, 1.2vw, 18px) !important; min-width: clamp(12px, 1.2vw, 18px) !important; aspect-ratio: 1; border-radius: 50% !important; flex-shrink: 0; }
+    .form-row { gap: clamp(4px, 0.4vw, 8px); }
+    .hero-form { gap: clamp(4px, 0.4vw, 8px); }
     .form-legal { font-size: clamp(7px, 0.55vw, 9px); white-space: nowrap; line-height: 1.2; }
     .hero-form-submit { font-size: clamp(8px, 0.75vw, 12px); padding: 0 clamp(10px, 1vw, 16px); white-space: nowrap; flex-shrink: 1; min-width: 0; }
     .form-submit { display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; flex-shrink: 0; font-size: clamp(7px, 0.65vw, 10px); padding-inline: clamp(16px, 1.5vw, 28px); height: clamp(26px, 2.2vw, 36px); border-radius: 999px; width: auto; background: #1a1a1a; color: #fff; border: none; font-weight: 500; letter-spacing: 0.07em; transition: background 0.2s ease, color 0.2s ease; }
@@ -719,27 +722,8 @@ const {
     .hero-modal-card .hero-form input[type="text"],
     .hero-modal-card .hero-form input[type="email"],
     .hero-modal-card .hero-form input[type="tel"] { height: 46px; }
-    .hero-card-photo{}
+    .hero-card-photo{ background-position: center top; background-size: cover; }
 
-      .hero-form input[type="text"],
-      .hero-form input[type="email"],
-      .hero-form input[type="tel"] {
-        width: 100%;
-        height: clamp(28px, 2.5vw, 40px);
-        border: 1px solid rgba(255, 255, 255, 0.847);
-        border-radius: 999px;
-        background: #ffcd00;
-        padding: 0 12px;
-        font-family: "Noto Sans HK", sans-serif;
-        font-size: clamp(9px, 0.85vw, 14px);
-        font-weight: 500;
-        color: #1a1a1a;
-        box-sizing: border-box;
-        outline: none;
-        transition: border-color 0.2s;
-        box-shadow: 1.993px 0 3.986px 0 rgba(0, 0, 0, 0.25);
-
-      }
   }
 
   @media (min-width: 2100px) {

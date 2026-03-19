@@ -149,17 +149,42 @@
     .financiacion-boton { width: 100%; }
   }
   @media (min-width: 901px) {
-    .financiacion-inner { max-width: none; align-items: center; }
+    .financiacion-section { padding-left: clamp(20px, 4vw, 70px); padding-top: clamp(80px, 8vw, 140px); }
+    .financiacion-texto { font-size: clamp(13px, 1.1vw, 18px); }
+    .financiacion-inner { max-width: none; align-items: center; padding-left: clamp(0px, 2vw, 32px); }
     .financiacion-texto,
     .financiacion-nota { text-align: left; }
     .financiacion-divider {
       height: clamp(160px, 14vw, 220px);
       align-self: flex-start;
       margin-top: clamp(8px, 1vw, 16px);
+      margin-right: clamp(16px, 2vw, 32px);
     }
     .financiacion-logo-wrap {
-      margin-left: clamp(-20px, -1.5vw, -8px);
-      margin-right: clamp(4px, 0.5vw, 8px);
+      margin-left: 0;
+      margin-right: clamp(2px, 0.3vw, 6px);
+    }
+  }
+
+  @media (min-width: 1300px) and (max-width: 1600px) {
+    .financiacion-logo-wrap {
+      margin-left: clamp(80px, 7vw, 110px);
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .financiacion-section {
+      padding-left: clamp(70px, 5.5vw, 100px);
+      padding-right: clamp(80px, 8vw, 140px);
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .financiacion-section {
+      padding-left: clamp(40px, 3vw, 60px);
+    }
+    .financiacion-logo-wrap {
+      margin-left: clamp(-20px, -2vw, -10px);
     }
   }
 
