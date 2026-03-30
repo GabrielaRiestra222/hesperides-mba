@@ -170,7 +170,16 @@
   @media (min-width: 901px) {
     .footer-inner { padding-inline: clamp(60px, 8vw, 120px); max-width: 1319px; margin-inline: auto; }
   }
+  @media (min-width: 901px) and (max-width: 1470px) {
+    .footer { padding-inline: clamp(40px, 5vw, 80px); }
+    .footer-inner { padding-inline: 0; max-width: 1319px; margin-inline: auto; }
+  }
+  @media (min-width: 1470px) {
+    .footer { padding-inline: clamp(180px, 18vw, 280px); }
+    .footer-inner { padding-inline: 0; max-width: 1319px; margin-inline: auto; }
+  }
   @media (min-width: 1600px) {
+    .footer { padding-inline: clamp(60px, 8vw, 140px); }
     .footer-inner { padding-inline: 0; }
   }
   .footer-links {
@@ -185,14 +194,12 @@
     }
 
   @media (min-width: 1500px) and (max-width: 1750px) {
-    .footer-inner {
-      padding-inline: clamp(80px, 10vw, 160px);
-    }
+    .footer { padding-inline: clamp(180px, 18vw, 280px); }
+    .footer-inner { padding-inline: 0; }
   }
 
   @media (min-width: 1750px) {
-    .footer-inner {
-      padding-inline: clamp(40px, 4vw, 60px);
-    }
+    .footer { padding-inline: clamp(200px, 20vw, 320px); }
+    .footer-inner { padding-inline: 0; }
   }
 </style>

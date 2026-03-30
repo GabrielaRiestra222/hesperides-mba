@@ -560,7 +560,7 @@ const testimonials = [
 
 /* LABEL */
 .faq-label{
-  font-size:clamp(11px, 1.21vw, 24px);
+  font-size:clamp(11px, 1.25vw, 23px);
   display:inline-flex;
   align-items:center;
   padding-top:clamp(7px, 0.76vw, 15px);
@@ -572,7 +572,7 @@ const testimonials = [
   font-weight:300;
   flex-shrink:0;
   line-height:1;
-  margin-left:0.5rem;
+  margin-left:0.1rem;
   align-self:flex-start;
   margin-top:clamp(4px, 0.45vw, 9px);
 }
@@ -1202,6 +1202,7 @@ const testimonials = [
     width:100%;
     justify-content:center;
     text-align:center;
+    font-size:clamp(11px, 1.15vw, 22px);
   }
 
   /* Reset: sin borde en trigger ni en icono */
@@ -1209,9 +1210,25 @@ const testimonials = [
   .faq-col .faq-icon{ border-right:none !important; padding-right:0 !important; margin-right:0 !important; }
   .faq-col .faq-label{ border-left:none !important; padding-left:0 !important; }
 
+  .faq-col[data-col="0"]{
+    padding-left: 0;
+    padding-right: clamp(2px, 0.25vw, 4px);
+    margin-left: clamp(-30px, -3vw, -15px);
+  }
+  .faq-col[data-col="0"] .faq-trigger{
+    padding-right: 0;
+  }
+  .faq-col[data-col="1"] .faq-trigger{
+    padding-right: clamp(4px, 0.5vw, 8px);
+  }
+  .faq-col[data-col="2"] .faq-trigger{
+    padding-right: 0;
+  }
+
   /* Más espacio + separador SOLO entre PLAN DE ESTUDIOS y COMPETENCIAS */
   .faq-col[data-col="1"]{
-    padding-left: clamp(20px, 2.5vw, 40px);
+    padding-left: clamp(16px, 2vw, 32px);
+    margin-right: clamp(-35px, -3.5vw, -18px);
   }
   .faq-col[data-col="1"] .faq-label{
     border-left: 1px solid rgba(0,0,0,0.3) !important;
@@ -1220,8 +1237,10 @@ const testimonials = [
 
   /* Más espacio + separador entre COMPETENCIAS y CRÉDITOS */
   .faq-col[data-col="2"]{
-    padding-left: clamp(20px, 2.5vw, 40px);
+    padding-left: clamp(6px, 0.8vw, 12px);
+    padding-right: 0;
     margin-left: 0;
+    margin-right: clamp(-35px, -3.5vw, -18px);
   }
   .faq-col[data-col="2"] .faq-label{
     border-left: 1px solid rgba(0,0,0,0.3) !important;
@@ -1230,7 +1249,7 @@ const testimonials = [
 
   /* Separador entre CRÉDITOS y PRÁCTICAS */
   .faq-col[data-col="3"]{
-    padding-left: clamp(10px, 1.2vw, 20px);
+    padding-left: clamp(8px, 1vw, 16px);
   }
   .faq-col[data-col="3"] .faq-label{
     border-left: 1px solid rgba(0,0,0,0.3) !important;
@@ -1241,14 +1260,19 @@ const testimonials = [
 
   @media (min-width: 901px) {
     .faq-icon { font-size: clamp(18px, 1.8vw, 30px); display: flex; align-items: center; justify-content: center; width: clamp(24px, 2vw, 36px); height: clamp(24px, 2vw, 36px); }
-    .cta-btn { font-weight: 300; }
+    .cta-btn { font-weight: 500; padding-block: clamp(6px, 0.6vw, 10px); padding-inline: clamp(14px, 1.5vw, 24px); font-size: clamp(9px, 0.99vw, 20px); letter-spacing: 0.07em; }
     .cta-btn:hover { background: #FFCD00; color: #000; opacity: 1; }
     .c-arrow { border: none; border-radius: 0; background: transparent; }
-    .faq-grid { margin-left: clamp(-24px, -2.5vw, -12px); }
+    .faq-grid { margin-left: 0; }
     .faq-card { padding: clamp(24px, 2.5vw, 48px); }
     .cbquote { font-size: clamp(16px, 1.2vw, 20px); line-height: 1.35; }
-    .cbname { font-size: clamp(9px, 0.9vw, 16px); text-transform: capitalize; margin-top: auto; padding-top: clamp(16px, 1.8vw, 28px); margin-bottom: 0; }
-    .cbcargo { font-size: clamp(8px, 0.75vw, 13px); text-transform: capitalize; margin-top: clamp(1px, 0.1vw, 3px); padding-top: 0; }
+    .cbname { font-size: clamp(9px, 0.9vw, 16px); text-transform: capitalize; margin-top: auto; padding-top: clamp(16px, 1.8vw, 28px); margin-bottom: 0; line-height: 1; }
+    .cbcargo { font-size: clamp(8px, 0.75vw, 13px); text-transform: capitalize; margin-top: clamp(-8px, -0.6vw, -4px); padding-top: 0; line-height: 1; }
+  }
+
+  @media (max-width: 1499px) and (min-width: 901px) {
+    .cbname { font-size: clamp(10px, 1.05vw, 18px); }
+    .cbcargo { margin-top: clamp(-2px, -0.15vw, 0px); }
   }
 
   @media (min-width: 1500px) {

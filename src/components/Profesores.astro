@@ -2,7 +2,7 @@
 const profesores = [
   { id: "juan-ramon-rallo",    nombre: "Juan Ramón Rallo",         cargo: "Decano de la Escuela de Grado de la Universidad de las Hespérides",            fotoCompact: "/img/Juan_Ramón_Rallo_copia_duo.jpg", fotoExpanded: "/img/Juan_Ramón_Rallo_copia.png",             bio: "Doctor en Economía por la Universidad Rey Juan Carlos. Fundador, decano y director del Grado y Máster en Economía de la Universidad de las Hespérides. Autor de numerosos libros, entre ellos Anti-Marx y Una revolución liberal para España." },
   { id: "gustavo-martinez",    nombre: "Gustavo Martinez",         cargo: "Divulgador financiero y gestor patrimonial en XTB",                            fotoCompact: "/img/Gustavo_Martinez_duo.jpg", fotoExpanded: "/img/Gustavo_Martinez_color.jpg",              bio: "Gestor patrimonial y directivo en XTB. Profesor en la Universidad Francisco Marroquín, con formación en múltiples grados y másteres de prestigio." },
-  { id: "enrique-briega",      nombre: "Enrique Briega",           cargo: "Knowledge Expert Financial Services Practice en McKinsey & Company",         fotoCompact: "/img/enrique-1_duo.jpg", fotoExpanded: "/img/enrique_briega_color.jpg",                bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Navarra, Máster en Finanzas Corporativas por SDA Bocconi y MBA por IESE Business School, con intercambio en Chicago Booth. Obtuvo la certificación Chartered Financial Analyst (CFA) en 2017." },
+  { id: "enrique-briega",      nombre: "Enrique Briega",           cargo: "Knowledge Expert Financial Services Practice en McKinsey & Company",         fotoCompact: "/img/enrique_briega_color_copy_2.jpg", fotoExpanded: "/img/enrique_briega_color.jpg",                bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Navarra, Máster en Finanzas Corporativas por SDA Bocconi y MBA por IESE Business School, con intercambio en Chicago Booth. Obtuvo la certificación Chartered Financial Analyst (CFA) en 2017." },
   { id: "jose-ruiz-de-alda",   nombre: "José Ruiz de Alda",        cargo: "Asesor de CORE VALUE FIL",                                                     fotoCompact: "/img/José_Ruiz_de_Alda_duo.jpg", fotoExpanded: "/img/José_Ruiz_de_Alda_color.jpg",            bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Deusto. Su conocimiento del Value Investing se refleja en su papel como consejero en CIMA Global Value SICAV." },
   { id: "eduardo-fernandez",   nombre: "Eduardo Fernández Luiña",  cargo: "Decano de la Escuela de Postgrado de la Universidad de las Hespérides",       fotoCompact: "/img/Eduardo_Fernández_Luiña_duo.jpg", fotoExpanded: "/img/Eduardo_Fernández_Luiña_color.jpg",    bio: "Doctor en Procesos Políticos y decano de la Escuela de Postgrado de la Universidad de las Hespérides. Su investigación se centra en el sistema político guatemalteco y la democracia." },
   { id: "gonzalo-melian",      nombre: "Gonzalo Melián",           cargo: "Cofundador y vicerrector de la Universidad de las Hespérides",                 fotoCompact: "/img/Gonzalo-Melian_duo.jpg", fotoExpanded: "/img/Gonzalo-Melian_color.jpg",                bio: "Cofundador y vicerrector de la Universidad de las Hespérides (.h) y director y socio fundador de OMMA Business School Madrid. Doctor en Economía (URJC) y Doctor en Arquitectura (ULPGC)." },
@@ -558,30 +558,31 @@ const profesores = [
  .pexp-tag{
   font-family: "Noto Sans HK", sans-serif;
   font-weight: 500;
-  font-size: clamp(7px, 0.76vw, 15px);
-  line-height: 1.6;
+  font-size: clamp(6px, 0.68vw, 13px);
+  line-height: 1.2;
   letter-spacing: 0;
   color: #FFCD00;
   background: none;
   padding: 0;
   border-radius: 0;
+  margin-bottom: clamp(4px, 0.4vw, 8px);
 }
 
   /* bio scroll */
   .pexp-bio{
-    font-size:clamp(8px, 0.91vw, 18px);
-    line-height: 1.7;
+    font-size:clamp(7px, 0.83vw, 16px);
+    line-height: 1.4;
   }
 
   /* compact view text */
   .prof-nombre{
     font-size:clamp(11px, 1.21vw, 24px);
-    line-height:18px;
+    line-height:clamp(16px, 1.67vw, 32px);
   }
 
   .prof-cargo{
     font-size:clamp(8px, 0.83vw, 17px);
-    line-height:13px;
+    line-height:clamp(12px, 1.29vw, 25px);
   }
 
   .profesores-titulo{

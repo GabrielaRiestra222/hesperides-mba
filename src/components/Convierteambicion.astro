@@ -32,7 +32,7 @@ const features = [
 
       <div class="convierte-texto">
         <h2 class="convierte-titulo">
-          Convierte tu<br /><strong>ambición</strong> en<strong>capacidad real de dirección</strong>
+          Convierte tu <strong>ambición</strong> en<br class="desktop-br" /><strong>capacidad real de dirección</strong>
         </h2>
         <p class="convierte-desc">
           Adquiere la disciplina analítica y la mentalidad estratégica necesarias para dirigir organizaciones.
@@ -96,6 +96,7 @@ const features = [
   }
 
   @media (max-width: 900px) {
+    .desktop-br { display: none; }
     .convierte-section { padding-inline: 24px; }
     .convierte-inner { padding: 0; margin: 0; width: 100%; overflow: hidden; }
     .convierte-titulo { font-size: 32px !important; line-height: 1.1; text-align: left; max-width: 100%; }
@@ -377,7 +378,7 @@ const features = [
       align-items: flex-start;
     }
     .feature-texto  { font-size: clamp(10px, 1vw, 16px); line-height: 1.4; margin-top: 0; }
-    .convierte-quote-row { flex-direction: row; align-items: flex-start; gap: clamp(16px, 2vw, 32px); padding-left: 0; margin-left: 0; width: 75%; margin-inline: auto; }
+    .convierte-quote-row { flex-direction: row; align-items: flex-start; gap: clamp(16px, 2vw, 32px); padding-left: 0; margin-left: auto; width: 85%; margin-left: auto; margin-right: 0; }
     .quote-foto { width: clamp(280px, 32vw, 480px); height: clamp(180px, 20vw, 300px); border-radius: 30px; flex-shrink: 0; }
     .quote-content { flex: 1; max-width: clamp(280px, 30vw, 480px); }
     .quote-text { font-size: clamp(18px, 1.8vw, 32px); line-height: 1.2; margin-bottom: clamp(12px, 1.2vw, 20px); }
