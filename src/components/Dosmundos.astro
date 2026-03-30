@@ -19,24 +19,36 @@ const features = [
 
       <!-- Video -->
       <div class="dosmundos-video">
-        <a
-          href="https://youtu.be/0ZyIsN9-sHg"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="video-link"
-        >
+
+        <div class="video-wrapper">
+          
+          <!-- Thumbnail -->
           <img
             src={videoPortada.src}
-            alt="Lo mejor de los dos mundos — Universidad de las Hespérides"
+            alt="Lo mejor de los dos mundos"
             class="video-thumb"
+            id="dosmundos-thumb"
           />
 
-          <div class="video-play">
+          <!-- Play -->
+          <button class="video-play" id="dosmundos-play" aria-label="Reproducir vídeo">
             <div class="video-play-triangle"></div>
+          </button>
+
+          <!-- Vimeo -->
+          <div class="video-iframe" id="dosmundos-iframe" style="display:none;">
+            <iframe
+              id="dosmundos-vimeo"
+              src=""
+              allow="autoplay; fullscreen; picture-in-picture"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              title="La experiencia educativa en .h">
+            </iframe>
           </div>
 
-        </a>
       </div>
+
+  </div>
 
       <!-- Texto -->
       <div class="dosmundos-texto">
@@ -291,5 +303,63 @@ const features = [
       padding-inline: clamp(180px, 18vw, 280px);
     }
   }
+  .video-wrapper{
+  position:relative;
+  width:100%;
+  border-radius:34px;
+  overflow:hidden;
+  aspect-ratio:665/373;
+}
+
+.video-thumb{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.video-play{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:none;
+  border:none;
+  cursor:pointer;
+  z-index:2;
+}
+
+.video-play-triangle{
+  width:0;
+  height:0;
+  border-style:solid;
+  border-width:28px 0 28px 52px;
+  border-color:transparent transparent transparent rgba(255,255,255,0.85);
+}
+
+.video-iframe{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  background:#000;
+}
 
 </style>
+<script>
+  const playBtn = document.getElementById("dosmundos-play")
+const thumb = document.getElementById("dosmundos-thumb")
+const iframeWrap = document.getElementById("dosmundos-iframe")
+const iframe = document.getElementById("dosmundos-vimeo")
+
+if (playBtn && iframe && iframeWrap && thumb) {
+  playBtn.addEventListener("click", () => {
+
+    iframe.src = "https://player.vimeo.com/video/1176592634?autoplay=1&title=0&byline=0&portrait=0"
+
+    iframeWrap.style.display = "block"
+    playBtn.style.display = "none"
+    thumb.style.display = "none"
+  })
+}
+</script>

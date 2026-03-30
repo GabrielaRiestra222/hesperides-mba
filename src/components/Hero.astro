@@ -3,7 +3,6 @@
 const {
   tag = "MÁSTER EN\nADMINISTRACIÓN Y\nDIRECCIÓN DE EMPRESAS (MBA ONLINE)",
   title = "Hay muchos MBA,\npero no son como este.",
-  description = "El único MBA donde tu proyecto es el eje de todo. Un enfoque exigente y aplicado que transforma el aprendizaje en capacidad real de dirección.",
 } = Astro.props;
 ---
 
@@ -22,7 +21,13 @@ const {
     <div class="hero-left">
       <span class="hero-tag">{tag}</span>
       <h1 class="hero-title">{title}</h1>
-      <p class="hero-description">{description}</p>
+      <p class="hero-description">El único MBA donde tu proyecto es el eje de todo.<br/>Formación exigente y orientada a resultados reales.<br/>Incluye un bloque diferencial en <strong>IA aplicada a la empresa</strong>, con el que pasarás de <strong>operar herramientas, a diseñar sistemas que ejecutan por ti.</strong></p>
+      <div class="hero-pricing">
+        <p class="hero-pricing-beca">Programa con Beca del 80%</p>
+        <p class="hero-pricing-old"><span>5.765 €</span></p>
+        <p class="hero-pricing-desde">Desde</p>
+        <p class="hero-pricing-new">1.275 €</p>
+      </div>
       <!-- CTAs visibles solo en móvil/vertical -->
       <div class="hero-buttons">
         <button class="hero-cta-btn" id="hero-open-modal">CONTACTA ASESOR</button>
@@ -192,18 +197,6 @@ const {
     </div>
   </div>
 
-  <!-- Bottom menu -->
-  <!-- Banda nav desktop -->
-  <div class="hero-bottom-menu">
-    <div class="hero-bottom-inner">
-      <a href="#descripcion">Descripción</a>
-      <a href="#programa">Programa</a>
-      <a href="#profesores">Profesores</a>
-      <a href="#metodologia">Metodología</a>
-      <a href="#pagos">Inscripción</a>
-    </div>
-  </div>
-
   <div class="hero-info-marquee">
     <div class="hero-marquee-track">
       <div class="hero-marquee-item"><img src="/img/iconoir_graduation-cap.svg" alt="" /><span>Universitario</span></div>
@@ -220,6 +213,17 @@ const {
   </div>
 
 </section>
+
+<!-- Banda nav desktop -->
+<div class="hero-bottom-menu">
+  <div class="hero-bottom-inner">
+    <a href="#descripcion">Descripción</a>
+    <a href="#programa">Programa</a>
+    <a href="#profesores">Profesores</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#pagos">Inscripción</a>
+  </div>
+</div>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@200;300;400;500;700&display=swap');
@@ -309,8 +313,68 @@ const {
     font-size: clamp(13px, 1.52vw, 30px);
     line-height: 28px;
     letter-spacing: 1px;
-    margin: 0;
+    margin-bottom: 0;
+    gap: 100px;
     opacity: 0.95;
+  }
+
+  .hero-description strong {
+    font-weight: 500;
+    color: #fff;
+  }
+  .hero-description br {
+    content: "";
+    display: block;
+    margin-bottom: 100px; 
+  }
+
+  .hero-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .hero-pricing-beca {
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.1vw, 18px);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .hero-pricing-old {
+    margin: 0;
+  }
+
+  .hero-pricing-old span {
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 2.8vw, 48px);
+    text-decoration: line-through;
+    text-decoration-color: #FFCD00;
+    text-decoration-thickness: 2px;
+    line-height: 1.2;
+  }
+
+  .hero-pricing-desde {
+    color: #fff;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 1vw, 16px);
+    margin: 4px 0 0 0;
+    line-height: 1;
+  }
+
+  .hero-pricing-new {
+    color: #FFCD00;
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 2.8vw, 48px);
+    line-height: 1.1;
+    margin: 0;
   }
 
   /* Botones */
@@ -616,12 +680,11 @@ const {
 
   /* ── Bottom menu ── */
   .hero-bottom-menu {
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 100;
     width: 100%;
-    height: 57px;
-    background: rgba(0, 0, 0, 0.43);
+    height: 48px;
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(7.5px);
     display: flex;
     align-items: center;
@@ -752,6 +815,10 @@ const {
       transition: background 0.2s, color 0.2s;
     }
     .hero-cta-btn:hover { background: #fff; }
+    .hero-pricing-beca { font-size: 11px; }
+    .hero-pricing-old span { font-size: 18px; }
+    .hero-pricing-desde { font-size: 11px; }
+    .hero-pricing-new { font-size: 26px; }
 
     /* Tarjeta: flujo normal, encima del marquee */
     .hero-right {
@@ -877,16 +944,14 @@ const {
     .hero { padding-inline: clamp(16px, 1.2vw, 24px); min-height: clamp(500px, 55vw, 750px); overflow: visible; }
     .hero-content { grid-template-columns: 1fr clamp(420px, 38vw, 580px); gap: clamp(20px, 3vw, 60px); }
     .hero-left { min-width: clamp(280px, 35vw, 520px); }
-    .hero-bottom-menu { width: calc(100% + 2 * clamp(16px, 1.2vw, 24px)); margin-left: calc(-1 * clamp(16px, 1.2vw, 24px)); }
     .hero-tag { font-size: clamp(14px, 1.4vw, 24px); line-height: 1.3; letter-spacing: 0.06em; }
     .hero-card-titulo { font-size: clamp(12px, 1.1vw, 18px); white-space: nowrap; }
     .hero-form-title { font-size: clamp(10px, 0.95vw, 16px); white-space: nowrap; line-height: 1.2; margin-bottom: clamp(8px, 0.7vw, 14px); }
     .hero-title { font-size: clamp(28px, 3vw, 52px); line-height: 1.05; }
-    .hero-bottom-menu { width: 100vw; left: 50%; transform: translateX(-50%); }
     .hero-description { font-size: clamp(11px, 1vw, 16px); line-height: 1.5; font-weight: 300; max-width: clamp(300px, 40vw, 530px); }
     .hero-form-legal { font-size: clamp(7px, 0.65vw, 11px); white-space: nowrap; line-height: 1.2; }
     .hero-bottom-inner { padding-inline: clamp(20px, 2.5vw, 40px); gap: clamp(40px, 5.5vw, 100px); width: 100%; max-width: 1285px; margin-inline: auto; }
-    .hero-bottom-inner a { font-size: clamp(10px, 0.95vw, 17px); font-weight: 400; }
+    .hero-bottom-inner a { font-size: clamp(8px, 0.8vw, 14px); font-weight: 400; letter-spacing: 0.04em; }
     .hero-right { align-items: flex-start; justify-content: flex-end; }
     .hero-card { width: clamp(300px, 26vw, 420px); height: auto; min-height: auto; margin-left: clamp(16px, 2vw, 32px); }
     .hero-form-wrap { padding: clamp(10px, 0.9vw, 16px) clamp(12px, 1.1vw, 20px) clamp(14px, 1.2vw, 22px) clamp(16px, 1.4vw, 26px); }
@@ -957,49 +1022,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const COUNTRIES = [
     {name:"España",prefix:"+34",provinces:["A Coruña","Álava","Albacete","Alicante","Almería","Asturias","Ávila","Badajoz","Barcelona","Bizkaia","Burgos","Cáceres","Cádiz","Cantabria","Castellón","Ceuta","Ciudad Real","Córdoba","Cuenca","Gipuzkoa","Girona","Granada","Guadalajara","Huelva","Huesca","Illes Balears","Jaén","La Rioja","Las Palmas","León","Lleida","Lugo","Madrid","Málaga","Melilla","Murcia","Navarra","Ourense","Palencia","Pontevedra","Salamanca","Santa Cruz de Tenerife","Segovia","Sevilla","Soria","Tarragona","Teruel","Toledo","Valencia","Valladolid","Zamora","Zaragoza"]},
-    {name:"México",prefix:"+52",provinces:[]},
-    {name:"Colombia",prefix:"+57",provinces:[]},
-    {name:"Argentina",prefix:"+54",provinces:[]},
-    {name:"Chile",prefix:"+56",provinces:[]},
-    {name:"Perú",prefix:"+51",provinces:[]},
-    {name:"Ecuador",prefix:"+593",provinces:[]},
-    {name:"Venezuela",prefix:"+58",provinces:[]},
-    {name:"Guatemala",prefix:"+502",provinces:[]},
-    {name:"Cuba",prefix:"+53",provinces:[]},
-    {name:"República Dominicana",prefix:"+1",provinces:[]},
-    {name:"Honduras",prefix:"+504",provinces:[]},
-    {name:"Paraguay",prefix:"+595",provinces:[]},
-    {name:"El Salvador",prefix:"+503",provinces:[]},
-    {name:"Nicaragua",prefix:"+505",provinces:[]},
-    {name:"Costa Rica",prefix:"+506",provinces:[]},
-    {name:"Panamá",prefix:"+507",provinces:[]},
-    {name:"Uruguay",prefix:"+598",provinces:[]},
-    {name:"Bolivia",prefix:"+591",provinces:[]},
-    {name:"Puerto Rico",prefix:"+1",provinces:[]},
+
+    {name:"México",prefix:"+52",provinces:["Aguascalientes","Baja California","Baja California Sur","Campeche","Chiapas","Chihuahua","Ciudad de México","Coahuila","Colima","Durango","Estado de México","Guanajuato","Guerrero","Hidalgo","Jalisco","Michoacán","Morelos","Nayarit","Nuevo León","Oaxaca","Puebla","Querétaro","Quintana Roo","San Luis Potosí","Sinaloa","Sonora","Tabasco","Tamaulipas","Tlaxcala","Veracruz","Yucatán","Zacatecas"]},
+
+    {name:"Colombia",prefix:"+57",provinces:["Amazonas","Antioquia","Arauca","Atlántico","Bolívar","Boyacá","Caldas","Caquetá","Casanare","Cauca","Cesar","Chocó","Córdoba","Cundinamarca","Huila","La Guajira","Magdalena","Meta","Nariño","Norte de Santander","Quindío","Risaralda","Santander","Sucre","Tolima","Valle del Cauca"]},
+
+    {name:"Argentina",prefix:"+54",provinces:["Buenos Aires","CABA","Córdoba","Santa Fe","Mendoza","Tucumán","Salta","Neuquén","Chubut"]},
+
+    {name:"Chile",prefix:"+56",provinces:["Metropolitana","Valparaíso","Biobío","La Araucanía","Los Lagos","Antofagasta"]},
+
+    {name:"Perú",prefix:"+51",provinces:["Lima","Arequipa","Cusco","La Libertad","Piura","Junín"]},
+
+    {name:"Ecuador",prefix:"+593",provinces:["Pichincha","Guayas","Azuay","Manabí","Loja"]},
+
+    {name:"Venezuela",prefix:"+58",provinces:["Caracas","Miranda","Zulia","Carabobo","Lara"]},
+
+    {name:"Guatemala",prefix:"+502",provinces:["Guatemala","Quetzaltenango","Escuintla"]},
+
+    {name:"Cuba",prefix:"+53",provinces:["La Habana","Santiago de Cuba","Camagüey"]},
+
+    {name:"República Dominicana",prefix:"+1",provinces:["Santo Domingo","Santiago","La Vega"]},
+
+    {name:"Honduras",prefix:"+504",provinces:["Cortés","Francisco Morazán","Atlántida"]},
+
+    {name:"Paraguay",prefix:"+595",provinces:["Asunción","Central","Alto Paraná"]},
+
+    {name:"El Salvador",prefix:"+503",provinces:["San Salvador","Santa Ana","La Libertad"]},
+
+    {name:"Nicaragua",prefix:"+505",provinces:["Managua","León","Masaya"]},
+
+    {name:"Costa Rica",prefix:"+506",provinces:["San José","Alajuela","Cartago"]},
+
+    {name:"Panamá",prefix:"+507",provinces:["Panamá","Colón","Chiriquí"]},
+
+    {name:"Uruguay",prefix:"+598",provinces:["Montevideo","Canelones","Maldonado"]},
+
+    {name:"Bolivia",prefix:"+591",provinces:["La Paz","Santa Cruz","Cochabamba"]},
+
+    {name:"Puerto Rico",prefix:"+1",provinces:["San Juan","Bayamón","Ponce"]},
+
+    // 🔽 TODO LO DEMÁS EXACTAMENTE IGUAL
     {name:"Afganistán",prefix:"+93",provinces:[]},
     {name:"Albania",prefix:"+355",provinces:[]},
-    {name:"Alemania",prefix:"+49",provinces:[]},
+    {name:"Alemania",prefix:"+49",provinces:["Baviera","Berlín","Hamburgo","Hesse"]},
     {name:"Andorra",prefix:"+376",provinces:[]},
     {name:"Angola",prefix:"+244",provinces:[]},
     {name:"Antigua y Barbuda",prefix:"+1",provinces:[]},
     {name:"Arabia Saudita",prefix:"+966",provinces:[]},
     {name:"Argelia",prefix:"+213",provinces:[]},
     {name:"Armenia",prefix:"+374",provinces:[]},
-    {name:"Australia",prefix:"+61",provinces:[]},
+    {name:"Australia",prefix:"+61",provinces:["New South Wales","Victoria","Queensland"]},
     {name:"Austria",prefix:"+43",provinces:[]},
     {name:"Azerbaiyán",prefix:"+994",provinces:[]},
     {name:"Bahamas",prefix:"+1",provinces:[]},
     {name:"Bangladés",prefix:"+880",provinces:[]},
     {name:"Barbados",prefix:"+1",provinces:[]},
     {name:"Baréin",prefix:"+973",provinces:[]},
-    {name:"Bélgica",prefix:"+32",provinces:[]},
+    {name:"Bélgica",prefix:"+32",provinces:["Bruselas","Flandes","Valonia"]},
     {name:"Belice",prefix:"+501",provinces:[]},
     {name:"Benín",prefix:"+229",provinces:[]},
     {name:"Bielorrusia",prefix:"+375",provinces:[]},
     {name:"Birmania",prefix:"+95",provinces:[]},
     {name:"Bosnia y Herzegovina",prefix:"+387",provinces:[]},
     {name:"Botsuana",prefix:"+267",provinces:[]},
-    {name:"Brasil",prefix:"+55",provinces:[]},
+    {name:"Brasil",prefix:"+55",provinces:["São Paulo","Rio de Janeiro","Minas Gerais","Bahía"]},
     {name:"Brunéi",prefix:"+673",provinces:[]},
     {name:"Bulgaria",prefix:"+359",provinces:[]},
     {name:"Burkina Faso",prefix:"+226",provinces:[]},
@@ -1008,132 +1094,12 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Cabo Verde",prefix:"+238",provinces:[]},
     {name:"Camboya",prefix:"+855",provinces:[]},
     {name:"Camerún",prefix:"+237",provinces:[]},
-    {name:"Canadá",prefix:"+1",provinces:[]},
+    {name:"Canadá",prefix:"+1",provinces:["Ontario","Quebec","British Columbia","Alberta"]},
     {name:"Catar",prefix:"+974",provinces:[]},
-    {name:"Chad",prefix:"+235",provinces:[]},
-    {name:"Chequia",prefix:"+420",provinces:[]},
-    {name:"China",prefix:"+86",provinces:[]},
-    {name:"Chipre",prefix:"+357",provinces:[]},
-    {name:"Comoras",prefix:"+269",provinces:[]},
-    {name:"Congo",prefix:"+242",provinces:[]},
-    {name:"Corea del Norte",prefix:"+850",provinces:[]},
-    {name:"Corea del Sur",prefix:"+82",provinces:[]},
-    {name:"Costa de Marfil",prefix:"+225",provinces:[]},
-    {name:"Croacia",prefix:"+385",provinces:[]},
-    {name:"Dinamarca",prefix:"+45",provinces:[]},
-    {name:"Dominica",prefix:"+1",provinces:[]},
-    {name:"Egipto",prefix:"+20",provinces:[]},
-    {name:"Emiratos Árabes Unidos",prefix:"+971",provinces:[]},
-    {name:"Eritrea",prefix:"+291",provinces:[]},
-    {name:"Eslovaquia",prefix:"+421",provinces:[]},
-    {name:"Eslovenia",prefix:"+386",provinces:[]},
-    {name:"Estados Unidos",prefix:"+1",provinces:[]},
-    {name:"Estonia",prefix:"+372",provinces:[]},
-    {name:"Etiopía",prefix:"+251",provinces:[]},
-    {name:"Filipinas",prefix:"+63",provinces:[]},
-    {name:"Finlandia",prefix:"+358",provinces:[]},
-    {name:"Fiyi",prefix:"+679",provinces:[]},
-    {name:"Francia",prefix:"+33",provinces:[]},
-    {name:"Gabón",prefix:"+241",provinces:[]},
-    {name:"Gambia",prefix:"+220",provinces:[]},
-    {name:"Georgia",prefix:"+995",provinces:[]},
-    {name:"Ghana",prefix:"+233",provinces:[]},
-    {name:"Granada",prefix:"+1",provinces:[]},
-    {name:"Grecia",prefix:"+30",provinces:[]},
-    {name:"Guinea",prefix:"+224",provinces:[]},
-    {name:"Guinea-Bisáu",prefix:"+245",provinces:[]},
-    {name:"Guinea Ecuatorial",prefix:"+240",provinces:[]},
-    {name:"Guyana",prefix:"+592",provinces:[]},
-    {name:"Haití",prefix:"+509",provinces:[]},
-    {name:"Hungría",prefix:"+36",provinces:[]},
-    {name:"India",prefix:"+91",provinces:[]},
-    {name:"Indonesia",prefix:"+62",provinces:[]},
-    {name:"Irak",prefix:"+964",provinces:[]},
-    {name:"Irán",prefix:"+98",provinces:[]},
-    {name:"Irlanda",prefix:"+353",provinces:[]},
-    {name:"Islandia",prefix:"+354",provinces:[]},
-    {name:"Israel",prefix:"+972",provinces:[]},
-    {name:"Italia",prefix:"+39",provinces:[]},
-    {name:"Jamaica",prefix:"+1",provinces:[]},
-    {name:"Japón",prefix:"+81",provinces:[]},
-    {name:"Jordania",prefix:"+962",provinces:[]},
-    {name:"Kazajistán",prefix:"+7",provinces:[]},
-    {name:"Kenia",prefix:"+254",provinces:[]},
-    {name:"Kirguistán",prefix:"+996",provinces:[]},
-    {name:"Kuwait",prefix:"+965",provinces:[]},
-    {name:"Laos",prefix:"+856",provinces:[]},
-    {name:"Lesoto",prefix:"+266",provinces:[]},
-    {name:"Letonia",prefix:"+371",provinces:[]},
-    {name:"Líbano",prefix:"+961",provinces:[]},
-    {name:"Liberia",prefix:"+231",provinces:[]},
-    {name:"Libia",prefix:"+218",provinces:[]},
-    {name:"Liechtenstein",prefix:"+423",provinces:[]},
-    {name:"Lituania",prefix:"+370",provinces:[]},
-    {name:"Luxemburgo",prefix:"+352",provinces:[]},
-    {name:"Macedonia del Norte",prefix:"+389",provinces:[]},
-    {name:"Madagascar",prefix:"+261",provinces:[]},
-    {name:"Malasia",prefix:"+60",provinces:[]},
-    {name:"Malaui",prefix:"+265",provinces:[]},
-    {name:"Maldivas",prefix:"+960",provinces:[]},
-    {name:"Malí",prefix:"+223",provinces:[]},
-    {name:"Malta",prefix:"+356",provinces:[]},
-    {name:"Marruecos",prefix:"+212",provinces:[]},
-    {name:"Mauricio",prefix:"+230",provinces:[]},
-    {name:"Mauritania",prefix:"+222",provinces:[]},
-    {name:"Moldavia",prefix:"+373",provinces:[]},
-    {name:"Mónaco",prefix:"+377",provinces:[]},
-    {name:"Mongolia",prefix:"+976",provinces:[]},
-    {name:"Montenegro",prefix:"+382",provinces:[]},
-    {name:"Mozambique",prefix:"+258",provinces:[]},
-    {name:"Namibia",prefix:"+264",provinces:[]},
-    {name:"Nepal",prefix:"+977",provinces:[]},
-    {name:"Nigeria",prefix:"+234",provinces:[]},
-    {name:"Noruega",prefix:"+47",provinces:[]},
-    {name:"Nueva Zelanda",prefix:"+64",provinces:[]},
-    {name:"Omán",prefix:"+968",provinces:[]},
-    {name:"Países Bajos",prefix:"+31",provinces:[]},
-    {name:"Pakistán",prefix:"+92",provinces:[]},
-    {name:"Palestina",prefix:"+970",provinces:[]},
-    {name:"Polonia",prefix:"+48",provinces:[]},
-    {name:"Portugal",prefix:"+351",provinces:[]},
-    {name:"Reino Unido",prefix:"+44",provinces:[]},
-    {name:"República Centroafricana",prefix:"+236",provinces:[]},
-    {name:"República del Congo",prefix:"+243",provinces:[]},
-    {name:"Ruanda",prefix:"+250",provinces:[]},
-    {name:"Rumanía",prefix:"+40",provinces:[]},
-    {name:"Rusia",prefix:"+7",provinces:[]},
-    {name:"Samoa",prefix:"+685",provinces:[]},
-    {name:"San Marino",prefix:"+378",provinces:[]},
-    {name:"Senegal",prefix:"+221",provinces:[]},
-    {name:"Serbia",prefix:"+381",provinces:[]},
-    {name:"Sierra Leona",prefix:"+232",provinces:[]},
-    {name:"Singapur",prefix:"+65",provinces:[]},
-    {name:"Siria",prefix:"+963",provinces:[]},
-    {name:"Somalia",prefix:"+252",provinces:[]},
-    {name:"Sri Lanka",prefix:"+94",provinces:[]},
-    {name:"Sudáfrica",prefix:"+27",provinces:[]},
-    {name:"Sudán",prefix:"+249",provinces:[]},
-    {name:"Suecia",prefix:"+46",provinces:[]},
-    {name:"Suiza",prefix:"+41",provinces:[]},
-    {name:"Surinam",prefix:"+597",provinces:[]},
-    {name:"Tailandia",prefix:"+66",provinces:[]},
-    {name:"Tanzania",prefix:"+255",provinces:[]},
-    {name:"Tayikistán",prefix:"+992",provinces:[]},
-    {name:"Togo",prefix:"+228",provinces:[]},
-    {name:"Trinidad y Tobago",prefix:"+1",provinces:[]},
-    {name:"Túnez",prefix:"+216",provinces:[]},
-    {name:"Turkmenistán",prefix:"+993",provinces:[]},
-    {name:"Turquía",prefix:"+90",provinces:[]},
-    {name:"Ucrania",prefix:"+380",provinces:[]},
-    {name:"Uganda",prefix:"+256",provinces:[]},
-    {name:"Uzbekistán",prefix:"+998",provinces:[]},
-    {name:"Vietnam",prefix:"+84",provinces:[]},
-    {name:"Yemen",prefix:"+967",provinces:[]},
-    {name:"Yibuti",prefix:"+253",provinces:[]},
-    {name:"Zambia",prefix:"+260",provinces:[]},
-    {name:"Zimbabue",prefix:"+263",provinces:[]}
-  ]
 
+    {name:"Chad",prefix:"+235",provinces:[]}, 
+    {name:"Chequia",prefix:"+420",provinces:[]}, {name:"China",prefix:"+86",provinces:[]}, {name:"Chipre",prefix:"+357",provinces:[]}, {name:"Comoras",prefix:"+269",provinces:[]}, {name:"Congo",prefix:"+242",provinces:[]}, {name:"Corea del Norte",prefix:"+850",provinces:[]}, {name:"Corea del Sur",prefix:"+82",provinces:[]}, {name:"Costa de Marfil",prefix:"+225",provinces:[]}, {name:"Croacia",prefix:"+385",provinces:[]}, {name:"Dinamarca",prefix:"+45",provinces:[]}, {name:"Dominica",prefix:"+1",provinces:[]}, {name:"Egipto",prefix:"+20",provinces:[]}, {name:"Emiratos Árabes Unidos",prefix:"+971",provinces:[]}, {name:"Eritrea",prefix:"+291",provinces:[]}, {name:"Eslovaquia",prefix:"+421",provinces:[]}, {name:"Eslovenia",prefix:"+386",provinces:[]}, {name:"Estados Unidos",prefix:"+1",provinces:[]}, {name:"Estonia",prefix:"+372",provinces:[]}, {name:"Etiopía",prefix:"+251",provinces:[]}, {name:"Filipinas",prefix:"+63",provinces:[]}, {name:"Finlandia",prefix:"+358",provinces:[]}, {name:"Fiyi",prefix:"+679",provinces:[]}, {name:"Francia",prefix:"+33",provinces:[]}, {name:"Gabón",prefix:"+241",provinces:[]}, {name:"Gambia",prefix:"+220",provinces:[]}, {name:"Georgia",prefix:"+995",provinces:[]}, {name:"Ghana",prefix:"+233",provinces:[]}, {name:"Granada",prefix:"+1",provinces:[]}, {name:"Grecia",prefix:"+30",provinces:[]}, {name:"Guinea",prefix:"+224",provinces:[]}, {name:"Guinea-Bisáu",prefix:"+245",provinces:[]}, {name:"Guinea Ecuatorial",prefix:"+240",provinces:[]}, {name:"Guyana",prefix:"+592",provinces:[]}, {name:"Haití",prefix:"+509",provinces:[]}, {name:"Hungría",prefix:"+36",provinces:[]}, {name:"India",prefix:"+91",provinces:[]}, {name:"Indonesia",prefix:"+62",provinces:[]}, {name:"Irak",prefix:"+964",provinces:[]}, {name:"Irán",prefix:"+98",provinces:[]}, {name:"Irlanda",prefix:"+353",provinces:[]}, {name:"Islandia",prefix:"+354",provinces:[]}, {name:"Israel",prefix:"+972",provinces:[]}, {name:"Italia",prefix:"+39",provinces:[]}, {name:"Jamaica",prefix:"+1",provinces:[]}, {name:"Japón",prefix:"+81",provinces:[]}, {name:"Jordania",prefix:"+962",provinces:[]}, {name:"Kazajistán",prefix:"+7",provinces:[]}, {name:"Kenia",prefix:"+254",provinces:[]}, {name:"Kirguistán",prefix:"+996",provinces:[]}, {name:"Kuwait",prefix:"+965",provinces:[]}, {name:"Laos",prefix:"+856",provinces:[]}, {name:"Lesoto",prefix:"+266",provinces:[]}, {name:"Letonia",prefix:"+371",provinces:[]}, {name:"Líbano",prefix:"+961",provinces:[]}, {name:"Liberia",prefix:"+231",provinces:[]}, {name:"Libia",prefix:"+218",provinces:[]}, {name:"Liechtenstein",prefix:"+423",provinces:[]}, {name:"Lituania",prefix:"+370",provinces:[]}, {name:"Luxemburgo",prefix:"+352",provinces:[]}, {name:"Macedonia del Norte",prefix:"+389",provinces:[]}, {name:"Madagascar",prefix:"+261",provinces:[]}, {name:"Malasia",prefix:"+60",provinces:[]}, {name:"Malaui",prefix:"+265",provinces:[]}, {name:"Maldivas",prefix:"+960",provinces:[]}, {name:"Malí",prefix:"+223",provinces:[]}, {name:"Malta",prefix:"+356",provinces:[]}, {name:"Marruecos",prefix:"+212",provinces:[]}, {name:"Mauricio",prefix:"+230",provinces:[]}, {name:"Mauritania",prefix:"+222",provinces:[]}, {name:"Moldavia",prefix:"+373",provinces:[]}, {name:"Mónaco",prefix:"+377",provinces:[]}, {name:"Mongolia",prefix:"+976",provinces:[]}, {name:"Montenegro",prefix:"+382",provinces:[]}, {name:"Mozambique",prefix:"+258",provinces:[]}, {name:"Namibia",prefix:"+264",provinces:[]}, {name:"Nepal",prefix:"+977",provinces:[]}, {name:"Nigeria",prefix:"+234",provinces:[]}, {name:"Noruega",prefix:"+47",provinces:[]}, {name:"Nueva Zelanda",prefix:"+64",provinces:[]}, {name:"Omán",prefix:"+968",provinces:[]}, {name:"Países Bajos",prefix:"+31",provinces:[]}, {name:"Pakistán",prefix:"+92",provinces:[]}, {name:"Palestina",prefix:"+970",provinces:[]}, {name:"Polonia",prefix:"+48",provinces:[]}, {name:"Portugal",prefix:"+351",provinces:[]}, {name:"Reino Unido",prefix:"+44",provinces:[]}, {name:"República Centroafricana",prefix:"+236",provinces:[]}, {name:"República del Congo",prefix:"+243",provinces:[]}, {name:"Ruanda",prefix:"+250",provinces:[]}, {name:"Rumanía",prefix:"+40",provinces:[]}, {name:"Rusia",prefix:"+7",provinces:[]}, {name:"Samoa",prefix:"+685",provinces:[]}, {name:"San Marino",prefix:"+378",provinces:[]}, {name:"Senegal",prefix:"+221",provinces:[]}, {name:"Serbia",prefix:"+381",provinces:[]}, {name:"Sierra Leona",prefix:"+232",provinces:[]}, {name:"Singapur",prefix:"+65",provinces:[]}, {name:"Siria",prefix:"+963",provinces:[]}, {name:"Somalia",prefix:"+252",provinces:[]}, {name:"Sri Lanka",prefix:"+94",provinces:[]}, {name:"Sudáfrica",prefix:"+27",provinces:[]}, {name:"Sudán",prefix:"+249",provinces:[]}, {name:"Suecia",prefix:"+46",provinces:[]}, {name:"Suiza",prefix:"+41",provinces:[]}, {name:"Surinam",prefix:"+597",provinces:[]}, {name:"Tailandia",prefix:"+66",provinces:[]}, {name:"Tanzania",prefix:"+255",provinces:[]}, {name:"Tayikistán",prefix:"+992",provinces:[]}, {name:"Togo",prefix:"+228",provinces:[]}, {name:"Trinidad y Tobago",prefix:"+1",provinces:[]}, {name:"Túnez",prefix:"+216",provinces:[]}, {name:"Turkmenistán",prefix:"+993",provinces:[]}, {name:"Turquía",prefix:"+90",provinces:[]}, {name:"Ucrania",prefix:"+380",provinces:[]}, {name:"Uganda",prefix:"+256",provinces:[]}, {name:"Uzbekistán",prefix:"+998",provinces:[]}, {name:"Vietnam",prefix:"+84",provinces:[]}, {name:"Yemen",prefix:"+967",provinces:[]}, {name:"Yibuti",prefix:"+253",provinces:[]}, {name:"Zambia",prefix:"+260",provinces:[]}, {name:"Zimbabue",prefix:"+263",provinces:[]} 
+  ]   
   const UNIQUE_PREFIXES = []
   const _seen = new Set()
   COUNTRIES.forEach(c => { if (!_seen.has(c.prefix)) { _seen.add(c.prefix); UNIQUE_PREFIXES.push(c.prefix) } })
@@ -1254,13 +1220,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const vimeoIframe = document.getElementById("hero-vimeo-iframe")
 
   if (playBtn && videoContainer && vimeoIframe) {
-    playBtn.addEventListener("click", () => {
-      vimeoIframe.src = "https://player.vimeo.com/video/1176583750?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+
+    playBtn.addEventListener("click", (e) => {
+
+      //  BLOQUEA cualquier redirección externa (YouTube etc.)
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      // Vimeo embed correcto + autoplay
+      vimeoIframe.src = "https://player.vimeo.com/video/1176583750?autoplay=1&muted=1&title=0&byline=0&portrait=0"
+
       videoContainer.style.display = "block"
       playBtn.style.display = "none"
-    })
-  }
 
+    }, true) // IMPORTANTE: captura antes que otros scripts
+
+  }
   /* -------------------------
      MODAL
   -------------------------*/
@@ -1456,6 +1432,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 
+  })
+
+  // Sticky bottom menu on scroll
+  window.addEventListener("load", () => {
+    const bottomMenu = document.querySelector(".hero-bottom-menu")
+    if (!bottomMenu || window.innerWidth <= 900) return
+
+    const menuOffsetTop = bottomMenu.offsetTop
+    const menuHeight = bottomMenu.offsetHeight
+
+    const placeholder = document.createElement("div")
+    placeholder.style.height = menuHeight + "px"
+    placeholder.style.display = "none"
+    bottomMenu.parentNode.insertBefore(placeholder, bottomMenu.nextSibling)
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= menuOffsetTop) {
+        bottomMenu.style.position = "fixed"
+        bottomMenu.style.top = "0"
+        bottomMenu.style.left = "0"
+        bottomMenu.style.width = "100%"
+        bottomMenu.style.zIndex = "100"
+        placeholder.style.display = "block"
+      } else {
+        bottomMenu.style.position = ""
+        bottomMenu.style.top = ""
+        bottomMenu.style.left = ""
+        bottomMenu.style.width = ""
+        bottomMenu.style.zIndex = ""
+        placeholder.style.display = "none"
+      }
+    })
   })
 
 })

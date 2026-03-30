@@ -41,6 +41,8 @@ const cards = [
         Por fin un MBA de nivel europeo<br />
         <strong>CON UN PRECIO AL NIVEL DE TODOS</strong>
       </h2>
+      <p class="pagos-info_beca">Programa con Beca del <strong>80%</strong> de la Fundación de la Universidad de las Hespérides
+</p>
     </div>
 
     <p class="pagos-fases">
@@ -86,7 +88,7 @@ const cards = [
     <div class="pagos-bottom-row">
       <p class="pagos-reserva">Reserva tu plaza por 300 €, que se descontarán del precio total del programa.</p>
       <div class="pagos-boton-wrap">
-        <a href="#" class="pagos-boton open-modal-cta">QUIERO HACERLO</a>
+        <a href="https://hesperides.edu.es/admisiones/procedimiento-de-admision-master-en-administracion-y-direccion-de-empresas/" class="pagos-boton open-modal-cta">QUIERO HACERLO</a>
       </div>
     </div>
 
@@ -165,6 +167,7 @@ const cards = [
   }
 
   .pagos-fases-conv {
+    font-weight: 700;
     color: #FFCD00;
   }
 
@@ -399,7 +402,7 @@ const cards = [
     .pagos-inner { padding-left: 0; padding-right: 0; }
     .pagos-titulo { font-weight: 300; }
     .pagos-fases { font-weight: 300; }
-    .pagos-fases-conv { font-weight: 300; }
+    .pagos-fases-conv { font-weight: 500; }
     .pago-expand {padding-right: clamp(16px, 2vw, 32px); padding-top: clamp(16px, 2vw, 32px);}
     .pago-expand-titulo { font-size: clamp(20px, 2vw, 36px); line-height: 1.1; margin-right: 10px; }
     .pago-descripcion   { font-size: clamp(16px, 1.6vw, 28px); line-height: 1.3; }
@@ -410,6 +413,49 @@ const cards = [
     .pago-total strong  { font-weight: 900; }
     .pagos-cards        { padding-top: clamp(80px, 8vw, 120px); }
   }
+
+  /* ===== FIX TITULO + BECA + TIPOGRAFÍA ===== */
+
+/* más gap con la info de beca */
+.pagos-titulo-wrap {
+  margin-bottom: clamp(50px, 6vw, 100px) !important;
+}
+
+/* reducir gap entre líneas del título */
+.pagos-titulo {
+  line-height: 1.1 !important;
+}
+
+/* hacer todos los "light" más normales (menos finos) */
+.pagos-titulo,
+.pagos-fases,
+.pago-expand-titulo,
+.pago-descripcion,
+.pago-total {
+  font-weight: 400 !important;
+}
+
+/* mantener contraste en strong */
+.pagos-titulo strong {
+  font-weight: 700 !important;
+}
+
+/* INFO BECA (clave) */
+.pagos-info_beca {
+  font-family: "Noto Sans HK", sans-serif;
+  font-weight: 400 !important;
+  font-size: clamp(18px, 1.6vw, 28px) !important;
+  color: #ffffff !important;
+  margin-top: clamp(16px, 2vw, 32px) !important;
+  line-height: 1.3;
+  padding-top: 30px ;
+}
+
+/* que el 80% destaque */
+.pagos-info_beca strong {
+  font-weight: 700;
+  color: #fdfbf2;
+}
 </style>
 
 <script>

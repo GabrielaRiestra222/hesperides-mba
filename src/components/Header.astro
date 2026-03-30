@@ -9,11 +9,13 @@
 
     <!-- Logo + badge online -->
     <div class="logo-wrap">
-      <img
-        src="/img/Logo.h_horz_black_online.svg"
-        alt="Universidad de las Hespérides"
-        class="logo-img"
-      />
+      <a href="https://hesperides.edu.es/" target="_blank" rel="noopener noreferrer">
+        <img
+          src="/img/Logo.h_horz_black_online.svg"
+          alt="Universidad de las Hespérides"
+          class="logo-img"
+        />
+      </a>
     </div>
 
     <!-- Hamburger (mobile) -->
@@ -79,7 +81,7 @@
   .site-header {
     width: 100%;
     background: #FFCD00;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 100;
     padding: 0;
@@ -95,6 +97,11 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #FFCD00;
+
   }
 
   /* ── Logo + online en fila, alineados abajo ── */

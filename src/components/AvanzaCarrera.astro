@@ -1,10 +1,14 @@
 ---
 // AvanzaCarrera.astro
 const features = [
-  { titulo: "Título", destacado: "Europeo\u00A0", boldSuffix: "Oficial" },
-  { titulo: "Plazas",       destacado: "Limitadas" },
+  { 
+    titulo: "Título", 
+    destacado: "España y Europa", 
+    boldSuffix: "Oficial"
+  },
+  { titulo: "Plazas", destacado: "Limitadas" },
   { titulo: "Metodología", destacado:"del Caso" },
-  { titulo: "100%\n ",          destacado: "Empleabilidad", bigNumber: true },
+  { titulo: "100%\n ", destacado: "Empleabilidad", bigNumber: true },
 ];
 ---
 
@@ -25,10 +29,21 @@ const features = [
                   <span class="feature-big">{f.titulo.split('\n')[0]}</span>
                   <span class="feature-regular">{f.destacado}</span>
                 </>
-              : f.boldSuffix
+              : f.boldPrefix
               ? <>
                   <span class="feature-normal">{f.titulo}</span>
-                  <span class="feature-normal">{f.destacado}<span class="feature-bold">{f.boldSuffix}</span></span>
+                  <span class="feature-normal">
+                    <span class="feature-bold">{f.boldPrefix}</span> {f.destacado}
+                  </span>
+                </>
+              : f.boldSuffix
+              ? <>
+                  <span class="feature-normal">
+                    {f.titulo} <span class="feature-bold">{f.boldSuffix}</span> en
+                  </span>
+                  <span class="feature-normal">
+                    {f.destacado}
+                  </span>
                 </>
               : f.destacado
               ? <>
