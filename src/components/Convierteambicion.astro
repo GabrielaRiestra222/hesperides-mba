@@ -32,7 +32,7 @@ const features = [
 
       <div class="convierte-texto">
         <h2 class="convierte-titulo">
-          Convierte tu <strong>ambición</strong> en<br class="desktop-br" /><strong>capacidad real de dirección</strong>
+          Convierte tu <strong>ambición</strong> en<br class="desktop-br" /><br class="mobile-br" /><strong>capacidad real de dirección</strong>
         </h2>
         <p class="convierte-desc">
           Adquiere la disciplina analítica y la mentalidad estratégica necesarias para dirigir organizaciones.
@@ -95,9 +95,12 @@ const features = [
     gap: clamp(48px, 5vw, 96px);
   }
 
+  .mobile-br { display: none; }
+
   @media (max-width: 900px) {
     .desktop-br { display: none; }
-    .convierte-section { padding-inline: 24px; }
+    .mobile-br { display: block; }
+    .convierte-section { padding-inline: 28px; }
     .convierte-inner { padding: 0; margin: 0; width: 100%; overflow: hidden; }
     .convierte-titulo { font-size: 32px !important; line-height: 1.1; text-align: left; max-width: 100%; }
     .convierte-desc { font-size: 15px !important; line-height: 1.5; text-align: left; max-width: 100%; font-weight: 400; }
@@ -107,14 +110,14 @@ const features = [
     .quote-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .quote-content { align-items: flex-start; width: 100%; }
     .quote-text { font-size: 22px !important; line-height: 1.3; max-width: 100%; text-align: left; }
-    .author-name { font-size: 13px; max-width: 100%; text-align: left; }
-    .author-cargo { font-size: 12px; max-width: 100%; text-align: left; }
+    .author-name { font-size: 26px !important; font-weight: 700 !important; max-width: 100%; text-align: left; }
+    .author-cargo { font-size: 11px !important; font-weight: 500 !important; line-height: 1.4; max-width: 100%; text-align: left; }
     .features-row { width: 100%; }
     .feature-line { display: none; }
-    .feature-item { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "titulo texto"; column-gap: 16px; align-items: start; padding: 14px 0; border-top: 0.5px solid rgba(0,0,0,0.2); }
+    .feature-item { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "titulo texto"; column-gap: 16px; align-items: start; padding: 14px 0; border-top: 2.5px solid rgba(0,0,0,0.2); }
     .feature-block { display: contents; }
     .feature-titulo { grid-area: titulo; font-size: 18px !important; line-height: 1.3; font-weight: 700; white-space: pre-line; }
-    .feature-texto { grid-area: texto; font-size: 16px !important; line-height: 1.5; margin: 0; font-weight: 400; }
+    .feature-texto { grid-area: texto; font-size: 12px !important; line-height: 1.5; margin: 0; font-weight: 500 !important; }
   }
 
   /* ── Top block ── */

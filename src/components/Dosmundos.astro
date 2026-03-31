@@ -252,6 +252,10 @@ const features = [
 
 @media (max-width:900px){
 
+  .dosmundos-section { padding-inline: 28px; }
+
+  .dosmundos-titulo { font-size: clamp(32px, 8vw, 58px); }
+
   .dosmundos-top{
     grid-template-columns:1fr;
   }
@@ -266,6 +270,11 @@ const features = [
     display:none;
   }
 
+  .feature-col {
+    border-left: 2px solid #FFCD00;
+    padding-left: 10px;
+  }
+
   .dosmundos-boton {
     width: auto;
     padding-inline: clamp(20px, 5vw, 40px);
@@ -275,7 +284,8 @@ const features = [
 
   .dosmundos-boton-wrap {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 20px;
   }
 
 }
@@ -350,7 +360,7 @@ const features = [
   const playBtn = document.getElementById("dosmundos-play")
 const thumb = document.getElementById("dosmundos-thumb")
 const iframeWrap = document.getElementById("dosmundos-iframe")
-const iframe = document.getElementById("dosmundos-vimeo")
+const iframe = document.getElementById("dosmundos-vimeo") as HTMLIFrameElement | null
 
 if (playBtn && iframe && iframeWrap && thumb) {
   playBtn.addEventListener("click", () => {

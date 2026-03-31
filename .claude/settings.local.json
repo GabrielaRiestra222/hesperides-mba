@@ -11,7 +11,8 @@
       "Bash(cmd /c \"node --version 2>&1 && npm --version 2>&1\")",
       "Bash(cmd /c node --version)",
       "Bash(grep -r \"max-width.*12\\\\|container\\\\|wrapper\\\\|section-inner\" c:UsersPauDownloadshesperides-mba-mainsrc --include=*.astro --include=*.css)",
-      "Bash(grep -r section-inner /c/Users/Pau/Downloads/hesperides-mba-main/src/components --include=*.astro)"
+      "Bash(grep -r section-inner /c/Users/Pau/Downloads/hesperides-mba-main/src/components --include=*.astro)",
+      "Bash(ls /Users/gabstone/hesperides/astro-site/public/img/practicas-logo*)"
     ]
   }
 }

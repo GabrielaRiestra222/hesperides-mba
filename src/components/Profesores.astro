@@ -87,6 +87,20 @@ const profesores = [
 
     </div>
 
+    <!-- Flechas mobile -->
+    <div class="prof-arrows-mobile">
+      <button class="prof-arrow prof-arrow--mob-prev" aria-label="Anterior" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="prof-arrow prof-arrow--mob-next" aria-label="Siguiente">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
     <!-- Botón -->
     <div class="profesores-boton-wrap">
       <a href="#" class="profesores-boton open-modal-cta">QUIERO DESCARGAR FOLLETO</a>
@@ -118,7 +132,7 @@ const profesores = [
   @media (max-width: 900px) {
     .profesores-section { padding-inline: 0; }
     .profesores-inner { padding: 0 0 0 16px; overflow: visible; }
-    .profesores-titulo-wrap { padding-inline: 12px; }
+    .profesores-titulo { padding-left: 28px; padding-right: 40px; }
   }
 
   /* ══ Título: font-weight 500 (medium), "hoy" en 700 ══ */
@@ -359,6 +373,9 @@ const profesores = [
   }
   .prof-exp-close:hover { background: #f0f0f0; }
 
+  /* ══ Flechas mobile: ocultas en desktop ══ */
+  .prof-arrows-mobile { display: none; }
+
   /* ══ Botón sección ══ */
   .profesores-boton-wrap {
     display: flex;
@@ -391,8 +408,8 @@ const profesores = [
     .profesores-titulo { font-size: 28px; line-height: 1.25; margin-left: 10px; margin-bottom: 20px;}
 
     .prof-card { height: 380px; }
-    .prof-nombre { font-size: 14px; }
-    .prof-cargo  { font-size: 10px; }
+    .prof-nombre { font-size: 17px; }
+    .prof-cargo  { font-size: 12px; font-weight: 500; }
 
     .prof-card.active {
       width: calc(85vw) !important;
@@ -434,12 +451,12 @@ const profesores = [
       line-height: 1.6;
     }
 
-    .profesores-boton-wrap { justify-content: center; }
+    .profesores-boton-wrap { justify-content: center; padding-left: 0; }
 
     /* Flechas mobile inyectadas por JS */
     .prof-arrows-mobile {
       display: flex;
-      gap: 48px;
+      gap: 20px;
       justify-content: center;
       width: 100%;
       margin-bottom: 16px;
@@ -597,6 +614,8 @@ const profesores = [
   const overflow = document.getElementById('profesores-overflow') as HTMLElement;
   const prevBtn  = document.getElementById('prof-prev') as HTMLButtonElement;
   const nextBtn  = document.getElementById('prof-next') as HTMLButtonElement;
+  const mobPrev  = document.querySelector<HTMLButtonElement>('.prof-arrow--mob-prev');
+  const mobNext  = document.querySelector<HTMLButtonElement>('.prof-arrow--mob-next');
   const cards    = Array.from(document.querySelectorAll<HTMLElement>('.prof-card'));
   const GAP      = 20;
   let current    = 0;
@@ -635,10 +654,14 @@ const profesores = [
     track.style.transform = `translateX(-${current * cardStep()}px)`;
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current >= maxI();
+    if (mobPrev) mobPrev.disabled = current === 0;
+    if (mobNext) mobNext.disabled = current >= maxI();
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
+  mobPrev?.addEventListener('click', () => goTo(current - 1));
+  mobNext?.addEventListener('click', () => goTo(current + 1));
 
   /* Expand / collapse */
   function closeActive() {

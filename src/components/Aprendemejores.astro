@@ -1,15 +1,19 @@
 ---
 // AprendeMejores.astro
 const profesores = [
-  { id: 1, nombre: "Manuel de la Rosa",  cargo: "CEO Bankinter Internacional",  logo: "/img/Bankinter-768x136.png",          logoAlt: "Bankinter" },
-  { id: 2, nombre: "Ana García",         cargo: "CEO & Founder Caetsu Two",      logo: "/img/aier-logo-card___1__bk.png",    logoAlt: "AIER"      },
-  { id: 3, nombre: "Pedro Martínez",     cargo: "Director General Binter",       logo: "/img/BinterJPG_BK.png",              logoAlt: "Binter"    },
-  { id: 4, nombre: "Laura Sánchez",      cargo: "CFO HallFrencia",               logo: "/img/Human_Rights_Foundation_bk.png",logoAlt: "HRF"       },
-  { id: 5, nombre: "Carlos López",       cargo: "Partner Globera",               logo: "/img/LHR_LG_NEGRO-1024x749.png",     logoAlt: "Lopesan"   },
-  { id: 6, nombre: "Isabel Ruiz",        cargo: "Senior Manager Newlink",        logo: "/img/Newlink-logo-bk.png",           logoAlt: "Newlink"   },
+  { id: 1,  nombre: "Miguel Anxo Bastos",    cargo: "Profesor visitante - Universidad de las Hespérides", foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",    fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",    logo: "",                                     logoAlt: "h." },
+  { id: 2,  nombre: "Joan Tubau",             cargo: "Fundador - Podcast Kapital",                         foto: "/img/aprende/allo/joan-tubau.jpg",             fotoColor: "/img/aprende/color/joan-tubau.jpg",             logo: "",        logoAlt: "Kapital" },
+  { id: 3,  nombre: "Marc Urgell",            cargo: "CEO - Abast Global",                                 foto: "/img/aprende/allo/marc-urgell.jpg",            fotoColor: "/img/aprende/color/marc-urgell.jpg",            logo: "/img/aprende/logos/abast.png",          logoAlt: "Abast" },
+  { id: 4,  nombre: "Gerard Caelles",         cargo: "CBO - SpliceBio",                                    foto: "/img/aprende/allo/gerard-caelles.jpg",         fotoColor: "/img/aprende/color/gerard-caelles.jpg",         logo: "/img/aprende/logos/splicebio.png",      logoAlt: "SpliceBio" },
+  { id: 5,  nombre: "Lourdes Fuster",         cargo: "Global Head of CRM and Product Marketing - Wallapop",foto: "/img/aprende/allo/lourdes-fuster.jpg",         fotoColor: "/img/aprende/color/lourdes-fuster.jpg",         logo: "/img/aprende/logos/wallapop.png",       logoAlt: "Wallapop" },
+  { id: 6,  nombre: "Joan Cortadellas",       cargo: "Marketing Director - Trenes.com",                    foto: "/img/aprende/allo/joan-cortadellas.jpg",       fotoColor: "/img/aprende/color/joan-cortadellas.jpg",       logo: "/img/aprende/logos/trenes.png",         logoAlt: "Trenes.com" },
+  { id: 7,  nombre: "José Juan González",     cargo: "CEO - Canaragua",                                    foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",     fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",     logo: "/img/aprende/logos/canaragua.png",      logoAlt: "Canaragua" },
+  { id: 8,  nombre: "Oliver Alonso",          cargo: "Presidente - Domingo Alonso Group",                  foto: "/img/aprende/allo/oliver-alonso.jpg",          fotoColor: "/img/aprende/color/oliver-alonso.jpg",          logo: "",                                     logoAlt: "Alonso group" },
+  { id: 9,  nombre: "Sebastián Cerezo",       cargo: "Socio - Moira Capital Partners",                     foto: "/img/aprende/allo/sebastian-cerezo.jpg",       fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",       logo: "/img/aprende/logos/moira.png",          logoAlt: "Moira" },
+  { id: 10, nombre: "José Martínez",          cargo: "CEO - Grupo Martínez Abolafio",                      foto: "/img/aprende/allo/jose-martinez.jpg",          fotoColor: "/img/aprende/color/jose-martinez.jpg",          logo: "/img/aprende/logos/grupo-martinez.png", logoAlt: "Grupo Martínez" },
+  { id: 11, nombre: "Martín Eugenio Pérez",   cargo: "Presidente - Aloe Lanzarote Plus",                   foto: "/img/aprende/allo/martin-eugenio-perez.jpg",   fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg",   logo: "/img/aprende/logos/aloe-plus.png",      logoAlt: "Aloe Plus" },
+  { id: 12, nombre: "José Julio Artiles",     cargo: "CEO - Satocan",                                      foto: "/img/aprende/allo/jose-julio-artiles.jpg",     fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",     logo: "/img/aprende/logos/satocan.png",        logoAlt: "Satocan" },
 ];
-
-const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
 ---
 
 <section class="aprende-section">
@@ -24,7 +28,7 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
       <div
         class="profesor-card"
         data-id={profesor.id}
-        style={`--foto: url('${PLACEHOLDER}')`}
+        style={`--foto: url('${profesor.foto}'); --foto-color: url('${profesor.fotoColor}')`}
         role="button"
         tabindex="0"
         aria-label={`Ver perfil de ${profesor.nombre}`}
@@ -32,10 +36,12 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
         <!-- overlay amarillo BN -->
         <div class="foto-overlay"></div>
 
-        <!-- logo empresa -->
-        <div class="logo-empresa">
-          <img src={profesor.logo} alt={profesor.logoAlt} />
-        </div>
+        <!-- logo empresa (solo si existe) -->
+        {profesor.logo && (
+          <div class="logo-empresa">
+            <img src={profesor.logo} alt={profesor.logoAlt} />
+          </div>
+        )}
 
         <!-- info expandido -->
         <div class="profesor-info">
@@ -52,7 +58,7 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
     width: 100%;
     background: #fff;
     padding: clamp(29px, 3.64vw, 72px) 0 clamp(34px, 4.25vw, 84px);
-    padding-inline: clamp(20px, 5vw, 100px);
+    padding-inline: 0;
     overflow: hidden;
   }
 
@@ -81,12 +87,12 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
     align-items: stretch;
     padding: 0;
     box-sizing: border-box;
-    width: min(1285px, 100%);
-    margin-inline: auto;
-
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
   }
 
-  /* ── Card base — Figma: 270×300px, background con offset exacto ── */
+  /* ── Card base ── */
   .profesor-card {
     position: relative;
     flex: 1;
@@ -95,22 +101,18 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
     border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
-
-    /* Background con specs del Figma */
-    background: var(--foto) lightgray -25.709px -18.944px / 130.952% 141% no-repeat;
-    filter: grayscale(100%);
-
+    background: var(--foto) lightgray center / cover no-repeat;
+    filter: none;
     transition:
       flex 0.55s cubic-bezier(0.4, 0, 0.2, 1),
       filter 0.45s ease;
   }
 
-  /* Expandida — horizontal, en color */
+  /* Expandida — en color */
   .profesor-card.expanded {
     flex: 3.5;
     filter: grayscale(0%);
-    /* En expandido la imagen se ve normal, centrada */
-    background: var(--foto) lightgray center / cover no-repeat;
+    background: var(--foto-color) lightgray center / cover no-repeat;
   }
 
   .profesor-card:focus-visible {
@@ -119,18 +121,7 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
   }
 
   /* ── Overlay amarillo (solo contraído) ── */
-  .foto-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 205, 0, 0.52);
-    mix-blend-mode: multiply;
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.35s ease;
-    border-radius: 15px;
-  }
-
-  .profesor-card.expanded .foto-overlay { opacity: 0; }
+  .foto-overlay { display: none; }
 
   /* ── Logo empresa ── */
   .logo-empresa {
@@ -138,7 +129,7 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 4;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
@@ -200,6 +191,7 @@ const PLACEHOLDER = "/img/b5e11c54ee1b173c3512ee9a6b53fe00e88c3af6.jpg";
   }
 
   @media (max-width: 900px) {
+    .aprende-section { padding-inline: 20px; }
     .cards-container { flex-wrap: wrap; }
     .profesor-card, .profesor-card.expanded {
       flex: 0 0 calc(33.333% - 8px);

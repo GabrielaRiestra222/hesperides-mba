@@ -1,9 +1,9 @@
 ---
 // AvanzaCarrera.astro
-const features = [
-  { 
-    titulo: "Título", 
-    destacado: "España y Europa", 
+const features: Array<{ titulo: string; destacado?: string; boldSuffix?: string; boldPrefix?: string; bigNumber?: boolean }> = [
+  {
+    titulo: "Título",
+    destacado: "España y Europa",
     boldSuffix: "Oficial"
   },
   { titulo: "Plazas", destacado: "Limitadas" },
@@ -258,7 +258,7 @@ const features = [
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .avanza-section {
-      padding: 24px 20px 0;
+      padding: 24px 28px 0;
       margin-bottom: -40px;
     }
     .avanza-card {
@@ -283,17 +283,27 @@ const features = [
     .feature-card {
       width: 100%;
       height: auto;
-      min-height: 100px;
-      padding: 10px;
+      min-height: 130px;
+      padding: clamp(18px, 5vw, 28px);
       border-radius: 20px;
       overflow: hidden;
     }
     .feature-normal,
-    .feature-bold,
-    .feature-regular { font-size: 15px; line-height: 15px; white-space: normal; }
-    .feature-big { font-size: 22px; line-height: 15px;}
+    .feature-regular { font-size: 15px; line-height: 15px; white-space: normal; font-weight: 500; }
+    .feature-bold { font-size: 15px; line-height: 15px; white-space: normal; font-weight: 700; }
+    .feature-big { font-size: 19px; line-height: 1.2; }
+    .feature-card, .feature-inner { text-align: left; }
+    .avanza-features .feature-card:last-child .feature-big { font-size: 28px; line-height: 1.1; }
+    .avanza-features .feature-card:last-child .feature-regular { font-size: 12px; line-height: 1.3; }
 
-    .avanza-cta { height: 30px;width: 150px;}
+    .avanza-cta { height: auto; width: auto; padding: 11px 32px; font-size: 9px; }
+  }
+
+  @media (min-width: 1600px) {
+    .avanza-features .feature-card:first-child .feature-normal,
+    .avanza-features .feature-card:first-child .feature-bold {
+      white-space: nowrap;
+    }
   }
 
   @media (min-width: 1800px) {

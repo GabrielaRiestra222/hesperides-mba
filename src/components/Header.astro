@@ -97,10 +97,8 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     background: #FFCD00;
+    background-color: #FFCD00;
 
   }
 
@@ -212,8 +210,26 @@
   }
 
   @media (min-width: 901px) {
-    .site-header { padding-inline: 0; width: 100%; }
+    .site-header { padding-inline: 0; width: 100%; position: relative; z-index: auto; }
     .header-inner { padding-inline: clamp(16px, 1.2vw, 24px); }
+    .header-inner.is-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background-color: #FFCD00;
+    }
+    .header-inner.is-fixed::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50vw;
+      right: -50vw;
+      bottom: 0;
+      background: #FFCD00;
+      z-index: -1;
+    }
     .hero-info-inner { max-width: 1285px; margin-inline: auto; width: 100%; padding-inline: clamp(16px, 1.2vw, 24px); gap: clamp(20px, 3vw, 50px); }
     .info-item { font-size: clamp(7px, 0.7vw, 11px); font-weight: 400; }
     .info-item img { width: clamp(16px, 1.5vw, 24px); height: clamp(16px, 1.5vw, 24px); }

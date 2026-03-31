@@ -312,12 +312,15 @@
     }
 
     .campus-foto-izq {
-      width: calc(100% + 36px);
-      margin-left: -12px;
-      margin-right: -24px;
+      width: calc(100% - 40px);
+      margin-inline: 20px;
       margin-top: 40px;
       border-radius: 32px;
-      height: clamp(280px, 60vw, 400px);
+      height: 220px;
+    }
+    .campus-foto-izq img {
+      object-fit: cover;
+      object-position: center;
     }
 
     .campus-boton-wrap {
@@ -335,9 +338,8 @@
     }
 
     .campus-foto-dcha {
-      width: calc(100% + 36px);
-      margin-left: -12px;
-      margin-right: -24px;
+      width: calc(100% - 40px);
+      margin-inline: 20px;
       border-radius: 32px;
       height: clamp(360px, 80vw, 500px);
     }

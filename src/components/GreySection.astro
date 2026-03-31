@@ -165,15 +165,9 @@ const testimonials = [
                     <td>Obligatoria</td>
                   </tr>
 
-                  <tr>
-                    <td>Inteligencia Artificial Aplicada a la empresa</td>
-                    <td>3</td>
-                    <td>Obligatoria</td>
-                  </tr>
-
                   <tr class="sub">
                     <td><strong>Créditos semestre</strong></td>
-                    <td><strong>33</strong></td>
+                    <td><strong>30</strong></td>
                     <td></td>
                   </tr>
 
@@ -204,9 +198,11 @@ const testimonials = [
                     <td>
                       Prácticas Académicas Externas
                       <a href="https://drive.google.com/file/d/101f4PgsPkAPG3yBIAXBTcARmfRpaqBle/preview" target="_blank">[PDF]</a>
+                      <span class="alt-label">o</span>
+                      Inteligencia Artificial Aplicada a la Empresa
                     </td>
                     <td>6</td>
-                    <td>Prácticas externas</td>
+                    <td>Optativa</td>
                   </tr>
 
                   <tr>
@@ -772,6 +768,14 @@ const testimonials = [
     border-radius: 5px;
     margin-bottom: clamp(8px, 0.91vw, 18px);
   }
+  .alt-label {
+    display: inline-block;
+    font-weight: 700;
+    font-style: italic;
+    color: #888;
+    margin: 0 0.25em;
+  }
+
   .ptable { width: 100%; border-collapse: collapse; font-size: clamp(8px, 0.91vw, 18px); margin-bottom: clamp(4px, 0.45vw, 9px); }
   .ptable th {
     text-align: left; font-size: clamp(7px, 0.76vw, 15px); font-weight: 600;
@@ -1115,6 +1119,22 @@ const testimonials = [
   .c-arrow--mob-prev,
   .c-arrow--mob-next { display: none; }
 
+  @media (max-width: 900px) {
+    /* Ocultar flechas desktop del carrusel */
+    .c-arrow--prev, .c-arrow--next { display: none !important; }
+    /* Mostrar controles mobile debajo del carrusel */
+    .mobile-controls { display: flex; justify-content: flex-start; margin-top: 24px; margin-bottom: 32px; padding-left: 20px; }
+    .mobile-arrows { display: flex; gap: 16px; justify-content: flex-start; margin-right: 70px; }
+    .c-arrow--mob-prev, .c-arrow--mob-next {
+      display: flex;
+      position: static;
+      transform: none;
+    }
+    .cta-btn {margin-right: 50px;}
+    /* Por si alguna flecha absoluta quedara dentro de una card */
+    .alumni-card .c-arrow { display: none !important; }
+  }
+
   @media (max-width: 767px) {
     /* FAQ en columna */
     .faq-grid { flex-direction: column; gap: 0; margin-bottom: 40px; }
@@ -1168,8 +1188,9 @@ const testimonials = [
 
     /* Flechas ocultas en mobile — navegación por swipe */
     .c-arrow--prev, .c-arrow--next { display: none; }
-    .mobile-controls { display: none; }
-    .c-arrow--mob-prev, .c-arrow--mob-next { display: none; }
+    .mobile-controls { display: flex; justify-content: center; margin-top: 24px; margin-bottom: 32px; }
+    .mobile-arrows { display: flex; gap: 16px; justify-content: center; }
+    .c-arrow--mob-prev, .c-arrow--mob-next { display: flex; }
 
     /* Modal expandido: más alto para mostrar contenido vertical */
     .alumni-card.expanded { height: 520px; }
@@ -1181,9 +1202,14 @@ const testimonials = [
       padding-right: 0;
     }
 
-    .cta-wrap { margin-left: -50px; }
+    .cta-wrap { margin-left: auto; margin-right: auto; margin-top: 40px; justify-content: center; }
     .cta-btn { margin-left: 0; }
   }
+  /* Flechas desktop del carrusel: ocultas */
+  @media (min-width: 901px) {
+    .c-arrow--prev, .c-arrow--next { display: none !important; }
+  }
+
   /* FIX FAQ DESKTOP */
 @media (min-width:901px){
 

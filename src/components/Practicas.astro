@@ -5,7 +5,7 @@ const fila1 = [
   { src: "/img/Deloitte_bk.png",           alt: "Deloitte"  },
   { src: "/img/aier-logo-card.png",         alt: "AIER"      },
   { src: "/img/Bankinter-768x136.png",      alt: "Bankinter" },
-  { src: "/img/rackslabs-white-copy-2.png", alt: "Racks Labs"},
+  { src: "/img/rackslabs-white-2.png", alt: "Racks Labs"},
   { src: "/img/LHR_LG_NEGRO-1024x749.png",  alt: "Lopesan"   },
 ];
 
@@ -59,6 +59,9 @@ const fila2 = [
       <div class="logos-divider"></div>
 
     </div>
+
+    <!-- Imagen mobile: reemplaza logos grid -->
+    <img src="/img/practicas-logo-mobile.png" alt="Empresas colaboradoras" class="practicas-logos-mobile" />
 
   </div>
 </section>
@@ -116,6 +119,9 @@ const fila2 = [
     color: #1a1a1a;
     margin: 0;
   }
+
+  /* Imagen mobile — oculta en desktop */
+  .practicas-logos-mobile { display: none; }
 
   /* ── Logos wrap: dentro del inner, respeta márgenes ── */
   .logos-wrap {
@@ -185,59 +191,35 @@ const fila2 = [
     .mobile-break { display: inline; }
     .practicas-subtitulo { font-size: 15px; line-height: 1.5; }
 
-    .logos-wrap {
-      flex-direction: row;
-      align-items: stretch;
-      gap: 0;
+    .logos-wrap { display: none; }
+    .practicas-logos-mobile {
+      display: block;
+      width: calc(100% - 60px);
+      margin-inline: auto;
+      border-radius: 12px;
       margin-top: 30px;
-      margin-left: 0;
     }
 
     .logos-divider { display: none; }
 
     .logos-fila {
-      flex: 1;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 28px;
-      padding: 16px 12px;
-    }
-
-    .logos-fila:nth-child(1) {
-      border-right: 1px solid rgba(0,0,0,0.2);
-      padding-right: 16px;
-    }
-
-    .logos-fila:nth-child(3) {
-      padding-right: 24px;
+      display: contents;
     }
 
     .logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
       padding: 0;
-      width: auto;
-      justify-content: flex-start;
     }
 
     .logo-item img {
+      max-width: 90px;
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: contain;
     }
-
-    /* Fila 1 — proporción desktop ×0.55 */
-    .logos-fila:nth-child(1) .logo-item:nth-child(1) { width: 78px;  height: 34px; }
-    .logos-fila:nth-child(1) .logo-item:nth-child(2) { width: 95px;  height: 50px; }
-    .logos-fila:nth-child(1) .logo-item:nth-child(3) { width: 99px;  height: 18px; }
-    .logos-fila:nth-child(1) .logo-item:nth-child(4) { width: 59px;  height: 21px; }
-    .logos-fila:nth-child(1) .logo-item:nth-child(5) { width: 72px;  height: 53px; }
-
-    /* Fila 2 — proporción desktop ×0.55 */
-    .logos-fila:nth-child(3) .logo-item:nth-child(1) { width: 86px;  height: 57px; }
-    .logos-fila:nth-child(3) .logo-item:nth-child(2) { width: 68px;  height: 30px; }
-    .logos-fila:nth-child(3) .logo-item:nth-child(3) { width: 87px;  height: 29px; }
-    .logos-fila:nth-child(3) .logo-item:nth-child(4) { width: 77px;  height: 30px; }
-    .logos-fila:nth-child(3) .logo-item:nth-child(5) { width: 85px;  height: 19px; }
   }
   @media (min-width: 901px) {
     .practicas-inner {
