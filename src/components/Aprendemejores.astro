@@ -1,18 +1,18 @@
 ---
 // AprendeMejores.astro
 const profesores = [
-  { id: 1,  nombre: "Miguel Anxo Bastos",    cargo: "Profesor visitante - Universidad de las Hespérides", foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",    fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",    logo: "",                                     logoAlt: "h." },
-  { id: 2,  nombre: "Joan Tubau",             cargo: "Fundador - Podcast Kapital",                         foto: "/img/aprende/allo/joan-tubau.jpg",             fotoColor: "/img/aprende/color/joan-tubau.jpg",             logo: "",        logoAlt: "Kapital" },
-  { id: 3,  nombre: "Marc Urgell",            cargo: "CEO - Abast Global",                                 foto: "/img/aprende/allo/marc-urgell.jpg",            fotoColor: "/img/aprende/color/marc-urgell.jpg",            logo: "/img/aprende/logos/abast.png",          logoAlt: "Abast" },
-  { id: 4,  nombre: "Gerard Caelles",         cargo: "CBO - SpliceBio",                                    foto: "/img/aprende/allo/gerard-caelles.jpg",         fotoColor: "/img/aprende/color/gerard-caelles.jpg",         logo: "/img/aprende/logos/splicebio.png",      logoAlt: "SpliceBio" },
-  { id: 5,  nombre: "Lourdes Fuster",         cargo: "Global Head of CRM and Product Marketing - Wallapop",foto: "/img/aprende/allo/lourdes-fuster.jpg",         fotoColor: "/img/aprende/color/lourdes-fuster.jpg",         logo: "/img/aprende/logos/wallapop.png",       logoAlt: "Wallapop" },
-  { id: 6,  nombre: "Joan Cortadellas",       cargo: "Marketing Director - Trenes.com",                    foto: "/img/aprende/allo/joan-cortadellas.jpg",       fotoColor: "/img/aprende/color/joan-cortadellas.jpg",       logo: "/img/aprende/logos/trenes.png",         logoAlt: "Trenes.com" },
-  { id: 7,  nombre: "José Juan González",     cargo: "CEO - Canaragua",                                    foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",     fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",     logo: "/img/aprende/logos/canaragua.png",      logoAlt: "Canaragua" },
-  { id: 8,  nombre: "Oliver Alonso",          cargo: "Presidente - Domingo Alonso Group",                  foto: "/img/aprende/allo/oliver-alonso.jpg",          fotoColor: "/img/aprende/color/oliver-alonso.jpg",          logo: "",                                     logoAlt: "Alonso group" },
-  { id: 9,  nombre: "Sebastián Cerezo",       cargo: "Socio - Moira Capital Partners",                     foto: "/img/aprende/allo/sebastian-cerezo.jpg",       fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",       logo: "/img/aprende/logos/moira.png",          logoAlt: "Moira" },
-  { id: 10, nombre: "José Martínez",          cargo: "CEO - Grupo Martínez Abolafio",                      foto: "/img/aprende/allo/jose-martinez.jpg",          fotoColor: "/img/aprende/color/jose-martinez.jpg",          logo: "/img/aprende/logos/grupo-martinez.png", logoAlt: "Grupo Martínez" },
-  { id: 11, nombre: "Martín Eugenio Pérez",   cargo: "Presidente - Aloe Lanzarote Plus",                   foto: "/img/aprende/allo/martin-eugenio-perez.jpg",   fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg",   logo: "/img/aprende/logos/aloe-plus.png",      logoAlt: "Aloe Plus" },
-  { id: 12, nombre: "José Julio Artiles",     cargo: "CEO - Satocan",                                      foto: "/img/aprende/allo/jose-julio-artiles.jpg",     fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",     logo: "/img/aprende/logos/satocan.png",        logoAlt: "Satocan" },
+  { id: 1,  nombre: "Marc Urgell",            cargo: "CEO - Abast Global",                                  foto: "/img/aprende/allo/marc-urgell.jpg",          fotoColor: "/img/aprende/color/marc-urgell.jpg",          logo: "/img/aprende/logos/abast.png",         logoAlt: "Abast" },
+  { id: 2,  nombre: "Gerard Caelles",         cargo: "CBO - SpliceBio",                                     foto: "/img/aprende/allo/gerard-caelles.jpg",       fotoColor: "/img/aprende/color/gerard-caelles.jpg",       logo: "/img/aprende/logos/splicebio.png",     logoAlt: "SpliceBio" },
+  { id: 3,  nombre: "Lourdes Fuster",         cargo: "Global Head of CRM and Product Marketing - Wallapop", foto: "/img/aprende/allo/lourdes-fuster.jpg",       fotoColor: "/img/aprende/color/lourdes-fuster.jpg",       logo: "/img/aprende/logos/wallapop.png",      logoAlt: "Wallapop" },
+  { id: 4,  nombre: "Joan Cortadellas",       cargo: "Marketing Director - Trenes.com",                     foto: "/img/aprende/allo/joan-cortadellas.jpg",     fotoColor: "/img/aprende/color/joan-cortadellas.jpg",     logo: "/img/aprende/logos/trenes.png",        logoAlt: "Trenes.com" },
+  { id: 5,  nombre: "José Juan González",     cargo: "CEO - Canaragua",                                     foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",   fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",   logo: "/img/aprende/logos/canaragua.png",     logoAlt: "Canaragua" },
+  { id: 6,  nombre: "Sebastián Cerezo",       cargo: "Socio - Moira Capital Partners",                      foto: "/img/aprende/allo/sebastian-cerezo.jpg",     fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",     logo: "/img/aprende/logos/moira.png",         logoAlt: "Moira" },
+  { id: 7,  nombre: "Joan Tubau",             cargo: "Fundador - Podcast Kapital",                          foto: "/img/aprende/allo/joan-tubau.jpg",           fotoColor: "/img/aprende/color/joan-tubau.jpg",           logo: "",                                     logoAlt: "" },
+  { id: 8,  nombre: "Miguel Anxo Bastos",     cargo: "Profesor visitante - Universidad de las Hespérides",  foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",   fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",   logo: "",                                     logoAlt: "" },
+  { id: 9,  nombre: "Oliver Alonso",          cargo: "Presidente - Domingo Alonso Group",                   foto: "/img/aprende/allo/oliver-alonso.jpg",        fotoColor: "/img/aprende/color/oliver-alonso.jpg",        logo: "/img/aprende/logos/domingo-alonso.png", logoAlt: "Domingo Alonso Group" },
+  { id: 10, nombre: "José Martínez",          cargo: "CEO - Grupo Martínez Abolafio",                       foto: "/img/aprende/allo/jose-martinez.jpg",        fotoColor: "/img/aprende/color/jose-martinez.jpg",        logo: "/img/aprende/logos/grupo-martinez.png",logoAlt: "Grupo Martínez" },
+  { id: 11, nombre: "Martín Eugenio Pérez",   cargo: "Presidente - Aloe Lanzarote Plus",                    foto: "/img/aprende/allo/martin-eugenio-perez.jpg", fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg", logo: "/img/aprende/logos/aloe-plus.png",     logoAlt: "Aloe Plus" },
+  { id: 12, nombre: "José Julio Artiles",     cargo: "CEO - Satocan",                                       foto: "/img/aprende/allo/jose-julio-artiles.jpg",   fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",   logo: "/img/aprende/logos/satocan.png",       logoAlt: "Satocan" },
 ];
 ---
 
@@ -33,23 +33,34 @@ const profesores = [
         tabindex="0"
         aria-label={`Ver perfil de ${profesor.nombre}`}
       >
-        <!-- overlay amarillo BN -->
         <div class="foto-overlay"></div>
 
-        <!-- logo empresa (solo si existe) -->
         {profesor.logo && (
           <div class="logo-empresa">
             <img src={profesor.logo} alt={profesor.logoAlt} />
           </div>
         )}
 
-        <!-- info expandido -->
         <div class="profesor-info">
-          <p class="profesor-nombre">{profesor.nombre}</p>
-          <p class="profesor-cargo">{profesor.cargo}</p>
+          <div class="info-logo-left">
+            {profesor.logo && <img src={profesor.logo} alt={profesor.logoAlt} class="info-logo" />}
+          </div>
+          <div class="info-text-right">
+            <p class="profesor-nombre">{profesor.nombre}</p>
+            <p class="profesor-cargo">{profesor.cargo}</p>
+          </div>
         </div>
       </div>
     ))}
+  </div>
+
+  <div class="aprende-arrows">
+    <button class="aprende-arrow aprende-arrow--prev" aria-label="Anterior" id="aprende-prev">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="aprende-arrow aprende-arrow--next" aria-label="Siguiente" id="aprende-next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
 </section>
 
@@ -62,10 +73,10 @@ const profesores = [
     overflow: hidden;
   }
 
-  /* ── Título ── */
   .aprende-header {
     text-align: center;
     margin-bottom: clamp(21px, 2.43vw, 48px);
+    padding-inline: clamp(20px, 5vw, 100px);
   }
 
   .aprende-titulo {
@@ -79,40 +90,37 @@ const profesores = [
   .titulo-bold   { color: #FFCD00; font-weight: 700; }
   .titulo-normal { color: #FFCD00; font-weight: 400; }
 
-  /* ── Cards container ── */
   .cards-container {
     display: flex;
     flex-direction: row;
     gap: 0.625rem;
     align-items: stretch;
-    padding: 0;
-    box-sizing: border-box;
     width: 100%;
-    margin-inline: 0;
-    padding-inline: 0;
+    overflow: hidden;
+    position: relative;
   }
 
-  /* ── Card base ── */
   .profesor-card {
     position: relative;
-    flex: 1;
-    min-width: 0;
-    height: 300px;
+    flex: 0.8;
+    min-width: clamp(100px, 10vw, 170px);
+    height: clamp(200px, 15.6vw, 300px);
     border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
-    background: var(--foto) lightgray center / cover no-repeat;
+    background: var(--foto) center top / cover no-repeat;
     filter: none;
-    transition:
-      flex 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-      filter 0.45s ease;
+    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
   }
 
-  /* Expandida — en color */
+  .profesor-card.visible {
+    display: block;
+  }
+
   .profesor-card.expanded {
-    flex: 3.5;
-    filter: grayscale(0%);
-    background: var(--foto-color) lightgray center / cover no-repeat;
+    flex: 2.5;
+    background: var(--foto-color) center top / cover no-repeat;
   }
 
   .profesor-card:focus-visible {
@@ -120,33 +128,37 @@ const profesores = [
     outline-offset: 3px;
   }
 
-  /* ── Overlay amarillo (solo contraído) ── */
   .foto-overlay { display: none; }
 
-  /* ── Logo empresa ── */
   .logo-empresa {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 4;
+    z-index: 3;
+    width: auto;
+    text-align: center;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .logo-empresa img {
-    max-width: 110px;
-    max-height: 36px;
+    max-width: 120px;
+    max-height: 40px;
     object-fit: contain;
+    object-position: left;
     filter: brightness(0) invert(1);
+  }
+
+  .logo-empresa img[alt="Abast"] {
+    position: relative;
+    top: 6px;
   }
 
   .profesor-card.expanded .logo-empresa {
     opacity: 0;
-    transform: translateX(-50%) translateY(8px);
     pointer-events: none;
   }
 
-  /* ── Info (solo expandido) ── */
   .profesor-info {
     position: absolute;
     bottom: 24px;
@@ -157,6 +169,25 @@ const profesores = [
     transform: translateY(12px);
     transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
     pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .info-logo-left {
+    flex-shrink: 0;
+  }
+
+  .info-logo {
+    max-width: 160px;
+    max-height: 50px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .info-text-right {
+    text-align: right;
   }
 
   .profesor-card.expanded .profesor-info {
@@ -185,51 +216,153 @@ const profesores = [
     text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
 
-  /* ── Responsive ── */
-  @media (min-width: 901px) {
-    .profesor-card { min-height: clamp(280px, 22vw, 380px); height: auto; }
+  /* Flechas */
+  .aprende-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
   }
 
+  .aprende-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #1a1a1a;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, opacity 0.2s;
+    color: #1a1a1a;
+  }
+
+  .aprende-arrow:hover { background: rgba(0,0,0,0.05); }
+  .aprende-arrow:disabled { opacity: 0.3; cursor: default; }
+
+  /* Mobile */
   @media (max-width: 900px) {
     .aprende-section { padding-inline: 20px; }
     .cards-container { flex-wrap: wrap; }
-    .profesor-card, .profesor-card.expanded {
+    .logo-empresa { bottom: 12px; left: 50%; transform: translateX(-50%); }
+    .logo-empresa img { max-width: 70px; max-height: 24px; }
+    .profesor-nombre { font-size: 14px; margin-bottom: 2px; }
+    .profesor-cargo { font-size: 11px; font-weight: 300; }
+    .profesor-info { bottom: 12px; left: 12px; right: 12px; }
+    .profesor-card.expanded .profesor-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      top: 50%;
+      bottom: auto;
+      left: 12px;
+      right: 12px;
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+    .profesor-card.expanded .logo-empresa { display: none; }
+    .profesor-card.expanded .profesor-nombre { font-size: 14px; font-weight: 600; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+    .profesor-card.expanded .profesor-cargo { font-size: 11px; font-weight: 400; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+    .profesor-card,
+    .profesor-card.expanded {
       flex: 0 0 calc(33.333% - 8px);
       height: 220px;
+      display: block;
     }
   }
 
   @media (max-width: 600px) {
-    .profesor-card, .profesor-card.expanded {
+    .profesor-card,
+    .profesor-card.expanded {
       flex: 0 0 calc(50% - 6px);
       height: 200px;
     }
   }
+
+  @media (min-width: 901px) {
+    .profesor-card { height: clamp(280px, 22vw, 380px); }
+  }
 </style>
 
 <script>
-  const container = document.getElementById("cards-container");
-  const cards = container?.querySelectorAll(".profesor-card");
+  const container = document.getElementById("cards-container") as HTMLElement;
+  const allCards = Array.from(container?.querySelectorAll<HTMLElement>(".profesor-card") || []);
+  const prevBtn = document.getElementById("aprende-prev") as HTMLButtonElement;
+  const nextBtn = document.getElementById("aprende-next") as HTMLButtonElement;
+  const VISIBLE = 6;
+  let startIndex = 0;
+  const isMobile = window.innerWidth <= 900;
+
+  function renderVisible() {
+    if (isMobile) {
+      allCards.forEach(card => {
+        card.classList.add("visible");
+        card.classList.remove("expanded");
+      });
+      if (prevBtn) prevBtn.style.display = "none";
+      if (nextBtn) nextBtn.style.display = "none";
+      return;
+    }
+
+    allCards.forEach((card, i) => {
+      if (i >= startIndex && i < startIndex + VISIBLE) {
+        card.classList.add("visible");
+      } else {
+        card.classList.remove("visible");
+        card.classList.remove("expanded");
+      }
+    });
+
+    // Siempre expandir la card del centro (posición 3, índice 2)
+    const visibleCards = allCards.filter((_, i) => i >= startIndex && i < startIndex + VISIBLE);
+    allCards.forEach(c => c.classList.remove("expanded"));
+    const centerIndex = Math.min(2, visibleCards.length - 1);
+    if (visibleCards[centerIndex]) {
+      visibleCards[centerIndex].classList.add("expanded");
+    }
+
+    if (prevBtn) prevBtn.disabled = startIndex === 0;
+    if (nextBtn) nextBtn.disabled = startIndex + VISIBLE >= allCards.length;
+  }
 
   function expandCard(card: Element) {
-    cards?.forEach((c) => c.classList.remove("expanded"));
+    allCards.forEach(c => c.classList.remove("expanded"));
     card.classList.add("expanded");
   }
 
-  function collapseAll() {
-    cards?.forEach((c) => c.classList.remove("expanded"));
-  }
-
-  cards?.forEach((card) => {
+  allCards.forEach(card => {
     card.addEventListener("click", () => {
-      card.classList.contains("expanded") ? collapseAll() : expandCard(card);
+      if (!card.classList.contains("expanded")) {
+        expandCard(card);
+      }
     });
     card.addEventListener("keydown", (e) => {
       const ke = e as KeyboardEvent;
       if (ke.key === "Enter" || ke.key === " ") {
         ke.preventDefault();
-        card.classList.contains("expanded") ? collapseAll() : expandCard(card);
+        if (!card.classList.contains("expanded")) {
+          expandCard(card);
+        }
       }
     });
   });
+
+  prevBtn?.addEventListener("click", () => {
+    if (startIndex > 0) {
+      startIndex--;
+      renderVisible();
+    }
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    if (startIndex + VISIBLE < allCards.length) {
+      startIndex++;
+      renderVisible();
+    }
+  });
+
+  renderVisible();
 </script>
