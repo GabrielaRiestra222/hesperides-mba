@@ -818,9 +818,9 @@ const {
       color: #1a1a1a;
       font-family: "Noto Sans HK", sans-serif;
       font-weight: 700;
-      font-size: 9px;
+      font-size: 10px !important;
       letter-spacing: 0.08em;
-      padding: 12px 28px;
+      padding: 5px 15px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -869,10 +869,12 @@ const {
     }
 
     /* Texto — el hero-left lleva su propio padding lateral */
-    .hero-left { padding: 0 20px; }
-    .hero-tag        { font-size: 16.21px; line-height: 15.19px; letter-spacing: 0.03em; font-weight: 700; white-space: pre-line; }
-    .hero-title      { font-size: 31.18px; line-height: 28.87px; letter-spacing: -0.03em; font-weight: 500; white-space: pre-line; }
-    .hero-description{ font-size: 14px; line-height: 17px; letter-spacing: 0.02em; font-weight: 300; max-width: 100%; padding-bottom: 8px; padding-right: 40px; }
+    .hero-left { padding: 0 20px; gap:9px }
+    .hero-tag        { font-size: 15px; line-height: 15.19px; letter-spacing: 0.03em; font-weight: 700; white-space: pre-line; }
+    .hero-title      { font-size: 30px; line-height: 24px; letter-spacing: -0.03em; font-weight: 500; white-space: pre-line; }
+    .hero-description{ font-size: 9px; line-height: 10px; letter-spacing: 0.02em; font-weight: 300; max-width: 100%; padding-bottom: 8px; padding-right: 40px; padding-top: 10px;}
+    .hero-pricing {margin-top: 0px;}
+
 
     /* Modal formulario */
     .hero-modal-card .hero-form-wrap { padding: 20px; }
@@ -880,6 +882,7 @@ const {
     .form-row { grid-template-columns: 1fr; }
     .form-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
     .form-submit { width: 100%; text-align: center; }
+    .form-label {font-weight: 700; font-size: 10px;}
 
     /* Ocultar nav del hero, mostrar marquee info — empujado al fondo */
     .hero-bottom-menu { display: none; }
@@ -1249,7 +1252,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopImmediatePropagation()
 
       // Vimeo embed correcto + autoplay
-      vimeoIframe.src = "https://player.vimeo.com/video/1176583750?autoplay=1&muted=1&title=0&byline=0&portrait=0"
+      vimeoIframe.src = "https://player.vimeo.com/video/1180823490?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
 
       videoContainer.style.display = "block"
       playBtn.style.display = "none"
@@ -1273,6 +1276,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeModal(){
     modal?.classList.remove("open")
     document.body.style.overflow=""
+  }
+
+  // Si viene de campaña / influencer
+  if (getParam("openForm") === "true") {
+      setTimeout(() => {
+        openModal()
+      }, 300) // pequeño delay mejora UX
   }
 
   openBtn?.addEventListener("click",openModal)
@@ -1438,6 +1448,11 @@ document.addEventListener("DOMContentLoaded", () => {
             gtag("event","conversion",{
               send_to:"AW-11094724609/vhycCIK57J4ZEIGgsKop"
             })
+          }
+
+          /* LINKEDIN */
+          if(window.lintrk){
+            window.lintrk('track', { conversion_id: 26799042 });
           }
 
           alert("Solicitud enviada correctamente")

@@ -1,21 +1,24 @@
 ---
 const profesores = [
+  { id: "juan-carlos-andreu",  nombre: "Juan Carlos Andreu",       cargo: "Associate Director en World Health Management (WHM) Hospitals",              fotoCompact: "/img/Juan_Carlos_Andreu_duo.jpg", fotoExpanded: "/img/Juan_Carlos_Andreu_color.jpg",           bio: "Abogado, Economista, MBA, profesor en cursos de posgrado y Máster desde 1990, y ponente en cursos, seminarios y conferencias, en Europa, África e Iberoamérica. Empresario desde 1988, habiendo finalizado proyectos en 34 países de 4 continentes." },
+  { id: "florencia-roca",      nombre: "Florencia Roca",           cargo: "Directora de la Especialización en Finanzas, Universidad Francisco Marroquín", fotoCompact: "/img/Florencia-Rocaok_duo.jpg", fotoExpanded: "/img/Florencia-Rocaok.jpg",                    bio: "Doctora en Finanzas por la Universidad del CEMA (Argentina) y directora del máster online en Administración de Empresas de la Universidad Francisco Marroquín." },
   { id: "juan-ramon-rallo",    nombre: "Juan Ramón Rallo",         cargo: "Decano de la Escuela de Grado de la Universidad de las Hespérides",            fotoCompact: "/img/Juan_Ramón_Rallo_copia_duo.jpg", fotoExpanded: "/img/Juan_Ramón_Rallo_copia.png",             bio: "Doctor en Economía por la Universidad Rey Juan Carlos. Fundador, decano y director del Grado y Máster en Economía de la Universidad de las Hespérides. Autor de numerosos libros, entre ellos Anti-Marx y Una revolución liberal para España." },
-  { id: "gustavo-martinez",    nombre: "Gustavo Martinez",         cargo: "Divulgador financiero y gestor patrimonial en XTB",                            fotoCompact: "/img/Gustavo_Martinez_duo.jpg", fotoExpanded: "/img/Gustavo_Martinez_color.jpg",              bio: "Gestor patrimonial y directivo en XTB. Profesor en la Universidad Francisco Marroquín, con formación en múltiples grados y másteres de prestigio." },
-  { id: "enrique-briega",      nombre: "Enrique Briega",           cargo: "Knowledge Expert Financial Services Practice en McKinsey & Company",         fotoCompact: "/img/enrique_briega_color_copy_2.jpg", fotoExpanded: "/img/enrique_briega_color.jpg",                bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Navarra, Máster en Finanzas Corporativas por SDA Bocconi y MBA por IESE Business School, con intercambio en Chicago Booth. Obtuvo la certificación Chartered Financial Analyst (CFA) en 2017." },
-  { id: "jose-ruiz-de-alda",   nombre: "José Ruiz de Alda",        cargo: "Asesor de CORE VALUE FIL",                                                     fotoCompact: "/img/José_Ruiz_de_Alda_duo.jpg", fotoExpanded: "/img/José_Ruiz_de_Alda_color.jpg",            bio: "Licenciado en Administración y Dirección de Empresas por la Universidad de Deusto. Su conocimiento del Value Investing se refleja en su papel como consejero en CIMA Global Value SICAV." },
-  { id: "eduardo-fernandez",   nombre: "Eduardo Fernández Luiña",  cargo: "Decano de la Escuela de Postgrado de la Universidad de las Hespérides",       fotoCompact: "/img/Eduardo_Fernández_Luiña_duo.jpg", fotoExpanded: "/img/Eduardo_Fernández_Luiña_color.jpg",    bio: "Doctor en Procesos Políticos y decano de la Escuela de Postgrado de la Universidad de las Hespérides. Su investigación se centra en el sistema político guatemalteco y la democracia." },
-  { id: "gonzalo-melian",      nombre: "Gonzalo Melián",           cargo: "Cofundador y vicerrector de la Universidad de las Hespérides",                 fotoCompact: "/img/Gonzalo-Melian_duo.jpg", fotoExpanded: "/img/Gonzalo-Melian_color.jpg",                bio: "Cofundador y vicerrector de la Universidad de las Hespérides (.h) y director y socio fundador de OMMA Business School Madrid. Doctor en Economía (URJC) y Doctor en Arquitectura (ULPGC)." },
-  { id: "luca-delloro",        nombre: "Luca Dell'Oro",            cargo: "Fundador y CEO de The Baker Studio",                                          fotoCompact: "/img/Luca_Dell'Oro_duo.jpg", fotoExpanded: "/img/Luca_Dell'Oro_color.jpg",                 bio: "Acumula más de 30 años de experiencia en negocios y marketing, la mitad de ellos en multinacionales de siete países diferentes. Desde hace más de dos décadas compagina su actividad profesional con la docencia universitaria y de posgrado en escuelas de negocios españolas." },
-  { id: "gonzalo-illesca",     nombre: "Gonzalo Illesca",          cargo: "Consultor externo en Likydo",                                                  fotoCompact: "/img/Gonzalo_Illesca_duo.jpg", fotoExpanded: "/img/Gonzalo_Illesca_color.jpg",               bio: "Ingeniero Comercial y Licenciado en Ciencias de la Administración por la Universidad de la Frontera, dirige el Máster en Creación de Empresas e Innovación en la Universidad de las Hespérides." },
-  { id: "mauricio-garita",     nombre: "Mauricio Garita",          cargo: "Fundador y financial director en Olive Tree Capital",                          fotoCompact: "/img/Mauricio_Garita_duo.jpg", fotoExpanded: "/img/Mauricio_Garita_color.jpg",               bio: "Asesor estratégico especializado en blockchain, coaching filosófico y crecimiento empresarial. Doctor en Economía por la Universidad Pontificia de Salamanca y MSc en Blockchain y Moneda." },
-  { id: "edgardo-spivak",      nombre: "Edgardo Javier Spivak",    cargo: "Director de Desarrollo y Comercial en The Lemon Tree Education",               fotoCompact: "/img/Edgardo_Javier_Spivak_duo.jpg", fotoExpanded: "/img/Edgardo_Javier_Spivak_color.jpg",         bio: "Doctor en Dirección Internacional de Empresas por la Universidad Nebrija. Especialista en marketing digital, estratégico y operativo, ha impartido clases en universidades de España, África e Iberoamérica." },
-  { id: "eva-lopez",           nombre: "Eva López González",       cargo: "Profesora",                                                                    fotoCompact: "/img/Eva_López_González_copia_duo.jpg", fotoExpanded: "/img/Eva_López_González_color.jpg",          bio: "Doctora en Ciencias Económicas, Empresariales y Jurídicas por la Universidad Politécnica de Cartagena. Ha publicado diversos trabajos científicos sobre Responsabilidad Social Corporativa, Earnings Management y Evasión Fiscal." },
-  { id: "carmen-dominguez",    nombre: "Carmen Domínguez Domech",  cargo: "Global Finance, Control y Development Planning Director en Iberdrola",        fotoCompact: "/img/Carmen_Domínguez_Domech_duo.jpg", fotoExpanded: "/img/Carmen_Domínguez_Domech_color.jpg",      bio: "Doctora en Ciencias Económicas y Empresariales, Certified International Investment Analyst (CIIA) y experta en buen gobierno corporativo. Fue premiada como Corporate Finance Leader Europea 2023 por NXT Generation." },
-  { id: "juan-carlos-andreu",  nombre: "Juan Carlos Andreu",       cargo: "Associate Director en World Health Management (WHM) Hospitals",              fotoCompact: "/img/Juan_Carlos_Andreu_duo.jpg", fotoExpanded: "/img/Juan_Carlos_Andreu_color.jpg",           bio: "Abogado, Economista, MBA, profesor en cursos de posgrado y Máster desde 1990, y ponente en cursos, seminarios y conferencias, en Europa, África e Iberoamérica. Empresario desde 1988, habiendo finalizado proyectos en 31 países de 4 continentes, fundamentalmente para el sector privado y en modelos PPP-CPP de colaboración Público Privada en salud.", hidden: true },
-  { id: "florencia-roca",      nombre: "Florencia Roca",           cargo: "Directora de la Especialización en Finanzas, Universidad Francisco Marroquín", fotoCompact: "/img/Florencia-Rocaok_duo.jpg", fotoExpanded: "/img/Florencia-Rocaok.jpg",                    bio: "Doctora en Finanzas por la Universidad del CEMA (Argentina) y directora del máster online en Administración de Empresas de la Universidad Francisco Marroquín.", hidden: true },
-  { id: "miguel-angel-sanz",   nombre: "Miguel Ángel Sanz",        cargo: "Partner en Madavi",                                                            fotoCompact: "/img/Miguel-A-Sanz-300x300-1_duo.jpg", fotoExpanded: "/img/Miguel-A-Sanz-300x300-1.jpg",             bio: "Doctor Ingeniero Industrial por la Universidad de Oviedo, MBA por INSEAD y Master en Marketing Estratégico por ESADE. Es socio en Madavi, donde acompaña procesos de transformación empresarial y liderazgo.", hidden: true },
-  { id: "eduardo-blasco",      nombre: "Eduardo Blasco",           cargo: "Profesor",                                                                     fotoCompact: "/img/Eduardo_Blasco_duo.jpg", fotoExpanded: "/img/Eduardo_Blasco_color.jpg",                bio: "Graduado en Derecho y Ciencias Políticas por la Universidad de Valencia, con másteres en Métodos de Investigación Sociales por la London School of Economics y en Economía de la Escuela Austriaca.", hidden: true },
+  { id: "luca-delloro",        nombre: "Luca Dell'Oro",            cargo: "Fundador y CEO de The Baker Studio",                                          fotoCompact: "/img/Luca_Dell'Oro_duo.jpg", fotoExpanded: "/img/Luca_Dell'Oro_color.jpg",                 bio: "Acumula más de 30 años de experiencia en negocios y marketing, la mitad de ellos en multinacionales de siete países diferentes." },
+  { id: "carmen-dominguez",    nombre: "Carmen Domínguez Domech",  cargo: "Global Finance, Control y Development Planning Director en Iberdrola",        fotoCompact: "/img/Carmen_Domínguez_Domech_duo.jpg", fotoExpanded: "/img/Carmen_Domínguez_Domech_color.jpg",      bio: "Doctora en Ciencias Económicas y Empresariales, Certified International Investment Analyst (CIIA) y experta en buen gobierno corporativo." },
+  { id: "eduardo-fernandez",   nombre: "Eduardo Fernández Luiña",  cargo: "Decano de la Escuela de Postgrado de la Universidad de las Hespérides",       fotoCompact: "/img/Eduardo_Fernández_Luiña_duo.jpg", fotoExpanded: "/img/Eduardo_Fernández_Luiña_color.jpg",    bio: "Doctor en Procesos Políticos y decano de la Escuela de Postgrado de la Universidad de las Hespérides." },
+  { id: "enrique-briega",      nombre: "Enrique Briega",           cargo: "Knowledge Expert Financial Services Practice en McKinsey & Company",         fotoCompact: "/img/enrique_briega_color_copy_2.jpg", fotoExpanded: "/img/enrique_briega_color.jpg",                bio: "Licenciado en ADE por la Universidad de Navarra, MBA por IESE Business School. CFA charterholder." },
+  { id: "gustavo-martinez",    nombre: "Gustavo Martinez",         cargo: "Divulgador financiero y gestor patrimonial en XTB",                            fotoCompact: "/img/Gustavo_Martinez_duo.jpg", fotoExpanded: "/img/Gustavo_Martinez_color.jpg",              bio: "Gestor patrimonial y directivo en XTB. Profesor en la Universidad Francisco Marroquín." },
+  { id: "jose-ruiz-de-alda",   nombre: "José Ruiz de Alda",        cargo: "Asesor de CORE VALUE FIL",                                                     fotoCompact: "/img/José_Ruiz_de_Alda_duo.jpg", fotoExpanded: "/img/José_Ruiz_de_Alda_color.jpg",            bio: "Licenciado en ADE por la Universidad de Deusto. Consejero en CIMA Global Value SICAV." },
+  { id: "eric-risco",          nombre: "Eric Risco",               cargo: "AI Tech Lead en Andorra Telecom y Speaker TEDx",                               fotoCompact: "/img/Eric_Risco_duo.jpg", fotoExpanded: "/img/Eric_Risco_color.jpg",                          bio: "Ingeniero de software y profesor. Actualmente ejerce como Ingeniero de Inteligencia Artificial en Andorra Telecom. Divulgador en TEDx." },
+  { id: "ignacio-santaballa",  nombre: "Ignacio Santaballa",       cargo: "Country Sales Manager en Securitas Direct",                                    fotoCompact: "/img/Ignacio_Santaballa_duo.jpg", fotoExpanded: "/img/Ignacio_Santaballa_color.jpg",             bio: "Country Sales Manager en Securitas Direct, con más de una década de experiencia liderando equipos comerciales." },
+  { id: "mauricio-garita",     nombre: "Mauricio Garita",          cargo: "Fundador y financial director en Olive Tree Capital",                          fotoCompact: "/img/Mauricio_Garita_duo.jpg", fotoExpanded: "/img/Mauricio_Garita_color.jpg",               bio: "Asesor estratégico especializado en blockchain, coaching filosófico y crecimiento empresarial." },
+  { id: "gonzalo-illesca",     nombre: "Gonzalo Illesca",          cargo: "Consultor externo en Likydo",                                                  fotoCompact: "/img/Gonzalo_Illesca_duo.jpg", fotoExpanded: "/img/Gonzalo_Illesca_color.jpg",               bio: "Ingeniero Comercial, dirige el Máster en Creación de Empresas e Innovación en la Universidad de las Hespérides." },
+  { id: "eva-lopez",           nombre: "Eva López González",       cargo: "Profesora",                                                                    fotoCompact: "/img/Eva_López_González_copia_duo.jpg", fotoExpanded: "/img/Eva_López_González_color.jpg",          bio: "Doctora en Ciencias Económicas, Empresariales y Jurídicas." },
+  { id: "gonzalo-melian",      nombre: "Gonzalo Melián",           cargo: "Cofundador y vicerrector de la Universidad de las Hespérides",                 fotoCompact: "/img/Gonzalo-Melian_duo.jpg", fotoExpanded: "/img/Gonzalo-Melian_color.jpg",                bio: "Cofundador y vicerrector de la Universidad de las Hespérides. Doctor en Economía (URJC) y Doctor en Arquitectura (ULPGC)." },
+  { id: "edgardo-spivak",      nombre: "Edgardo Javier Spivak",    cargo: "Director de Desarrollo y Comercial en The Lemon Tree Education",               fotoCompact: "/img/Edgardo_Javier_Spivak_duo.jpg", fotoExpanded: "/img/Edgardo_Javier_Spivak_color.jpg",         bio: "Doctor en Dirección Internacional de Empresas por la Universidad Nebrija." },
+  { id: "miguel-angel-sanz",   nombre: "Miguel Ángel Sanz",        cargo: "Partner en Madavi",                                                            fotoCompact: "/img/Miguel-A-Sanz-300x300-1_duo.jpg", fotoExpanded: "/img/Miguel-A-Sanz-300x300-1.jpg",             bio: "Doctor Ingeniero Industrial, MBA por INSEAD. Socio en Madavi." },
+  { id: "oscar-carreiro",      nombre: "Óscar Rodríguez Carreiro", cargo: "Miembro del Departamento de Economía Aplicada I",                              fotoCompact: "", fotoExpanded: "",                                                                                    bio: "Doctor en Ciencias Políticas por la Universidad de Santiago de Compostela.", hidden: true },
+  { id: "eduardo-blasco",      nombre: "Eduardo Blasco",           cargo: "Profesor",                                                                     fotoCompact: "/img/Eduardo_Blasco_duo.jpg", fotoExpanded: "/img/Eduardo_Blasco_color.jpg",                bio: "Graduado en Derecho y Ciencias Políticas por la Universidad de Valencia.", hidden: true },
 ];
 ---
 
@@ -32,7 +35,7 @@ const profesores = [
     <div class="profesores-carousel-shell">
 
       <!-- Flecha izquierda — sale fuera del inner -->
-      <button class="prof-arrow prof-arrow--prev" id="prof-prev" aria-label="Anterior" disabled>
+      <button class="prof-arrow prof-arrow--prev" id="prof-prev" aria-label="Anterior">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -89,7 +92,7 @@ const profesores = [
 
     <!-- Flechas mobile -->
     <div class="prof-arrows-mobile">
-      <button class="prof-arrow prof-arrow--mob-prev" aria-label="Anterior" disabled>
+      <button class="prof-arrow prof-arrow--mob-prev" aria-label="Anterior">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -133,6 +136,9 @@ const profesores = [
     .profesores-section { padding-inline: 0; }
     .profesores-inner { padding: 0 0 0 16px; overflow: visible; }
     .profesores-titulo { padding-left: 28px; padding-right: 40px; }
+    .prof-card-compact::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 35%);
+    }
   }
 
   /* ══ Título: font-weight 500 (medium), "hoy" en 700 ══ */
@@ -269,7 +275,7 @@ const profesores = [
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 300;
     font-size: clamp(10px, 1.06vw, 21px);
-    line-height: 15px;
+    line-height: 1.1;
     color: rgba(255,255,255,0.85);
     margin: 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -411,9 +417,27 @@ const profesores = [
     .prof-nombre { font-size: 17px; }
     .prof-cargo  { font-size: 12px; font-weight: 500; }
 
+    .prof-card {
+      transition: height 0.3s ease, width 0.3s ease;
+    }
+
     .prof-card.active {
-      width: calc(85vw) !important;
-      height: 480px !important;
+      height: auto !important;
+      min-height: 400px;
+      width: 85vw !important;
+      flex-shrink: 0;
+    }
+
+    .prof-card.active .prof-card-expanded {
+      display: block !important;
+      position: relative !important;
+      opacity: 1 !important;
+      height: auto !important;
+      max-height: none !important;
+    }
+
+    .prof-card.active .prof-card-compact {
+      height: 200px;
     }
 
     .prof-card-expanded { flex-direction: column; }
@@ -650,28 +674,15 @@ const profesores = [
   function maxI() { return Math.max(0, cards.length - vis()); }
 
   function goTo(i: number) {
-    current = Math.max(0, Math.min(i, maxI()));
+    if (i < 0) i = maxI();
+    if (i > maxI()) i = 0;
+    current = i;
+    track.style.transition = 'transform 0.5s ease';
     track.style.transform = `translateX(-${current * cardStep()}px)`;
-    if (mobPrev) mobPrev.disabled = current === 0;
-    if (mobNext) mobNext.disabled = current >= maxI();
   }
 
-  prevBtn.addEventListener('click', () => {
-    if (window.innerWidth > 900) {
-      current = current - 1 < 0 ? maxI() : current - 1;
-      goTo(current);
-    } else {
-      goTo(current - 1);
-    }
-  });
-  nextBtn.addEventListener('click', () => {
-    if (window.innerWidth > 900) {
-      current = current + 1 > maxI() ? 0 : current + 1;
-      goTo(current);
-    } else {
-      goTo(current + 1);
-    }
-  });
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
   mobPrev?.addEventListener('click', () => goTo(current - 1));
   mobNext?.addEventListener('click', () => goTo(current + 1));
 
@@ -687,25 +698,32 @@ const profesores = [
 
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
+      if (isDragging) return;
       if ((e.target as HTMLElement).closest('.prof-exp-close')) return;
       if (card.classList.contains('active')) return;
       closeActive();
       card.classList.add('active');
-      card.style.width = window.innerWidth > 860 ? expandedW() + 'px' : `${Math.floor(window.innerWidth * 0.8)}px`;
-      overflow.classList.add('has-active');
-      // Tras expandir, ajustar el track si la card no cabe a la derecha
-      setTimeout(() => {
-        const currentTranslate = current * cardStep();
-        const cardLeft = card.offsetLeft;
-        const cardLeftInView = cardLeft - currentTranslate;
-        const expandedWidth = card.offsetWidth * 3;
-        if (cardLeftInView + expandedWidth > overflow.offsetWidth) {
-          const needed = (cardLeftInView + expandedWidth) - overflow.offsetWidth + 40;
-          const newTranslate = currentTranslate + needed;
-          track.style.transition = "transform 0.5s ease";
-          track.style.transform = `translateX(-${newTranslate}px)`;
-        }
-      }, 50);
+
+      if (window.innerWidth <= 900) {
+        card.style.width = Math.floor(window.innerWidth * 0.85) + 'px';
+        overflow.classList.add('has-active');
+      } else {
+        card.style.width = expandedW() + 'px';
+        overflow.classList.add('has-active');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const cardRect = card.getBoundingClientRect();
+            const overflowRect = overflow.getBoundingClientRect();
+            if (cardRect.right > overflowRect.right) {
+              const extra = cardRect.right - overflowRect.right + 20;
+              const match = track.style.transform.match(/translateX\(-?([\d.]+)/);
+              const currentX = match ? parseFloat(match[1]) : 0;
+              track.style.transition = 'transform 0.3s ease';
+              track.style.transform = `translateX(-${currentX + extra}px)`;
+            }
+          });
+        });
+      }
     });
 
     card.querySelector('.prof-exp-close')?.addEventListener('click', (e) => {
@@ -716,13 +734,21 @@ const profesores = [
   });
 
   document.addEventListener('click', (e) => {
-    if (!(e.target as HTMLElement).closest('.prof-card')) closeActive();
+    const path = e.composedPath ? e.composedPath() : [e.target];
+    const insideCard = path.some(el => (el as HTMLElement).classList?.contains('prof-card'));
+    if (!insideCard) closeActive();
   });
 
-  // Touch swipe
+  // Touch swipe (carrusel) — distinguir swipe de tap
   let tx = 0;
-  track.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
+  let isDragging = false;
+  track.addEventListener('touchstart', e => {
+    tx = e.changedTouches[0].screenX;
+  }, { passive: true });
+  track.addEventListener('touchmove', () => { isDragging = true; }, { passive: true });
   track.addEventListener('touchend', e => {
+    setTimeout(() => { isDragging = false; }, 50);
+    if ((e.target as HTMLElement).closest('.prof-card')) return;
     const diff = tx - e.changedTouches[0].screenX;
     if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
   }, { passive: true });

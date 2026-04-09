@@ -10,7 +10,7 @@ const testimonials = [
   {
     name: "Jorge Muñoz",
     cargo: "Emprendedor y consultor",
-    text: "A veces pensamos que vamos a la escuela a que nos enseñen y que no tenemos que hacer nada, que mágicamente aprendemos. Sin embargo, cuando uno más aprende es viendo vídeos, interiorizando conceptos, explicándole lo aprendido a otra persona. Se aprende de forma activa, no de forma pasiva.",
+    text: "A veces pensamos que vamos a la escuela a que nos enseñen y que no tenemos que hacer nada, que mágicamente aprendemos. Sin embargo, cuando uno más aprende es viendo vídeos, interiorizando conceptos, explicándole lo aprendido a otra persona. En el MBA se aprende de forma activa, no de forma pasiva.",
     img: "/img/jorge-manuel-munoz-rodriguez.jpg"
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
   {
     name: "Andoni Cortazar Andueza",
     cargo: "Directivo en empresa internacional",
-    text: ".h es una experiencia transformadora. Al final es un viaje en el que yo partía como un outsider, alguien que venía de otra zona de confort distinta. Entonces es algo que te saca de tu zona de confort y en mi caso, por lo menos, me ayudó a aprender, a entender y, sobre todo, a liderar de una forma diferente.",
+    text: "El MBA es una experiencia transformadora. Al final es un viaje en el que yo partía como un outsider, alguien que venía de otra zona de confort distinta. Es algo que te saca de tu zona de confort y, en mi caso, me ayudó a aprender, a entender y, sobre todo, a liderar de una forma diferente.",
     img: "/img/Andoni_Cortazar.jpg"
   }
 ];
@@ -381,11 +381,11 @@ const testimonials = [
               <div class="cred-head"><span>Carácter</span><span>Créditos</span></div>
               <table class="ctable">
                 <tbody>
+                  <tr class="ctotal"><td><strong>TOTAL</strong></td><td><strong>60</strong></td></tr>
                   <tr><td>Obligatorias</td><td>30</td></tr>
-                  <tr><td>Optativas</td><td>18</td></tr>
-                  <tr><td>Prácticas externas</td><td>6</td></tr>
+                  <tr><td>Especialidad</td><td>18</td></tr>
+                  <tr><td>Optativas</td><td>6</td></tr>
                   <tr><td>Trabajo de Fin de Máster</td><td>6</td></tr>
-                  <tr class="ctotal"><td><strong>Total</strong></td><td><strong>60</strong></td></tr>
                 </tbody>
               </table>
             </div>
@@ -445,6 +445,9 @@ const testimonials = [
                   <p class="cbname">{t.name}</p>
                   <p class="cbcargo">{t.cargo}</p>
                   <p class="cbquote">"{t.text}"</p>
+                </div>
+                <div class="card-scroll-track">
+                  <div class="card-scroll-dot"></div>
                 </div>
               </div>
             </div>
@@ -815,11 +818,11 @@ const testimonials = [
   }
   .ctable { width: 100%; border-collapse: collapse; font-size: clamp(10px, 1.06vw, 21px); }
   .ctable td {
-    padding: clamp(8px, 0.91vw, 18px) 0; border-bottom: 1px solid #f0f0f0; color: #111;
-    font-family: "Noto Sans HK", sans-serif; font-weight: 300;
+    padding: clamp(8px, 0.91vw, 18px) 0; border-bottom: 1px solid #ffffff; color: #111;
+    font-family: "Noto Sans HK", sans-serif; font-weight: 400;
   }
   .ctable td:last-child { text-align: right; font-weight: 600; color: #333; }
-  .ctable tr.ctotal td { border-bottom: none; border-top: 1.5px solid #ddd; padding-top: clamp(10px, 1.06vw, 21px); font-size: clamp(10px, 1.14vw, 23px); }
+  .ctable tr.ctotal td { border-bottom: none; border-top: 1.5px solid #ffffff; padding-top: clamp(10px, 1.06vw, 21px); font-size: clamp(10px, 1.14vw, 23px); font-weight: 700;}
 
   /* ══════════════════════════════════════
      TÍTULO carrusel — mucho más grande
@@ -967,11 +970,34 @@ const testimonials = [
     z-index: 2;
     overflow-y: auto;
     border-radius: 20px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0,0,0,0.1) transparent;
+    scrollbar-width: none;
   }
-  .card-back::-webkit-scrollbar { width: 3px; }
-  .card-back::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
+  .card-back::-webkit-scrollbar { display: none; }
+
+  /* Scroll dot indicator */
+  .card-scroll-track {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40%;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    z-index: 5;
+  }
+
+  .card-scroll-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    transition: top 0.1s ease;
+  }
 
   .card-close {
     position: sticky;
@@ -1208,7 +1234,14 @@ const testimonials = [
   /* Flechas desktop del carrusel: ocultas */
   @media (min-width: 901px) {
     .c-arrow--prev, .c-arrow--next { display: none !important; }
+    .carousel-viewport {
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: none;
+    }
+    .carousel-viewport::-webkit-scrollbar { display: none; }
   }
+
 
   /* FIX FAQ DESKTOP */
 @media (min-width:901px){
@@ -1342,11 +1375,29 @@ const testimonials = [
     if (!faqGrid?.contains(e.target as Node)) closeAll();
   });
 
+  // Scroll dot indicator en cada alumni card
+  document.querySelectorAll<HTMLElement>('.alumni-card').forEach(card => {
+    const textEl = card.querySelector<HTMLElement>('.card-back');
+    const dot = card.querySelector<HTMLElement>('.card-scroll-dot');
+    const dotTrack = card.querySelector<HTMLElement>('.card-scroll-track');
+    if (!textEl || !dot || !dotTrack) return;
+    if (textEl.scrollHeight <= textEl.clientHeight) {
+      dotTrack.style.display = 'none';
+      return;
+    }
+    textEl.addEventListener('scroll', () => {
+      const scrollPercent = textEl.scrollTop / (textEl.scrollHeight - textEl.clientHeight);
+      const maxTop = dotTrack.offsetHeight - dot.offsetHeight;
+      dot.style.top = (scrollPercent * maxTop) + 'px';
+    });
+  });
+
   // ══════════════════════════════════════
   // CARRUSEL
   // ══════════════════════════════════════
   const track    = document.getElementById('carousel-track') as HTMLElement;
   const prevBtn  = document.getElementById('arrow-prev')     as HTMLButtonElement;
+
   const nextBtn  = document.getElementById('arrow-next')     as HTMLButtonElement;
   const cards    = document.querySelectorAll<HTMLElement>('.alumni-card');
   const mobPrev  = document.querySelector<HTMLButtonElement>('.c-arrow--mob-prev');

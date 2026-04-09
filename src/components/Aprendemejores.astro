@@ -1,25 +1,26 @@
 ---
 // AprendeMejores.astro
 const profesores = [
-  { id: 1,  nombre: "Marc Urgell",            cargo: "CEO - Abast Global",                                  foto: "/img/aprende/allo/marc-urgell.jpg",          fotoColor: "/img/aprende/color/marc-urgell.jpg",          logo: "/img/aprende/logos/abast.png",         logoAlt: "Abast" },
-  { id: 2,  nombre: "Gerard Caelles",         cargo: "CBO - SpliceBio",                                     foto: "/img/aprende/allo/gerard-caelles.jpg",       fotoColor: "/img/aprende/color/gerard-caelles.jpg",       logo: "/img/aprende/logos/splicebio.png",     logoAlt: "SpliceBio" },
-  { id: 3,  nombre: "Lourdes Fuster",         cargo: "Global Head of CRM and Product Marketing - Wallapop", foto: "/img/aprende/allo/lourdes-fuster.jpg",       fotoColor: "/img/aprende/color/lourdes-fuster.jpg",       logo: "/img/aprende/logos/wallapop.png",      logoAlt: "Wallapop" },
-  { id: 4,  nombre: "Joan Cortadellas",       cargo: "Marketing Director - Trenes.com",                     foto: "/img/aprende/allo/joan-cortadellas.jpg",     fotoColor: "/img/aprende/color/joan-cortadellas.jpg",     logo: "/img/aprende/logos/trenes.png",        logoAlt: "Trenes.com" },
-  { id: 5,  nombre: "José Juan González",     cargo: "CEO - Canaragua",                                     foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",   fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",   logo: "/img/aprende/logos/canaragua.png",     logoAlt: "Canaragua" },
-  { id: 6,  nombre: "Sebastián Cerezo",       cargo: "Socio - Moira Capital Partners",                      foto: "/img/aprende/allo/sebastian-cerezo.jpg",     fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",     logo: "/img/aprende/logos/moira.png",         logoAlt: "Moira" },
-  { id: 7,  nombre: "Joan Tubau",             cargo: "Fundador - Podcast Kapital",                          foto: "/img/aprende/allo/joan-tubau.jpg",           fotoColor: "/img/aprende/color/joan-tubau.jpg",           logo: "",                                     logoAlt: "" },
-  { id: 8,  nombre: "Miguel Anxo Bastos",     cargo: "Profesor visitante - Universidad de las Hespérides",  foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",   fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",   logo: "",                                     logoAlt: "" },
-  { id: 9,  nombre: "Oliver Alonso",          cargo: "Presidente - Domingo Alonso Group",                   foto: "/img/aprende/allo/oliver-alonso.jpg",        fotoColor: "/img/aprende/color/oliver-alonso.jpg",        logo: "/img/aprende/logos/domingo-alonso.png", logoAlt: "Domingo Alonso Group" },
-  { id: 10, nombre: "José Martínez",          cargo: "CEO - Grupo Martínez Abolafio",                       foto: "/img/aprende/allo/jose-martinez.jpg",        fotoColor: "/img/aprende/color/jose-martinez.jpg",        logo: "/img/aprende/logos/grupo-martinez.png",logoAlt: "Grupo Martínez" },
-  { id: 11, nombre: "Martín Eugenio Pérez",   cargo: "Presidente - Aloe Lanzarote Plus",                    foto: "/img/aprende/allo/martin-eugenio-perez.jpg", fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg", logo: "/img/aprende/logos/aloe-plus.png",     logoAlt: "Aloe Plus" },
-  { id: 12, nombre: "José Julio Artiles",     cargo: "CEO - Satocan",                                       foto: "/img/aprende/allo/jose-julio-artiles.jpg",   fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",   logo: "/img/aprende/logos/satocan.png",       logoAlt: "Satocan" },
+  { id: 1,  nombre: "Miguel Anxo Bastos",   cargo: "Profesor visitante - Universidad de las Hespérides", foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",    fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",    logo: "/img/aprende/logos/hesperides.png",    logoAlt: "Universidad de las Hespérides" },
+  { id: 2,  nombre: "Joan Tubau",            cargo: "Fundador - Podcast Kapital",                         foto: "/img/aprende/allo/joan-tubau.jpg",             fotoColor: "/img/aprende/color/joan-tubau.jpg",             logo: "/img/aprende/logos/kapital.png",       logoAlt: "Kapital" },
+  { id: 3,  nombre: "Marc Urgell",           cargo: "CEO - Abast Global",                                 foto: "/img/aprende/allo/marc-urgell.jpg",            fotoColor: "/img/aprende/color/marc-urgell.jpg",            logo: "/img/aprende/logos/abast.png",         logoAlt: "Abast" },
+  { id: 4,  nombre: "Gerard Caelles",        cargo: "CBO - SpliceBio",                                    foto: "/img/aprende/allo/gerard-caelles.jpg",         fotoColor: "/img/aprende/color/gerard-caelles.jpg",         logo: "/img/aprende/logos/splicebio.png",     logoAlt: "SpliceBio" },
+  { id: 5,  nombre: "Lourdes Fuster",        cargo: "Global Head of CRM - Wallapop",                      foto: "/img/aprende/allo/lourdes-fuster.jpg",         fotoColor: "/img/aprende/color/lourdes-fuster.jpg",         logo: "/img/aprende/logos/wallapop.png",      logoAlt: "Wallapop" },
+  { id: 6,  nombre: "Joan Cortadellas",      cargo: "Marketing Director - Trenes.com",                    foto: "/img/aprende/allo/joan-cortadellas.jpg",       fotoColor: "/img/aprende/color/joan-cortadellas.jpg",       logo: "/img/aprende/logos/trenes.png",        logoAlt: "Trenes.com" },
+  { id: 7,  nombre: "José Juan González",    cargo: "CEO - Canaragua",                                    foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",     fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",     logo: "/img/aprende/logos/canaragua.png",     logoAlt: "Canaragua" },
+  { id: 8,  nombre: "Oliver Alonso",         cargo: "Presidente - Domingo Alonso Group",                  foto: "/img/aprende/allo/oliver-alonso.jpg",          fotoColor: "/img/aprende/color/oliver-alonso.jpg",          logo: "/img/aprende/logos/domingo-alonso.png",logoAlt: "Domingo Alonso Group" },
+  { id: 9,  nombre: "Sebastián Cerezo",      cargo: "Socio - Moira Capital Partners",                     foto: "/img/aprende/allo/sebastian-cerezo.jpg",       fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",       logo: "/img/aprende/logos/moira.png",         logoAlt: "Moira" },
+  { id: 10, nombre: "José Martínez",         cargo: "CEO - Grupo Martínez Abolafio",                      foto: "/img/aprende/allo/jose-martinez.jpg",          fotoColor: "/img/aprende/color/jose-martinez.jpg",          logo: "/img/aprende/logos/grupo-martinez.png",logoAlt: "Grupo Martínez" },
+  { id: 11, nombre: "Martín Eugenio Pérez",  cargo: "Presidente - Aloe Lanzarote Plus",                   foto: "/img/aprende/allo/martin-eugenio-perez.jpg",   fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg",   logo: "/img/aprende/logos/aloe-plus.png",     logoAlt: "Aloe Plus" },
+  { id: 12, nombre: "José Julio Artiles",    cargo: "CEO - Satocan",                                      foto: "/img/aprende/allo/jose-julio-artiles.jpg",     fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",     logo: "/img/aprende/logos/satocan.png",       logoAlt: "Satocan" },
+  { id: 13, nombre: "Rodolfo Núñez",         cargo: "Presidente de Binter",                               foto: "/img/aprende/allo/rodolfo-nunez.jpg",          fotoColor: "/img/aprende/color/rodolfo-nunez.jpg",          logo: "/img/aprende/logos/binter.png",        logoAlt: "Binter" },
 ];
 ---
 
 <section class="aprende-section">
   <div class="aprende-header">
     <h2 class="aprende-titulo">
-      <span class="titulo-bold">Aprende </span><span class="titulo-normal">de los mejores</span>
+      <span class="titulo-bold">CEOs, empresarios y directivos reales, </span><span class="titulo-normal">contigo en directo.</span>
     </h2>
   </div>
 
@@ -33,14 +34,14 @@ const profesores = [
         tabindex="0"
         aria-label={`Ver perfil de ${profesor.nombre}`}
       >
-        <div class="foto-overlay"></div>
-
+        {/* Logo centrado — visible en estado default */}
         {profesor.logo && (
           <div class="logo-empresa">
             <img src={profesor.logo} alt={profesor.logoAlt} />
           </div>
         )}
 
+        {/* Info — visible en hover y expanded */}
         <div class="profesor-info">
           <div class="info-logo-left">
             {profesor.logo && <img src={profesor.logo} alt={profesor.logoAlt} class="info-logo" />}
@@ -69,7 +70,6 @@ const profesores = [
     width: 100%;
     background: #fff;
     padding: clamp(29px, 3.64vw, 72px) 0 clamp(34px, 4.25vw, 84px);
-    padding-inline: 0;
     overflow: hidden;
   }
 
@@ -93,24 +93,24 @@ const profesores = [
   .cards-container {
     display: flex;
     flex-direction: row;
-    gap: 0.625rem;
+    gap: clamp(6px, 0.5vw, 10px);
     align-items: stretch;
     width: 100%;
     overflow: hidden;
-    position: relative;
+    padding-inline: 0;
   }
 
+  /* Card compacta */
   .profesor-card {
     position: relative;
-    flex: 0.8;
-    min-width: clamp(100px, 10vw, 170px);
-    height: clamp(200px, 15.6vw, 300px);
-    border-radius: 15px;
+    flex: 1;
+    min-width: 0;
+    height: clamp(160px, 16vw, 256px);
+    border-radius: clamp(10px, 1.03vw, 17px);
     overflow: hidden;
     cursor: pointer;
-    background: var(--foto) center top / cover no-repeat;
-    filter: none;
-    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--foto) center 20% / cover no-repeat;
+    transition: flex 0.3s ease, border-radius 0.3s ease, background-position 0.3s ease;
     display: none;
   }
 
@@ -118,9 +118,76 @@ const profesores = [
     display: block;
   }
 
+  .profesor-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Hover desktop — solo cards NO expandidas */
+  @media (hover: hover) {
+    .profesor-card:hover:not(.expanded) {
+      background: var(--foto-color) left top / cover no-repeat;
+    }
+
+    .profesor-card:hover:not(.expanded)::after,
+    .profesor-card.expanded::after {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+    }
+
+    .profesor-card:hover:not(.expanded) .logo-empresa {
+      opacity: 0;
+    }
+
+    .profesor-card:hover:not(.expanded) .profesor-info {
+      opacity: 1;
+      transform: translateY(0);
+      top: auto;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profesor-card:hover:not(.expanded) .info-logo-left {
+      display: none;
+    }
+
+    .profesor-card:hover:not(.expanded) .info-text-right {
+      text-align: center;
+    }
+  }
+
+  /* Card expandida */
   .profesor-card.expanded {
-    flex: 2.5;
-    background: var(--foto-color) center top / cover no-repeat;
+    flex: 2;
+    height: clamp(160px, 16vw, 256px);
+    border-radius: clamp(8px, 0.78vw, 13px);
+    background: var(--foto-color) left top / cover no-repeat;
+  }
+
+  .profesor-card.expanded::after {
+    border-radius: 0 0 clamp(8px, 0.78vw, 13px) clamp(8px, 0.78vw, 13px);
+  }
+
+  .profesor-card.expanded .logo-empresa {
+    opacity: 0;
+  }
+
+  .profesor-card.expanded .profesor-info {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .profesor-card:focus-visible {
@@ -128,51 +195,65 @@ const profesores = [
     outline-offset: 3px;
   }
 
-  .foto-overlay { display: none; }
-
+  /* Logo centrado abajo — estado default */
   .logo-empresa {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-    width: auto;
     text-align: center;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease;
   }
 
   .logo-empresa img {
-    max-width: 120px;
-    max-height: 40px;
+    max-width: 110px;
+    max-height: 36px;
     object-fit: contain;
-    object-position: left;
     filter: brightness(0) invert(1);
+    display: block;
   }
 
-  .logo-empresa img[alt="Abast"] {
+  .logo-empresa img[alt="Universidad de las Hespérides"] {
+    width: 160px !important;
+    max-width: none !important;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
     position: relative;
-    top: 6px;
+    top: 20px;
   }
 
-  .profesor-card.expanded .logo-empresa {
-    opacity: 0;
-    pointer-events: none;
+  .info-logo[alt="Universidad de las Hespérides"] {
+    max-width: 300px;
+    max-height: 80px;
   }
 
+  .logo-empresa img[alt="Kapital"] {
+    filter: none;
+    mix-blend-mode: normal;
+  }
+
+  .info-logo[alt="Kapital"] {
+    filter: none;
+    mix-blend-mode: normal;
+  }
+
+  /* Info — oculta por defecto, flex con logo izq y texto der */
   .profesor-info {
     position: absolute;
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
     z-index: 3;
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
   }
 
   .info-logo-left {
@@ -180,40 +261,36 @@ const profesores = [
   }
 
   .info-logo {
-    max-width: 160px;
-    max-height: 50px;
+    max-width: 120px;
+    max-height: 40px;
     object-fit: contain;
     filter: brightness(0) invert(1);
+    display: block;
   }
 
   .info-text-right {
     text-align: right;
-  }
-
-  .profesor-card.expanded .profesor-info {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    flex: 1;
   }
 
   .profesor-nombre {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 500;
-    font-size: clamp(13px, 1.52vw, 30px);
+    font-size: clamp(12px, 1.1vw, 18px);
     line-height: 1.2;
     color: #fff;
-    margin: 0 0 clamp(4px, 0.45vw, 9px);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    margin: 0 0 2px;
+    text-shadow: none;
   }
 
   .profesor-cargo {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 200;
-    font-size: clamp(11px, 1.21vw, 24px);
+    font-weight: 300;
+    font-size: clamp(9px, 0.8vw, 13px);
     line-height: 1.3;
     color: #fff;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    text-shadow: none;
   }
 
   /* Flechas */
@@ -243,47 +320,66 @@ const profesores = [
 
   /* Mobile */
   @media (max-width: 900px) {
-    .aprende-section { padding-inline: 20px; }
-    .cards-container { flex-wrap: wrap; }
-    .logo-empresa { bottom: 12px; left: 50%; transform: translateX(-50%); }
-    .logo-empresa img { max-width: 70px; max-height: 24px; }
-    .profesor-nombre { font-size: 14px; margin-bottom: 2px; }
-    .profesor-cargo { font-size: 11px; font-weight: 300; }
-    .profesor-info { bottom: 12px; left: 12px; right: 12px; }
+    .aprende-section { padding-inline: 20px; overflow: visible; }
+
+    .cards-container {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
+      padding-bottom: 10px;
+      scrollbar-width: none;
+      align-items: stretch;
+    }
+
+    .cards-container::-webkit-scrollbar { display: none; }
+
+    .profesor-card,
+    .profesor-card.visible {
+      flex: 0 0 70vw;
+      height: 280px;
+      display: block;
+      scroll-snap-align: start;
+    }
+
+    .profesor-card.expanded {
+      flex: 0 0 70vw;
+      height: 280px;
+    }
+
     .profesor-card.expanded .profesor-info {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile: texto centrado, sin logo en info */
+    .profesor-info {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      top: 50%;
-      bottom: auto;
-      left: 12px;
-      right: 12px;
-      transform: translateY(-50%);
-      opacity: 1;
     }
-    .profesor-card.expanded .logo-empresa { display: none; }
-    .profesor-card.expanded .profesor-nombre { font-size: 14px; font-weight: 600; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
-    .profesor-card.expanded .profesor-cargo { font-size: 11px; font-weight: 400; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
-    .profesor-card,
-    .profesor-card.expanded {
-      flex: 0 0 calc(33.333% - 8px);
-      height: 220px;
-      display: block;
-    }
-  }
 
-  @media (max-width: 600px) {
-    .profesor-card,
-    .profesor-card.expanded {
-      flex: 0 0 calc(50% - 6px);
-      height: 200px;
-    }
-  }
+    .info-logo-left { display: none; }
 
-  @media (min-width: 901px) {
-    .profesor-card { height: clamp(280px, 22vw, 380px); }
+    .info-text-right { text-align: center; }
+
+    .profesor-card.expanded .profesor-nombre {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .profesor-card.expanded .profesor-cargo {
+      font-size: 11px;
+      font-weight: 300;
+    }
+
+    .logo-empresa { bottom: 12px; }
+    .logo-empresa img { max-width: 120px; max-height: 44px; }
+    .logo-empresa img[alt="Universidad de las Hespérides"] { width: 120px !important; }
+
+    .aprende-arrows { display: flex; justify-content: center; gap: 16px; margin-top: 16px; }
   }
 </style>
 
@@ -298,71 +394,79 @@ const profesores = [
 
   function renderVisible() {
     if (isMobile) {
-      allCards.forEach(card => {
-        card.classList.add("visible");
-        card.classList.remove("expanded");
-      });
-      if (prevBtn) prevBtn.style.display = "none";
-      if (nextBtn) nextBtn.style.display = "none";
+      allCards.forEach(card => card.classList.add("visible"));
       return;
     }
-
     allCards.forEach((card, i) => {
       if (i >= startIndex && i < startIndex + VISIBLE) {
         card.classList.add("visible");
+        card.style.display = "";
       } else {
         card.classList.remove("visible");
         card.classList.remove("expanded");
+        card.style.display = "none";
       }
     });
-
-    // Siempre expandir la card del centro (posición 3, índice 2)
-    const visibleCards = allCards.filter((_, i) => i >= startIndex && i < startIndex + VISIBLE);
-    allCards.forEach(c => c.classList.remove("expanded"));
-    const centerIndex = Math.min(2, visibleCards.length - 1);
-    if (visibleCards[centerIndex]) {
-      visibleCards[centerIndex].classList.add("expanded");
-    }
-
     if (prevBtn) prevBtn.disabled = startIndex === 0;
     if (nextBtn) nextBtn.disabled = startIndex + VISIBLE >= allCards.length;
   }
 
-  function expandCard(card: Element) {
-    allCards.forEach(c => c.classList.remove("expanded"));
-    card.classList.add("expanded");
-  }
-
+  // Click handler
   allCards.forEach(card => {
     card.addEventListener("click", () => {
+      if (window.innerWidth <= 900) {
+        // Mobile: toggle
+        const wasExpanded = card.classList.contains("expanded");
+        allCards.forEach(c => c.classList.remove("expanded"));
+        if (!wasExpanded) card.classList.add("expanded");
+        return;
+      }
+      // Desktop: siempre una expandida
       if (!card.classList.contains("expanded")) {
-        expandCard(card);
+        allCards.forEach(c => c.classList.remove("expanded"));
+        card.classList.add("expanded");
       }
     });
+
     card.addEventListener("keydown", (e) => {
       const ke = e as KeyboardEvent;
       if (ke.key === "Enter" || ke.key === " ") {
         ke.preventDefault();
+        if (window.innerWidth <= 900) {
+          const wasExpanded = card.classList.contains("expanded");
+          allCards.forEach(c => c.classList.remove("expanded"));
+          if (!wasExpanded) card.classList.add("expanded");
+          return;
+        }
         if (!card.classList.contains("expanded")) {
-          expandCard(card);
+          allCards.forEach(c => c.classList.remove("expanded"));
+          card.classList.add("expanded");
         }
       }
     });
   });
 
+  // Flechas desktop
   prevBtn?.addEventListener("click", () => {
-    if (startIndex > 0) {
-      startIndex--;
-      renderVisible();
-    }
+    if (isMobile) return;
+    if (startIndex > 0) { startIndex--; renderVisible(); }
+  });
+  nextBtn?.addEventListener("click", () => {
+    if (isMobile) return;
+    if (startIndex + VISIBLE < allCards.length) { startIndex++; renderVisible(); }
   });
 
-  nextBtn?.addEventListener("click", () => {
-    if (startIndex + VISIBLE < allCards.length) {
-      startIndex++;
-      renderVisible();
-    }
-  });
+  // Flechas mobile — scroll
+  if (isMobile && container) {
+    const scrollAmt = () => (allCards[0]?.offsetWidth || 250) + 12;
+    prevBtn?.addEventListener("click", () => container.scrollBy({ left: -scrollAmt(), behavior: "smooth" }));
+    nextBtn?.addEventListener("click", () => container.scrollBy({ left: scrollAmt(), behavior: "smooth" }));
+  }
 
   renderVisible();
+
+  // Init desktop — primera card expandida
+  if (!isMobile && allCards.length > 0) {
+    allCards[0].classList.add("expanded");
+  }
 </script>
