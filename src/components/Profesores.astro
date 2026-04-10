@@ -185,9 +185,9 @@ const profesores = [
   .prof-arrow--next { right: -48px; }
 
   /* ══ Overflow y track ══ */
-  .profesores-overflow {
-    overflow: hidden;
-    width: 100%;
+ .profesores-overflow {
+  overflow: hidden;
+  padding-right: 20px;
   }
   /* Cuando hay activa, el track sigue clipado */
   .profesores-overflow.has-active { overflow: hidden; }
@@ -273,7 +273,7 @@ const profesores = [
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 300;
     font-size: clamp(10px, 1.06vw, 21px);
-    line-height: 0.5;
+    line-height: 1.1;
     color: rgba(255,255,255,0.85);
     margin: 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -403,6 +403,9 @@ const profesores = [
     transition: background 0.2s, color 0.2s;
   }
   .profesores-boton:hover { background: #fff; color: #1a1a1a; }
+  .prof-card-compact::after {
+    pointer-events: none;
+  }
 
   /* ══ Mobile ══ */
   @media (max-width: 860px) {
@@ -621,7 +624,7 @@ const profesores = [
 
   .prof-cargo{
     font-size:clamp(8px, 0.83vw, 17px);
-    line-height:clamp(12px, 1.29vw, 25px);
+    line-height: clamp(11px, 1vw, 19px);
   }
 
   .profesores-titulo{
@@ -630,47 +633,63 @@ const profesores = [
 
 }
 </style>
-
 <script>
-  const track    = document.getElementById('profesores-track') as HTMLElement;
-  const overflow = document.getElementById('profesores-overflow') as HTMLElement;
-  const prevBtn  = document.getElementById('prof-prev') as HTMLButtonElement;
-  const nextBtn  = document.getElementById('prof-next') as HTMLButtonElement;
-  const mobPrev  = document.querySelector<HTMLButtonElement>('.prof-arrow--mob-prev');
-  const mobNext  = document.querySelector<HTMLButtonElement>('.prof-arrow--mob-next');
-  const cards    = Array.from(document.querySelectorAll<HTMLElement>('.prof-card'));
-  const GAP      = 20;
-  let current    = 0;
-  let compactW   = 140;
+  const track    = document.getElementById('profesores-track');
+  const overflow = document.getElementById('profesores-overflow');
+  const prevBtn  = document.getElementById('prof-prev');
+  const nextBtn  = document.getElementById('prof-next');
+  const mobPrev  = document.querySelector('.prof-arrow--mob-prev');
+  const mobNext  = document.querySelector('.prof-arrow--mob-next');
 
-  // Duplicar cards al final del track solo en desktop para evitar que se corte la última
-  if (window.innerWidth > 860) {
-    cards.forEach(card => {
-      const clone = card.cloneNode(true) as HTMLElement;
-      clone.setAttribute('aria-hidden', 'true');
-      clone.classList.add('prof-card--clone');
-      track.appendChild(clone);
-    });
-  }
+  const originalHTML = track.innerHTML; // 🔥 clave
+
+  let cards = [];
+  let current = 0;
+  let compactW = 140;
+  const GAP = 20;
 
   function vis() {
     const w = window.innerWidth;
     return w >= 1200 ? 5 : w >= 900 ? 4 : w >= 650 ? 3 : 1;
   }
 
-  function expandedW() {
-    return compactW * 2 + GAP;
+  // 🔥 SETUP INFINITO (FIX MOBILE INCLUIDO)
+  function setupInfinite() {
+    // restaurar SIEMPRE el orden original
+    track.innerHTML = originalHTML;
+
+    cards = Array.from(track.children);
+
+    // 📱 MOBILE → sin clones
+    if (window.innerWidth <= 860) {
+      current = 0;
+      return;
+    }
+
+    const v = vis();
+
+    const firstClones = cards.slice(0, v).map(c => c.cloneNode(true));
+    const lastClones  = cards.slice(-v).map(c => c.cloneNode(true));
+
+    lastClones.forEach(clone => track.insertBefore(clone, track.firstChild));
+    firstClones.forEach(clone => track.appendChild(clone));
+
+    cards = Array.from(track.children);
+
+    current = v;
   }
 
   function setWidths() {
-    const outer = (track.parentElement as HTMLElement).offsetWidth;
+    const outer = track.parentElement.offsetWidth;
     const v = vis();
     const w = window.innerWidth;
+
     if (w < 650) {
       compactW = Math.floor(w * 0.72);
     } else {
       compactW = Math.floor((outer - GAP * (v - 1)) / v);
     }
+
     cards.forEach(c => {
       if (!c.classList.contains('active')) {
         c.style.width = compactW + 'px';
@@ -678,25 +697,45 @@ const profesores = [
     });
   }
 
-  function cardStep() { return compactW + GAP; }
-  function maxI() { return Math.max(0, cards.length - vis()); }
+  function cardStep() {
+    return compactW + GAP;
+  }
 
-  function goTo(i: number) {
-    if (i < 0) i = maxI();
-    if (i > maxI()) i = 0;
+  function goTo(i) {
     current = i;
     track.style.transition = 'transform 0.5s ease';
     track.style.transform = `translateX(-${current * cardStep()}px)`;
   }
 
+  // 🔁 LOOP INFINITO (solo desktop realmente)
+  track.addEventListener('transitionend', () => {
+    if (window.innerWidth <= 860) return;
+
+    const total = track.children.length;
+    const v = vis();
+
+    if (current >= total - v) {
+      track.style.transition = 'none';
+      current = v;
+      track.style.transform = `translateX(-${current * cardStep()}px)`;
+    }
+
+    if (current < v) {
+      track.style.transition = 'none';
+      current = total - v * 2;
+      track.style.transform = `translateX(-${current * cardStep()}px)`;
+    }
+  });
+
+  // ⬅️➡️ BOTONES
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
   mobPrev?.addEventListener('click', () => goTo(current - 1));
   mobNext?.addEventListener('click', () => goTo(current + 1));
 
-  /* Expand / collapse */
+  // ❌ cerrar activa
   function closeActive() {
-    const active = document.querySelector<HTMLElement>('.prof-card.active');
+    const active = track.querySelector('.prof-card.active');
     if (active) {
       active.classList.remove('active');
       active.style.width = compactW + 'px';
@@ -704,69 +743,67 @@ const profesores = [
     }
   }
 
-  cards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (isDragging) return;
-      if ((e.target as HTMLElement).closest('.prof-exp-close')) return;
-      if (card.classList.contains('active')) return;
-      closeActive();
-      card.classList.add('active');
+  // 🔥 CLICK (funciona también en clones)
+  track.addEventListener('click', (e) => {
+    const card = e.target.closest('.prof-card');
+    if (!card) return;
 
-      if (window.innerWidth <= 900) {
-        card.style.width = Math.floor(window.innerWidth * 0.85) + 'px';
-        overflow.classList.add('has-active');
-      } else {
-        card.style.width = expandedW() + 'px';
-        overflow.classList.add('has-active');
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            const cardRect = card.getBoundingClientRect();
-            const overflowRect = overflow.getBoundingClientRect();
-            if (cardRect.right > overflowRect.right) {
-              const extra = cardRect.right - overflowRect.right + 20;
-              const match = track.style.transform.match(/translateX\(-?([\d.]+)/);
-              const currentX = match ? parseFloat(match[1]) : 0;
-              track.style.transition = 'transform 0.3s ease';
-              track.style.transform = `translateX(-${currentX + extra}px)`;
-            }
-          });
-        });
-      }
-    });
-
-    card.querySelector('.prof-exp-close')?.addEventListener('click', (e) => {
+    if (e.target.closest('.prof-exp-close')) {
       e.stopPropagation();
       closeActive();
-      setWidths();
-    });
+      return;
+    }
+
+    if (card.classList.contains('active')) return;
+
+    closeActive();
+    card.classList.add('active');
+
+    if (window.innerWidth <= 900) {
+      // 📱 MOBILE → vertical
+      card.style.width = Math.floor(window.innerWidth * 0.85) + 'px';
+      overflow.classList.add('has-active');
+    } else {
+      // 💻 DESKTOP → horizontal expand
+      card.style.width = (compactW * 2 + GAP) + 'px';
+      overflow.classList.add('has-active');
+    }
   });
 
+  // click fuera
   document.addEventListener('click', (e) => {
-    const path = e.composedPath ? e.composedPath() : [e.target];
-    const insideCard = path.some(el => (el as HTMLElement).classList?.contains('prof-card'));
-    if (!insideCard) closeActive();
+    if (!e.target.closest('.prof-card')) {
+      closeActive();
+    }
   });
 
-  // Touch swipe (carrusel) — distinguir swipe de tap
-  let tx = 0;
-  let isDragging = false;
+  // 📱 SWIPE
+  let startX = 0;
+
   track.addEventListener('touchstart', e => {
-    tx = e.changedTouches[0].screenX;
-  }, { passive: true });
-  track.addEventListener('touchmove', () => { isDragging = true; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    setTimeout(() => { isDragging = false; }, 50);
-    if ((e.target as HTMLElement).closest('.prof-card')) return;
-    const diff = tx - e.changedTouches[0].screenX;
-    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+    startX = e.touches[0].clientX;
   }, { passive: true });
 
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+
+    if (Math.abs(diff) > 50) {
+      goTo(current + (diff > 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  // 🧠 INIT
+  function init() {
+    setupInfinite();
+    setWidths();
+    goTo(current);
+  }
+
+  init();
+
+  // 🔁 RESIZE (totalmente estable)
   window.addEventListener('resize', () => {
     closeActive();
-    setWidths();
-    goTo(Math.min(current, maxI()));
+    init();
   });
-
-  setWidths();
-  goTo(0);
 </script>
