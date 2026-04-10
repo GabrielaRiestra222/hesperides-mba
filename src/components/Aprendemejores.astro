@@ -133,43 +133,36 @@ const profesores = [
   }
 
   /* Hover desktop — solo cards NO expandidas */
-  @media (hover: hover) {
-    .profesor-card:hover:not(.expanded) {
-      background: var(--foto-color) left center / cover no-repeat;
-      background-size: auto 100%;
-    }
+@media (hover: hover) and (min-width: 901px) {
 
-    .profesor-card:hover:not(.expanded)::after,
-    .profesor-card.expanded::after {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
-    }
-
-    .profesor-card:hover:not(.expanded) .logo-empresa {
-      opacity: 0;
-    }
-
-    .profesor-card:hover:not(.expanded) .profesor-info {
-      opacity: 1;
-      transform: translateY(0);
-      top: auto;
-      bottom: 16px;
-      left: 0;
-      right: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      text-align: center;
-    }
-
-    .profesor-card:hover:not(.expanded) .info-logo-left {
-      display: none;
-    }
-
-    .profesor-card:hover:not(.expanded) .info-text-right {
-      text-align: center;
-    }
+  .profesor-card:hover {
+    flex: 2;
+    background: var(--foto-color) left center / cover no-repeat;
+    background-size: auto 100%;
   }
+
+  .profesor-card:hover .logo-empresa {
+    opacity: 0;
+  }
+
+  .profesor-card:hover .profesor-info {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .profesor-card:hover .info-logo-left {
+    display: block;
+  }
+
+  .profesor-card:hover .info-text-right {
+    text-align: right;
+  }
+
+}
 
   /* Card expandida */
   .profesor-card.expanded {
@@ -227,6 +220,16 @@ const profesores = [
     padding: 0 16px;
     transition: opacity 0.3s ease;
   }
+  /* Hespérides MÁS GRANDE en expanded */
+  .info-logo[alt="Universidad de las Hespérides"] {
+    max-width: 280px !important;
+    max-height: 160px !important;
+    margin-bottom: -50px; 
+  }
+  .info-logo[alt="Kapital"] {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  } 
 
   .logo-empresa img {
     max-width: 100%;
@@ -236,13 +239,15 @@ const profesores = [
     object-position: center center;
     filter: brightness(0) invert(1);
     display: block;
+
+    /* 🔧 importante */
+    transform-origin: center;
   }
 
+
   .logo-empresa img[alt="Universidad de las Hespérides"] {
-    max-width: 110% !important;
-    max-height: 120px !important;
-    position: static !important;
-    top: auto !important;
+    max-width: 120% !important;
+    max-height: 200px !important;
   }
 
   .logo-empresa img[alt="Aloe Plus"] {
@@ -255,20 +260,8 @@ const profesores = [
     margin-bottom: 10px;
   }
 
-  .info-logo[alt="Universidad de las Hespérides"] {
-    max-width: 220px !important;
-    max-height: 120px !important;
-    object-position: left bottom !important;
-    margin-bottom: -24px !important;
-  }
-
   .logo-empresa img[alt="Domingo Alonso Group"] {
     max-width: 60% !important;
-    max-height: 45px !important;
-  }
-
-  .info-logo[alt="Domingo Alonso Group"] {
-    max-width: 110px !important;
     max-height: 45px !important;
   }
 
@@ -277,9 +270,22 @@ const profesores = [
     mix-blend-mode: normal;
   }
 
-  .info-logo[alt="Kapital"] {
-    filter: none;
-    mix-blend-mode: normal;
+  /* 👇 NUEVOS AJUSTES */
+
+  .logo-empresa img[alt="Trenes.com"] {
+    transform: scale(0.75);
+  }
+
+  .logo-empresa img[alt="Canaragua"] {
+    transform: scale(0.8);
+  }
+
+  .logo-empresa img[alt="CareExpand"] {
+    transform: scale(0.8);
+  }
+
+  .logo-empresa img[alt="SpliceBio"] {
+    transform: scale(0.75);
   }
 
   /* Info — oculta por defecto, flex con logo izq y texto der */
@@ -478,10 +484,10 @@ const profesores = [
 </style>
 
 <script>
-  const container = document.getElementById("cards-container") as HTMLElement;
-  const allCards = Array.from(container?.querySelectorAll<HTMLElement>(".profesor-card") || []);
-  const prevBtn = document.getElementById("aprende-prev") as HTMLButtonElement;
-  const nextBtn = document.getElementById("aprende-next") as HTMLButtonElement;
+  const container = document.getElementById("cards-container");
+  const allCards = Array.from(container?.querySelectorAll(".profesor-card") || []);
+  const prevBtn = document.getElementById("aprende-prev");
+  const nextBtn = document.getElementById("aprende-next");
   const VISIBLE = 6;
   let startIndex = 0;
   const isMobile = window.innerWidth <= 900;
@@ -505,39 +511,28 @@ const profesores = [
     if (nextBtn) nextBtn.disabled = startIndex + VISIBLE >= allCards.length;
   }
 
-  // Click handler
+  // 👉 CLICK + TECLADO SOLO MOBILE
   allCards.forEach(card => {
+
+    // CLICK
     card.addEventListener("click", () => {
       if (window.innerWidth <= 900) {
-        // Mobile: toggle
         const wasExpanded = card.classList.contains("expanded");
         allCards.forEach(c => c.classList.remove("expanded"));
         if (!wasExpanded) card.classList.add("expanded");
-        return;
-      }
-      // Desktop: siempre una expandida
-      if (!card.classList.contains("expanded")) {
-        allCards.forEach(c => c.classList.remove("expanded"));
-        card.classList.add("expanded");
       }
     });
 
+    // TECLADO
     card.addEventListener("keydown", (e) => {
-      const ke = e as KeyboardEvent;
-      if (ke.key === "Enter" || ke.key === " ") {
-        ke.preventDefault();
-        if (window.innerWidth <= 900) {
-          const wasExpanded = card.classList.contains("expanded");
-          allCards.forEach(c => c.classList.remove("expanded"));
-          if (!wasExpanded) card.classList.add("expanded");
-          return;
-        }
-        if (!card.classList.contains("expanded")) {
-          allCards.forEach(c => c.classList.remove("expanded"));
-          card.classList.add("expanded");
-        }
+      if ((e.key === "Enter" || e.key === " ") && window.innerWidth <= 900) {
+        e.preventDefault();
+        const wasExpanded = card.classList.contains("expanded");
+        allCards.forEach(c => c.classList.remove("expanded"));
+        if (!wasExpanded) card.classList.add("expanded");
       }
     });
+
   });
 
   // Flechas desktop
@@ -545,6 +540,7 @@ const profesores = [
     if (isMobile) return;
     if (startIndex > 0) { startIndex--; renderVisible(); }
   });
+
   nextBtn?.addEventListener("click", () => {
     if (isMobile) return;
     if (startIndex + VISIBLE < allCards.length) { startIndex++; renderVisible(); }
@@ -559,8 +555,6 @@ const profesores = [
 
   renderVisible();
 
-  // Init desktop — primera card expandida
-  if (!isMobile && allCards.length > 0) {
-    allCards[0].classList.add("expanded");
-  }
+  // ❌ IMPORTANTE: ya NO hay expanded inicial en desktop
+
 </script>
