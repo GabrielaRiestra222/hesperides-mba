@@ -14,6 +14,7 @@ const profesores = [
   { id: 11, nombre: "José Juan González",     cargo: "CEO - Canaragua",                                    foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",      fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",      logo: "/img/aprende/logos/canaragua.png",     logoAlt: "Canaragua" },
   { id: 12, nombre: "Martín Eugenio Pérez",   cargo: "Presidente - Aloe Lanzarote Plus",                   foto: "/img/aprende/allo/martin-eugenio-perez.jpg",    fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg",    logo: "/img/aprende/logos/aloe-plus.png",     logoAlt: "Aloe Plus" },
   { id: 13, nombre: "José Martínez",          cargo: "CEO - Grupo Martínez Abolafio",                      foto: "/img/aprende/allo/jose-martinez.jpg",           fotoColor: "/img/aprende/color/jose-martinez.jpg",           logo: "/img/aprende/logos/grupo-martinez.png",logoAlt: "Grupo Martínez" },
+  { id: 14, nombre: "Javier Viñals Larruga",  cargo: "CEO y Co-fundador - CareExpand",                     foto: "/img/aprende/allo/javier-vinals-larruga.jpg",   fotoColor: "/img/aprende/color/javier-vinals-larruga.jpg",   logo: "/img/aprende/logos/careexpand.svg",    logoAlt: "CareExpand" },
 ];
 ---
 
@@ -134,7 +135,8 @@ const profesores = [
   /* Hover desktop — solo cards NO expandidas */
   @media (hover: hover) {
     .profesor-card:hover:not(.expanded) {
-      background: var(--foto-color) left top / cover no-repeat;
+      background: var(--foto-color) left center / cover no-repeat;
+      background-size: auto 100%;
     }
 
     .profesor-card:hover:not(.expanded)::after,
@@ -174,7 +176,8 @@ const profesores = [
     flex: 2;
     height: clamp(220px, 20vw, 340px);
     border-radius: clamp(8px, 0.78vw, 13px);
-    background: var(--foto-color) left top / cover no-repeat;
+    background: var(--foto-color) left center / cover no-repeat;
+    background-size: auto 100%;
   }
 
   .profesor-card.expanded::after {
@@ -253,10 +256,20 @@ const profesores = [
   }
 
   .info-logo[alt="Universidad de las Hespérides"] {
-    max-width: 180px !important;
-    max-height: 95px !important;
+    max-width: 220px !important;
+    max-height: 120px !important;
     object-position: left bottom !important;
     margin-bottom: -24px !important;
+  }
+
+  .logo-empresa img[alt="Domingo Alonso Group"] {
+    max-width: 60% !important;
+    max-height: 45px !important;
+  }
+
+  .info-logo[alt="Domingo Alonso Group"] {
+    max-width: 110px !important;
+    max-height: 45px !important;
   }
 
   .logo-empresa img[alt="Kapital"] {
@@ -307,7 +320,7 @@ const profesores = [
 
   .profesor-nombre {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
     font-size: clamp(13px, 1.2vw, 20px) !important;
     line-height: 1.1;
     color: #fff;
