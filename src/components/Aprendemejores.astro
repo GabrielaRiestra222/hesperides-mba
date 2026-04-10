@@ -1,19 +1,19 @@
 ---
 // AprendeMejores.astro
 const profesores = [
-  { id: 1,  nombre: "Miguel Anxo Bastos",   cargo: "Profesor visitante - Universidad de las Hespérides", foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",    fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",    logo: "/img/aprende/logos/hesperides.png",    logoAlt: "Universidad de las Hespérides" },
-  { id: 2,  nombre: "Joan Tubau",            cargo: "Fundador - Podcast Kapital",                         foto: "/img/aprende/allo/joan-tubau.jpg",             fotoColor: "/img/aprende/color/joan-tubau.jpg",             logo: "/img/aprende/logos/kapital.png",       logoAlt: "Kapital" },
-  { id: 3,  nombre: "Marc Urgell",           cargo: "CEO - Abast Global",                                 foto: "/img/aprende/allo/marc-urgell.jpg",            fotoColor: "/img/aprende/color/marc-urgell.jpg",            logo: "/img/aprende/logos/abast.png",         logoAlt: "Abast" },
-  { id: 4,  nombre: "Gerard Caelles",        cargo: "CBO - SpliceBio",                                    foto: "/img/aprende/allo/gerard-caelles.jpg",         fotoColor: "/img/aprende/color/gerard-caelles.jpg",         logo: "/img/aprende/logos/splicebio.png",     logoAlt: "SpliceBio" },
-  { id: 5,  nombre: "Lourdes Fuster",        cargo: "Global Head of CRM - Wallapop",                      foto: "/img/aprende/allo/lourdes-fuster.jpg",         fotoColor: "/img/aprende/color/lourdes-fuster.jpg",         logo: "/img/aprende/logos/wallapop.png",      logoAlt: "Wallapop" },
-  { id: 6,  nombre: "Joan Cortadellas",      cargo: "Marketing Director - Trenes.com",                    foto: "/img/aprende/allo/joan-cortadellas.jpg",       fotoColor: "/img/aprende/color/joan-cortadellas.jpg",       logo: "/img/aprende/logos/trenes.png",        logoAlt: "Trenes.com" },
-  { id: 7,  nombre: "José Juan González",    cargo: "CEO - Canaragua",                                    foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",     fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",     logo: "/img/aprende/logos/canaragua.png",     logoAlt: "Canaragua" },
-  { id: 8,  nombre: "Oliver Alonso",         cargo: "Presidente - Domingo Alonso Group",                  foto: "/img/aprende/allo/oliver-alonso.jpg",          fotoColor: "/img/aprende/color/oliver-alonso.jpg",          logo: "/img/aprende/logos/domingo-alonso.png",logoAlt: "Domingo Alonso Group" },
-  { id: 9,  nombre: "Sebastián Cerezo",      cargo: "Socio - Moira Capital Partners",                     foto: "/img/aprende/allo/sebastian-cerezo.jpg",       fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",       logo: "/img/aprende/logos/moira.png",         logoAlt: "Moira" },
-  { id: 10, nombre: "José Martínez",         cargo: "CEO - Grupo Martínez Abolafio",                      foto: "/img/aprende/allo/jose-martinez.jpg",          fotoColor: "/img/aprende/color/jose-martinez.jpg",          logo: "/img/aprende/logos/grupo-martinez.png",logoAlt: "Grupo Martínez" },
-  { id: 11, nombre: "Martín Eugenio Pérez",  cargo: "Presidente - Aloe Lanzarote Plus",                   foto: "/img/aprende/allo/martin-eugenio-perez.jpg",   fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg",   logo: "/img/aprende/logos/aloe-plus.png",     logoAlt: "Aloe Plus" },
-  { id: 12, nombre: "José Julio Artiles",    cargo: "CEO - Satocan",                                      foto: "/img/aprende/allo/jose-julio-artiles.jpg",     fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",     logo: "/img/aprende/logos/satocan.png",       logoAlt: "Satocan" },
-  { id: 13, nombre: "Rodolfo Núñez",         cargo: "Presidente de Binter",                               foto: "/img/aprende/allo/rodolfo-nunez.jpg",          fotoColor: "/img/aprende/color/rodolfo-nunez.jpg",          logo: "/img/aprende/logos/binter.png",        logoAlt: "Binter" },
+  { id: 1,  nombre: "Miguel Anxo Bastos",    cargo: "Profesor visitante - Universidad de las Hespérides", foto: "/img/aprende/allo/miguel-anxo-bastos.jpg",    fotoColor: "/img/aprende/color/miguel-anxo-bastos.jpg",    logo: "/img/aprende/logos/hesperides.png",    logoAlt: "Universidad de las Hespérides" },
+  { id: 2,  nombre: "Joan Tubau",             cargo: "Fundador - Podcast Kapital",                         foto: "/img/aprende/allo/joan-tubau.jpg",             fotoColor: "/img/aprende/color/joan-tubau.jpg",             logo: "/img/aprende/logos/kapital.png",       logoAlt: "Kapital" },
+  { id: 3,  nombre: "Marc Urgell",            cargo: "CEO - Abast Global",                                 foto: "/img/aprende/allo/marc-urgell.jpg",             fotoColor: "/img/aprende/color/marc-urgell.jpg",             logo: "/img/aprende/logos/abast.png",         logoAlt: "Abast" },
+  { id: 4,  nombre: "Gerard Caelles",         cargo: "CBO - SpliceBio",                                    foto: "/img/aprende/allo/gerard-caelles.jpg",          fotoColor: "/img/aprende/color/gerard-caelles.jpg",          logo: "/img/aprende/logos/splicebio.png",     logoAlt: "SpliceBio" },
+  { id: 5,  nombre: "Rodolfo Núñez",          cargo: "Presidente de Binter",                               foto: "/img/aprende/allo/rodolfo-nunez.jpg",           fotoColor: "/img/aprende/color/rodolfo-nunez.jpg",           logo: "/img/aprende/logos/binter.png",        logoAlt: "Binter" },
+  { id: 6,  nombre: "Lourdes Fuster",         cargo: "Global Head of CRM and Product Marketing - Wallapop",foto: "/img/aprende/allo/lourdes-fuster.jpg",          fotoColor: "/img/aprende/color/lourdes-fuster.jpg",          logo: "/img/aprende/logos/wallapop.png",      logoAlt: "Wallapop" },
+  { id: 7,  nombre: "Oliver Alonso",          cargo: "Presidente - Domingo Alonso Group",                  foto: "/img/aprende/allo/oliver-alonso.jpg",           fotoColor: "/img/aprende/color/oliver-alonso.jpg",           logo: "/img/aprende/logos/domingo-alonso.png",logoAlt: "Domingo Alonso Group" },
+  { id: 8,  nombre: "Sebastián Cerezo",       cargo: "Socio - Moira Capital Partners",                     foto: "/img/aprende/allo/sebastian-cerezo.jpg",        fotoColor: "/img/aprende/color/sebastian-cerezo.jpg",        logo: "/img/aprende/logos/moira.png",         logoAlt: "Moira" },
+  { id: 9,  nombre: "José Julio Artiles",     cargo: "CEO - Satocan",                                      foto: "/img/aprende/allo/jose-julio-artiles.jpg",      fotoColor: "/img/aprende/color/jose-julio-artiles.jpg",      logo: "/img/aprende/logos/satocan.png",       logoAlt: "Satocan" },
+  { id: 10, nombre: "Joan Cortadellas",       cargo: "Marketing Director - Trenes.com",                    foto: "/img/aprende/allo/joan-cortadellas.jpg",        fotoColor: "/img/aprende/color/joan-cortadellas.jpg",        logo: "/img/aprende/logos/trenes.png",        logoAlt: "Trenes.com" },
+  { id: 11, nombre: "José Juan González",     cargo: "CEO - Canaragua",                                    foto: "/img/aprende/allo/jose-juan-gonzalez.jpg",      fotoColor: "/img/aprende/color/jose-juan-gonzalez.jpg",      logo: "/img/aprende/logos/canaragua.png",     logoAlt: "Canaragua" },
+  { id: 12, nombre: "Martín Eugenio Pérez",   cargo: "Presidente - Aloe Lanzarote Plus",                   foto: "/img/aprende/allo/martin-eugenio-perez.jpg",    fotoColor: "/img/aprende/color/martin-eugenio-perez.jpg",    logo: "/img/aprende/logos/aloe-plus.png",     logoAlt: "Aloe Plus" },
+  { id: 13, nombre: "José Martínez",          cargo: "CEO - Grupo Martínez Abolafio",                      foto: "/img/aprende/allo/jose-martinez.jpg",           fotoColor: "/img/aprende/color/jose-martinez.jpg",           logo: "/img/aprende/logos/grupo-martinez.png",logoAlt: "Grupo Martínez" },
 ];
 ---
 
@@ -105,7 +105,7 @@ const profesores = [
     position: relative;
     flex: 1;
     min-width: 0;
-    height: clamp(160px, 16vw, 256px);
+    height: clamp(220px, 20vw, 340px);
     border-radius: clamp(10px, 1.03vw, 17px);
     overflow: hidden;
     cursor: pointer;
@@ -172,7 +172,7 @@ const profesores = [
   /* Card expandida */
   .profesor-card.expanded {
     flex: 2;
-    height: clamp(160px, 16vw, 256px);
+    height: clamp(220px, 20vw, 340px);
     border-radius: clamp(8px, 0.78vw, 13px);
     background: var(--foto-color) left top / cover no-repeat;
   }
@@ -190,6 +190,21 @@ const profesores = [
     transform: translateY(0);
   }
 
+  .profesor-card.expanded .profesor-info {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .profesor-card.expanded .info-logo-left {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .profesor-card.expanded .info-text-right {
+    text-align: right;
+  }
+
   .profesor-card:focus-visible {
     outline: 3px solid #FFCD00;
     outline-offset: 3px;
@@ -198,35 +213,50 @@ const profesores = [
   /* Logo centrado abajo — estado default */
   .logo-empresa {
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
     z-index: 3;
-    text-align: center;
+    padding: 0 16px;
     transition: opacity 0.3s ease;
   }
 
   .logo-empresa img {
-    max-width: 110px;
-    max-height: 36px;
+    max-width: 100%;
+    max-height: 55px;
+    width: auto;
     object-fit: contain;
+    object-position: center center;
     filter: brightness(0) invert(1);
     display: block;
   }
 
   .logo-empresa img[alt="Universidad de las Hespérides"] {
-    width: 160px !important;
-    max-width: none !important;
-    max-height: none !important;
-    height: auto !important;
-    object-fit: contain !important;
-    position: relative;
-    top: 20px;
+    max-width: 110% !important;
+    max-height: 120px !important;
+    position: static !important;
+    top: auto !important;
+  }
+
+  .logo-empresa img[alt="Aloe Plus"] {
+    max-width: 85% !important;
+    max-height: 75px !important;
+    margin-bottom: 10px;
+  }
+
+  .logo-empresa img[alt="Moira"] {
+    margin-bottom: 10px;
   }
 
   .info-logo[alt="Universidad de las Hespérides"] {
-    max-width: 300px;
-    max-height: 80px;
+    max-width: 180px !important;
+    max-height: 95px !important;
+    object-position: left bottom !important;
+    margin-bottom: -24px !important;
   }
 
   .logo-empresa img[alt="Kapital"] {
@@ -261,11 +291,13 @@ const profesores = [
   }
 
   .info-logo {
-    max-width: 120px;
-    max-height: 40px;
+    max-width: 140px !important;
+    max-height: 55px !important;
     object-fit: contain;
+    object-position: left bottom;
     filter: brightness(0) invert(1);
     display: block;
+    margin-bottom: 0;
   }
 
   .info-text-right {
@@ -275,18 +307,18 @@ const profesores = [
 
   .profesor-nombre {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 500;
-    font-size: clamp(12px, 1.1vw, 18px);
-    line-height: 1.2;
+    font-weight: 400 !important;
+    font-size: clamp(13px, 1.2vw, 20px) !important;
+    line-height: 1.1;
     color: #fff;
-    margin: 0 0 2px;
+    margin: 0 0 1px;
     text-shadow: none;
   }
 
   .profesor-cargo {
     font-family: "Noto Sans HK", sans-serif;
-    font-weight: 300;
-    font-size: clamp(9px, 0.8vw, 13px);
+    font-weight: 400 !important;
+    font-size: clamp(13px, 1.2vw, 19px) !important;
     line-height: 1.3;
     color: #fff;
     margin: 0;
@@ -351,6 +383,29 @@ const profesores = [
       display: flex;
       opacity: 1;
       transform: translateY(0);
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+    }
+
+    .profesor-card.expanded .info-logo-left {
+      display: none !important;
+    }
+
+    .profesor-card.expanded .info-text-right {
+      text-align: center;
+    }
+
+    .profesor-card.expanded {
+      background: var(--foto-color) left top / cover no-repeat !important;
+    }
+
+    .profesor-card.expanded .logo-empresa {
+      opacity: 0;
     }
 
     /* Mobile: texto centrado, sin logo en info */
@@ -366,18 +421,44 @@ const profesores = [
     .info-text-right { text-align: center; }
 
     .profesor-card.expanded .profesor-nombre {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 18px !important;
+      font-weight: 600 !important;
     }
 
     .profesor-card.expanded .profesor-cargo {
-      font-size: 11px;
-      font-weight: 300;
+      font-size: 14px !important;
+      font-weight: 400 !important;
     }
 
-    .logo-empresa { bottom: 12px; }
-    .logo-empresa img { max-width: 120px; max-height: 44px; }
-    .logo-empresa img[alt="Universidad de las Hespérides"] { width: 120px !important; }
+    .logo-empresa {
+      height: 70px;
+      bottom: 16px;
+    }
+
+    .logo-empresa img {
+      max-width: 80%;
+      max-height: 65px;
+    }
+
+    .logo-empresa img[alt="Universidad de las Hespérides"] {
+      max-width: 110% !important;
+      max-height: 120px !important;
+    }
+
+    .logo-empresa img[alt="Aloe Plus"] {
+      max-width: 90% !important;
+      max-height: 72px !important;
+    }
+
+    .profesor-nombre {
+      font-size: 20px !important;
+      font-weight: 600 !important;
+    }
+
+    .profesor-cargo {
+      font-size: 15px !important;
+      font-weight: 400 !important;
+    }
 
     .aprende-arrows { display: flex; justify-content: center; gap: 16px; margin-top: 16px; }
   }
